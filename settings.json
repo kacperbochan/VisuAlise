@@ -1,0 +1,28 @@
+{
+    "directories":{
+        "projects": "projects",
+        "llm": "C:\\Users\\kacpe\\AI\\text-generation-webui\\models",
+        "diffusion": "C:\\Users\\kacpe\\AI\\SD\\stable-diffusion-webui\\models\\Stable-diffusion"
+    },
+    "user_settings":{
+        "theme": "dark",
+        "language": "en",
+        "llm":{
+            "model": "1558M",
+            "temperature": 0.7,
+            "top_k": 40,
+            "top_p": 0.9,
+            "repetition_penalty": 1.0,
+            "max_length": 100,
+            "device": "gpu"
+        },
+        "diffusion":{
+            "model": "512x512_diffusion_uncond_finetune_008100",
+            "temperature": 0.7,
+            "batch": 40,
+            "device": "gpu"
+        }
+    }
+    
+
+}

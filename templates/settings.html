@@ -1,0 +1,68 @@
+<!-- templates/settings.html -->
+
+{% extends "base.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+    <div class="pt-5">
+        <h2>Settings</h2>
+        <form action="/project/{{ project_name }}/settings" method="post">
+            <!-- Language Model Section -->
+            <div class="mb-3">
+                <label for="language_model" class="form-label">Language Model</label>
+                <select class="form-select" id="language_model" name="language_model">
+                    {% for model in language_models %}
+                    <option value="{{ model }}">{{ model }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Diffusion Model Section -->
+            <div class="mb-3">
+                <label for="diffusion_model" class="form-label">Diffusion Model</label>
+                <select class="form-select" id="diffusion_model" name="diffusion_model">
+                    {% for model in diffusion_models %}
+                    <option value="{{ model }}">{{ model }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="button" id="refreshButton" class="btn btn-secondary">Refresh Models</button>
+
+            <button type="submit" class="btn btn-primary">Confirm</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    
+    document.getElementById('refreshButton').addEventListener('click', function() {
+        fetch('/project/{{ project_name }}/model-lists')
+            .then(response => response.json())
+            .then(data => {
+                // Update language model dropdown
+                var languageModelSelect = document.getElementById('language_model');
+                languageModelSelect.innerHTML = '';
+                data.language_models.forEach(model => {
+                    var option = document.createElement('option');
+                    option.value = model;
+                    option.text = model;
+                    languageModelSelect.appendChild(option);
+                });
+    
+                // Update diffusion model dropdown
+                var diffusionModelSelect = document.getElementById('diffusion_model');
+                diffusionModelSelect.innerHTML = '';
+                data.diffusion_models.forEach(model => {
+                    var option = document.createElement('option');
+                    option.value = model;
+                    option.text = model;
+                    diffusionModelSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
+{% endblock %}

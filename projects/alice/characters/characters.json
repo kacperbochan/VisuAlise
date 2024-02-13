@@ -1,0 +1,77 @@
+{
+    "Alice": {
+        "id": "1",
+        "user_name": "Alice",
+        "name": "Alice",
+        "image": "alice.png",
+        "description": "young girl, long blond hair tied back, wearing a Victorian dress",
+        "versions":{
+            "mad": {
+                "image": "alice_mad.png",
+                "description": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            "Neck-Stretching Alice": {
+                "image": "alice_neck_stretching.png",
+                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
+            }
+        }
+    },
+    "Mad Hatter": {
+        "id": "2",
+        "user_name": "Mad Hatter",
+        "name": "Mad Hatter",
+        "image": "mad_hatter.png",
+        "description": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.",
+        "versions":{}
+    },
+    "Queen of Hearts": {
+        "id": "3",
+        "user_name": "Queen of Hearts",
+        "name": "Queen of Hearts",
+        "image": "queen_of_hearts.png",
+        "description": "A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
+    },
+    "White Rabbit": {
+        "id": "4",
+        "user_name": "White Rabbit",
+        "name": "White Rabbit",
+        "image": "white_rabbit.png",
+        "description": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+    },
+    "Cheshire Cat": {
+        "id": "5",
+        "user_name": "Cheshire Cat",
+        "name": "Cheshire Cat",
+        "image": "cheshire_cat.png",
+        "description": "A mischievous, grinning cat, often depicted with a wide, toothy smile and bright, glowing eyes."
+    },
+    "Caterpillar": {
+        "id": "6",
+        "user_name": "Caterpillar",
+        "name": "Caterpillar",
+        "image": "caterpillar.png",
+        "description": "A wise, philosophical character, often depicted sitting on a mushroom and smoking a hookah."
+    },
+    "Tweedledee and Tweedledum": {
+        "id": "7",
+        "user_name": "Tweedledee and Tweedledum",
+        "name": "Tweedledee and Tweedledum",
+        "image": "tweedledee_and_tweedledum.png",
+        "description": "A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
+    },
+    "March Hare": {
+        "id": "8",
+        "user_name": "March Hare",
+        "name": "March Hare",
+        "image": "march_hare.png",
+        "description": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+    },
+    "Dormouse": {
+        "id": "9",
+        "user_name": "Dormouse",
+        "name": "Dormouse",
+        "image": "dormouse.png",
+        "description": "A sleepy, timid character, often depicted dozing off or hiding in a teapot."
+    }
+
+}

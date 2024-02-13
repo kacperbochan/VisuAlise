@@ -1,0 +1,83 @@
+.project-item {
+    transition: background-color 0.3s ease;
+}
+
+.project-item:hover {
+    background-color: #e9ecef; /* A light grey color */
+    cursor: pointer;
+}
+
+.projects-container {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+#wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar-wrapper {
+    min-width: 250px;
+    max-width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+}
+
+#main-image-container {
+    width: 100%;
+    margin-bottom: 20px; /* Spacing between the main image and the thumbnails */
+}
+
+#main-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+#thumbnail-gallery {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling for thumbnails */
+    gap: 10px; /* Spacing between thumbnails */
+}
+
+.thumbnail {
+    cursor: pointer; /* Indicates that thumbnails are clickable */
+    transition: transform 0.2s; /* Smooth transformation on hover */
+    box-sizing:content-box; /* Prevent shrinking when border appears */
+    border: 4px solid white; /* Adds an orange border when hovering over */
+}
+
+.thumbnail:hover {
+    border: 4px solid orange; /* Adds an orange border when hovering over */
+}
+
+
+.character-card {
+    color: inherit; /* Ensures the link color does not affect the card text */
+    text-decoration: none; /* Removes underline from links */
+}
+
+.card {
+    transition: transform .2s; /* Animation for hover effect */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Scales the card on hover */
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures the image covers the card area */
+}
+
+.card-body {
+    padding: 0.5rem; /* Padding inside the card */
+}
+
+.card-text {
+    text-align: center; /* Centers the text inside the card */
+    font-weight: bold; /* Makes the character name bold */
+}

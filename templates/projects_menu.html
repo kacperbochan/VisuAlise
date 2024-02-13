@@ -1,0 +1,59 @@
+<!-- templates/projects_menu.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Dashboard</title>
+    <script src="
+    https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js
+    "></script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css
+    " rel="stylesheet">
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+
+
+    <script>
+        function openProject(projectName) {
+            window.location.href = `/project/${projectName}`;
+        }
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row mb-3">
+            <h2>VisuAlise</h2>
+        </div>
+        <div class="row mb-3">            
+            <div class="col-3">
+                <h5 for="projectName" class="form-label font-weight-bold mb-3">Add Project</h5>
+                <a href="/project/add" class="text-decoration-none">
+                    <div class="align-items-center justify-content-between p-2 mb-1 project-item border" role="button">
+                        <h2 class="h5 mb-0">Create a new project</h2>
+                        <small class="text-muted">Create a new project from scratch</small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-8">
+                <h5 class="mb-3 font-weight-bold">Open Recent Projects</h5>
+                <div class="projects-container border">
+                    {% for project in projects %}
+                    <div class="p-2 my-0 project-item" role="button" onclick="openProject('{{ project.name }}')">
+                        <div class="d-flex align-items-center justify-content-between">
+                        <h2 class="h5 mb-0">{{ project.name }}</h2>
+                        <small class="text-muted">{{ project.last_opened }}</small>
+                        </div>
+                        <small class="text-muted">{{ project.path }}</small>
+                    </div>
+                    <hr class="my-0">
+                    {% endfor %}        
+                </div>
+                </div>
+        </div>
+    </div>
+
+</body>
+</html>

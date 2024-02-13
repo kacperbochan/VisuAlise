@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Location{% endblock %}
+
+{% block content %}
+    <div class="pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1 style="font-size: 24px; font-weight: bold;">{{ name }}</h1>
+                    <div class="form-group">
+                        <label for="textarea1" style="font-weight: bold;">Input</label>
+                        <textarea class="form-control" id="textarea1" style="height: 150px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="textarea2" style="font-weight: bold;">Description</label>
+                        <textarea class="form-control" id="textarea2" readonly style="height: 150px;">{{ description }}</textarea>
+                    </div>
+                    <button class="btn btn-primary" id="generateButton" style="margin-top: 10px;">Generate</button>
+                </div>
+                <div class="col-md-5">
+                    <div class="container" style="border: 1px solid black; background-color: darkgray; height: 40em;">
+                        <div id="main-image-container" class="row mb-3 d-flex justify-content-center align-items-center mx-auto" style="height: 32em;">
+                            <img id="main-image" src="/static/default_background.png" alt="Selected Image" class="img-fluid" style="object-fit: contain; max-height: 100%;">
+                        </div>
+                        <div id="thumbnail-gallery" class="row flex-row flex-nowrap d-flex align-items-center" style="background-color: gray; height: 8em;">
+                            <!-- Thumbnails will be inserted here with Bootstrap classes -->
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    
+    async function fetchImages() {
+        const response = await fetch('/images/');
+        const imagePaths = await response.json();
+        const gallery = document.getElementById('thumbnail-gallery');
+        gallery.innerHTML = ''; // Clear the gallery
+        imagePaths.forEach((path) => {
+            const img = document.createElement('img');
+            img.src = path;
+            img.classList.add('thumbnail', 'img-thumbnail');
+            img.setAttribute('data-full-img', path); // Assuming the full image is the same as the thumbnail
+            img.style.objectFit = 'contain'; // Make the image fit into the box while maintaining aspect ratio
+            img.style.width = '64px'; // Set the width to 64px
+            img.style.height = '64px'; // Set the height to 64px
+            gallery.appendChild(img);
+        });
+        document.getElementById('main-image').src = imagePaths.length > 0 ? imagePaths[0] : '/static/default_background.png';
+    }
+
+    // Event listener for thumbnail clicks
+    document.getElementById('thumbnail-gallery').addEventListener('click', function(e) {
+        if (e.target.classList.contains('thumbnail')) {
+            const newSrc = e.target.getAttribute('data-full-img');
+            document.getElementById('main-image').src = newSrc;
+        }
+    });
+
+    // Call fetchImages on page load to populate the gallery
+    fetchImages();
+</script>
+{% endblock %}
