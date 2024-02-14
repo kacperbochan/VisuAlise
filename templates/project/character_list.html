@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Locations{% endblock %}
+{% block title %}Characters{% endblock %}
 
 {% block content %}
 <div class="pt-5">
     <div class="row">
-        <h2>Locations</h2>
+        <h2>Characters</h2>
         <div class="image-size-buttons" style="text-align: right;">
             <button id="large-btn">Large Images</button>
             <button id="medium-btn">Medium Images</button>
@@ -13,17 +13,17 @@
         </div>
     </div>
     <div class="row">
-        {% for location in locations %}
+        {% for character in characters %}
         <div class="col-md-3 col-sm-6 mb-4">
-            <a href="/project/{{ project_name }}/locations/{{ location.name }}" class="location-card">
+            <a href="/project/{{ project.name }}/characters/{{ character.name }}" class="character-card">
                 <div class="card">
-                    {% if location.img %}
-                        <img src="{{ location.img }}" alt="{{ location.user_name }}" class="card-img-top">
+                    {% if character.img %}
+                        <img src="{{ character.img }}" alt="{{ character.user_name }}" class="card-img-top">
                     {% else %}
-                        <img src="/static/default_location.png" alt="{{ location.user_name }}" class="card-img-top">
+                        <img src="/static/default_character.png" alt="{{ character.user_name }}" class="card-img-top">
                     {% endif %}
                     <div class="card-body">
-                        <p class="card-text">{{ location.user_name }}</p>
+                        <p class="card-text">{{ character.user_name }}</p>
                     </div>
                 </div>
             </a>

@@ -1,8 +1,8 @@
 {
-    "projects_dir": "projects",
-    "llm_dir": "C:\\Users\\kacpe\\AI\\text-generation-webui\\models",
-    "diffusion_dir": "C:\\Users\\kacpe\\AI\\SD\\stable-diffusion-webui\\models\\Stable-diffusion",
-    "default_llm": {
+    "name": "Alice",
+    "characters_n": 9,
+    "locations_n": 10,
+    "llm": {
         "model": "mistral-7b-instruct-v0.2.Q4_K_M.gguf",
         "temperature": 0.7,
         "top_k": 40,
@@ -11,7 +11,7 @@
         "max_length": 100,
         "device": "gpu"
     },
-    "default_diffusion_model": {
+    "diffusion_model": {
         "model": "dreamshaper_8.safetensors",
         "steps": 25,
         "temperature": 0.7,

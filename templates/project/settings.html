@@ -13,7 +13,7 @@
                 <label for="language_model" class="form-label">Language Model</label>
                 <select class="form-select" id="language_model" name="language_model">
                     {% for model in language_models %}
-                    <option value="{{ model }}">{{ model }}</option>
+                    <option value="{{ model }}" {% if model == project.llm.model %}selected{% endif %}>{{ model }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -23,7 +23,7 @@
                 <label for="diffusion_model" class="form-label">Diffusion Model</label>
                 <select class="form-select" id="diffusion_model" name="diffusion_model">
                     {% for model in diffusion_models %}
-                    <option value="{{ model }}">{{ model }}</option>
+                    <option value="{{ model }}" {% if model == project.diffusion_model.model %}selected{% endif %}>{{ model }}</option>
                     {% endfor %}
                 </select>
             </div>

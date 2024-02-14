@@ -16,11 +16,11 @@
     <div class="border-end bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading border-bottom bg-light">{{ project_title }}</div>
         <div class="list-group list-group-flush">
-            <a href="/project/{{ project_name }}/" class="list-group-item list-group-item-action list-group-item-light p-3">Home</a>
-            <a href="/project/{{ project_name }}/characters" class="list-group-item list-group-item-action list-group-item-light p-3">Characters [{{ characters_n }}]</a>
-            <a href="/project/{{ project_name }}/locations"  class="list-group-item list-group-item-action list-group-item-light p-3">Locations [{{ locations_n }}]</a>
+            <a href="/project/{{ project.name }}/" class="list-group-item list-group-item-action list-group-item-light p-3">{{ project.name }}</a>
+            <a href="/project/{{ project.name }}/characters" class="list-group-item list-group-item-action list-group-item-light p-3">Characters [{{ project.characters_n }}]</a>
+            <a href="/project/{{ project.name }}/locations"  class="list-group-item list-group-item-action list-group-item-light p-3">Locations [{{ project.locations_n }}]</a>
             <a href="#" class="list-group-item list-group-item-action list-group-item-light p-3">Builder</a>
-            <a href="/project/{{ project_name }}/settings" class="list-group-item list-group-item-action list-group-item-light p-3">Settings</a>
+            <a href="/project/{{ project.name }}/settings" class="list-group-item list-group-item-action list-group-item-light p-3">Settings</a>
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
