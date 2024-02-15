@@ -4,19 +4,27 @@
 
 {% block content %}
 <div class="pt-5">
-    <div class="row">
+    <div class="header">
+        
         <h2>Characters</h2>
-        <div class="image-size-buttons" style="text-align: right;">
-            <button id="large-btn">Large Images</button>
-            <button id="medium-btn">Medium Images</button>
-            <button id="list-btn">List</button>
+        
+        <div style="text-align: right;">
+            <button class="size-setter selected-size" id="large-btn" >
+                <i class="icon-th-large-outline"></i>
+            </button>
+            <button class="size-setter" id="medium-btn">
+                <i class="icon-th-outline"></i>
+            </button>
+            <button class="size-setter" id="list-btn">
+                <i class="icon-menu-outline"></i>
+            </button>
         </div>
     </div>
-    <div class="row">
+    <div class="row" id="cards">
         {% for character in characters %}
         <div class="col-md-3 col-sm-6 mb-4">
-            <a href="/project/{{ project.name }}/characters/{{ character.name }}" class="character-card">
-                <div class="card">
+            <a href="/project/{{ project.name }}/characters/{{ character.name }}" class="card-link">
+                <div class="card dark-section">
                     {% if character.img %}
                         <img src="{{ character.img }}" alt="{{ character.user_name }}" class="card-img-top">
                     {% else %}
@@ -30,6 +38,17 @@
         </div>
         {% endfor %}
     </div>
+    
+    <div class="row" id="list" style="display: none;">
+        <div class="list-group list-group-flush" style="flex-grow: 1;">
+            {% for character in characters %}
+                <a href="/project/{{ project.name }}/characters/{{ character.name }}" class="list-group-item list-group-item-action list-group-item-dark">
+                    <i class="icon-character"></i>
+                    {{ character.name }}
+                </a>
+            {% endfor %}
+        </div>
+</div>
 </div>
 {% endblock %}
 
@@ -38,18 +57,46 @@
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('large-btn').addEventListener('click', function () {
             setImageSize('large');
+            selectSizeButton('large');
         });
         document.getElementById('medium-btn').addEventListener('click', function () {
             setImageSize('medium');
+            selectSizeButton('medium');
         });
         document.getElementById('list-btn').addEventListener('click', function () {
             setImageSize('list');
+            selectSizeButton('list');
         });
     });
 
+    function selectSizeButton(size){
+        var buttons = document.querySelectorAll('.size-setter');
+        buttons.forEach(button => {
+            button.classList.remove('selected-size');
+        });
+        document.getElementById(size + '-btn').classList.add('selected-size');
+    }
+
     function setImageSize(size) {
         var cards = document.querySelectorAll('.card-img-top');
+        var characterCards = document.querySelectorAll('.col-md-3, .col-md-2');
+        var image_view = document.getElementById('cards');
+        var list = document.getElementById('list');
+
+        if (size === 'list') {
+            image_view.style.display = 'none';
+            list.style.display = 'block';
+            return;
+        }
+        
+        image_view.style.display = 'flex';
+        list.style.display = 'none';
+
         cards.forEach(card => {
+            card.style.display = 'block';  // Ensures the image is treated as a block-level element
+            card.style.marginLeft = 'auto';
+            card.style.marginRight = 'auto';
+
             switch (size) {
                 case 'large':
                     card.style.width = '100%'; // or any large size
@@ -59,13 +106,20 @@
                     card.style.width = '50%'; // or any medium size
                     card.style.height = 'auto';
                     break;
-                case 'list':
-                    card.style.width = '25%'; // or smaller for list view
-                    card.style.height = 'auto';
+            }
+        });
+
+        characterCards.forEach(card => {
+            card.classList.remove('col-md-3', 'col-md-2');
+            switch (size) {
+                case 'large':
+                    card.classList.add('col-md-3');
+                    break;
+                case 'medium':
+                    card.classList.add('col-md-2');
                     break;
             }
         });
     }
 </script>
 {% endblock %}
-

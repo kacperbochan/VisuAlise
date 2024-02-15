@@ -8,6 +8,7 @@ global_settings: ProgramSettings = ProgramSettings(
     projects_dir = 'projects',
     llm_dir = 'AI\LLM',
     diffusion_dir = 'AI\Diffusion',
+    theme='dark',
     
     default_llm = LLM(
         model="mistral-7b-instruct-v0.2.Q4_K_M.gguf", 
@@ -44,6 +45,8 @@ def load_user_settings():
                     global_settings.llm_dir = user_settings['llm_dir']
                 if 'diffusion_dir' in user_settings and os.path.isdir(user_settings['diffusion_dir']):
                     global_settings.diffusion_dir = user_settings['diffusion_dir']
+                if 'theme' in user_settings and os.path.isdir(user_settings['theme']):
+                    global_settings.theme = user_settings['theme']
                 if 'default_llm' in user_settings and isinstance(user_settings['default_llm'], LLM):
                     global_settings.default_llm = user_settings['default_llm']
                 if 'default_diffusion_model' in user_settings and isinstance(user_settings['default_diffusion_model'], DiffusionModel):
@@ -58,5 +61,6 @@ if __name__ == "__main__":
     print(f"Projects directory: {global_settings.projects_dir}")
     print(f"LLM directory: {global_settings.llm_dir}")
     print(f"Diffusion directory: {global_settings.diffusion_dir}")
+    print(f"Theme: {global_settings.theme}")
     print(f"Default LLM: {global_settings.default_llm}")
     print(f"Default Diffusion Model: {global_settings.default_diffusion_model}")

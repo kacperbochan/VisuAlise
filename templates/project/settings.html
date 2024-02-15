@@ -7,62 +7,169 @@
 {% block content %}
     <div class="pt-5">
         <h2>Settings</h2>
-        <form action="/project/{{ project_name }}/settings" method="post">
-            <!-- Language Model Section -->
-            <div class="mb-3">
-                <label for="language_model" class="form-label">Language Model</label>
-                <select class="form-select" id="language_model" name="language_model">
-                    {% for model in language_models %}
-                    <option value="{{ model }}" {% if model == project.llm.model %}selected{% endif %}>{{ model }}</option>
-                    {% endfor %}
-                </select>
-            </div>
+        
+        <div class = "dark-section" name="llm_section">
+            <form id="llmForm" name="llmForm">
+                <h4>Large Language Model</h4>
+                <div class="mb-3">
+                    <label for="llm_model" class="form-label">Model</label>
+                    <select class="form-select" id="llm_model" name="llm_model">
+                        {% for model in language_models %}
+                        <option value="{{ model }}" {% if model == project.llm.model %}selected{% endif %}>{{ model }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-            <!-- Diffusion Model Section -->
-            <div class="mb-3">
-                <label for="diffusion_model" class="form-label">Diffusion Model</label>
-                <select class="form-select" id="diffusion_model" name="diffusion_model">
-                    {% for model in diffusion_models %}
-                    <option value="{{ model }}" {% if model == project.diffusion_model.model %}selected{% endif %}>{{ model }}</option>
-                    {% endfor %}
-                </select>
-            </div>
+                <div class="mb-3">
+                    <label for="llm_temperature" class="form-label">Temperature</label>
+                    <input type="number" class="form-control" id="llm_temperature" name="llm_temperature" value="{{ project.llm.temperature }}">
+                </div>
 
-            <button type="button" id="refreshButton" class="btn btn-secondary">Refresh Models</button>
+                <div class="mb-3">
+                    <label for="llm_top_k" class="form-label">Top K</label>
+                    <input type="number" class="form-control" id="llm_top_k" name="llm_top_k" value="{{ project.llm.top_k }}">
+                </div>
 
-            <button type="submit" class="btn btn-primary">Confirm</button>
-        </form>
+                <div class="mb-3">
+                    <label for="llm_top_p" class="form-label">Top P</label>
+                    <input type="number" class="form-control" id="llm_top_p" name="llm_top_p" value="{{ project.llm.top_p }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="llm_repetition_penalty" class="form-label">Repetition Penalty</label>
+                    <input type="number" class="form-control" id="llm_repetition_penalty" name="llm_repetition_penalty" value="{{ project.llm.repetition_penalty }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="llm_max_length" class="form-label">Max Length</label>
+                    <input type="number" class="form-control" id="llm_max_length" name="llm_max_length" value="{{ project.llm.max_length }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="llm_device" class="form-label">Device</label>
+                    <select class="form-select" id="llm_device" name="llm_device">
+                        <option value="gpu" {% if project.llm.device == "gpu" %}selected{% endif %}>GPU</option>
+                        <option value="cpu" {% if project.llm.device == "cpu" %}selected{% endif %}>CPU</option>
+                    </select>
+                </div>
+                <button type="button" id="refreshButton" class="btn btn-secondary">Refresh Models</button>
+                <button type="submit" class="btn btn-primary">Update LLM</button>
+            </form>
+        </div>
+        <div class = "dark-section">
+            <form id="diffusionForm" name="diffusionForm">
+                <h4>Diffusion Model</h4>
+                <div class="mb-3">
+                    <label for="diffusion_model" class="form-label">Diffusion Model</label>
+                    <select class="form-select" id="diffusion_model" name="diffusion_model">
+                        {% for model in diffusion_models %}
+                        <option value="{{ model }}" {% if model == project.diffusion_model.model %}selected{% endif %}>{{ model }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="diffusion_steps" class="form-label">Diffusion Steps</label>
+                    <input type="number" min="1" max="50" class="form-control" id="diffusion_steps" name="diffusion_steps" value="{{ project.diffusion_model.steps }}">
+                </div>
+                <div class="mb-3">
+                    <label for="diffusion_temperature" class="form-label">Diffusion Temperature</label>
+                    <input type="number" min="1" max="30" step="0.5" class="form-control" id="diffusion_temperature" name="diffusion_temperature" value="{{ project.diffusion_model.temperature }}">
+                </div>
+                <div class="mb-3">
+                    <label for="diffusion_batch" class="form-label">Diffusion Batch</label>
+                    <input type="number" min="1" class="form-control" id="diffusion_batch" name="diffusion_batch" value="{{ project.diffusion_model.batch }}">
+                </div>
+                <div class="mb-3">
+                    <label for="diffusion_device" class="form-label">Diffusion Device</label>
+                    <select class="form-select" id="diffusion_device" name="diffusion_device">
+                        <option value="gpu" {% if project.diffusion_model.device == "gpu" %}selected{% endif %}>GPU</option>
+                        <option value="cpu" {% if project.diffusion_model.device == "cpu" %}selected{% endif %}>CPU</option>
+                    </select>
+                </div>
+                <button type="button" id="refreshButton" class="btn btn-secondary">Refresh Models</button>
+                <button type="submit" class="btn btn-primary">Update Diffusion Model</button>
+            </form>
+        </div>
     </div>
 {% endblock %}
 
 {% block scripts %}
 <script>
-    
     document.getElementById('refreshButton').addEventListener('click', function() {
-        fetch('/project/{{ project_name }}/model-lists')
+        fetch('/project/{{ project.name }}/model-lists')
             .then(response => response.json())
             .then(data => {
                 // Update language model dropdown
-                var languageModelSelect = document.getElementById('language_model');
+                var languageModelSelect = document.getElementById('llm_model');
+                var selectedLanguageModel = languageModelSelect.value;
                 languageModelSelect.innerHTML = '';
                 data.language_models.forEach(model => {
                     var option = document.createElement('option');
                     option.value = model;
                     option.text = model;
+                    if (model === selectedLanguageModel) {
+                        option.selected = true;
+                    }
                     languageModelSelect.appendChild(option);
                 });
-    
+
                 // Update diffusion model dropdown
                 var diffusionModelSelect = document.getElementById('diffusion_model');
+                var selectedDiffusionModel = diffusionModelSelect.value;
                 diffusionModelSelect.innerHTML = '';
                 data.diffusion_models.forEach(model => {
                     var option = document.createElement('option');
                     option.value = model;
                     option.text = model;
+                    if (model === selectedDiffusionModel) {
+                        option.selected = true;
+                    }
                     diffusionModelSelect.appendChild(option);
                 });
             })
             .catch(error => console.error('Error:', error));
     });
+    
+    document.getElementById('llmForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+    
+        var llmFormData = new FormData(document.getElementById('llmForm'));
+    
+        fetch("/project/{{ project.name }}/settings/update/llm", {
+            method: 'post',
+            body: llmFormData
+        }).then(response => response.json())
+        .then(data => {
+            alert('LLM updated successfully.');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while updating settings.');
+        });
+    });
+
+    document.getElementById('diffusionForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+    
+        var diffusionFormData = new FormData(document.getElementById('diffusionForm'));
+    
+        fetch("/project/{{ project.name }}/settings/update/diffusion", {
+            method: 'post',
+            body: diffusionFormData
+        }).then(response => response.json())
+        .then(data => {
+            alert('Diffusion Model updated successfully.');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while updating settings.');
+        });
+    });
+
+    // Show popup with message
+    var message = "{{ message }}";
+    if (message) {
+        alert(message);
+    }
 </script>
 {% endblock %}

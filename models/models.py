@@ -15,7 +15,7 @@ class LLM(BaseModel):
 class DiffusionModel(BaseModel):
     model: str
     steps: int
-    temperature: float = 0.7
+    temperature: float
     batch: int
     device: str = "gpu"
 
@@ -71,6 +71,7 @@ class ProgramSettings(BaseModel):
     projects_dir: str
     llm_dir: str
     diffusion_dir: str
+    theme: str
     
     default_llm: LLM
     default_diffusion_model: DiffusionModel

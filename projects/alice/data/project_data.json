@@ -3,7 +3,7 @@
     "characters_n": 9,
     "locations_n": 10,
     "llm": {
-        "model": "mistral-7b-instruct-v0.2.Q4_K_M.gguf",
+        "model": "mistral-7b-openorca.Q4_0.gguf",
         "temperature": 0.7,
         "top_k": 40,
         "top_p": 0.9,
@@ -14,7 +14,7 @@
     "diffusion_model": {
         "model": "dreamshaper_8.safetensors",
         "steps": 25,
-        "temperature": 0.7,
+        "temperature": 7.0,
         "batch": 4,
         "device": "gpu"
     }

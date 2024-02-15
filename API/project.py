@@ -6,7 +6,7 @@ from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
-from models.models import Project, ProjectMenuData
+from models.models import Project, ProjectMenuData, LLM, DiffusionModel
 from settings import global_settings as settings, load_user_settings
 from typing import List
 from pathlib import Path
@@ -26,6 +26,10 @@ def load_projects() -> List[ProjectMenuData]:
             pass
     return []
 
+def get_visual_settings():
+    return {
+        "theme": settings.theme
+    }
 
 def get_project_by_name(project_name: str) -> Project:
     for project in load_projects():
@@ -77,12 +81,16 @@ def get_project_story_objects(project: Project, project_path:str,  location: boo
 @router.get("/{project_name}")
 async def read_project(request: Request, project_name: str):
     project, project_path = get_project_by_name(project_name)
+    
+    
     if project is None:
         raise HTTPException(status_code=404, detail="Project not found or data file missing")
     
+    visual_settings = get_visual_settings()
     return templates.TemplateResponse("base.html", {
         "request": request,
-        "project": project
+        "project": project,
+        **visual_settings
     })
 
 @router.get("/{project_name}/characters")
@@ -90,11 +98,12 @@ async def read_character(request: Request, project_name: str):
     project, project_path = get_project_by_name(project_name)
     
     characters_images = get_project_story_objects(project, project_path, False)
-    
+    visual_settings = get_visual_settings()
     return templates.TemplateResponse("character_list.html", {
         "request": request,
         "characters": characters_images,
-        "project": project
+        "project": project,
+        **visual_settings
     })
 
 @router.get("/{project_name}/locations")
@@ -102,11 +111,12 @@ async def read_locations(request: Request, project_name: str):
     project, project_path = get_project_by_name(project_name)
     
     location_images = get_project_story_objects(project, project_path, True)
-    
+    visual_settings = get_visual_settings()
     return templates.TemplateResponse("location_list.html", {
         "request": request,
         "locations": location_images,
-        "project": project
+        "project": project,
+        **visual_settings
     })
 
 def get_story_object_data(project: Project, project_path: str, story_object_name:str, location: bool = False):
@@ -146,11 +156,12 @@ async def read_character(request: Request, project_name: str, character_id: str)
     
     project, project_path = get_project_by_name(project_name)
     character = get_story_object_data(project, project_path, character_id, False)
-    
+    visual_settings = get_visual_settings()
     return templates.TemplateResponse("character.html", {
         "request": request,
         "project": project,
-        **character
+        **character,
+        **visual_settings
     })
 
 @router.get("/{project_name}/locations/{location_id}")
@@ -158,11 +169,12 @@ async def read_location(request: Request, project_name: str, location_id: str):
     
     project, project_path = get_project_by_name(project_name)
     location = get_story_object_data(project, project_path, location_id, True)
-    
+    visual_settings = get_visual_settings()
     return templates.TemplateResponse("location.html", {
         "request": request,
         "project": project,        
-        **location
+        **location,
+        **visual_settings
     })
 
 
@@ -173,22 +185,94 @@ async def get_model_lists_endpoint(project_name: str):
 @router.get("/{project_name}/settings")
 async def read_settings(request: Request, project_name: str):
     model_lists = get_model_lists()
-    
+    visual_settings = get_visual_settings()
     project, project_path = get_project_by_name(project_name)
     return templates.TemplateResponse("settings.html", {
         "request": request,
         "project": project,
         **model_lists,
+        **visual_settings
     })
-    
-@router.post("/{project_name}/settings")
-async def update_settings(request: Request, project_name: str, language_model: str = Form(...), diffusion_model: str = Form(...)):
+
+@router.post("/{project_name}/settings/update/llm")
+async def update_settings(request: Request, project_name: str, 
+                        language_model: str = Form(...), 
+                        llm_temperature: float = Form(...), 
+                        llm_top_k: int = Form(...),
+                        llm_top_p: float = Form(...),
+                        llm_repetition_penalty: float = Form(...),
+                        llm_max_length: int = Form(...)
+                        ):
     
     project, project_path = get_project_by_name(project_name)
     
-    return templates.TemplateResponse("settings.html", {
-        "request": request,
-        "language_models": os.listdir(settings.llm_dir),
-        "diffusion_models": os.listdir(settings.diffusion_dir),
-        "project": project
-    })
+    model_lists = get_model_lists()
+    
+    if language_model not in model_lists["language_models"]:
+        return {"message": "Invalid language model"}
+    if llm_temperature < 0 or llm_temperature > 1:
+        return {"message": "Invalid temperature"}
+    if llm_top_k < 0:
+        return {"message": "Invalid top_k"}
+    if llm_top_p < 0 or llm_top_p > 1:
+        return {"message": "Invalid top_p"}
+    if llm_repetition_penalty < 0:
+        return {"message": "Invalid repetition_penalty"}
+    if llm_max_length < 2:
+        return {"message": "Invalid max_length"}
+    
+    updated_model = LLM(
+        model=language_model,
+        temperature=llm_temperature,
+        top_k=llm_top_k,
+        top_p=llm_top_p,
+        repetition_penalty=llm_repetition_penalty,
+        max_length=llm_max_length
+    )
+    
+    project.llm = updated_model
+    
+    project_json_file = project_path + "/data/project_data.json"
+    
+    with open(project_json_file, 'w') as file:
+        json.dump(project.dict(), file, indent=4)
+    
+    return {"message": "LLM settings updated"}
+
+
+@router.post("/{project_name}/settings/update/diffusion")
+async def update_settings(request: Request, project_name: str, 
+                        diffusion_model: str = Form(...), 
+                        diffusion_steps: int = Form(...), 
+                        diffusion_temperature: float = Form(...),
+                        diffusion_batch: int = Form(...),
+                        ):
+    
+    project, project_path = get_project_by_name(project_name)
+    
+    model_lists = get_model_lists()
+    
+    if diffusion_model not in model_lists["diffusion_models"]:
+        return {"message": "Invalid diffusion model"}
+    if diffusion_steps < 1:
+        return {"message": "Invalid step amount"}
+    if diffusion_temperature < 0 or diffusion_temperature > 30:
+        return {"message": "Invalid temperature"}
+    if diffusion_batch < 1:
+        return {"message": "Invalid batch size"}
+    
+    updated_model = DiffusionModel(
+        model=diffusion_model,
+        steps=diffusion_steps,
+        temperature=diffusion_temperature,
+        batch=diffusion_batch
+    )
+    
+    project.diffusion_model = updated_model
+    
+    project_json_file = project_path + "/data/project_data.json"
+    
+    with open(project_json_file, 'w') as file:
+        json.dump(project.model_dump(), file, indent=4)
+    
+    return {"message": "Diffusion Model settings updated"}

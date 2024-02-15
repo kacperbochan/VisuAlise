@@ -1,3 +1,82 @@
+:root {
+    --background-color-light: #fff;
+    --background-color-dark: rgb(11 15 25);
+    --background-color-grey: rgb(31 41 55);
+    --background-color-dark-grey: rgb(16 26 40);
+    --background-color-light-grey: rgb(41 51 65);
+    --background-color-very-light-grey: rgb(31 41 55);
+    --text-color-dark: #333;
+    --text-color-light: #ddd;
+    --text-color-lighter: #fff;
+    /* ... other variables */
+}
+
+body.light-mode {
+    background-color: var(--background-color-light);
+    color: var(--text-color-dark);
+}
+
+body.dark-mode {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-light);
+}
+
+.dark-section{
+    background-color: var(--background-color-grey);
+    color: var(--text-color-light);
+    padding : 20px;
+}
+
+.dark-section input,
+.dark-section select,
+.dark-section textarea {
+    background-color: var(--background-color-grey) !important;
+    color: var(--text-color-light) !important;
+}
+
+button.dark-section{
+    background-color: var(0 0 0 1); /* Button background */
+    color: var(--text-color-light); /* Button text color */
+    font-weight: bold; /* Bold text */
+    border: none; /* Remove borders */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 12px; /* Padding inside buttons */
+    border-radius: 5px; /* Rounded corners for buttons */
+}
+
+button.dark-section:hover{
+    background-color: var(--background-color-light-grey); /* Button background */
+}
+
+button.size-setter {
+    background-color: var(--background-color-grey); /* Button background */
+    color: var(--text-color-light); /* Button text color */
+    border: none; /* Remove borders */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 12px; /* Padding inside buttons */
+    border-radius: 5px; /* Rounded corners for buttons */
+    cursor: pointer; /* Cursor effect on hover */
+}
+
+button.size-setter:hover{
+    background-color: var(--background-color-light-grey); /* Change the background color when hovering or focusing */
+    
+}
+
+button.selected-size {
+    background-color: var(--background-color-very-light-grey);
+    color: orange;
+    border-color: orange;
+    border-width: 2px;
+    border-style: solid; /* Add border style */
+}
+
+button.size-setter i {
+    font-size: 16px; /* Consistent icon size */
+    vertical-align: middle; /* Align icons vertically */
+}
+
+
 .project-item {
     transition: background-color 0.3s ease;
 }
@@ -18,11 +97,55 @@
 }
 
 #sidebar-wrapper {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 200px;
+    max-width: 200px;
+    padding: 0;
+    position: fixed; /* This makes the sidebar stay in place while scrolling */
+    top: 0;         /* This positions the top of the sidebar at the top of the viewport */
+    left: 0;        /* This positions the sidebar at the left of the viewport */
+    height: 100vh;  /* This makes the sidebar full height */
+    z-index: 100;   /* This ensures the sidebar stays on top of other content */
+}
+
+#sidebar-wrapper.dark-section {
+    background-color: var(--background-color-dark-grey);
+}
+
+.sidebar-heading {
+    padding: 0.5rem 0rem; /* Adjust padding as needed */
+}
+
+.sidebar-heading h3 {
+    margin: 0; /* Remove margin from the heading */
+    font-size: 1.5rem; /* Adjust font size as needed */
+    font-weight: bold; /* Make the heading bold */
+    color: var(--text-color-light); /* Light text color */
+    padding: 0 10px;
+}
+
+.sidebar-heading a{
+    text-decoration: none;
+    color: var(--text-color-light);
+}
+
+.sidebar-heading a:hover{
+    text-decoration: none;
+    color: var(--text-color-lighter);
+}
+
+#menu-close {
+    margin-left: auto; /* Pushes the button to the right */
+}
+
+#menu-toggle {
+    position: fixed; /* Fix the button to the screen */
+    left: 0; /* Align to the left side */
+    top: 0; /* Align to the top */
+    z-index: 1000; /* Ensure it's above other content */
 }
 
 #page-content-wrapper {
+    margin-left: 200px;
     width: 100%;
 }
 
@@ -46,7 +169,7 @@
     cursor: pointer; /* Indicates that thumbnails are clickable */
     transition: transform 0.2s; /* Smooth transformation on hover */
     box-sizing:content-box; /* Prevent shrinking when border appears */
-    border: 4px solid white; /* Adds an orange border when hovering over */
+    border: 4px solid white; 
 }
 
 .thumbnail:hover {
@@ -54,7 +177,7 @@
 }
 
 
-.character-card {
+.card-link {
     color: inherit; /* Ensures the link color does not affect the card text */
     text-decoration: none; /* Removes underline from links */
 }
@@ -65,6 +188,7 @@
 
 .card:hover {
     transform: scale(1.05); /* Scales the card on hover */
+    background-color: var(--background-color-light-grey); /* Light grey background color */
 }
 
 .card-img-top {
@@ -75,9 +199,24 @@
 
 .card-body {
     padding: 0.5rem; /* Padding inside the card */
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines you want */
+    -webkit-box-orient: vertical;
+    line-height: 1.2em; /* fallback */
+    height: 3em; /* fallback */
 }
 
 .card-text {
     text-align: center; /* Centers the text inside the card */
     font-weight: bold; /* Makes the character name bold */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Adjust padding to give some space */
 }
