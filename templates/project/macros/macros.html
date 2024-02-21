@@ -1,0 +1,126 @@
+{% macro expandable_image(project, type, image_path, image_name, id, prompt="", name="img") %}
+    <div class="expandable-image">
+        <img src="\projects\{{ project }}\images\{{ type }}\\{{ image_path }}" alt="{{ image_name }}" class="card-img-top expandable-img" id="{{ name }}_{{ id }}">
+        <div id="{{ name }}_Modal_{{ id }}" class="modal">
+            <div id="{{ name }}_infoPanel_{{ id }}" class="info-panel" style="display: none; flex-direction: column; justify-content: center;">
+                <div>
+                    <h3>Name:</h3>
+                    <p>{{ image_path }}</p>
+                </div>
+                <br>
+                <div>
+                    <h3>Prompt:</h3>
+                    <p class="prompt">{{prompt}}</p>
+                </div>
+            </div>
+            <div class="modal-header">
+                <span class="info-icon" id="{{ name }}_info_{{ id }}">&#9432;</span>
+                <span class="close" id="{{ name }}_close_{{ id }}">&times;</span>
+            </div>
+            <img class="modal-content" id="{{ name }}_modalImg_{{ id }}" src="\projects\{{ project }}\images\{{ type }}\\{{ image_path }}" alt="{{ image_name }}">
+        </div>
+    </div>
+    <script>
+        (function() {
+            var modal = document.getElementById("{{ name }}_Modal_{{ id }}");
+            var img = document.getElementById("{{ name }}_{{ id }}");
+            var modalImg = document.getElementById("{{ name }}_modalImg_{{ id }}");
+            var infoIcon = modal ? document.getElementById("{{ name }}_info_{{ id }}") : null;
+            var close = modal ? document.getElementById("{{ name }}_close_{{ id }}") : null;
+            var infoPanel = document.getElementById("{{ name }}_infoPanel_{{ id }}");
+
+            if (img) {
+                img.onclick = function() {
+                    modal.style.display = "flex";
+                }
+            }
+
+            if (close) {
+                close.onclick = function() {
+                    event.stopPropagation();
+                    modal.style.display = 'none';
+                }
+            }
+
+            if (infoIcon) {
+                infoIcon.onclick = function() {
+                    event.stopPropagation();
+                    infoPanel.style.display = infoPanel.style.display === 'flex' ? 'none' : 'flex';
+                    if (modalImg.classList.contains('has_info')){
+                        modalImg.classList.remove('has_info');
+                    }
+                    else{                    
+                        modalImg.classList.add('has_info');
+                    }
+                }
+            }
+        })();
+    </script>
+{% endmacro %}
+
+
+
+{% macro image_choice_card(project, image_path, image_name, id, prompt="") %}
+    <div class="dark-section character-info">
+        <div class="d-flex">
+            <button class="segment-selector selected" id="default_{{id}}_btn">default</button>
+            <button class="segment-selector" id="sprite_{{id}}_btn">Sprite</button>
+        </div>
+        <hr style="margin-top: 0;">
+            <div id="default_{{id}}" style="display: block; ">
+                {{ expandable_image(project, "characters", image_path, image_name, id, prompt, "default") }}
+            </div>
+            <div id="sprite_{{id}}" style="display: none; ">
+                {{ expandable_image(project, "sprites", image_path, image_name, id, prompt, "sprite") }}
+            </div>
+        <div class="card-body">
+            <p class="card-text" id="character_card_text_{{id}}">{{ image_path }}</p>
+        </div>
+    </div>    
+    <script>
+        document.getElementById('default_{{id}}_btn').addEventListener('click', function () {
+            document.getElementById('sprite_{{id}}').style.display = 'none';
+            document.getElementById('default_{{id}}').style.display = 'block';
+            this.classList.add('selected');
+            document.getElementById('sprite_{{id}}_btn').classList.remove('selected');
+        });
+        
+        document.getElementById('sprite_{{id}}_btn').addEventListener('click', function () {
+            document.getElementById('sprite_{{id}}').style.display = 'block';
+            document.getElementById('default_{{id}}').style.display = 'none';
+            this.classList.add('selected');
+            document.getElementById('default_{{id}}_btn').classList.remove('selected');
+        });
+
+    </script>
+
+{% endmacro %}
+
+
+{% macro image_card(project, type, image_path, image_name, id, prompt="") %}
+    <div class="dark-section character-info">
+            <div id="location_{{id}}">
+                {{ expandable_image(project, "characters", image_path, image_name, id, prompt) }}
+            </div>
+        <div class="card-body">
+            <p class="card-text" id="location_card_text_{{id}}">{{ image_path }}</p>
+        </div>
+    </div>    
+    <script>
+        document.getElementById('default_{{id}}_btn').addEventListener('click', function () {
+            document.getElementById('sprite_{{id}}').style.display = 'none';
+            document.getElementById('default_{{id}}').style.display = 'block';
+            this.classList.add('selected');
+            document.getElementById('sprite_{{id}}_btn').classList.remove('selected');
+        });
+        
+        document.getElementById('sprite_{{id}}_btn').addEventListener('click', function () {
+            document.getElementById('sprite_{{id}}').style.display = 'block';
+            document.getElementById('default_{{id}}').style.display = 'none';
+            this.classList.add('selected');
+            document.getElementById('default_{{id}}_btn').classList.remove('selected');
+        });
+
+    </script>
+
+{% endmacro %}

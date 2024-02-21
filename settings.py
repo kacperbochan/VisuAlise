@@ -22,9 +22,8 @@ global_settings: ProgramSettings = ProgramSettings(
     default_diffusion_model = DiffusionModel(
         model="dreamshaper_8.safetensors", 
         steps=25, 
-        temperature=0.7, 
-        batch=4, 
-        device="gpu")
+        cfg=0.7, 
+        batch=4)
 )
 
 #validate_user_settings

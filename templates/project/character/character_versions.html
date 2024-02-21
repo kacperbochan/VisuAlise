@@ -1,0 +1,81 @@
+{% from 'macros/macros.html' import image_choice_card %}
+<div class=" mb-2">
+    <div class="row">
+        <div class="col-md-8">
+            <div class=" dark-section">
+                <div class="form-group col-md-2">
+                    <label for="version" style="font-weight: bold;">Version:</label>
+                    <p class="prompt">Default</p>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="prompt-default" style="font-weight: bold;">Prompt:</label>
+                    <p class="prompt">{{ versions['default'].prompt }}</p>
+                    <textarea class="form-control" id="prompt-default" name="prompt" style="height: 100px;">{{ versions['default'].prompt }}</textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" style="width: 100%">Save</button>
+                        <button class="btn btn-secondary" style="width: 100%">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+{% for version_key, version_data in versions.items() %}
+{% if version_key != "default" %}
+<div class=" mb-2">
+    <div class="row">
+        <div class="col-md-8">
+            <div class=" dark-section">
+                <div class="form-group col-md-4">
+                    <label for="version" style="font-weight: bold;">Version Name:</label>
+                    <p class="prompt">{{ version_key }}</p>
+                    <input type="text" class="form-control" id="version_{{loop.index}}" value="{{ version_key }}"></input>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="prompt-{{ version_key }}" style="font-weight: bold;">Prompt:</label>
+                    <p class="prompt">{{ version_data.prompt }}</p>
+                    <textarea class="form-control" id="prompt-{{ version_key }}" name="prompt" style="height: 100px;">{{ version_data.prompt }}</textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" id="save-{{ version_key }}" style="width: 100%">Save</button>
+                        <button class="btn btn-secondary" id="cancel-{{ version_key }}" style="width: 100%">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <div class="col-md-2 version-card">
+                {% if version_data.image %}
+                    {{image_choice_card(project.name, version_data.image, version_data.image, loop.index, version_data.prompt)}}        
+                {% else %}
+                    <img src="/static/default_character.png" alt="character placeholder" class="card-img-top">
+                {% endif %}
+        </div>
+        <div class="col-md-2 ">
+            <div class="dark-section">
+                <button class="generate" id="generateButton" style="width: 100%">Generate</button>
+                <button class="generate" id="advancedGenerateButton" style="width: 100%">Advanced Gen.</button>
+                <button class="generate" id="generateButton" style="width: 100%">Edit</button>
+                <button class="generate" id="generateButton" style="width: 100%">Copy</button>
+                <button class="generate" id="generateButton" style="width: 100%">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+{% endif %}
+{% endfor %}
+
+<script>
+    $(document).ready(function() {
+        $(".generate").click(function() {
+            alert("This feature is not yet implemented");
+        });
+    });
+</script>

@@ -10,31 +10,23 @@ class LLM(BaseModel):
     top_p: float
     repetition_penalty: float
     max_length: int
-    device: str = "gpu"
 
 class DiffusionModel(BaseModel):
     model: str
     steps: int
-    temperature: float
+    cfg: float
     batch: int
-    device: str = "gpu"
-
-class GeneratedImageData(BaseModel):
-    model: str
-    steps: int
-    seed: str
-    temperature: float
-    prompt: str
 
 class Image(BaseModel):
     path: str
-    generatedImageData: Optional[GeneratedImageData] = None
+    prompt: str
 
 class StoryElementVersion(BaseModel):
     user_name: str
     user_notes: Optional[str] = None
     description: Optional[str] = None
     image: Optional[Image]
+    prompt: Optional[str]
 
 class StoryMention(BaseModel):
     story_fragment_id: str
@@ -46,11 +38,11 @@ class StoryElement(BaseModel):
     name: str
     user_name: str
     user_notes: Optional[str] = None
-    description: Optional[str] = None
     mention_n: int # Number of times this element is mentioned in the story
     storyElements: Optional[list[StoryMention]] = []
     type: str # "character" or "location"
     versions: list[StoryElementVersion] = []
+    images: list[Image] = []
 
 class TextChunk(BaseModel):
     id: int

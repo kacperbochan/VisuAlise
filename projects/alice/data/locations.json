@@ -2,66 +2,147 @@
     "The Rabbit Hole": {
         "id": "1",
         "user_name": "Down the Rabbit Hole",
-        "name": "The Rabbit Hole",
-        "image": "the_rabbit_hole.png",
-        "description": "Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling",
-        "versions":{}
+        "name": "The Rabbit Hole",        
+        "versions":{
+            "default":{
+                "image": "the_rabbit_hole.png",
+                "description": "Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling",
+                "prompt": "Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            }
+        },
+        "images":[
+            {
+                "path": "the_rabbit_hole.png",
+                "prompt": "Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            }
+        ]
     },
     "The Pool of Tears": {
         "id": "2",
         "user_name": "The Pool of Tears",
         "name": "The Pool of Tears",
-        "image": "the_pool_of_tears.png",
-        "description": "Vast pool, shimmering water, floating objects, reflections of a distorted, oversized world",
-        "versions":{}
+        "versions":{
+            "default":{
+                "image": "the_pool_of_tears.png",
+                "description": "Vast pool, shimmering water, floating objects, reflections of a distorted, oversized world",
+                "prompt": "Vast pool, shimmering water, floating objects, reflections of a distorted, oversized world"
+            }
+        },
+        "images":[
+            {
+                "path": "the_pool_of_tears.png",
+                "prompt": "Vast pool, shimmering water, floating objects, reflections of a distorted, oversized world"
+            }
+        ]
     },
     "The White Rabbit's House": {
         "id": "3",
         "user_name": "The White Rabbit's House",
         "name": "The White Rabbit's House",
-        "image": "the_white_rabbits_house.png",
-        "description": "Victorian-style, small, colorful, quirky decorations, surrounded by a well-kept garden",
-        "versions":{}
+        "versions":{
+            "default":{
+                "image": "the_white_rabbits_house.png",
+                "description": "Victorian-style, small, colorful, quirky decorations, surrounded by a well-kept garden",
+                "prompt": "Victorian-style, small, colorful, quirky decorations, surrounded by a well-kept garden"
+            }
+        },
+        "images":[
+            {
+                "path": "the_white_rabbits_house.png",
+                "prompt": "Victorian-style, small, colorful, quirky decorations, surrounded by a well-kept garden"
+            }
+        ]
+        
     },
     "The Caterpillar's Mushroom": {
         "id": "4",
         "user_name": "The Caterpillar's Mushroom",
         "name": "The Caterpillar's Mushroom",
-        "image": "the_caterpillars_mushroom.png",
-        "description": "Tall, spotted mushroom, lush green forest, misty atmosphere, surreal and oversized",
-        "versions":{}
+        "versions":{
+            "default":{
+                "image": "the_caterpillars_mushroom.png",
+                "description": "Tall, spotted mushroom, lush green forest, misty atmosphere, surreal and oversized",
+                "prompt": "Tall, spotted mushroom, lush green forest, misty atmosphere, surreal and oversized"
+            }
+        },
+        "images":[
+            {
+                "path": "the_caterpillars_mushroom.png",
+                "prompt": "Tall, spotted mushroom, lush green forest, misty atmosphere, surreal and oversized"
+            }
+        ]
     },
     "The Duchess's House": {
         "id": "5",
         "user_name": "The Duchess's House",
         "name": "The Duchess's House",
-        "image": "the_duchesss_house.png",
-        "description": "Chaotic, disheveled exterior, crooked architecture, kitchen visible with clashing utensils",
-        "versions":{}
+        "versions":{
+            "default":{
+                "image": "the_duchesss_house.png",
+                "description": "Chaotic, disheveled exterior, crooked architecture, kitchen visible with clashing utensils",
+                "prompt": "Chaotic, disheveled exterior, crooked architecture, kitchen visible with clashing utensils"
+            }
+        },
+        "images":[
+            {
+                "path": "the_duchesss_house.png",
+                "prompt": "Chaotic, disheveled exterior, crooked architecture, kitchen visible with clashing utensils"
+            }
+        ]
     },
     "The Mad Tea Party": {
         "id": "6",
         "user_name": "The Mad Tea Party",
         "name": "The Mad Tea Party",
-        "image": "the_mad_tea_party.png",
-        "description": "Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots",
-        "versions":{}
+        "versions":{
+            "default":{
+                "image": "the_mad_tea_party.png",
+                "description": "Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots",
+                "prompt": "Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            }
+        },
+        "images":[
+            {
+                "path": "the_mad_tea_party.png",
+                "prompt": "Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            }
+        ]
     },
     "The Queen's Croquet Ground": {
         "id": "7",
         "user_name": "The Queen's Croquet Ground",
         "name": "The Queen's Croquet Ground",
-        "image": "the_queens_croquet_ground.png",
-        "description": "Manicured lawn, vibrant rose bushes, some roses being painted red, arches for croquet",
-        "versions":{}
+        "versions":{
+            "default":{
+                "image": "the_queens_croquet_ground.png",
+                "description": "Manicured lawn, vibrant rose bushes, some roses being painted red, arches for croquet",
+                "prompt": "Manicured lawn, vibrant rose bushes, some roses being painted red, arches for croquet"
+            }
+        },
+        "images": [
+            {
+                "path": "the_queens_croquet_ground.png",
+                "prompt": "Manicured lawn, vibrant rose bushes, some roses being painted red, arches for croquet"
+            }
+        ]
     },
     "The Royal Court": {
         "id": "8",
         "user_name": "The Royal Court",
         "name": "The Royal Court",
-        "image": "the_royal_court.png",
-        "description": "Opulent, open area, diverse crowd of characters, extravagant throne, air of tension and absurdity",
-        "versions":{}
+        "versions":{
+            "default":{
+                "image": "the_royal_court.png",
+                "description": "Opulent, open area, diverse crowd of characters, extravagant throne, air of tension and absurdity",
+                "prompt": "Opulent, open area, diverse crowd of characters, extravagant throne, air of tension and absurdity"
+            }
+        },
+        "images":[
+            {
+                "path": "the_royal_court.png",
+                "prompt": "Opulent, open area, diverse crowd of characters, extravagant throne, air of tension and absurdity"
+            }
+        ]
     },
     "The Cheshire Cat's Tree": {
         "id": "9",
@@ -69,15 +150,37 @@
         "name": "The Cheshire Cat's Tree",
         "image": "the_cheshire_cats_tree.png",
         "description": "Tall, gnarled tree, tranquil forest area, mysterious aura, branches forming curious shapes",
-        "versions":{}
+        "versions":{
+            "default":{
+                "image": "the_cheshire_cats_tree.png",
+                "description": "Tall, gnarled tree, tranquil forest area, mysterious aura, branches forming curious shapes",
+                "prompt": "Tall, gnarled tree, tranquil forest area, mysterious aura, branches forming curious shapes"
+            }
+        },
+        "images":[
+            {
+                "path": "the_cheshire_cats_tree.png",
+                "prompt": "Tall, gnarled tree, tranquil forest area, mysterious aura, branches forming curious shapes"
+            }
+        ]
     },
     "The Lobster Quadrille Beach": {
         "id": "10",
         "user_name": "The Lobster Quadrille Beach",
         "name": "The Lobster Quadrille Beach",
-        "image": "the_lobster_quadrille_beach.png",
-        "description": "Sandy beach, calm waters, distant horizon, whimsical sea creatures, serene and inviting",
-        "versions":{}
+        "versions":{
+            "default":{
+                "image": "the_lobster_quadrille_beach.png",
+                "description": "Sandy beach, calm waters, distant horizon, whimsical sea creatures, serene and inviting",
+                "prompt": "Sandy beach, calm waters, distant horizon, whimsical sea creatures, serene and inviting"
+            }
+        },
+        "images":[
+            {
+                "path": "the_lobster_quadrille_beach.png",
+                "prompt": "Sandy beach, calm waters, distant horizon, whimsical sea creatures, serene and inviting"
+            }
+        ]
     }
 
 }

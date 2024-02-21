@@ -1,0 +1,19 @@
+{% from 'macros/macros.html' import image_choice_card %}
+<div class="row">
+    <div class="col-md-9">
+        <p><strong>description:</strong> {{ description }}</p>
+    </div>
+    <div class="col-md-3">
+        <div class="dark-section character-info">
+            {% if images[0] %}
+                {{image_choice_card(project.name, versions.default.image, images[0].path, 1, versions.default.prompt)}}        
+            {% else %}
+                <img src="/static/default_character.png" alt="{{ user_name }}" class="card-img-top">
+            {% endif %}
+            <hr>
+            <div class="card-body">
+                <p class="card-text">{{ user_name }}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,9 +18,12 @@
 .icon-stop:before { content: '\e810'; } /* '' */
 .icon-th-list:before { content: '\e811'; } /* '' */
 .icon-picture-1:before { content: '\e812'; } /* '' */
-.icon-user:before { content: '\e813'; } /* '' */
-.icon-cancel:before { content: '\e814'; } /* '' */
+.icon-book-open:before { content: '\e813'; } /* '' */
+.icon-camera:before { content: '\e815'; } /* '' */
 .icon-spin3:before { content: '\e832'; } /* '' */
+.icon-user-md:before { content: '\f0f0'; } /* '' */
+.icon-info:before { content: '\f129'; } /* '' */
 .icon-sliders:before { content: '\f1de'; } /* '' */
 .icon-toggle-off:before { content: '\f204'; } /* '' */
 .icon-toggle-on:before { content: '\f205'; } /* '' */
+.icon-id-card:before { content: '\f2c2'; } /* '' */

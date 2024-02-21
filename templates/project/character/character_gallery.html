@@ -1,0 +1,28 @@
+{% from 'macros/macros.html' import image_choice_card %}
+<div class="row">
+    {% if images %}
+    {% for gallery_image in images %}
+    <div class="col-md-3">
+        {% if "\\projects\\{{ project.name }}\\images\\characters\\{{ gallery_image.path }}" %}
+        {{image_choice_card(project.name, gallery_image.path, user_name, loop.index, gallery_image.prompt)}}        
+        {% endif %}
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+<script>
+    function handleImageError(index) {
+        // Hide the image
+        var imgElement = document.getElementById('image-' + index);
+        if (imgElement) {
+            imgElement.style.display = 'none';
+        }
+    
+        // Hide the image_choice_card
+        var cardElement = document.getElementById('card-container-' + index);
+        if (cardElement) {
+            cardElement.style.display = 'none';
+        }
+    }
+    </script>

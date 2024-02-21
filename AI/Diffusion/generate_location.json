@@ -1,0 +1,108 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 264101587409166,
+      "steps": 20,
+      "cfg": 7,
+      "sampler_name": "dpmpp_2m_sde_gpu",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "4": {
+    "inputs": {
+      "ckpt_name": "dreamshaper_8.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load_Checkpoint"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 512,
+      "height": 768,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty_Latent_Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "full body 2D character sprite,, solid color background, empty background, White Rabbit, pink eyes, waistcoat-pocket, watch, unreal engine, studio ghibli, sharp focus, art station",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Prompt"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "out of frame, background objects, poorly drawn face, poorly drawn hands, poorly drawn feet,  bad art",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative_Prompt"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "30": {
+    "inputs": {
+      "directory": "C:\\Users\\kacpe\\Desktop\\Inzynierka\\VisuAlise\\projects\\alice\\images\\characters",
+      "filename": "ZUZU",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "Save Image Outside",
+    "_meta": {
+      "title": "Save_Default"
+    }
+  }
+}

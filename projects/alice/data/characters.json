@@ -3,75 +3,240 @@
         "id": "1",
         "user_name": "Alice",
         "name": "Alice",
-        "image": "alice.png",
-        "description": "young girl, long blond hair tied back, wearing a Victorian dress",
-        "versions":{
+        "versions": {
+            "default": {
+                "image": "alice.png",
+                "prompt": "A young girl with long, blond hair, often depicted wearing a blue dress with a white apron. She is curious, thoughtful, and falls into the rabbit hole.",
+                "description": "young girl, long blond hair tied back, wearing a Victorian dress"
+            },
             "mad": {
                 "image": "alice_mad.png",
+                "prompt": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress",
                 "description": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
             },
             "Neck-Stretching Alice": {
                 "image": "alice_neck_stretching.png",
+                "prompt": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress",
                 "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
             }
-        }
+        },
+        "images": [
+            {
+                "path": "alice.png",
+                "prompt": null
+            },
+            {
+                "path": "alice_mad.png",
+                "prompt": null
+            },
+            {
+                "path": "alice_001.png",
+                "prompt": "A young girl with long, blond hair, often depicted wearing a blue dress with a white apron. She is curious, thoughtful, and falls into the rabbit hole."
+            },
+            {
+                "path": "alice_002.png",
+                "prompt": null
+            },
+            {
+                "path": "alice_003.png",
+                "prompt": "A young girl with long, blond hair, wearing a blue dress with a white apron, in a curious and thoughtful pose, as if she's about to fall into a rabbit hole. The setting is whimsical and fantastical, reflecting a sense of wonder and adventure."
+            },
+            {
+                "path": "alice_004.png",
+                "prompt": null
+            },
+            {
+                "path": "alice_005.png",
+                "prompt": "an ultra-realistic image of the wise brown rat, previously depicted, now running at an incredible speed through a well-lit cave. The space around him is visibly bending, showcasing his ability as a living Alcubierre drive. The cave is illuminated, highlighting the speed and power of the rat."
+            },
+            {
+                "path": "Alice_default_00002.png",
+                "prompt": "(Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, often depicted wearing a blue dress with a white apron. She is curious, thoughtful, and falls into the rabbit hole."
+            }
+        ]
     },
     "Mad Hatter": {
         "id": "2",
         "user_name": "Mad Hatter",
         "name": "Mad Hatter",
-        "image": "mad_hatter.png",
-        "description": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.",
-        "versions":{}
+        "versions": {
+            "default": {
+                "image": "mad_hatter.png",
+                "prompt": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.",
+                "description": "young girl, long blond hair tied back, wearing a Victorian dress"
+            }
+        },
+        "images": [
+            {
+                "path": "mad_hatter.png",
+                "prompt": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00006.png",
+                "prompt": "(Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00007.png",
+                "prompt": "(Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00012.png",
+                "prompt": "(Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            }
+        ]
     },
     "Queen of Hearts": {
         "id": "3",
         "user_name": "Queen of Hearts",
         "name": "Queen of Hearts",
-        "image": "queen_of_hearts.png",
-        "description": "A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
+        "versions": {
+            "default": {
+                "image": "queen_of_hearts.png",
+                "prompt": "A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown.",
+                "description": "A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
+            }
+        },
+        "images": [
+            {
+                "path": "queen_of_hearts.png",
+                "prompt": "A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
+            }
+        ]
     },
     "White Rabbit": {
         "id": "4",
         "user_name": "White Rabbit",
         "name": "White Rabbit",
-        "image": "white_rabbit.png",
-        "description": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+        "versions": {
+            "default": {
+                "image": "white_rabbit.png",
+                "prompt": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch.",
+                "description": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            }
+        },
+        "images": [
+            {
+                "path": "white_rabbit.png",
+                "prompt": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            }
+        ]
     },
     "Cheshire Cat": {
         "id": "5",
         "user_name": "Cheshire Cat",
         "name": "Cheshire Cat",
-        "image": "cheshire_cat.png",
-        "description": "A mischievous, grinning cat, often depicted with a wide, toothy smile and bright, glowing eyes."
+        "versions": {
+            "default": {
+                "image": "cheshire_cat.png",
+                "prompt": "A mischievous, grinning cat, often depicted with a wide, toothy smile and bright, glowing eyes.",
+                "description": "A mischievous, grinning cat, often depicted with a wide, toothy smile and bright, glowing eyes."
+            }
+        },
+        "images": [
+            {
+                "path": "cheshire_cat.png",
+                "prompt": "A mischievous, grinning cat, often depicted with a wide, toothy smile and bright, glowing eyes."
+            },
+            {
+                "path": "Cheshire Cat_default.png",
+                "prompt": "(Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A mischievous, grinning cat, often depicted with a wide, toothy smile and bright, glowing eyes."
+            },
+            {
+                "path": "Cheshire Cat_default_00003.png",
+                "prompt": "(Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A mischievous, grinning cat, often depicted with a wide, toothy smile and bright, glowing eyes."
+            },
+            {
+                "path": "Cheshire Cat_default_00008.png",
+                "prompt": "(Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A mischievous, grinning purple cat, dark blue fur, magical, often depicted with a wide, toothy smile and bright, glowing eyes."
+            },
+            {
+                "path": "Cheshire Cat_default_00011.png",
+                "prompt": "(Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A mischievous, grinning purple cat, dark blue fur, magical, often depicted with a wide, toothy smile and bright, glowing eyes."
+            },
+            {
+                "path": "Cheshire Cat_default_00012.png",
+                "prompt": "(Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A mischievous, grinning cat, often depicted with a wide, toothy smile and bright, glowing eyes."
+            },
+            {
+                "path": "Cheshire Cat_default_00013.png",
+                "prompt": "(Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A mischievous, grinning cat, often depicted with a wide, toothy smile and bright, glowing eyes."
+            },
+            {
+                "path": "Cheshire Cat_default_00015.png",
+                "prompt": "(Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A mischievous, grinning cat, often depicted with a wide, toothy smile and bright, glowing eyes."
+            }
+        ]
     },
     "Caterpillar": {
         "id": "6",
         "user_name": "Caterpillar",
         "name": "Caterpillar",
-        "image": "caterpillar.png",
-        "description": "A wise, philosophical character, often depicted sitting on a mushroom and smoking a hookah."
+        "versions": {
+            "default": {
+                "image": "caterpillar.png",
+                "prompt": "A wise, philosophical character, often depicted sitting on a mushroom and smoking a hookah.",
+                "description": "A wise, philosophical character, often depicted sitting on a mushroom and smoking a hookah."
+            }
+        },
+        "images": [
+            {
+                "path": "caterpillar.png",
+                "prompt": "A wise, philosophical character, often depicted sitting on a mushroom and smoking a hookah."
+            }
+        ]
     },
     "Tweedledee and Tweedledum": {
         "id": "7",
         "user_name": "Tweedledee and Tweedledum",
         "name": "Tweedledee and Tweedledum",
-        "image": "tweedledee_and_tweedledum.png",
-        "description": "A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
+        "versions": {
+            "default": {
+                "image": "tweedledee_and_tweedledum.png",
+                "prompt": "A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations.",
+                "description": "A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
+            }
+        },
+        "images": [
+            {
+                "path": "tweedledee_and_tweedledum.png",
+                "prompt": "A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
+            }
+        ]
     },
     "March Hare": {
         "id": "8",
         "user_name": "March Hare",
         "name": "March Hare",
-        "image": "march_hare.png",
-        "description": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+        "versions": {
+            "default": {
+                "image": "march_hare.png",
+                "prompt": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.",
+                "description": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            }
+        },
+        "images": [
+            {
+                "path": "march_hare.png",
+                "prompt": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            }
+        ]
     },
     "Dormouse": {
         "id": "9",
         "user_name": "Dormouse",
         "name": "Dormouse",
-        "image": "dormouse.png",
-        "description": "A sleepy, timid character, often depicted dozing off or hiding in a teapot."
+        "versions": {
+            "default": {
+                "image": "dormouse.png",
+                "prompt": "A sleepy, timid character, often depicted dozing off or hiding in a teapot.",
+                "description": "A sleepy, timid character, often depicted dozing off or hiding in a teapot."
+            }
+        },
+        "images": [
+            {
+                "path": "dormouse.png",
+                "prompt": "A sleepy, timid character, often depicted dozing off or hiding in a teapot."
+            }
+        ]
     }
-
 }

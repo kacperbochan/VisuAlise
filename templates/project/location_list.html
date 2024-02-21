@@ -25,8 +25,8 @@
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="/project/{{ project.name }}/locations/{{ location.name }}" class="card-link">
                 <div class="card dark-section">
-                    {% if location.img %}
-                        <img src="{{ location.img }}" alt="{{ location.user_name }}" class="card-img-top">
+                    {% if location.image_path %}
+                        <img src="{{ location.image_path }}" alt="{{ location.user_name }}" class="card-img-top">
                     {% else %}
                         <img src="/static/default_location.png" alt="{{ location.user_name }}" class="card-img-top">
                     {% endif %}

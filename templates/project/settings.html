@@ -44,14 +44,7 @@
                     <label for="llm_max_length" class="form-label">Max Length</label>
                     <input type="number" class="form-control" id="llm_max_length" name="llm_max_length" value="{{ project.llm.max_length }}">
                 </div>
-
-                <div class="mb-3">
-                    <label for="llm_device" class="form-label">Device</label>
-                    <select class="form-select" id="llm_device" name="llm_device">
-                        <option value="gpu" {% if project.llm.device == "gpu" %}selected{% endif %}>GPU</option>
-                        <option value="cpu" {% if project.llm.device == "cpu" %}selected{% endif %}>CPU</option>
-                    </select>
-                </div>
+                
                 <button type="button" id="refreshButton" class="btn btn-secondary">Refresh Models</button>
                 <button type="submit" class="btn btn-primary">Update LLM</button>
             </form>
@@ -72,19 +65,12 @@
                     <input type="number" min="1" max="50" class="form-control" id="diffusion_steps" name="diffusion_steps" value="{{ project.diffusion_model.steps }}">
                 </div>
                 <div class="mb-3">
-                    <label for="diffusion_temperature" class="form-label">Diffusion Temperature</label>
-                    <input type="number" min="1" max="30" step="0.5" class="form-control" id="diffusion_temperature" name="diffusion_temperature" value="{{ project.diffusion_model.temperature }}">
+                    <label for="diffusion_cfg" class="form-label">Diffusion CFG</label>
+                    <input type="number" min="1" max="30" step="0.5" class="form-control" id="diffusion_cfg" name="diffusion_cfg" value="{{ project.diffusion_model.cfg }}">
                 </div>
                 <div class="mb-3">
-                    <label for="diffusion_batch" class="form-label">Diffusion Batch</label>
+                    <label for="diffusion_batch" class="form-label">Diffusion Batch Amount</label>
                     <input type="number" min="1" class="form-control" id="diffusion_batch" name="diffusion_batch" value="{{ project.diffusion_model.batch }}">
-                </div>
-                <div class="mb-3">
-                    <label for="diffusion_device" class="form-label">Diffusion Device</label>
-                    <select class="form-select" id="diffusion_device" name="diffusion_device">
-                        <option value="gpu" {% if project.diffusion_model.device == "gpu" %}selected{% endif %}>GPU</option>
-                        <option value="cpu" {% if project.diffusion_model.device == "cpu" %}selected{% endif %}>CPU</option>
-                    </select>
                 </div>
                 <button type="button" id="refreshButton" class="btn btn-secondary">Refresh Models</button>
                 <button type="submit" class="btn btn-primary">Update Diffusion Model</button>

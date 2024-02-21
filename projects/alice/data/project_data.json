@@ -8,14 +8,12 @@
         "top_k": 40,
         "top_p": 0.9,
         "repetition_penalty": 1.0,
-        "max_length": 100,
-        "device": "gpu"
+        "max_length": 100
     },
     "diffusion_model": {
         "model": "dreamshaper_8.safetensors",
         "steps": 25,
-        "temperature": 7.0,
-        "batch": 4,
-        "device": "gpu"
+        "cfg": 7.0,
+        "batch": 4
     }
 }

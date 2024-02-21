@@ -25,8 +25,8 @@
         <div class="col-md-3 col-sm-6 mb-4">
             <a href="/project/{{ project.name }}/characters/{{ character.name }}" class="card-link">
                 <div class="card dark-section">
-                    {% if character.img %}
-                        <img src="{{ character.img }}" alt="{{ character.user_name }}" class="card-img-top">
+                    {% if character.image_path %}
+                        <img src="{{ character.image_path }}" alt="{{ character.user_name }}" class="card-img-top">
                     {% else %}
                         <img src="/static/default_character.png" alt="{{ character.user_name }}" class="card-img-top">
                     {% endif %}
@@ -48,7 +48,7 @@
                 </a>
             {% endfor %}
         </div>
-</div>
+    </div>
 </div>
 {% endblock %}
 

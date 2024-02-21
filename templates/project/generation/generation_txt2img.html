@@ -1,0 +1,327 @@
+{% from 'macros/macros.html' import image_choice_card %}
+{% macro txt2img(project, characters, locations, diffusion_models, style_prompts ) %}
+<div class="row">
+    <div class="col-md-9 dark-section">
+        <div class="row">
+            <div class="form-group col-md-2">
+                <label for="image_type" style="font-weight: bold;">Type</label>
+                <select class="form-control" id="image_type" name="image_type">
+                    <option value="character">Character</option>
+                    <option value="location">Location</option>
+                </select>
+                </select>
+            </div>
+            <div class="form-group col-md-4" id="story_element_selector">
+                <div id="character_selector" style="display: block">
+                    <label for="character_name" style="font-weight: bold;">Character</label>
+                    <select class="form-select" id="character_name" name="character_name">
+                        {% for character in characters %}
+                            <option value="{{ character.name }}">{{ character['user_name'] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div id="location_selector" style="display: none">
+                    <label for="location_name" style="font-weight: bold;">Location</label>
+                    <select class="form-select" id="location_name" name="location_name">
+                        {% for location in locations %}
+                            <option value="{{ location.name }}">{{ location['user_name'] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <div id="version_selector">
+                    <label for="version_name" style="font-weight: bold;">Versions</label>
+                    <select class="form-select" id="version_name" name="version_name">
+                        <option value="default">default</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2" style="padding: 5px 10px;">
+                <button class="generate" id="generateButton" style="width: 100%; height: 100%;">Generate</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description" style="font-weight: bold;">Description:</label>
+            <textarea style="background-color: lightgray; height: 60px;" class="form-control" id="description" name="description" readonly ></textarea>
+        </div>
+        <div class="form-group">
+            <label for="prompt" style="font-weight: bold;">Prompt:</label>
+            <textarea class="form-control" id="prompt" name="prompt" style="height: 100px;"></textarea>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label for="style_select" style="font-weight: bold;">Style:</label>
+                <select class="form-select" id="style_select" name="style_select">
+                    <option value="default">Default</option>
+                    <option value="anime">Anime</option>
+                    <option value="photo">Photo</option>
+                </select>
+            </div>
+            <div class="form-group col-md-10">
+                <label for="style_prompt" style="font-weight: bold;" >Style prompt:</label>
+                <textarea class="form-control" id="style_prompt" name="style_prompt" style="height: 60px;"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="negative_prompt" style="font-weight: bold;">Negative prompt:</label>
+            <textarea class="form-control" id="negative_prompt" name="negative_prompt" style="height: 100px;"></textarea>    
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="model" style="font-weight: bold;">Model:</label>
+                <select class="form-select" id="model" name="model">
+                    {% for d_model in diffusion_models %}
+                    <option value="{{ d_model }}" {% if d_model == project.diffusion_model.model %}selected{% endif %}>{{ d_model }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="steps_input" style="font-weight: bold;">Steps:</label>
+                <input type="number" min="1" max="50" class="form-control" id="steps_input" value="{{ project.diffusion_model.steps }}"></input>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="batch_amount_input" style="font-weight: bold;">Batch amount:</label>
+                <input type="number" min="1" class="form-control" id="batch_amount_input" value="{{ project.diffusion_model.batch }}"></input>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="seed_input" style="font-weight: bold;">Seed:</label>
+                <input type="number" class="form-control" id="seed_input" value="-1"></input>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="cfg_input" style="font-weight: bold;">cfg scale:</label>
+                <input type="number" min="1" max="30" step="0.5" class="form-control" id="cfg_input" value="{{ project.diffusion_model.cfg }}"></input>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-3">
+        <div class="dark-section character-info" style="padding: 0;">
+            <div id="character_image">
+                {{image_choice_card(project.name, "alice.png", "/alice.png", 1, "no prompt")}}        
+            </div>
+            <div id="placeholders" style="display: none;">
+                <img src="/static/default_character.png" id="character-placeholder" class="card-img-top">
+                <img src="/static/default_location.png" id="location-placeholder" class="card-img-top" style="display: none;">
+            </div>
+            <div id="thumbnail-gallery" class="row flex-row flex-nowrap d-flex align-items-center" style="background-color: gray;"></div>
+        </div>
+    </div>
+</div>
+    <script  type="text/javascript">
+
+        var latest_image = "";
+        var latest_image_path = "";
+        var generated_images = 0;
+        var image_type = "character";
+        var project_name = "{{ project.name }}";
+        const gallery = document.getElementById('thumbnail-gallery');
+        const characterSelector = document.getElementById('character_name');
+        const locationSelector = document.getElementById('location_name');
+        const versionSelector = document.getElementById('version_name');
+        const imageTypeSelector = document.getElementById('image_type');
+        const styleSelect = document.getElementById('style_select');
+        const stylePromptBlock = {{ style_prompts | tojson }};
+        var waiting = false;
+        
+        const pname= "{{ project.name }}";
+        var promptBlock = {};
+        window.onload = async function() {
+            promptBlock = await fetch('/project/' + pname + '/promptblock').then(response => response.json());            
+            populateVersionSelect();
+            getSelectedPrompt();
+            updateStylePrompt();
+        };
+
+        async function fetchNewImage(){
+            const startTime = Date.now();
+            let elapsedTime = 0;
+
+            while (elapsedTime < 90000) {
+                const URL = ((image_type == "character") ? '/get_latest_character_image' :  '/get_latest_location_image') + '?project=' + project_name;
+
+                const response = await fetch(URL).then(response => response.json());
+
+                if (latest_image != response['image']) {
+                    latest_image = response['image'];
+                    latest_image_path = response['image_directory'];
+                    return true;
+                }
+
+                elapsedTime = Date.now() - startTime;
+                await new Promise(resolve => setTimeout(resolve, 5000)); // Wait for 5 seconds before trying again
+            }
+            return false;
+        }
+
+        function populateVersionSelect(){
+            versionSelector.innerHTML = '';
+            for (let v in promptBlock[characterSelector.value]) {
+                const option = document.createElement('option');
+                option.value = v;
+                option.text = v;
+                versionSelector.appendChild(option);
+            }
+            
+        }
+
+        function selectMainImage(){
+            if(image_type == "character"){
+                document.getElementById('default_1').getElementsByTagName('img')[0].src = "\\"+latest_image_path+"\\characters\\"+latest_image;
+                document.getElementById('default_1').getElementsByTagName('img')[1].src = "\\"+latest_image_path+"\\characters\\"+latest_image;
+                document.getElementById('sprite_1').getElementsByTagName('img')[0].src = "\\"+latest_image_path+"\\sprites\\"+latest_image;
+                document.getElementById('sprite_1').getElementsByTagName('img')[1].src = "\\"+latest_image_path+"\\sprites\\"+latest_image;
+                document.getElementById('character_card_text_1').innerHTML = latest_image;
+            }
+            else{
+                //document.getElementById('default_1').getElementsByTagName('img')[0].src = latest_image_path+"\\"+latest_image;
+            }
+        }
+
+        async function addNewestImage(){
+            const img = document.createElement('img');
+            img.src = "\\"+latest_image_path+"\\characters\\"+latest_image;
+            img.classList.add('thumbnail', 'img-thumbnail');
+            img.setAttribute('data-default-img', "\\"+latest_image_path+"\\characters\\"+latest_image);
+            img.setAttribute('data-sprite-img', "\\"+latest_image_path+"\\sprites\\"+latest_image);
+            gallery.appendChild(img);
+        }
+
+        var queued = 0;
+
+        async function populateGallery(n = 1){
+            if(queued == 0) {
+                queued = n;
+                await fetchNewImage();
+                addNewestImage();
+                if(gallery.childElementCount==1)selectMainImage();
+                queued--;
+
+                for (let i = 0; i < queued; i++) {
+                    await fetchNewImage();
+                    addNewestImage();
+                }
+            }
+            else{
+                queued += n;
+            }
+        }
+
+        // Event listener for thumbnail clicks
+        document.getElementById('thumbnail-gallery').addEventListener('click', function(e) {
+            if (e.target.classList.contains('thumbnail')) {
+                const newDef = e.target.getAttribute('data-default-img');
+                const newSpr = e.target.getAttribute('data-sprite-img');
+
+                document.getElementById('default_1').getElementsByTagName('img')[0].src = newDef;
+                document.getElementById('default_1').getElementsByTagName('img')[1].src = newDef;
+                document.getElementById('sprite_1').getElementsByTagName('img')[0].src = newSpr;
+                document.getElementById('sprite_1').getElementsByTagName('img')[1].src = newSpr;
+                document.getElementById('character_card_text_1').innerHTML = newDef;
+
+            }
+        });
+
+        document.getElementById('generateButton').addEventListener('click', function() {
+            const prompt = document.getElementById('prompt').value;
+            const stylePrompt = document.getElementById('style_prompt').value;
+            const negativePrompt = document.getElementById('negative_prompt').value;
+            image_type = imageTypeSelector.value.toLowerCase();
+            
+            const model = document.getElementById('model').value;
+            const seed = parseInt(document.getElementById('seed_input').value);
+            const steps = parseInt(document.getElementById('steps_input').value);
+            const batchAmount = parseInt(document.getElementById('batch_amount_input').value);
+            const cfg = parseInt(document.getElementById('cfg_input').value);
+            const version = versionSelector.value;
+        
+            var name = image_type === 'character' ? characterSelector.value : locationSelector.value;
+
+            fetchNewImage(); // will tell the model what are the current images
+        
+            fetch('/generate_image', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'},
+                body: new URLSearchParams({
+                    'project_name': project_name,
+                    'prompt': prompt,
+                    'style_prompt': stylePrompt,
+                    'negative_prompt': negativePrompt,
+                    'image_type': image_type,
+                    'model': model,
+                    'seed': seed,
+                    'steps': steps,
+                    'batch_amount': batchAmount,
+                    'cfg': cfg,
+                    'name': name,
+                    'version': version})
+                }).then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    populateGallery(batchAmount);
+                }).catch(error => console.error('Error:', error));
+            
+        });
+        
+        function updateStylePrompt(){
+            if (imageTypeSelector.value == 'character') {
+                document.getElementById('style_prompt').value = stylePromptBlock["characters"][styleSelect.value];
+            } else {
+                document.getElementById('style_prompt').value = stylePromptBlock["location"][styleSelect.value];
+            }
+        }
+
+
+        imageTypeSelector.addEventListener('change', function () {
+            
+            getSelectedPrompt();
+            updateStylePrompt();
+
+            if (imageTypeSelector.value == 'character') {
+                document.getElementById('location_selector').style.display = 'none';
+                document.getElementById('character_selector').style.display = 'block';
+                document.getElementById('character-placeholder').style.display = 'block';
+                document.getElementById('location-placeholder').style.display = 'none';
+            } else {
+                document.getElementById('character_selector').style.display = 'none';
+                document.getElementById('location_selector').style.display = 'block';
+                document.getElementById('character-placeholder').style.display = 'none';
+                document.getElementById('location-placeholder').style.display = 'block';
+                document.getElementById('style_prompt').value = "{{ style_prompts['locations']['default'] }}";
+            }
+        });
+
+        function getSelectedPrompt() {
+            description = document.getElementById('description');
+            prompt = document.getElementById('prompt');
+            name = imageTypeSelector.value === 'character' ? characterSelector.value : locationSelector.value;
+            text = promptBlock[name][versionSelector.value];
+            
+            if(description.value == prompt.value || (/^[^a-zA-Z]*$/.test(prompt.value))){
+                prompt.value = text;
+            }
+            description.value = text;
+        }
+
+
+        versionSelector.addEventListener('change', function() {
+            getSelectedPrompt();
+        });
+        characterSelector.addEventListener('change', function() {
+            populateVersionSelect();
+            getSelectedPrompt();
+        });
+        locationSelector.addEventListener('change', function() {
+            populateVersionSelect();
+            getSelectedPrompt();
+        });
+        styleSelect.addEventListener('change', function() {
+            updateStylePrompt();
+        });
+
+    </script>
+        
+{% endmacro %}
