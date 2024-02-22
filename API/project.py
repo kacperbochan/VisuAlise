@@ -301,16 +301,10 @@ def get_story_object_data(project: Project, project_path: str, story_object_name
 @router.get("/{project_name}/characters/{character_id}/")
 async def read_character(request: Request, project_name: str, character_id: str):
     
-    project, project_path = get_project_by_name(project_name)
-    character = get_story_object_data(project, project_path, character_id, False)
-    visual_settings = get_visual_settings()
-    return templates.TemplateResponse("character/character_base.html", {
-        "request": request,
-        "project": project,
-        "sub_page": "info",
-        **character,
-        **visual_settings
-    })
+    Url: str = "/project/"+project_name+"/characters/"+character_id+"/info"
+    
+    return RedirectResponse(url=Url, status_code=302)
+    
 
 
 
