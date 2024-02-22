@@ -362,22 +362,11 @@ img.has_info{
 }
 
 .version-card{
-    max-height: 40vh;
-}
-
-.version-card img.expandable-img{
-    max-height: 20vh;
-    max-width: 100%;
-    object-fit: contain !important;
-    border: 1px solid var(--background-color-very-light-grey);
-}
-
-.default-version-card{
     height: 60vh;
     max-height: 60vh;
 }
 
-.default-version-card img.expandable-img{
+.version-card img.expandable-img{
     max-height: 30vh;
     max-width: 100%;
     object-fit: contain !important;

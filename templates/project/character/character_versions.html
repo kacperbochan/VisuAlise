@@ -2,41 +2,8 @@
 {% from 'macros/macros.html' import image_choice_card %}
 
 {% block sub_page_content %}
-    <div class=" mb-2">
-        <div class="row">
-            <div class="col-md-8">
-                <div class=" dark-section default-version-card">
-                    <div class="form-group col-md-2">
-                        <label style="font-weight: bold;">Version:</label>
-                        <p class="prompt">Default</p>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="prompt-default" style="font-weight: bold;">Prompt:</label>
-                        <p class="prompt">{{ versions['default'].prompt }}</p>
-                        <textarea class="form-control" id="prompt-default" name="prompt" style="height: 100px;">{{ versions['default'].prompt }}</textarea>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-10"></div>
-                        <div class="col-md-2">
-                            <button class="btn btn-primary" style="width: 100%">Save</button>
-                            <button class="btn btn-secondary" style="width: 100%">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 default-version-card">
-                {% if versions['default'].image %}
-                    {{image_choice_card(project.name, versions['default'].image, versions['default'].image, 1, versions['default'].prompt)}}        
-                {% else %}
-                    <img src="/static/default_character.png" alt="character placeholder" class="card-img-top">
-                {% endif %}
-        </div>
-        </div>
-    </div>
-    <hr>
     {% for version_key, version_data in versions.items() %}
-    {% if version_key != "default" %}
+    
     <div class=" mb-2">
         <div class="row">
             <div class="col-md-8">
@@ -44,7 +11,9 @@
                     <div class="form-group col-md-4">
                         <label for="version-{{ loop.index }}-input" style="font-weight: bold;">Version Name:</label>
                         <p class="prompt" id="version-{{ loop.index }}">{{ version_key }}</p>
-                        <input type="text" class="form-control" id="version-{{ loop.index }}-input" value="{{ version_key }}" style="display: none;"></input>
+                        {% if version_key != "default" %}
+                            <input type="text" class="form-control" id="version-{{ loop.index }}-input" value="{{ version_key }}" style="display: none;"></input>
+                        {% endif %}
                     </div>
                     <div class="form-group col-md-12">
                         <label for="prompt-{{ loop.index }}-input" style="font-weight: bold;">Prompt:</label>
@@ -74,13 +43,14 @@
                     <button class="generate" id="advancedGenerateButton" style="width: 100%">Advanced Gen.</button>
                     <button class="generate" onclick="editVersion({{loop.index}})" id="editButton_{{ loop.index }}" style="width: 100%">Edit</button>
                     <button class="generate" onclick="copyVersion({{loop.index}})" id="copyButton_{{ loop.index }}" style="width: 100%">Copy</button>
+                    {% if version_key != "default" %}
                     <button class="generate" onclick="deleteVersion({{loop.index}})" id="deleteButton_{{ loop.index }}" style="width: 100%">Delete</button>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
     <hr>
-    {% endif %}
     {% endfor %}
 
     <script>
@@ -90,18 +60,22 @@
         function editVersion(index) {
             let name = document.getElementById("version-" + index).innerHTML;
             let prompt = document.getElementById("prompt-" + index).innerHTML;
-            document.getElementById("version-" + index + "-input").style.display = "block";
             document.getElementById("prompt-" + index + "-input").style.display = "block";
-
-            document.getElementById("version-" + index + "-input").value = name;
             document.getElementById("prompt-" + index + "-input").value = prompt;
+            
+            if(index != 1){
+                document.getElementById("version-" + index + "-input").style.display = "block";
+                document.getElementById("version-" + index + "-input").value = name;
+            }
             document.getElementById("save-" + index).style.display = "block";
             document.getElementById("cancel-" + index).style.display = "block";
         }
 
 
         function cancelVersion(index) {
-            document.getElementById("version-" + index + "-input").style.display = "none";
+            if(index != 1){
+                document.getElementById("version-" + index + "-input").style.display = "none";
+            }
             document.getElementById("prompt-" + index + "-input").style.display = "none";
             document.getElementById("save-" + index).style.display = "none";
             document.getElementById("cancel-" + index).style.display = "none";
@@ -109,7 +83,9 @@
         
         function updateVersion(index){
             let name = document.getElementById("version-" + index).innerHTML;
-            let new_name = document.getElementById("version-" + index + "-input").value;
+            let new_name = (index == 1)?"default":document.getElementById("version-" + index + "-input").value;
+            
+            
             let prompt = document.getElementById("prompt-" + index + "-input").value;
 
             if(name != new_name && versions[new_name]!= undefined){
@@ -186,6 +162,5 @@
                 window.alert("Wrong name. \nVersion not deleted.");
             }
         }
-        
     </script>
 {% endblock %}
