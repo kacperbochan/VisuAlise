@@ -1,14 +1,13 @@
 {% extends 'character/character_base.html' %}
 {% from 'macros/macros.html' import image_choice_card %}
 
-
 {% block sub_page_content %}
     <div class=" mb-2">
         <div class="row">
             <div class="col-md-8">
                 <div class=" dark-section default-version-card">
                     <div class="form-group col-md-2">
-                        <label for="version" style="font-weight: bold;">Version:</label>
+                        <label style="font-weight: bold;">Version:</label>
                         <p class="prompt">Default</p>
                     </div>
                     <div class="form-group col-md-12">
@@ -43,20 +42,20 @@
             <div class="col-md-8">
                 <div class=" dark-section">
                     <div class="form-group col-md-4">
-                        <label for="version" style="font-weight: bold;">Version Name:</label>
-                        <p class="prompt">{{ version_key }}</p>
-                        <input type="text" class="form-control" id="version_{{loop.index}}" value="{{ version_key }}"></input>
+                        <label for="version-{{ loop.index }}-input" style="font-weight: bold;">Version Name:</label>
+                        <p class="prompt" id="version-{{ loop.index }}">{{ version_key }}</p>
+                        <input type="text" class="form-control" id="version-{{ loop.index }}-input" value="{{ version_key }}" style="display: none;"></input>
                     </div>
                     <div class="form-group col-md-12">
-                        <label for="prompt-{{ version_key }}" style="font-weight: bold;">Prompt:</label>
-                        <p class="prompt">{{ version_data.prompt }}</p>
-                        <textarea class="form-control" id="prompt-{{ version_key }}" name="prompt" style="height: 100px;">{{ version_data.prompt }}</textarea>
+                        <label for="prompt-{{ loop.index }}-input" style="font-weight: bold;">Prompt:</label>
+                        <p class="prompt" id="prompt-{{ loop.index }}">{{ version_data.prompt }}</p>
+                        <textarea class="form-control" id="prompt-{{ loop.index }}-input" name="prompt" style="height: 100px; display: none;">{{ version_data.prompt }}</textarea>
                     </div>
                     <div class="row">
                         <div class="col-md-10"></div>
                         <div class="col-md-2">
-                            <button class="btn btn-primary" id="save-{{ version_key }}" style="width: 100%">Save</button>
-                            <button class="btn btn-secondary" id="cancel-{{ version_key }}" style="width: 100%">Cancel</button>
+                            <button class="btn btn-primary" onclick="updateVersion({{loop.index}})" id="save-{{ loop.index }}" style="width: 100%; display:none;">Save</button>
+                            <button class="btn btn-secondary"  onclick="cancelVersion({{loop.index}})" id="cancel-{{ loop.index }}" style="width: 100%; display:none;">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -73,7 +72,7 @@
                 <div class="dark-section">
                     <button class="generate" id="generateButton_{{ loop.index }}" style="width: 100%">Generate</button>
                     <button class="generate" id="advancedGenerateButton" style="width: 100%">Advanced Gen.</button>
-                    <button class="generate edit" id="editButton_{{ loop.index }}" style="width: 100%">Edit</button>
+                    <button class="generate" onclick="editVersion({{loop.index}})" id="editButton_{{ loop.index }}" style="width: 100%">Edit</button>
                     <button class="generate" id="copyButton_{{ loop.index }}" style="width: 100%">Copy</button>
                     <button class="generate" id="deleteButton_{{ loop.index }}" style="width: 100%">Delete</button>
                 </div>
@@ -85,5 +84,61 @@
     {% endfor %}
 
     <script>
+
+        var versions = {{ versions|tojson }};
+        
+        function editVersion(index) {
+            let name = document.getElementById("version-" + index).innerHTML;
+            let prompt = document.getElementById("prompt-" + index).innerHTML;
+            document.getElementById("version-" + index + "-input").style.display = "block";
+            document.getElementById("prompt-" + index + "-input").style.display = "block";
+
+            document.getElementById("version-" + index + "-input").value = name;
+            document.getElementById("prompt-" + index + "-input").value = prompt;
+            document.getElementById("save-" + index).style.display = "block";
+            document.getElementById("cancel-" + index).style.display = "block";
+        }
+
+
+        function cancelVersion(index) {
+            document.getElementById("version-" + index + "-input").style.display = "none";
+            document.getElementById("prompt-" + index + "-input").style.display = "none";
+            document.getElementById("save-" + index).style.display = "none";
+            document.getElementById("cancel-" + index).style.display = "none";
+        }
+        
+        function updateVersion(index){
+            let name = document.getElementById("version-" + index).innerHTML;
+            let new_name = document.getElementById("version-" + index + "-input").value;
+            let prompt = document.getElementById("prompt-" + index + "-input").value;
+
+            if(name != new_name && versions[new_name]!= undefined){
+                window.alert("Version name already exists. \nPlease choose a different name.");
+                return;
+            }
+
+            document.getElementById("version-" + index).innerHTML = new_name;
+            document.getElementById("prompt-" + index).innerHTML = prompt;
+
+            URL = "/project/{{project.name}}/characters/{{name}}/versions/update_name_and_prompt";
+            fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    "version_name": name,
+                    "new_version_name": new_name,
+                    "new_version_prompt": prompt
+                })
+            }).then(response => {
+                if (response.status === 200) {
+                    window.alert("Changes saved successfully.");
+                }
+            });
+
+            cancelVersion(index);
+            
+        }
     </script>
 {% endblock %}

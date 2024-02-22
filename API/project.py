@@ -392,6 +392,42 @@ async def read_character(request: Request, project_name: str, character_id: str)
         **visual_settings
     })
 
+def get_checked_version(project_name:str, story_object_name:str, version_name: str, location: bool = False):
+    project, project_path = get_project_by_name(project_name)
+    
+    type = "locations" if location else "characters"
+    story_object_file = os.path.join(project_path, "data", type+".json")
+    
+    data = get_safe_json(story_object_file)
+    
+    if story_object_name not in data:
+        return {"message": "No such story object"}
+    if version_name not in data[story_object_name]['versions']:
+        return {"message": "No such version"}
+    
+    return None, data, story_object_file
+
+@router.post("/{project_name}/{type}/{story_object_name}/versions/update_name_and_prompt")
+async def update_story_object_version(request: Request, project_name:str, type: str, story_object_name:str, version_name: str = Form(), new_version_name: str = Form(), new_version_prompt: str = Form()):
+    
+    if(type != "characters" and type != "locations"):
+        return {"message": "Invalid type"}
+    if(version_name == 'default' and version_name != new_version_name):
+        return {"message": "Cannot change the default version name"}
+    
+    message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="locations")
+    if(message != None):
+        return message
+    
+    if(version_name != new_version_name):    
+        data[story_object_name]['versions'][new_version_name] = data[story_object_name]['versions'][version_name]
+        del data[story_object_name]['versions'][version_name]
+    data[story_object_name]['versions'][new_version_name]['prompt'] = new_version_prompt
+    
+    with open(story_object_file, 'w') as file:
+        json.dump(data, file, indent=4)
+    
+    return {"message": "Version updated"}
 @router.get("/{project_name}/locations/{location_id}")
 async def read_location(request: Request, project_name: str, location_id: str):
     
