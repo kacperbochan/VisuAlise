@@ -140,5 +140,24 @@
             cancelVersion(index);
             
         }
+        
+        function copyVersion(index){
+            let name = document.getElementById("version-" + index).innerHTML;
+
+            URL = "/project/{{project.name}}/characters/{{name}}/versions/copy_version";
+            fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    "version_name": name
+                })
+            }).then(response => {
+                if (response.status === 200) {
+                    location.reload(true);
+                }
+            });
+        }
     </script>
 {% endblock %}
