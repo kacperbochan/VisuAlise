@@ -38,13 +38,13 @@
     },
     {
       "uid": "31972e4e9d080eaa796290349ae6c1fd",
-      "css": "users",
+      "css": "characters",
       "code": 59398,
       "src": "fontawesome"
     },
     {
       "uid": "381da2c2f7fd51f8de877c044d7f439d",
-      "css": "picture",
+      "css": "location",
       "code": 59399,
       "src": "fontawesome"
     },
@@ -140,7 +140,7 @@
     },
     {
       "uid": "3def559c3c39b8500882e02892b7daa8",
-      "css": "picture-1",
+      "css": "locations",
       "code": 59410,
       "src": "entypo"
     },
@@ -157,22 +157,22 @@
       "src": "entypo"
     },
     {
-      "uid": "3d4ea8a78dc34efe891f3a0f3d961274",
-      "css": "info",
-      "code": 61737,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "9e8430ce95f56720ae8e7afba291df88",
-      "css": "user-md",
-      "code": 61680,
-      "src": "fontawesome"
-    },
-    {
       "uid": "85017ab6ca074831a8de771b40e9640c",
       "css": "camera",
       "code": 59413,
       "src": "entypo"
+    },
+    {
+      "uid": "2e6301ac94d0d51566727b9199259451",
+      "css": "id-card-o",
+      "code": 62147,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "8b80d36d4ef43889db10bc1f0dc9a862",
+      "css": "character",
+      "code": 59412,
+      "src": "fontawesome"
     }
   ]
 }

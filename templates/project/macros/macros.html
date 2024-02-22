@@ -5,12 +5,12 @@
             <div id="{{ name }}_infoPanel_{{ id }}" class="info-panel" style="display: none; flex-direction: column; justify-content: center;">
                 <div>
                     <h3>Name:</h3>
-                    <p>{{ image_path }}</p>
+                    <p class="prompt" id="{{type}}_name_{{id}}">{{ image_path }}</p>
                 </div>
                 <br>
                 <div>
                     <h3>Prompt:</h3>
-                    <p class="prompt">{{prompt}}</p>
+                    <p class="prompt" id="{{type}}_prompt_{{id}}">{{prompt}}</p>
                 </div>
             </div>
             <div class="modal-header">
@@ -28,6 +28,7 @@
             var infoIcon = modal ? document.getElementById("{{ name }}_info_{{ id }}") : null;
             var close = modal ? document.getElementById("{{ name }}_close_{{ id }}") : null;
             var infoPanel = document.getElementById("{{ name }}_infoPanel_{{ id }}");
+            var modalContent = modal ? modal.getElementsByClassName('modal-content')[0] : null;
 
             if (img) {
                 img.onclick = function() {
@@ -57,6 +58,50 @@
         })();
     </script>
 {% endmacro %}
+
+{% macro gallery_choice_card(project, image_path, image_name, id, prompt="") %}
+    <div class="dark-section character-info">
+        <div class="header" style="padding: 0;" >
+            <div style="text-align: left">
+                <button class="segment-selector selected" id="default_{{id}}_btn">default</button>
+                <button class="segment-selector" id="sprite_{{id}}_btn">Sprite</button>
+            </div>
+            <div style="text-align: right;">
+                <button class="size-setter segment-selector" id="id-card-{{id}}" onclick="openImageVersionSelector({{id}})">
+                    <i class="icon-id-card-o"></i>
+                </button>
+            </div>
+        </div>
+        <hr style="margin-top: 0;">
+            <div id="default_{{id}}" style="display: block; ">
+                {{ expandable_image(project, "characters", image_path, image_name, id, prompt, "default") }}
+            </div>
+            <div id="sprite_{{id}}" style="display: none; ">
+                {{ expandable_image(project, "sprites", image_path, image_name, id, prompt, "sprite") }}
+            </div>
+        <div class="card-body">
+            <p class="card-text" id="character_card_text_{{id}}">{{ image_path }}</p>
+        </div>
+    </div>    
+    <script>
+        document.getElementById('default_{{id}}_btn').addEventListener('click', function () {
+            document.getElementById('sprite_{{id}}').style.display = 'none';
+            document.getElementById('default_{{id}}').style.display = 'block';
+            this.classList.add('selected');
+            document.getElementById('sprite_{{id}}_btn').classList.remove('selected');
+        });
+        
+        document.getElementById('sprite_{{id}}_btn').addEventListener('click', function () {
+            document.getElementById('sprite_{{id}}').style.display = 'block';
+            document.getElementById('default_{{id}}').style.display = 'none';
+            this.classList.add('selected');
+            document.getElementById('default_{{id}}_btn').classList.remove('selected');
+        });
+
+    </script>
+
+{% endmacro %}
+
 
 
 

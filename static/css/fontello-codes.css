@@ -5,8 +5,8 @@
 .icon-th-large-outline:before { content: '\e803'; } /* '' */
 .icon-th-outline:before { content: '\e804'; } /* '' */
 .icon-menu-outline:before { content: '\e805'; } /* '' */
-.icon-users:before { content: '\e806'; } /* '' */
-.icon-picture:before { content: '\e807'; } /* '' */
+.icon-characters:before { content: '\e806'; } /* '' */
+.icon-location:before { content: '\e807'; } /* '' */
 .icon-wrench:before { content: '\e808'; } /* '' */
 .icon-right-open:before { content: '\e809'; } /* '' */
 .icon-left-open:before { content: '\e80a'; } /* '' */
@@ -17,13 +17,13 @@
 .icon-pause:before { content: '\e80f'; } /* '' */
 .icon-stop:before { content: '\e810'; } /* '' */
 .icon-th-list:before { content: '\e811'; } /* '' */
-.icon-picture-1:before { content: '\e812'; } /* '' */
+.icon-locations:before { content: '\e812'; } /* '' */
 .icon-book-open:before { content: '\e813'; } /* '' */
+.icon-character:before { content: '\e814'; } /* '' */
 .icon-camera:before { content: '\e815'; } /* '' */
 .icon-spin3:before { content: '\e832'; } /* '' */
-.icon-user-md:before { content: '\f0f0'; } /* '' */
-.icon-info:before { content: '\f129'; } /* '' */
 .icon-sliders:before { content: '\f1de'; } /* '' */
 .icon-toggle-off:before { content: '\f204'; } /* '' */
 .icon-toggle-on:before { content: '\f205'; } /* '' */
 .icon-id-card:before { content: '\f2c2'; } /* '' */
+.icon-id-card-o:before { content: '\f2c3'; } /* '' */

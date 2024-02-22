@@ -5,8 +5,8 @@
         "name": "Alice",
         "versions": {
             "default": {
-                "image": "alice.png",
-                "prompt": "A young girl with long, blond hair, often depicted wearing a blue dress with a white apron. She is curious, thoughtful, and falls into the rabbit hole.",
+                "image": "alice_mad.png",
+                "prompt": "A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful",
                 "description": "young girl, long blond hair tied back, wearing a Victorian dress"
             },
             "mad": {
@@ -14,9 +14,19 @@
                 "prompt": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress",
                 "description": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
             },
-            "Neck-Stretching Alice": {
+            "long neck": {
                 "image": "alice_neck_stretching.png",
-                "prompt": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress",
+                "prompt": "young girl, (((long neck))), elongated neck, long blond hair tied back, wearing a Victorian dress",
+                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
+            },
+            "long neck_copy": {
+                "image": "alice_004.png",
+                "prompt": "young girl, (((long neck))), elongated neck, long blond hair tied back, wearing a Victorian dress",
+                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
+            },
+            "big": {
+                "image": "alice_neck_stretching.png",
+                "prompt": "young girl, (((Very very very tall))), tall, long blond hair tied back, wearing a Victorian dress",
                 "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
             }
         },
@@ -64,6 +74,11 @@
                 "image": "mad_hatter.png",
                 "prompt": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.",
                 "description": "young girl, long blond hair tied back, wearing a Victorian dress"
+            },
+            "EVEN MADDER": {
+                "image": "mad_hatter.png",
+                "prompt": "single male, MAD, eccentric, wild orange hair, wears a large top hat with a card marked '10/6'",
+                "description": "young girl, long blond hair tied back, wearing a Victorian dress"
             }
         },
         "images": [
@@ -109,6 +124,11 @@
         "name": "White Rabbit",
         "versions": {
             "default": {
+                "image": "white_rabbit.png",
+                "prompt": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch.",
+                "description": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            "angry": {
                 "image": "white_rabbit.png",
                 "prompt": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch.",
                 "description": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch."

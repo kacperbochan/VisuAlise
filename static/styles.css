@@ -263,6 +263,11 @@ button.segment-selector.selected {
 
 .character-info{
     border-radius: 5px; /* Rounded corners */
+    height: 100%;
+}
+
+.gallery-card{
+    margin-bottom: 10px;
 }
 
 .header {

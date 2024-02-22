@@ -1,33 +1,109 @@
 {% extends 'character/character_base.html' %}
-{% from 'macros/macros.html' import image_choice_card %}
+{% from 'macros/macros.html' import gallery_choice_card %}
 
 
 {% block sub_page_content %}
     <div class="row">
         {% if images %}
         {% for gallery_image in images %}
-        <div class="col-md-3">
+        <div class="col-md-3 gallery-card">
             {% if "\\projects\\{{ project.name }}\\images\\characters\\{{ gallery_image.path }}" %}
-            {{image_choice_card(project.name, gallery_image.path, user_name, loop.index, gallery_image.prompt)}}        
+            {{gallery_choice_card(project.name, gallery_image.path, user_name, loop.index, gallery_image.prompt)}}        
             {% endif %}
         </div>
         {% endfor %}
         {% endif %}
+        <div id="image-version-selection-Modal" class="modal dark-section">
+            <div class="info-panel" style="display: block; padding-top: 40px;">
+                <div>
+                    <h3>Name:</h3>
+                    <p class="prompt" id="modal-image-name"></p>
+                </div>
+                <br>
+                <div>
+                    <h3>Prompt:</h3>
+                    <p class="prompt" id="moadl-image-prompt"></p>
+                </div>
+                <br>
+                <div>
+                    <h3>Version:</h3>
+                    <select id="versionSelector" class="form-control" style="width: 100%;"></select>
+                </div>
+                <br>
+                <div class="row" style="margin-top: 60px;" >
+                    <div class="col-md-1"></div>
+                    <button class="btn btn-primary col-md-4" onclick="save()" id="save-new-version-image" >Save</button>
+                    <div class="col-md-2"></div>
+                    <button class="btn btn-secondary col-md-4" onclick="cancel()" id="cancel-new-version-image">Cancel</button>
+                </div>
+            </div>
+            <img class="modal-content has_info" id="modalImg_main">
+        </div>
     </div>
 
     <script>
-        function handleImageError(index) {
-            // Hide the image
-            var imgElement = document.getElementById('image-' + index);
-            if (imgElement) {
-                imgElement.style.display = 'none';
-            }
-        
-            // Hide the image_choice_card
-            var cardElement = document.getElementById('card-container-' + index);
-            if (cardElement) {
-                cardElement.style.display = 'none';
-            }
+        var promptBlock = {};
+        const pname= "{{ project.name }}";
+
+        window.onload = async function() {
+            promptBlock = await fetch('/project/' + pname + '/promptblock').then(response => response.json());            
+            populateVersionSelect();
         }
+
+        function populateVersionSelect(){
+            versionSelector.innerHTML = '';
+            for (let v in promptBlock['{{ name }}']) {
+                const option = document.createElement('option');
+                option.value = v;
+                option.text = v;
+                versionSelector.appendChild(option);
+            }
+            
+        }
+
+        function openImageVersionSelector(id){
+            var imagePath = document.getElementById('default_'+id).getElementsByTagName('img')[0].src;
+            var image = document.getElementById('characters_name_'+id).innerHTML;
+            var prompt = document.getElementById('characters_prompt_'+id).innerHTML;
+            var modal = document.getElementById('image-version-selection-Modal');
+
+            var modalImg_name = document.getElementById('modal-image-name');
+            var modalImg_prompt = document.getElementById('moadl-image-prompt');
+
+            modalImg_main.src = imagePath;
+            modalImg_main.alt = imagePath;
+            modal.style.display = "block";
+            modalImg_name.innerHTML = image;
+            modalImg_prompt.innerHTML = prompt;
+        }
+
+        function save(){
+            var name = document.getElementById('versionSelector').value;
+            var image = document.getElementById('modal-image-name').innerHTML;
+
+            URL = "/project/{{project.name}}/characters/{{name}}/assign_image_to_version";
+            fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    "version_name": name,
+                    "image_path": image
+                })
+            }).then(response => {
+                if (response.status === 200) {
+                    window.alert("Changes saved successfully.");
+                }
+            }).then(() => {
+                cancel();
+            })
+
+        }
+
+        function cancel(){
+            document.getElementById('image-version-selection-Modal').style.display = "none";            
+        }
+
     </script>
 {% endblock %}
