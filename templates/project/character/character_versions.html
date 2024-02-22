@@ -39,8 +39,11 @@
             </div>
             <div class="col-md-2 ">
                 <div class="dark-section">
-                    <button class="generate" id="generateButton_{{ loop.index }}" style="width: 100%">Generate</button>
-                    <button class="generate" id="advancedGenerateButton" style="width: 100%">Advanced Gen.</button>
+                    {% if version_key != 'default' %}
+                        <button class="generate" onclick="loadGenerationPage('{{loop.index}}')"id="generateButton_{{ loop.index }}" style="width: 100%">Generate</button>
+                    {% else %}
+                        <button class="generate" onclick="loadGenerationPage('1')"id="generateButton_{{ loop.index }}" style="width: 100%">Generate</button>
+                    {% endif %}
                     <button class="generate" onclick="editVersion({{loop.index}})" id="editButton_{{ loop.index }}" style="width: 100%">Edit</button>
                     <button class="generate" onclick="copyVersion({{loop.index}})" id="copyButton_{{ loop.index }}" style="width: 100%">Copy</button>
                     {% if version_key != "default" %}
@@ -56,7 +59,12 @@
     <script>
 
         var versions = {{ versions|tojson }};
-        
+
+        function loadGenerationPage(index){
+            let name = document.getElementById("version-" + index).innerHTML;
+            document.location.href = "/project/{{ project.name }}/generation?type=character&name={{ name }}&version="+name;
+        }    
+
         function editVersion(index) {
             let name = document.getElementById("version-" + index).innerHTML;
             let prompt = document.getElementById("prompt-" + index).innerHTML;

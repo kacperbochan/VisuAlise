@@ -56,7 +56,6 @@
                 <select class="form-select" id="style_select" name="style_select">
                     <option value="default">Default</option>
                     <option value="anime">Anime</option>
-                    <option value="photo">Photo</option>
                 </select>
             </div>
             <div class="form-group col-md-10">
@@ -110,7 +109,6 @@
     </div>
 </div>
     <script  type="text/javascript">
-
         var latest_image = "";
         var latest_image_path = "";
         var generated_images = 0;
@@ -130,9 +128,51 @@
         window.onload = async function() {
             promptBlock = await fetch('/project/' + pname + '/promptblock').then(response => response.json());            
             populateVersionSelect();
+            initialVersion();
             getSelectedPrompt();
             updateStylePrompt();
         };
+
+        function containsOption(select, value) {
+            for (var i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === value) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        async function initialVersion(){
+            const url = new URL(window.location.href);
+            const params = url.searchParams;
+
+            // Get the values of the parameters
+            const type = params.get('type');
+            if(type===null) return;
+            if(type != "character" && type != "location") return;
+            imageTypeSelector.value = type;
+
+            const name = params.get('name');
+            if(name===null) return;
+            if(type == "character"){
+                if(containsOption(characterSelector, name))
+                    characterSelector.value = name;
+                else
+                    return;
+            }
+            else{
+                if(containsOption(locationSelector, name))
+                    locationSelector.value = name;
+                else
+                    return;
+            }
+            populateVersionSelect();
+            
+            const version = params.get('version');
+            if(version===null) return;
+            if(containsOption(versionSelector, version))
+                versionSelector.value = version;
+        }
 
         async function fetchNewImage(){
             const startTime = Date.now();
@@ -321,7 +361,6 @@
         styleSelect.addEventListener('change', function() {
             updateStylePrompt();
         });
-
     </script>
         
 {% endmacro %}
