@@ -159,5 +159,33 @@
                 }
             });
         }
+
+        function deleteVersion(index) {
+            let name = document.getElementById("version-" + index).innerHTML;
+            let userInput = prompt("Are you sure you want to delete the version? \nPlease type the name of the version to confirm:");
+
+            if(userInput === null){
+                return;
+            }
+            if(userInput === name) {
+                URL = "/project/{{project.name}}/characters/{{name}}/versions/delete_version";
+                fetch(URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        "version_name": name
+                    })
+                }).then(response => {
+                    if (response.status === 200) {
+                        location.reload(true);
+                    }
+                });
+            } else {
+                window.alert("Wrong name. \nVersion not deleted.");
+            }
+        }
+        
     </script>
 {% endblock %}

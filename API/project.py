@@ -450,6 +450,25 @@ async def clone_story_object_version(project_name:str, type: str, story_object_n
         json.dump(data, file, indent=4)
     
     return {"message": "Version cloned"}
+
+@router.post("/{project_name}/{type}/{story_object_name}/versions/delete_version")
+async def delete_story_object_version(project_name:str, type: str, story_object_name:str, version_name: str = Form()):
+    
+    if(type != "characters" and type != "locations"):
+        return {"message": "Invalid type"}
+    if(version_name == 'default'):
+        return {'message' : 'Cannot delete the default version'}
+    
+    message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="locations")
+    if(message != None):
+        return message
+
+    del data[story_object_name]['versions'][version_name]
+    
+    with open(story_object_file, 'w') as file:
+        json.dump(data, file, indent=4)
+    
+    return {"message": "Version deleted"}
 @router.get("/{project_name}/locations/{location_id}")
 async def read_location(request: Request, project_name: str, location_id: str):
     
