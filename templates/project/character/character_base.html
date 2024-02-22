@@ -25,39 +25,15 @@
         </div>
         <hr style="margin-top: 0;">
         <div id="character-section">
+            {% block sub_page_content %}{% endblock %}
         </div>
     </div>
 {% endblock %}
 
 {% block scripts %}
 <script>
-    
-    loadSubPage = function (page) {
-        url = "/project/{{ project.name }}/characters/{{name}}/"+page;
-        
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', url+"/template", true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var container = document.getElementById('character-section');
-                container.innerHTML = xhr.responseText;
-        
-                var scripts = container.getElementsByTagName('script');
-                for (var i = 0; i < scripts.length; i++) {
-                    eval(scripts[i].innerText);
-                }
-            }
-        };
-        xhr.send();
-        history.pushState({page: page}, 'Character {{name}}', url);
-    };
-
-    // Event listener for popstate event to handle browser navigation
-    window.onpopstate = function(event) {
-        if(event.state) {
-            loadSubPage(event.state.page);
-            selectSection( event.state.page );
-        } 
+    loadSubPage = function(sub_page){
+        document.location.href = "/project/{{ project.name }}/characters/{{name}}/"+sub_page;
     }
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -83,9 +59,6 @@
         document.getElementById('character-'+section+'-btn').classList.add('selected');
     }
 
-    
-    
-    loadSubPage("{{sub_page}}");
     selectSection("{{sub_page}}");
 </script>
 {% block character_section_script %}{% endblock %}

@@ -43,3 +43,17 @@ document.getElementById('thumbnail-gallery').addEventListener('click', function(
 
 // Call fetchImages on page load to populate the gallery
 fetchImages();
+
+
+@router.get("/{project_name}/characters/{character_id}/{sub_page}")
+async def read_character(request: Request, project_name: str, character_id: str, sub_page: str):
+    
+    project, project_path = get_project_by_name(project_name)
+    visual_settings = get_visual_settings()
+    return templates.TemplateResponse("character/character_base.html", {
+        "request": request,
+        "project": project,
+        "sub_page": sub_page,
+        "name":character_id,
+        **visual_settings
+    })

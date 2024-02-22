@@ -1,4 +1,8 @@
+{% extends 'character/character_base.html' %}
 {% from 'macros/macros.html' import image_choice_card %}
+
+
+{% block sub_page_content %}
 <div class="row">
     <div class="col-md-9">
         <p><strong>description:</strong> {{ description }}</p>
@@ -17,3 +21,4 @@
         </div>
     </div>
 </div>
+{% endblock %}

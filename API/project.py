@@ -312,20 +312,9 @@ async def read_character(request: Request, project_name: str, character_id: str)
         **visual_settings
     })
 
-@router.get("/{project_name}/characters/{character_id}/{sub_page}")
-async def read_character(request: Request, project_name: str, character_id: str, sub_page: str):
-    
-    project, project_path = get_project_by_name(project_name)
-    visual_settings = get_visual_settings()
-    return templates.TemplateResponse("character/character_base.html", {
-        "request": request,
-        "project": project,
-        "sub_page": sub_page,
-        "name":character_id,
-        **visual_settings
-    })
 
-@router.get("/{project_name}/characters/{character_id}/info/template", response_class=HTMLResponse)
+
+@router.get("/{project_name}/characters/{character_id}/info", response_class=HTMLResponse)
 async def read_character_info(request: Request, project_name: str, character_id: str):
     
     project, project_path = get_project_by_name(project_name)
@@ -334,11 +323,12 @@ async def read_character_info(request: Request, project_name: str, character_id:
     return templates.TemplateResponse("character/character_info.html", {
         "request": request,
         "project": project,
+        "sub_page": "info",
         **character,
         **visual_settings
     })
 
-@router.get("/{project_name}/characters/{character_id}/gallery/template", response_class=HTMLResponse)
+@router.get("/{project_name}/characters/{character_id}/gallery", response_class=HTMLResponse)
 async def read_character(request: Request, project_name: str, character_id: str):
     
     project, project_path = get_project_by_name(project_name)
@@ -347,11 +337,12 @@ async def read_character(request: Request, project_name: str, character_id: str)
     return templates.TemplateResponse("character/character_gallery.html", {
         "request": request,
         "project": project,
+        "sub_page": "gallery",
         **character,
         **visual_settings
     })
 
-@router.get("/{project_name}/characters/{character_id}/text_data/template", response_class=templates.TemplateResponse)
+@router.get("/{project_name}/characters/{character_id}/text_data", response_class=HTMLResponse)
 async def read_character(request: Request, project_name: str, character_id: str):
     project, project_path = get_project_by_name(project_name)
     character = get_story_object_data(project, project_path, character_id, False)
@@ -388,11 +379,12 @@ async def read_character(request: Request, project_name: str, character_id: str)
         "request": request,
         "project": project,
         "text_data": text_data,
+        "sub_page": "text_data",
         **character,
         **visual_settings
     })
 
-@router.get("/{project_name}/characters/{character_id}/versions/template", response_class=templates.TemplateResponse)
+@router.get("/{project_name}/characters/{character_id}/versions", response_class=HTMLResponse)
 async def read_character(request: Request, project_name: str, character_id: str):
     project, project_path = get_project_by_name(project_name)
     character = get_story_object_data(project, project_path, character_id, False)
@@ -401,6 +393,7 @@ async def read_character(request: Request, project_name: str, character_id: str)
     return templates.TemplateResponse("character/character_versions.html", {
         "request": request,
         "project": project,
+        "sub_page": "versions",
         **character,
         **visual_settings
     })
