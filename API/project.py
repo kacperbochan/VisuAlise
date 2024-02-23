@@ -112,6 +112,18 @@ def get_project_story_objects(project_path:str,  location: bool = False):
         story_object_list.append(story_element_dto)
     return story_object_list
 
+def get_project_story_objects_names(project_path:str,  location: bool = False):
+    type = "locations" if location else "characters"
+    story_object_file = os.path.join(project_path, "data", type+".json")
+    
+    data = get_safe_json(story_object_file)
+                
+    story_object_list = []
+    
+    for story_object in data.values():
+        story_object_list.append(story_object["name"])
+    return story_object_list
+
 def add_image_to_story_object(project_name:str, story_object_name:str, image_name: str, prompt: str, location: bool = False):
     
     project, project_path = get_project_by_name(project_name)
@@ -155,16 +167,69 @@ async def read_project(request: Request, project_name: str):
 
 @router.get("/{project_name}/characters")
 async def read_character(request: Request, project_name: str):
+    
+    Url: str = "/project/"+project_name+"/characters/list"
+    
+    return RedirectResponse(url=Url, status_code=302)
+    
+
+@router.get("/{project_name}/characters/list")
+async def read_character(request: Request, project_name: str):
     project, project_path = get_project_by_name(project_name)
     visual_settings = get_visual_settings()
     
     characters = get_project_story_objects(project_path, False)
-    return templates.TemplateResponse("character_list.html", {
+    return templates.TemplateResponse("characters_list/characters_list.html", {
         "request": request,
         "characters": characters,
         "project": project,
+        "sub_page": "list",
         **visual_settings
     })
+
+@router.get("/{project_name}/characters/creation")
+async def character_creation(request: Request, project_name: str):
+    project, project_path = get_project_by_name(project_name)
+    visual_settings = get_visual_settings()
+    
+    character_names = get_project_story_objects_names(project_path, False)
+    return templates.TemplateResponse("characters_list/characters_creation.html", {
+        "request": request,
+        "character_names": character_names,
+        "project": project,
+        "sub_page": "creation",
+        **visual_settings
+    })
+
+@router.post("/{project_name}/characters/create")
+async def create_character(request: Request, project_name: str, name: str = Form(), prompt: str = Form()):
+    project, project_path = get_project_by_name(project_name)
+    character_names = get_project_story_objects_names(project_path, False)
+    
+    if(name in character_names):
+        return {"message": "Character with this name already exists"}
+    
+    characters_file = os.path.join(project_path, "data/characters.json")
+    
+    data = get_safe_json(characters_file)
+    
+    data[name] = {
+        "name": name,
+        "user_name": name,
+        "versions": {
+            "default": {
+                "description": "a character",
+                "prompt": prompt,
+                "image": ""
+            }
+        },
+        "images": []
+    }
+    
+    with open(characters_file, 'w') as file:
+        json.dump(data, file, indent=4)
+
+    
 
 @router.get("/{project_name}/locations")
 async def read_locations(request: Request, project_name: str):
@@ -298,17 +363,17 @@ def get_story_object_data(project: Project, project_path: str, story_object_name
                     new_file.write('{}')
                 return []
 
-@router.get("/{project_name}/characters/{character_id}/")
+@router.get("/{project_name}/character/{character_id}/")
 async def read_character(request: Request, project_name: str, character_id: str):
     
-    Url: str = "/project/"+project_name+"/characters/"+character_id+"/info"
+    Url: str = "/project/"+project_name+"/character/"+character_id+"/info"
     
     return RedirectResponse(url=Url, status_code=302)
     
 
 
 
-@router.get("/{project_name}/characters/{character_id}/info", response_class=HTMLResponse)
+@router.get("/{project_name}/character/{character_id}/info", response_class=HTMLResponse)
 async def read_character_info(request: Request, project_name: str, character_id: str):
     
     project, project_path = get_project_by_name(project_name)
@@ -322,7 +387,7 @@ async def read_character_info(request: Request, project_name: str, character_id:
         **visual_settings
     })
 
-@router.get("/{project_name}/characters/{character_id}/gallery", response_class=HTMLResponse)
+@router.get("/{project_name}/character/{character_id}/gallery", response_class=HTMLResponse)
 async def read_character(request: Request, project_name: str, character_id: str):
     
     project, project_path = get_project_by_name(project_name)
@@ -336,7 +401,7 @@ async def read_character(request: Request, project_name: str, character_id: str)
         **visual_settings
     })
 
-@router.get("/{project_name}/characters/{character_id}/text_data", response_class=HTMLResponse)
+@router.get("/{project_name}/character/{character_id}/text_data", response_class=HTMLResponse)
 async def read_character(request: Request, project_name: str, character_id: str):
     project, project_path = get_project_by_name(project_name)
     character = get_story_object_data(project, project_path, character_id, False)
@@ -378,7 +443,7 @@ async def read_character(request: Request, project_name: str, character_id: str)
         **visual_settings
     })
 
-@router.get("/{project_name}/characters/{character_id}/versions", response_class=HTMLResponse)
+@router.get("/{project_name}/character/{character_id}/versions", response_class=HTMLResponse)
 async def read_character(request: Request, project_name: str, character_id: str):
     project, project_path = get_project_by_name(project_name)
     character = get_story_object_data(project, project_path, character_id, False)

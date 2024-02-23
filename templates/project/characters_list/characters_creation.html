@@ -1,0 +1,104 @@
+{% extends "characters_list/characters_base.html" %}
+
+{% from 'macros/macros.html' import image_choice_card %}
+{% block sub_page_content %}
+
+<div class="dark-section">
+    <h2>
+        <i class="icon-character"></i>
+        <span id="character-name">Character</span>
+    </h2>
+    
+    <div class="row" style="max-height: 70vh;">
+        <div class="col-md-8">
+            <div class="form-group col-md-4" style="margin-top: 5%;">
+                <label for="character-name-input" style="font-weight: bold; font-size: 20px;">Name:</label>
+                <input type="text" class="form-control" id="character-name-input"></input>
+            </div>
+            <div class="form-group col-md-12" style="margin-top: 5%;">
+                <label for="character-prompt" style="font-weight: bold; font-size: 20px;">Prompt:</label>
+                <textarea class="form-control" id="character-prompt" style="height: 100px;"></textarea>
+            </div>
+            <div class="row align-items-end">
+                <div class="col-md-10"></div>
+                <div class="col-md-2">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <div class="character-info" >
+                <img src="/static/default_character.png" style="max-height: 70%; object-fit: contain;" alt="{{ user_name }}" class="card-img-top" >
+                <hr>
+                <div class="card-body" style="text-align: center; height: 90px;">
+                    <button onclick="createCharacter()" class="generate" id="save" style="width: 80%; height: 60px;">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<script>
+    document.getElementById('character-name-input').addEventListener('input', function() {
+        if(document.getElementById('character-name-input').value.length > 0){
+            document.getElementById('character-name').innerText = document.getElementById('character-name-input').value;
+        }
+        else{
+            document.getElementById('character-name').innerText = "Character";
+        }
+    });
+
+    async function createCharacter(){
+        var name = document.getElementById('character-name-input').value.trim();
+        var prompt = document.getElementById('character-prompt').value;
+        var data = {
+            name: name,
+            prompt: prompt
+        }
+
+        if(name.length == 0){
+            alert("Please enter a name for your character.");
+            return;
+        }
+
+        if(prompt.length == 0){
+            alert("Please enter a prompt for your character.");
+            return;
+        }
+
+        if(prompt.length > 1000){
+            alert("Please enter a prompt that is less than 1000 characters.");
+            return;
+        }
+
+        if(name.length > 50){
+            alert("Please enter a name that is less than 100 characters.");
+            return;
+        }
+        
+        if({{character_names|tojson}}.includes(name)){
+            alert("You already have a character with that name.");
+            return;
+        }
+
+        const URL='/project/{{project.name}}/characters/create';
+
+        await fetch(URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                name: name,
+                prompt: prompt
+            })
+        }).then(response => {
+            if (response.status === 200) {
+                window.location.href = '/project/{{ project.name }}/character/Jabberwocky/info';
+            }
+        });
+    }
+
+</script>
+{% endblock %}

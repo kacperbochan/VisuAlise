@@ -81,7 +81,7 @@
             var name = document.getElementById('versionSelector').value;
             var image = document.getElementById('modal-image-name').innerHTML;
 
-            URL = "/project/{{project.name}}/characters/{{name}}/assign_image_to_version";
+            URL = "/project/{{project.name}}/character/{{name}}/assign_image_to_version";
             fetch(URL, {
                 method: 'POST',
                 headers: {

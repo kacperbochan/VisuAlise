@@ -61,12 +61,6 @@
       "src": "fontawesome"
     },
     {
-      "uid": "d870630ff8f81e6de3958ecaeac532f2",
-      "css": "left-open",
-      "code": 59402,
-      "src": "fontawesome"
-    },
-    {
       "uid": "21b42d3c3e6be44c3cc3d73042faa216",
       "css": "sliders",
       "code": 61918,
@@ -79,6 +73,12 @@
       "src": "fontawesome"
     },
     {
+      "uid": "ccddff8e8670dcd130e3cb55fdfc2fd0",
+      "css": "down-open",
+      "code": 59414,
+      "src": "fontawesome"
+    },
+    {
       "uid": "d7271d490b71df4311e32cdacae8b331",
       "css": "home",
       "code": 59403,
@@ -86,7 +86,7 @@
     },
     {
       "uid": "c1bea2b4c01d1d4bd1e4e1f79e51cdd2",
-      "css": "flow-merge",
+      "css": "merge",
       "code": 59404,
       "src": "typicons"
     },
@@ -94,6 +94,12 @@
       "uid": "44e04715aecbca7f266a17d5a7863c68",
       "css": "plus",
       "code": 59405,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "fe6697b391355dec12f3d86d6d490397",
+      "css": "up-open",
+      "code": 59417,
       "src": "fontawesome"
     },
     {
@@ -112,6 +118,12 @@
       "uid": "ce06b5805120d0c2f8d60cd3f1a4fdb5",
       "css": "play",
       "code": 59406,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "d870630ff8f81e6de3958ecaeac532f2",
+      "css": "left-open",
+      "code": 59402,
       "src": "fontawesome"
     },
     {
@@ -145,12 +157,6 @@
       "src": "entypo"
     },
     {
-      "uid": "37b41cdae5ec9dab40e0c5bfff8a0ec8",
-      "css": "id-card",
-      "code": 62146,
-      "src": "fontawesome"
-    },
-    {
       "uid": "51727ca007aa35ceabcaffc28934faee",
       "css": "book-open",
       "code": 59411,
@@ -173,6 +179,30 @@
       "css": "character",
       "code": 59412,
       "src": "fontawesome"
+    },
+    {
+      "uid": "c8585e1e5b0467f28b70bce765d5840c",
+      "css": "docs",
+      "code": 61637,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "922ab2cb66943a83de969990289ef1dc",
+      "css": "copy",
+      "code": 59416,
+      "src": "entypo"
+    },
+    {
+      "uid": "bd517dbd6ccbc464f6d80efca97abb7d",
+      "css": "doc-add",
+      "code": 59418,
+      "src": "typicons"
+    },
+    {
+      "uid": "z18zsyvbrpsea0f49kd61kkue1ofsafy",
+      "css": "delete",
+      "code": 59415,
+      "src": "modernpics"
     }
   ]
 }

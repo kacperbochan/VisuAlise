@@ -21,9 +21,11 @@
                         <textarea class="form-control" id="prompt-{{ loop.index }}-input" name="prompt" style="height: 100px; display: none;">{{ version_data.prompt }}</textarea>
                     </div>
                     <div class="row">
-                        <div class="col-md-10"></div>
+                        <div class="col-md-8"></div>
                         <div class="col-md-2">
                             <button class="btn btn-primary" onclick="updateVersion({{loop.index}})" id="save-{{ loop.index }}" style="width: 100%; display:none;">Save</button>
+                        </div>
+                        <div class="col-md-2">
                             <button class="btn btn-secondary"  onclick="cancelVersion({{loop.index}})" id="cancel-{{ loop.index }}" style="width: 100%; display:none;">Cancel</button>
                         </div>
                     </div>
@@ -104,7 +106,7 @@
             document.getElementById("version-" + index).innerHTML = new_name;
             document.getElementById("prompt-" + index).innerHTML = prompt;
 
-            URL = "/project/{{project.name}}/characters/{{name}}/versions/update_name_and_prompt";
+            URL = "/project/{{project.name}}/character/{{name}}/versions/update_name_and_prompt";
             fetch(URL, {
                 method: 'POST',
                 headers: {
@@ -128,7 +130,7 @@
         function copyVersion(index){
             let name = document.getElementById("version-" + index).innerHTML;
 
-            URL = "/project/{{project.name}}/characters/{{name}}/versions/copy_version";
+            URL = "/project/{{project.name}}/character/{{name}}/versions/copy_version";
             fetch(URL, {
                 method: 'POST',
                 headers: {
@@ -152,7 +154,7 @@
                 return;
             }
             if(userInput === name) {
-                URL = "/project/{{project.name}}/characters/{{name}}/versions/delete_version";
+                URL = "/project/{{project.name}}/character/{{name}}/versions/delete_version";
                 fetch(URL, {
                     method: 'POST',
                     headers: {

@@ -1,0 +1,183 @@
+{% extends "characters_list/characters_base.html" %}
+
+{% block control_buttons %}
+<div style="text-align: right;">
+    <button class="size-setter selected-size" id="large-btn" >
+        <i class="icon-th-large-outline"></i>
+    </button>
+    <button class="size-setter" id="medium-btn">
+        <i class="icon-th-outline"></i>
+    </button>
+    <button class="size-setter" id="list-btn">
+        <i class="icon-menu-outline"></i>
+    </button>
+</div>
+{% endblock %}
+{% block sub_page_content %}
+
+</div>
+<div class="row" id="cards">
+    {% for character in characters %}
+    <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card dark-section">
+            <a href="/project/{{ project.name }}/character/{{ character.name }}/info" class="card-link">
+            
+                {% if character.image_path %}
+                    <img src="{{ character.image_path }}" alt="{{ character.user_name }}" class="card-img-top">
+                {% else %}
+                    <img src="/static/default_character.png" alt="{{ character.user_name }}" class="card-img-top">
+                {% endif %}
+                <div class="card-body">
+                    <p class="card-text">{{ character.user_name }}</p>
+                </div>
+            </a>
+            <div class="card-actions" id="card-actions-{{loop.index}}">
+                <div class="card-action-switch" onclick="actionsSwitch({{loop.index}})">
+                    <i class="icon-down-open" style="display: block" id="card-action-open-{{loop.index}}"></i>
+                    <i class="icon-up-open" style="display: none" id="card-action-close-{{loop.index}}"></i>
+                </div>
+                <div class="card-action-container" style="display: none" id="card-actions-section-{{loop.index}}" >
+                    <button class="card-action" id="copy-{{loop.index}}" onclick="copyCharacter('{{ character.name }}')">
+                        <i class="icon-copy"></i>
+                    </button>
+                    <button class="card-action" id="merge-{{loop.index}}" onclick="mergeCharacter('{{ character.name }}')">
+                        <i class="icon-merge"></i>
+                    </button>
+                    <button class="card-action" id="delete-{{loop.index}}" onclick="deleteCharacter('{{ character.name }}')">
+                        <i class="icon-delete"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row" id="list" style="display: none;">
+    <div class="list-group list-group-flush" style="flex-grow: 1;">
+        {% for character in characters %}
+            <div class="list-item-container dark-section">
+                <a href="/project/{{ project.name }}/character/{{ character.name }}/info" class="list-group-item list-group-item-action list-group-item-dark" style="margin-right: 10px;">
+                    <i class="icon-character"></i>
+                    {{ character.user_name }}
+                </a>
+                <div class="list-action-container">
+                    <button class="card-action" onclick="copyCharacter('{{ character.name }}')">Copy</button>
+                    <button class="card-action" onclick="mergeCharacter('{{ character.name }}')">Merge</button>
+                    <button class="card-action" onclick="deleteCharacter('{{ character.name }}')">Delete</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('large-btn').addEventListener('click', function () {
+            setImageSize('large');
+            selectSizeButton('large');
+        });
+        document.getElementById('medium-btn').addEventListener('click', function () {
+            setImageSize('medium');
+            selectSizeButton('medium');
+        });
+        document.getElementById('list-btn').addEventListener('click', function () {
+            setImageSize('list');
+            selectSizeButton('list');
+        });
+    });
+
+    
+    function selectSizeButton(size){
+        var buttons = document.querySelectorAll('.size-setter');
+        buttons.forEach(button => {
+            button.classList.remove('selected-size');
+        });
+        document.getElementById(size + '-btn').classList.add('selected-size');
+    }
+
+    function setImageSize(size) {
+        var cards = document.querySelectorAll('.card-img-top');
+        var characterCards = document.querySelectorAll('.col-md-3, .col-md-2');
+        var image_view = document.getElementById('cards');
+        var list = document.getElementById('list');
+
+        if (size === 'list') {
+            image_view.style.display = 'none';
+            list.style.display = 'block';
+            return;
+        }
+        
+        image_view.style.display = 'flex';
+        list.style.display = 'none';
+
+        cards.forEach(card => {
+            card.style.display = 'block';  // Ensures the image is treated as a block-level element
+            card.style.marginLeft = 'auto';
+            card.style.marginRight = 'auto';
+
+            switch (size) {
+                case 'large':
+                    card.style.width = '100%'; // or any large size
+                    card.style.height = 'auto';
+                    break;
+                case 'medium':
+                    card.style.width = '50%'; // or any medium size
+                    card.style.height = 'auto';
+                    break;
+            }
+        });
+
+        characterCards.forEach(card => {
+            card.classList.remove('col-md-3', 'col-md-2');
+            switch (size) {
+                case 'large':
+                    card.classList.add('col-md-3');
+                    break;
+                case 'medium':
+                    card.classList.add('col-md-2');
+                    break;
+            }
+        });
+    }
+
+    function actionsSwitch(index){
+        card_actions = document.getElementById('card-actions-'+index);
+        actions_section = document.getElementById('card-actions-section-'+index);
+        open_icon = document.getElementById('card-action-open-'+index);
+        close_icon = document.getElementById('card-action-close-'+index);
+
+        if (actions_section.style.display == 'none'){
+            card_actions.classList.add('card-actions-open');
+            actions_section.style.display = 'flex';
+            open_icon.style.display = 'none';
+            close_icon.style.display = 'block';
+        } else {
+            card_actions.classList.remove('card-actions-open');
+            actions_section.style.display = 'none';
+            open_icon.style.display = 'block';
+            close_icon.style.display = 'none';
+        }
+
+    }
+
+    function copyCharacter(index){        
+        window.alert("Copy character " + index);
+    }
+
+    function mergeCharacter(index){        
+        window.alert("merge character " + index);
+    }
+    
+    function deleteCharacter(index){        
+        let userInput = prompt("Are you sure you want to delete this character? \nPlease type their name to confirm:");
+
+        if (userInput === index) {
+            window.alert("Character " + index + " has been deleted.");
+        } else {
+            window.alert("Incorect name\n" + index + " has not been deleted.");
+        }
+    }
+
+</script>
+{% endblock %}
