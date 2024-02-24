@@ -68,6 +68,23 @@ button.generate:hover{
     color: white;
 }
 
+button.delete {
+    background-color: rgb(255, 36, 36); /* Button background */
+    color: white; /* Button text color */
+    font-weight: bold;
+    border: rgb(216, 36, 36) 2px solid; /* Remove borders */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 12px; /* Padding inside buttons */
+    cursor: pointer; /* Cursor effect on hover */
+    transition: background-color 0.3s ease; /* Smooth color transition on hover */
+}
+
+button.delete:hover{
+    background-color:  rgb(216, 36, 36); /* Change the background color when hovering or focusing */
+    color: white;
+}
+
+
 button.size-setter {
     background-color: var(--background-color-grey); /* Button background */
     color: var(--text-color-light); /* Button text color */
@@ -374,8 +391,13 @@ img.has_info{
     margin-bottom: 10px;
 }
 
+.version-section{
+    height: 45vh;
+
+}
+
 .version-card{
-    height: 60vh;
+    height: 45vh;
     max-height: 60vh;
 }
 
@@ -505,4 +527,22 @@ hr.bottomLine {
 .page-item.last{
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
+}
+
+.version_actions {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 40px;
+    box-sizing: border-box;
+    min-height: 420px; /* Adjust if necessary */
+}
+
+.version_actions button:not(:last-child) {
+    margin-bottom: 10px; /* Space between buttons except the last one */
+}
+
+/* Remove margin from the last button and push it to the bottom */
+.version_actions .delete {
+    margin-top: auto;
+    margin-bottom: 0;
 }
