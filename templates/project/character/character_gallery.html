@@ -56,11 +56,6 @@
         var promptBlock = {};
         const pname= "{{ project.name }}";
 
-        function getQueryParam(param) {
-            var searchParams = new URLSearchParams(window.location.search);
-            return searchParams.get(param);
-        }
-
         window.onload = async function() {
             promptBlock = await fetch('/project/' + pname + '/promptblock').then(response => response.json());            
             populateVersionSelect();
