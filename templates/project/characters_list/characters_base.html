@@ -17,8 +17,8 @@
             <button onclick="loadSubPage('creation')" class="segment-selector " id="characters-creation-btn">
                 Creation
             </button>
-            <button onclick="loadSubPage('merging')" class="segment-selector " id="characters-merging-btn">
-                Merging
+            <button onclick="loadSubPage('merge')" class="segment-selector " id="characters-merge-btn">
+                Merge
             </button>
         </div>
         {% block control_buttons %}{% endblock %}
@@ -43,8 +43,8 @@
         document.getElementById('characters-creation-btn').addEventListener('click', function () {
             selectSection('creation');
         });
-        document.getElementById('characters-merging-btn').addEventListener('click', function () {
-            selectSection('merging');
+        document.getElementById('characters-merge-btn').addEventListener('click', function () {
+            selectSection('merge');
         });
     });
 

@@ -95,7 +95,7 @@
             })
         }).then(response => {
             if (response.status === 200) {
-                window.location.href = '/project/{{ project.name }}/character/Jabberwocky/info';
+                window.location.href = '/project/{{ project.name }}/character/'+name+'/info';
             }
         });
     }

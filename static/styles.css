@@ -34,6 +34,10 @@ body.dark-mode {
     border-radius: 5px;
 }
 
+.dark-section.character-info{
+    padding-bottom: 0;
+}
+
 button.dark-section{
     background-color: var(0 0 0 1); /* Button background */
     color: var(--text-color-light); /* Button text color */
@@ -247,7 +251,7 @@ button.segment-selector.selected {
 
 .card-body {
     padding: 0.5rem; /* Padding inside the card */
-    
+    padding-bottom: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -264,6 +268,9 @@ button.segment-selector.selected {
 
 .character-info{
     border-radius: 5px; /* Rounded corners */
+}
+
+.gallery-card .character-info{
     height: 100%;
 }
 
@@ -449,4 +456,8 @@ hr.bottomLine {
 
 .list-item-container.dark-section{
     border-bottom: 1px solid var(--background-color-very-light-grey);
+}
+
+.merge-image{
+    padding: 20px 20px 20px 20px ;
 }

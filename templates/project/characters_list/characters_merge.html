@@ -1,0 +1,192 @@
+{% extends "characters_list/characters_base.html" %}
+
+{% from 'macros/macros.html' import expandable_image %}
+{% block sub_page_content %}
+
+<div class="dark-section" style="padding:40px; padding-top:0;">
+    <div class="row">
+        <div class="col-md-3">
+            <div id="character_selector-1" style="display: block;">
+                <select class="form-select" id="first_character" style=" margin: 40px 0 20px 0;">
+                    {% for character, character_values in characters.items() %}
+                        <option value="{{ character }}" {% if loop.index==1 %}selected{%endif%}>{{ character_values.user_name }}</option>
+                    {% endfor %}
+                </select>
+                <div class="merge-image" id="character-card-1">
+                    <img alt="" class="card-img-top expandable-img" id="img_1">
+                </div>
+                <hr class="bottomLine">
+                <div class="list-group list-group-flush" id="version_list_1" style="flex-grow: 1;">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1 d-flex align-items-center justify-content-center" style="padding: 50px;">
+            <h1 class="text-center" style="font-size:80px;">+</h1>
+        </div>
+        <div class="col-md-3">
+
+            <div id="character_selector-2" style="display: block">
+                <select class="form-select" id="second_character" style=" margin: 40px 0 20px 0;">
+                    {% for character, character_values in characters.items() %}
+                        <option value="{{ character }}" {% if loop.index==2 %}selected{%endif%}>{{ character_values.user_name }}</option>
+                    {% endfor %}
+                </select>
+                <div class="merge-image" id="character-card-2">
+                    <img alt="" class="card-img-top expandable-img" id="img_2">
+                </div>
+                <hr class="bottomLine">
+                <div class="list-group list-group-flush" id="version_list_2" style="flex-grow: 1;">
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-1 d-flex align-items-center justify-content-center" style="padding: 50px;">
+            <h1 class="text-center" style="font-size:80px;">=</h1>
+        </div>
+        <div class="col-md-3">
+            <button class="generate" id="mergeButton" style="width: 100%; padding: 20px; margin-top: 20px; margin-bottom: 10px;">Merge</button>
+            <div id="character_selector-3" style="display: block;">
+                <div class="merge-image" id="character-card-3">
+                    <img alt="" class="card-img-top expandable-img" id="img_3">
+                </div>
+                <hr class="bottomLine">
+                <div class="list-group list-group-flush" id="version_list_3" style="flex-grow: 1;">
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+    
+<script>
+    characters = {{ characters | tojson }};
+
+    fist_character = document.getElementById("first_character");
+    second_character = document.getElementById("second_character");
+    
+    current_first_value = first_character.value;
+    current_second_value = second_character.value;
+
+    function list_versions(ch_number) {
+        document.getElementById("version_list_"+ch_number).innerHTML = "";
+        character = characters[ch_number == 1 ? first_character.value : second_character.value];
+        const version = document.createElement('span');
+        version.classList.add('list-group-item', 'list-group-item-dark');
+        for( v in character.versions ) {
+            version.innerHTML = character.versions[v];
+            document.getElementById("version_list_"+ch_number).appendChild(version.cloneNode(true));
+        }
+    }
+
+    function list_outcome_versions() {
+        ch_number = 3;
+        document.getElementById("version_list_"+ch_number).innerHTML = "";
+        first = characters[first_character.value];
+        second = characters[second_character.value];
+        
+        list = [];
+        for( v in first.versions ) {
+            list.push(first.versions[v]);
+        }
+        for( v in second.versions ) {
+            v_name=second.versions[v];
+            count = 0;
+            while(list.includes(v_name)) {
+                count += 1;
+                v_name = v_name + "_" + count;
+            }
+            list.push(v_name);
+        }
+
+        const version = document.createElement('span');
+        version.classList.add('list-group-item', 'list-group-item-dark');
+        for( v in list ) {
+            version.innerHTML = list[v];
+            document.getElementById("version_list_"+ch_number).appendChild(version.cloneNode(true));
+        }
+    }
+
+    function change_character(ch_number) {
+        character = characters[ch_number == 2 ? second_character.value : first_character.value];//this way we can use this for all three characters
+        if(character.image != null && character.image != "")
+            document.getElementById("img_"+ch_number).src = "\\projects\\"+'{{project.name}}'+"\\images\\characters\\"+character.image;
+        else
+            document.getElementById("img_"+ch_number).src = "/static/default_character.png";
+    }
+
+    first_character.onchange = function() {
+        if(first_character.value == second_character.value) {
+            second_character.value = current_first_value;
+            current_second_value = second_character.value;
+            current_first_value = first_character.value;
+            list_versions(2);
+            change_character(2);
+        } else {
+            current_first_value = first_character.value;
+        }
+
+        list_versions(1);
+        change_character(1);
+        change_character(3);
+        list_outcome_versions();
+    }
+
+    second_character.onchange = function() {
+        if(first_character.value == second_character.value) {
+            first_character.value = current_second_value;
+            current_first_value = first_character.value;
+            current_second_value = second_character.value;
+            list_versions(1);
+            change_character(1);
+            change_character(3);
+        } else {
+            current_second_value = second_character.value;
+        }
+
+        list_versions(2);
+        change_character(2);
+        list_outcome_versions();
+    }
+
+    document.getElementById("mergeButton").onclick = async function() {
+        let userInput = prompt("Are you sure you want to merge second character into the first one? \nPlease type the name of the second character to confirm:");
+
+        if(userInput == null){
+            return;
+        }
+        if(userInput != second_character.value) {
+            alert("The name you entered does not match the second character's name. The merge was not performed.");
+            return;
+        }
+
+
+        const URL='/project/{{project.name}}/characters/merge';
+
+        await fetch(URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                first: first_character.value,
+                second: second_character.value
+            })
+        }).then(response => {
+            if (response.status === 200) {
+                window.location.href = '/project/{{ project.name }}/character/'+first+'/info';
+            }
+        });
+    }
+
+    list_versions(1);
+    list_versions(2);
+    change_character(1);
+    change_character(2);
+    change_character(3);
+    list_outcome_versions();
+</script>
+{% endblock %}

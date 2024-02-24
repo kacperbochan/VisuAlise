@@ -84,6 +84,24 @@ def get_project_prompts(project_path:str):
     # Convert the transformed data to JSON format
     return transformed_data
 
+def get_project_story_object_info(project_path:str, location: bool = False):
+    type = "locations" if location else "characters"
+    story_object_file = os.path.join(project_path, "data", type+".json")
+    
+    data = get_safe_json(story_object_file)
+    
+    transformed_data = {}
+    for character, details in data.items():
+        versions = details.get('versions', {})
+        transformed_data[character] = {}
+        transformed_data[character]['user_name'] = details['user_name']
+        transformed_data[character]['image'] = details['versions']['default']['image']
+        transformed_data[character]['versions'] = []
+        for version, version_details in versions.items():
+            transformed_data[character]['versions'].append(version)
+    
+    return transformed_data
+
 
 
 def get_project_story_objects(project_path:str,  location: bool = False):
@@ -174,7 +192,7 @@ async def read_character(request: Request, project_name: str):
     
 
 @router.get("/{project_name}/characters/list")
-async def read_character(request: Request, project_name: str):
+async def read_character_list(request: Request, project_name: str):
     project, project_path = get_project_by_name(project_name)
     visual_settings = get_visual_settings()
     
@@ -229,7 +247,52 @@ async def create_character(request: Request, project_name: str, name: str = Form
     with open(characters_file, 'w') as file:
         json.dump(data, file, indent=4)
 
+@router.get("/{project_name}/characters/merge")
+async def character_merge(request: Request, project_name: str):
+    project, project_path = get_project_by_name(project_name)
+    visual_settings = get_visual_settings()
     
+    characters = get_project_story_object_info(project_path, False)
+    
+    return templates.TemplateResponse("characters_list/characters_merge.html", {
+        "request": request,
+        "characters": characters,
+        "project": project,
+        "sub_page": "merge",
+        **visual_settings
+    })
+
+@router.post("/{project_name}/characters/merge")
+async def character_merge(request: Request, project_name: str, first: str = Form(), second: str = Form()):
+    if(first == second):
+        return {"message": "Cannot merge the same character"}
+    
+    project, project_path = get_project_by_name(project_name)
+    
+    characters = get_project_story_object_info(project_path, False)
+    if(first not in characters or second not in characters):
+        return {"message": "Invalid characters"}
+    
+    characters_file = os.path.join(project_path, "data/characters.json")
+    
+    data = get_safe_json(characters_file)
+    
+    for version in data[second]["versions"]:
+        new_name = version
+        count = 0
+        while(new_name in data[first]["versions"]):
+            count += 1
+            new_name = new_name + "_" + str(count)
+        data[first]["versions"][new_name] = data[second]["versions"][version]
+        
+    for image in data[second]["images"]:
+        if image not in data[first]["images"]:
+            data[first]["images"].append(image)
+    
+    del data[second]
+    
+    with open(characters_file, 'w') as file:
+        json.dump(data, file, indent=4)    
 
 @router.get("/{project_name}/locations")
 async def read_locations(request: Request, project_name: str):
@@ -246,8 +309,8 @@ async def read_locations(request: Request, project_name: str):
 
 style_prompts = {
     "characters":{
-        "default":  """(Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose""",
-        "anime": """(Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose""",
+        "default":  """masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose""",
+        "anime": """masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose""",
     },
     "locations":{
         "default": """(Landscape), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose""",
@@ -282,21 +345,6 @@ async def get_promptblock(request: Request, project_name: str):
     project, project_path = get_project_by_name(project_name)
     return get_project_prompts(project_path)
 
-
-
-@router.get("/{project_name}/generate/get_prompt/{type}/{name}")
-async def get_prompt(request: Request, project_name: str, type:str, name: str):
-    project, project_path = get_project_by_name(project_name)
-    if type == "character":
-        characters = get_project_story_objects(project_path, False)
-        for character in characters:
-            if character.name == name:
-                return character.prompt
-    elif type == "location":
-        locations = get_project_story_objects(project_path, True)
-        for location in locations:
-            if location["name"] == name:
-                return location["prompt"]
 
 @router.get("/{project_name}/generation/{sub_page}")
 async def generation_sub_page(request: Request, project_name: str, sub_page: str):
@@ -475,12 +523,12 @@ def get_checked_version(project_name:str, story_object_name:str, version_name: s
 @router.post("/{project_name}/{type}/{story_object_name}/versions/update_name_and_prompt")
 async def update_story_object_version(request: Request, project_name:str, type: str, story_object_name:str, version_name: str = Form(), new_version_name: str = Form(), new_version_prompt: str = Form()):
     
-    if(type != "characters" and type != "locations"):
+    if(type != "character" and type != "location"):
         return {"message": "Invalid type"}
     if(version_name == 'default' and version_name != new_version_name):
         return {"message": "Cannot change the default version name"}
     
-    message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="locations")
+    message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="location")
     if(message != None):
         return message
     
@@ -496,10 +544,10 @@ async def update_story_object_version(request: Request, project_name:str, type: 
 
 @router.post("/{project_name}/{type}/{story_object_name}/versions/copy_version")
 async def clone_story_object_version(project_name:str, type: str, story_object_name:str, version_name: str = Form()):
-    if(type != "characters" and type != "locations"):
+    if(type != "character" and type != "location"):
         return {"message": "Invalid type"}    
     
-    message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="locations")
+    message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="location")
     if(message != None):
         return message
     
@@ -519,7 +567,7 @@ async def clone_story_object_version(project_name:str, type: str, story_object_n
 @router.post("/{project_name}/{type}/{story_object_name}/versions/delete_version")
 async def delete_story_object_version(project_name:str, type: str, story_object_name:str, version_name: str = Form()):
     
-    if(type != "characters" and type != "locations"):
+    if(type != "character" and type != "location"):
         return {"message": "Invalid type"}
     if(version_name == 'default'):
         return {'message' : 'Cannot delete the default version'}
@@ -538,7 +586,7 @@ async def delete_story_object_version(project_name:str, type: str, story_object_
 
 @router.post("/{project_name}/{type}/{story_object_name}/assign_image_to_version")
 async def assign_image_to_story_object_version(project_name:str, type: str, story_object_name:str, version_name: str = Form(), image_path: str = Form()):
-    message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="locations")
+    message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="location")
     if(message != None):
         return message
         

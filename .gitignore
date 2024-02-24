@@ -1,5 +1,6 @@
 __pycache__/
 repositories/
+projects/
 comfyui*
-comfyui.log
 placeholder.html
+comfyui.prev2.log
