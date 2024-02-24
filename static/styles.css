@@ -461,3 +461,48 @@ hr.bottomLine {
 .merge-image{
     padding: 20px 20px 20px 20px ;
 }
+
+/* Style for all page links */
+.page-link {
+    background-color: var(--background-color-grey);
+    color: var(--text-color-light);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+/* Hover state for all page links */
+.page-link:hover {
+    background-color: var(--background-color-very-light-grey);
+    color: orange;
+}
+
+/* Default style for page items */
+.page-item {
+    border: 2px solid var(--text-color-darker-light);
+    font-weight: bold;
+}
+
+.page-item:hover{
+    border: 2px solid orange;
+}
+
+.page-item.selected .page-link{
+    background-color: orange;
+    color: black;
+}
+
+.page-item.selected:hover{
+    border: 2px solid var(--text-color-darker-light);
+}
+
+/* Target the first and last buttons specifically for rounded corners */
+.page-item.first{
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.page-item.last{
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}

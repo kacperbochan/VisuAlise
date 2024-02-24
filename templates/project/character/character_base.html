@@ -8,25 +8,25 @@
             <i class="icon-character"></i>
             {{ name }}
         </h2>
-        
-        <div class="section-selection">
-            <button onclick="loadSubPage('info')" class="segment-selector character-section selected" id="character-info-btn">
-                Information
-            </button>
-            <button onclick="loadSubPage('text_data')" class="segment-selector character-section" id="character-text_data-btn">
-                Text Data
-            </button>
-            <button onclick="loadSubPage('versions')" class="segment-selector character-section" id="character-versions-btn">
-                Versions
-            </button>
-            <button onclick="loadSubPage('gallery')" class="segment-selector character-section" id="character-gallery-btn">
-                Gallery
-            </button>
+        <div class="header"> 
+            <div class="section-selection">
+                <button onclick="loadSubPage('info')" class="segment-selector character-section selected" id="character-info-btn">
+                    Information
+                </button>
+                <button onclick="loadSubPage('text_data')" class="segment-selector character-section" id="character-text_data-btn">
+                    Text Data
+                </button>
+                <button onclick="loadSubPage('versions')" class="segment-selector character-section" id="character-versions-btn">
+                    Versions
+                </button>
+                <button onclick="loadSubPage('gallery')" class="segment-selector character-section" id="character-gallery-btn">
+                    Gallery
+                </button>
+            </div>
+            {% block control_buttons %}{% endblock %}
         </div>
-        <hr style="margin-top: 0;">
-        <div id="character-section">
-            {% block sub_page_content %}{% endblock %}
-        </div>
+        <hr class="bottomLine"> 
+        {% block sub_page_content %}{% endblock %}
     </div>
 {% endblock %}
 

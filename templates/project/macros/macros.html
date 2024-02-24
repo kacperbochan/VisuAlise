@@ -169,3 +169,78 @@
     </script>
 
 {% endmacro %}
+
+
+{% macro paging(current_page, page_amount, index=0) %}
+
+<nav aria-label="Page navigation" class="paging">
+    <ul class="pagination justify-content-center">
+        <div style="min-width: 71px">
+        <div class="pagination justify-content-center" id="first-page_{{index}}" >
+            <li class="page-item first first-page">
+                <a class="page-link" href="?page=1" aria-label="First" id="first_{{index}}">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li style="padding: 8px 12px 8px 12px;">...</li>
+        </div>
+        </div>
+        <div class="pagination justify-content-center" id="nearby-pages_{{index}}">
+            <li class="page-item" id="previous_1_{{index}}"><a class="page-link" href="?page={{ current_page - 2 }}">{{current_page - 2}}</a></li>
+            <li class="page-item" id="previous_{{index}}"><a class="page-link" href="?page={{ current_page - 1 }}">{{current_page - 1}}</a></li>
+            <li class="page-item selected"><span class="page-link" id="current">{{current_page}}</span></li>
+            <li class="page-item" id="next_{{index}}"><a class="page-link" href="?page={{ current_page + 1 }}">{{current_page + 1}}</a></li>
+            <li class="page-item" id="next_1_{{index}}"><a class="page-link" href="?page={{ current_page + 2 }}">{{current_page + 2}}</a></li>
+        </div>
+        <div style="min-width: 71px">
+        <div class="pagination justify-content-center" id="last-page_{{index}}" >
+            <li style="padding: 8px 12px 8px 12px;">...</li>
+            <li class="page-item last">
+                <a class="page-link" href="?page={{page_amount}}" aria-label="Last" id="last_{{index}}">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </div>
+        </div>
+    </ul>
+</nav>
+
+<script>
+    var current_page = {{ current_page }};
+    var page_amount = {{ page_amount }};
+    var index = {{ index }};
+    var previous = document.getElementById('previous_'+index);
+    var previous_1 = document.getElementById('previous_1_'+index);
+    var next = document.getElementById('next_'+index);
+    var next_1 = document.getElementById('next_1_'+index);
+    var first_page = document.getElementById('first-page_'+index);
+    var last_page = document.getElementById('last-page_'+index);
+    var nearby_pages = document.getElementById('nearby-pages_'+index);
+
+    if (current_page === 1){
+        first_page.style.display = 'none';
+    }
+    else if (current_page === page_amount){
+        last_page.style.display = 'none';
+    }
+    if(page_amount === 1){
+        first_page.style.display = 'none';
+        nearby_pages.style.display = 'none';
+        last_page.style.display = 'none';
+    }
+
+    if (current_page < 3){
+        previous_1.style.display = 'none';
+        if (current_page === 1){
+            previous.style.display = 'none';
+        }
+    }
+    else if (current_page > page_amount - 2){
+        next_1.style.display = 'none';
+        if (current_page === page_amount){
+            next.style.display = 'none';
+        }
+    }
+</script>
+
+{% endmacro %}

@@ -1,6 +1,11 @@
 {% extends 'character/character_base.html' %}
-{% from 'macros/macros.html' import gallery_choice_card %}
+{% from 'macros/macros.html' import gallery_choice_card, paging %}
 
+
+
+{% block control_buttons %}
+    {{ paging(current_page, page_amount) }}
+{% endblock %}
 
 {% block sub_page_content %}
     <div class="row">
@@ -41,9 +46,20 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+            {{ paging(current_page, page_amount,1) }}
+    </div>
+
     <script>
         var promptBlock = {};
         const pname= "{{ project.name }}";
+
+        function getQueryParam(param) {
+            var searchParams = new URLSearchParams(window.location.search);
+            return searchParams.get(param);
+        }
 
         window.onload = async function() {
             promptBlock = await fetch('/project/' + pname + '/promptblock').then(response => response.json());            

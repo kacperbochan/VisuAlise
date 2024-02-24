@@ -1,7 +1,7 @@
 import json
 import os
 import datetime
-from fastapi import APIRouter, FastAPI, HTTPException, Request, Form
+from fastapi import APIRouter, FastAPI, HTTPException, Query, Request, Form
 from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -9,7 +9,7 @@ from pydantic import BaseModel
 from models.models import Project, ProjectMenuData, LLM, DiffusionModel
 from models.dto_models import StoryElementMiniDTO
 from settings import global_settings as settings, load_user_settings
-from typing import List
+from typing import List, Optional
 from pathlib import Path
 
 router = APIRouter()
@@ -436,14 +436,31 @@ async def read_character_info(request: Request, project_name: str, character_id:
     })
 
 @router.get("/{project_name}/character/{character_id}/gallery", response_class=HTMLResponse)
-async def read_character(request: Request, project_name: str, character_id: str):
+async def read_character(request: Request, project_name: str, character_id: str, page: Optional[int] = Query(1, alias="page")):
+    
+    if(page < 1):
+        page=0
+    else:
+        page -= 1
+    
     
     project, project_path = get_project_by_name(project_name)
     character = get_story_object_data(project, project_path, character_id, False)
+    
+    page_amount = len(character["images"])//12
+    if(len(character["images"])%12 != 0):
+        page_amount += 1
+    if(page >= page_amount):
+        page = page_amount-1
+        
+    character["images"] = character["images"][page*12:page*12+12]
+    
     visual_settings = get_visual_settings()
     return templates.TemplateResponse("character/character_gallery.html", {
         "request": request,
         "project": project,
+        "page_amount": page_amount,
+        "current_page": page+1,
         "sub_page": "gallery",
         **character,
         **visual_settings
