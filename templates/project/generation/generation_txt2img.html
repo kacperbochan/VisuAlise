@@ -212,7 +212,7 @@
                 document.getElementById('default_1').getElementsByTagName('img')[1].src = "\\"+latest_image_path+"\\characters\\"+latest_image;
                 document.getElementById('sprite_1').getElementsByTagName('img')[0].src = "\\"+latest_image_path+"\\sprites\\"+latest_image;
                 document.getElementById('sprite_1').getElementsByTagName('img')[1].src = "\\"+latest_image_path+"\\sprites\\"+latest_image;
-                document.getElementById('character_card_text_1').innerHTML = latest_image;
+                document.getElementById('character_card_text_1').innerHTML = latest_image.split('\\').pop();
             }
             else{
                 //document.getElementById('default_1').getElementsByTagName('img')[0].src = latest_image_path+"\\"+latest_image;
@@ -238,7 +238,7 @@
                 if(gallery.childElementCount==1)selectMainImage();
                 queued--;
 
-                for (let i = 0; i < queued; i++) {
+                for (; queued > 0; queued--) {
                     await fetchNewImage();
                     addNewestImage();
                 }
@@ -258,8 +258,7 @@
                 document.getElementById('default_1').getElementsByTagName('img')[1].src = newDef;
                 document.getElementById('sprite_1').getElementsByTagName('img')[0].src = newSpr;
                 document.getElementById('sprite_1').getElementsByTagName('img')[1].src = newSpr;
-                document.getElementById('character_card_text_1').innerHTML = newDef;
-
+                document.getElementById('character_card_text_1').innerHTML = newDef.split('\\').pop();
             }
         });
 
@@ -272,8 +271,26 @@
             const model = document.getElementById('model').value;
             const seed = parseInt(document.getElementById('seed_input').value);
             const steps = parseInt(document.getElementById('steps_input').value);
+            if(steps < 1){
+                alert("Steps must be greater than 0");
+                return;
+            }
+            if(steps > 50){
+                alert("Steps must be less than 50");
+                return;
+            }
+
             const batchAmount = parseInt(document.getElementById('batch_amount_input').value);
+            if(batchAmount < 1){
+                alert("Batch amount must be greater than 0");
+                return;
+            }
+
             const cfg = parseInt(document.getElementById('cfg_input').value);
+            if(cfg < 1){
+                alert("cfg scale must be greater than 0");
+                return;
+            }
             const version = versionSelector.value;
         
             var name = image_type === 'character' ? characterSelector.value : locationSelector.value;

@@ -134,7 +134,7 @@ async def get_generated_images(project: str):
     return {"image_directory": character_images_dir, "image": image}
 
 
-negative_prompt_base = """FastNegativeV2, BadDream"""
+negative_prompt_base = """"""
 
 def get_file_number(directory:str, filename:str, skip:int = 0):
     
@@ -174,6 +174,11 @@ async def generate_image(
                         version: str = Form()
                         ):
     seed = floor(seed)
+    if(seed<-1): seed = -1
+    if(steps<1): steps = 1
+    if(batch_amount<1): batch_amount = 1
+    if(cfg<1): cfg = 1
+    
     if Model_Status["LLM"] == "loaded": return {"response": "LLM loaded"}
     if Model_Status["Diffusion"] != "loaded": await load_diffusion_model()
     
