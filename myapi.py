@@ -214,7 +214,7 @@ async def generate_image(
         filenames = getFileNames(loc_directory, name+"_"+version,batch_amount)
         
         update_workflow_by_title(data,"Save_Default", directory=loc_directory, filename=filenames[0])
-        update_workflow_by_title(data,"Empty_Latent_Image", width=768, height=512)
+        update_workflow_by_title(data,"Empty_Latent_Image", width=1792, height=1024)
     else:
         return {"response": "Invalid image type"}
     

@@ -59,26 +59,26 @@
     </script>
 {% endmacro %}
 
-{% macro expandable_location_image(project, type, image_path, image_name, id, prompt="", name="img") %}
+{% macro expandable_location_image(project, image_path, image_name, id, prompt="", name="img") %}
     <div class="expandable-image">
-        <img src="\projects\{{ project }}\images\{{ type }}\\{{ image_path }}" alt="{{ image_name }}" class="card-img-top expandable-img" id="{{ name }}_{{ id }}">
+        <img src="\projects\{{ project }}\images\locations\\{{ image_path }}" alt="{{ image_name }}" class="card-img-top expandable-img" id="{{ name }}_{{ id }}">
         <div id="{{ name }}_Modal_{{ id }}" class="modal">
             <div id="{{ name }}_infoPanel_{{ id }}" class="info-panel" style="display: none; flex-direction: column; justify-content: center;">
                 <div>
                     <h3>Name:</h3>
-                    <p class="prompt" id="{{type}}_name_{{id}}">{{ image_path }}</p>
+                    <p class="prompt" id="locations_name_{{id}}">{{ image_path }}</p>
                 </div>
                 <br>
                 <div>
                     <h3>Prompt:</h3>
-                    <p class="prompt" id="{{type}}_prompt_{{id}}">{{prompt}}</p>
+                    <p class="prompt" id="locations_prompt_{{id}}">{{prompt}}</p>
                 </div>
             </div>
             <div class="modal-header">
                 <span class="info-icon" id="{{ name }}_info_{{ id }}">&#9432;</span>
                 <span class="close" id="{{ name }}_close_{{ id }}">&times;</span>
             </div>
-            <img class="modal-content" id="{{ name }}_modalImg_{{ id }}" src="\projects\{{ project }}\images\{{ type }}\\{{ image_path }}" alt="{{ image_name }}" style="max-width:50%">
+            <img class="modal-content" id="{{ name }}_modalImg_{{ id }}" src="\projects\{{ project }}\images\locations\\{{ image_path }}" alt="{{ image_name }}" style="max-width:50%">
         </div>
     </div>
     <script>
@@ -188,16 +188,13 @@
         </div>
         <hr style="margin-top: 0;">
             <div id="default_{{id}}" style="display: block; ">
-                {{ expandable_location_image(project, "locations", image_path, image_name, id, prompt, "default") }}
+                {{ expandable_location_image(project, image_path, image_name, id, prompt, "default") }}
             </div>
         <div class="card-body">
             <p class="card-text" id="location_card_text_{{id}}">{{ image_path }}</p>
         </div>
     </div>
 {% endmacro %}
-
-
-
 
 {% macro image_choice_card(project, image_path, image_name, id, prompt="") %}
     <div class="dark-section character-info">
@@ -239,7 +236,7 @@
 {% macro location_card(project, image_path, image_name, id, prompt="") %}
     <div class="dark-section character-info">
             <div id="default_{{id}}" style="display: block; ">
-                {{ expandable_location_image(project, "locations", image_path, image_name, id, prompt, "default") }}
+                {{ expandable_location_image(project, image_path, image_name, id, prompt, "default") }}
             </div>
         <div class="card-body">
             <p class="card-text" id="location_card_text_{{id}}">{{ image_path }}</p>
