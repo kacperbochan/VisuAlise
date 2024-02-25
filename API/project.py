@@ -1,7 +1,7 @@
 import json
 import os
 import datetime
-from fastapi import APIRouter, FastAPI, HTTPException, Query, Request, Form
+from fastapi import APIRouter, Body, FastAPI, HTTPException, Query, Request, Form
 from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -627,6 +627,76 @@ async def read_location(request: Request, project_name: str, location_id: str):
         **visual_settings
     })
 
+def check_if_image_exists(project_path: str, type: str, image_name: str):
+    return os.path.isfile(os.path.join(project_path, "images", type, image_name))
+
+def check_if_image_is_referenced(data, image_name: str):    
+    for story_object in data.values():
+        for image in story_object["images"]:
+            if image["path"] == image_name:
+                return True
+    return False
+
+@router.post("/{project_name}/{type}/{story_object_name}/delete_selected_image")
+async def delete_selected_image(project_name:str, type: str, story_object_name:str, image_path: str = Form()):
+    type = type+"s"
+    
+    if(type != "characters" and type != "locations"):
+        return {"message": "Invalid type"}
+    
+    project, project_path = get_project_by_name(project_name)
+    story_object_file = os.path.join(project_path, "data", type+".json")
+    
+    data = get_safe_json(story_object_file)
+    
+    for image in data[story_object_name]["images"]:
+        if image["path"] == image_path:
+            data[story_object_name]["images"].remove(image)
+    for version in data[story_object_name]["versions"]:
+        if data[story_object_name]["versions"][version]["image"] == image_path:
+            data[story_object_name]["versions"][version]["image"] = ""
+    
+    with open(story_object_file, 'w') as file:
+        json.dump(data, file, indent=4)
+    
+    if(not check_if_image_is_referenced(data, image_path)):
+        os.remove(os.path.join(project_path, "images", type, image_path))
+        if(type=="characters"):
+            os.remove(os.path.join(project_path, "images", "sprites", image_path))
+    
+    return {"message": "Image deleted"}
+
+@router.post("/{project_name}/{type}/{story_object_name}/delete_selected_images")
+async def delete_selected_images(project_name:str, type: str, story_object_name:str, body = Body(...)):
+    image_paths = body["image_paths"]
+    type = type+"s"
+    
+    if(type != "characters" and type != "locations"):
+        return {"message": "Invalid type"}
+    
+    project, project_path = get_project_by_name(project_name)
+    story_object_file = os.path.join(project_path, "data", type+".json")
+    
+    data = get_safe_json(story_object_file)
+    
+    for image_path in image_paths:
+        for image in data[story_object_name]["images"]:
+            if image["path"] == image_path:
+                data[story_object_name]["images"].remove(image)
+        for version in data[story_object_name]["versions"]:
+            if data[story_object_name]["versions"][version]["image"] == image_path:
+                data[story_object_name]["versions"][version]["image"] = ""
+    
+    with open(story_object_file, 'w') as file:
+        json.dump(data, file, indent=4)
+    
+    for image_path in image_paths:
+        if(not check_if_image_is_referenced(data, image_path)):
+            os.remove(os.path.join(project_path, "images", type, image_path))
+            if(type=="characters"):
+                os.remove(os.path.join(project_path, "images", "sprites", image_path))
+    
+    return {"message": "Images deleted"}
 
 @router.get("/{project_name}/model-lists")
 async def get_model_lists_endpoint(project_name: str):

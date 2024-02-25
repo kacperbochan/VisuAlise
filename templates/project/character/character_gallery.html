@@ -4,10 +4,18 @@
 
 
 {% block control_buttons %}
-    {{ paging(current_page, page_amount) }}
+    
+    <div class="deleteMany">
+        <button class="btn btn-danger" id="delete_many_btn" onclick="enterDeleteMode()">Delete Many</button>
+        <button class="btn btn-light" id="check_all_btn" onclick="check_all_checkbox()" style="display: none;"><i class="icon-check-empty"></i>Select All</button>
+        <button class="btn btn-light" id="uncheck_all_btn" onclick="uncheck_all_checkbox()" style="display: none;"><i class="icon-check"></i>Unselect All</button>
+        <button class="btn btn-danger" id="delete_selected_btn" onclick="deleteSelected()" style="display: none;">Delete Selcted [<span id="selected_amount">0</span>]</button>
+        <button class="btn btn-secondary" id="cancel_deletion_btn" onclick="exitDeleteMode()" style="display: none;">Cancel</button>
+    </div>
 {% endblock %}
 
 {% block sub_page_content %}
+    {{ paging(current_page, page_amount) }}
     <div class="row">
         {% if images %}
         {% for gallery_image in images %}
@@ -53,12 +61,132 @@
     </div>
 
     <script>
+
+
+        var checkboxes = document.getElementsByClassName('icon-check-empty unchecked');
+        var checked_checkboxes = document.getElementsByClassName('icon-check checked');
+        var selected_amount = document.getElementById('selected_amount');
         var promptBlock = {};
         const pname= "{{ project.name }}";
+        const images = {{ images | tojson }};
+        var deleteList = [];
 
         window.onload = async function() {
             promptBlock = await fetch('/project/' + pname + '/promptblock').then(response => response.json());            
             populateVersionSelect();
+        }
+        
+        function updateSelectedAmount(){
+            selected_amount.innerHTML = deleteList.length;
+        }
+
+        function enterDeleteMode(){
+            uncheck_all_checkbox();
+            updateSelectedAmount();
+            showCheckboxes();
+            document.getElementById('delete_many_btn').style.display = "none";
+            document.getElementById('check_all_btn').style.display = "inline";
+            document.getElementById('delete_selected_btn').style.display = "inline";
+            document.getElementById('cancel_deletion_btn').style.display = "inline";
+        }
+
+        function exitDeleteMode(){
+            uncheck_all_checkbox();
+            hideChexboxes();
+            document.getElementById('delete_many_btn').style.display = "inline";
+            document.getElementById('check_all_btn').style.display = "none";
+            document.getElementById('delete_selected_btn').style.display = "none";
+            document.getElementById('cancel_deletion_btn').style.display = "none";
+        }
+
+        function are_all_checked(){
+            return images.length == deleteList.length;
+        }
+
+        function show_unselect_all(){
+            check_all_btn = document.getElementById('check_all_btn');
+            uncheck_all_btn = document.getElementById('uncheck_all_btn');
+
+            check_all_btn.style.display = "none";
+            uncheck_all_btn.style.display = "inline";
+        }
+
+        function show_select_all(){
+            check_all_btn = document.getElementById('check_all_btn');
+            uncheck_all_btn = document.getElementById('uncheck_all_btn');
+
+            check_all_btn.style.display = "inline";
+            uncheck_all_btn.style.display = "none";
+        }
+
+        function showCheckboxes(){
+            var checkboxes = document.getElementsByClassName('checkbox-button');
+            var deletebuttons = document.getElementsByClassName('delete-button');
+            for (var i = 0; i < checkboxes.length; i++){
+                checkboxes[i].style.display = "inline";
+            }
+            for (var i = 0; i < deletebuttons.length; i++){
+                deletebuttons[i].style.display = "none";
+            }
+        }
+        
+        function hideChexboxes(){
+            var checkboxes = document.getElementsByClassName('checkbox-button');
+            var deletebuttons = document.getElementsByClassName('delete-button');
+            for (var i = 0; i < checkboxes.length; i++){
+                checkboxes[i].style.display = "none";
+            }
+            for (var i = 0; i < deletebuttons.length; i++){
+                deletebuttons[i].style.display = "inline";
+            }
+        }
+
+        function switch_checkbox(i){
+            i = i - 1;
+            if (checkboxes[i].style.display == "none"){
+                uncheck_checkbox(i);
+            } else {
+                check_checkbox(i);
+            }
+            if(are_all_checked()){
+                show_unselect_all();
+            } else {
+                show_select_all();
+            }
+            updateSelectedAmount();
+        }
+
+        function check_checkbox(i){
+            document.getElementById("choice_card_"+(i+1)).classList.add("selected-deletion");
+            document.getElementById("checkbox_"+(i+1)).classList.add("btn-checked");
+            checkboxes[i].style.display = "none";
+            checked_checkboxes[i].style.display = "inline";
+            deleteList.push(images[i].path);
+        }
+
+        function uncheck_checkbox(i){
+            document.getElementById("choice_card_"+(i+1)).classList.remove("selected-deletion");
+            document.getElementById("checkbox_"+(i+1)).classList.remove("btn-checked");
+            checkboxes[i].style.display = "inline";
+            checked_checkboxes[i].style.display = "none";
+            deleteList = deleteList.filter(item => item !== images[i].path);
+        }
+
+        function check_all_checkbox(){
+            deleteList = [];
+            for (var i = 0; i < checkboxes.length; i++){
+                check_checkbox(i);
+            }
+            show_unselect_all();
+            updateSelectedAmount();
+        }
+
+        function uncheck_all_checkbox(){
+            for (var i = 0; i < checkboxes.length; i++){
+                uncheck_checkbox(i);
+            }
+            show_select_all();
+            updateSelectedAmount();
         }
 
         function populateVersionSelect(){
@@ -114,6 +242,49 @@
 
         function cancel(){
             document.getElementById('image-version-selection-Modal').style.display = "none";            
+        }
+
+        function delete_selected(index){
+            console.log(images[index-1].path);
+            if(confirm("Are you sure you want to delete this image?\n"+images[index-1].path+"\nThis action cannot be undone.")){
+                URL = "/project/{{project.name}}/character/{{name}}/delete_selected_image";
+                fetch(URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        "image_path": images[index-1].path
+                    })
+                }).then(response => {
+                    if (response.status === 200) {
+                        window.alert("Image deleted successfully.");
+                        location.reload();
+                    }
+                })};
+            }
+
+        function deleteSelected(){
+            if (deleteList.length > 0){                
+                if (confirm("Are you sure you want to delete the selected ["+deleteList.length+"] images?"+deleteList.join('\n')+"\nThis action cannot be undone.")){
+                    URL = "/project/{{project.name}}/character/{{name}}/delete_selected_images";
+                    fetch(URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            "image_paths": deleteList
+                        })
+                    }).then(response => {
+                        if (response.status === 200) {
+                            window.alert("Images deleted successfully.");
+                            location.reload();
+                        }
+                    })
+                
+                }
+            }
         }
 
     </script>

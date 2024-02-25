@@ -134,6 +134,63 @@ button.segment-selector.selected {
     border-style: solid; /* Add border style */
 }
 
+button.image-card-selector {
+    min-width: 60px;
+    background-color: var(--background-color-grey); /* Button background */
+    color: var(--text-color-light); /* Button text color */
+    border: 1px solid var(--text-color-darker-light); /* Add border */
+    border-radius: 5px 5px 0 0;
+    padding: 8px 12px; /* Padding inside buttons */
+    cursor: pointer; /* Cursor effect on hover */
+    font-weight: bold; /* Bold text */
+}
+
+button.image-card-selector:hover {
+    background-color: var(--background-color-very-light-grey); /* Button background */
+}
+
+button.delete-button{
+    border: rgb(216, 36, 36) 2px solid; /* Remove borders */
+    transition: background-color 0.3s ease; /* Smooth color transition on hover */
+}
+
+button.delete-button:hover{
+    background-color:  rgb(216, 36, 36); /* Change the background color when hovering or focusing */
+    color: white;
+}
+
+button.checkbox-button{
+    background-color: var(--text-color-darker-light); /* Button background */
+    color: var(--text-color-light); /* Button text color */
+    border: 2px solid var(--text-color-darker-light); /* Add border */
+    border-radius: 5px 5px 0 0;
+    padding: 2px; /* Padding inside buttons */
+    cursor: pointer; /* Cursor effect on hover */
+    font-weight: bold; /* Bold text */
+    font-size: 24px;
+}
+
+button.checkbox-button.btn-checked{
+    background-color: crimson; /* Button background */
+}
+
+.dark-section.selected-deletion{
+    background-color: var(--background-color-very-light-grey);
+    color: orange;
+    border-color: orange;
+    border-width: 2px;
+    border-style: solid; /* Add border style */
+
+}
+
+button.image-card-selector.selected {
+    background-color: var(--background-color-very-light-grey); /* Button background */
+    color: orange; /* Button text color */
+    border-color: orange; /* Border color */
+    border-width: 2px; /* Border width */
+    border-style: solid; /* Add border style */
+}
+
 
 .project-item {
     transition: background-color 0.3s ease;

@@ -60,15 +60,22 @@
 {% endmacro %}
 
 {% macro gallery_choice_card(project, image_path, image_name, id, prompt="") %}
-    <div class="dark-section character-info">
+    <div class="dark-section character-info" id="choice_card_{{id}}">
         <div class="header" style="padding: 0;" >
             <div style="text-align: left">
-                <button class="segment-selector selected" id="default_{{id}}_btn">default</button>
-                <button class="segment-selector" id="sprite_{{id}}_btn">Sprite</button>
+                <button class="image-card-selector selected" id="default_{{id}}_btn">Default</button>
+                <button class="image-card-selector" id="sprite_{{id}}_btn">Sprite</button>
             </div>
             <div style="text-align: right;">
-                <button class="size-setter segment-selector" id="id-card-{{id}}" onclick="openImageVersionSelector({{id}})">
+                <button class="image-card-selector" id="id-card-{{id}}" onclick="openImageVersionSelector({{id}})">
                     <i class="icon-id-card-o"></i>
+                </button>
+                <button class="image-card-selector delete-button" id="delete-{{id}}" onclick="delete_selected({{id}})">
+                    <i class="icon-delete"></i>
+                </button>
+                <button class="image-card-selector checkbox-button" id="checkbox_{{id}}" onclick="switch_checkbox({{id}})" style="display: none">
+                    <i class="icon-check checked" style="display:none;"></i>
+                    <i class="icon-check-empty unchecked"></i>
                 </button>
             </div>
         </div>
@@ -172,7 +179,6 @@
 
 
 {% macro paging(current_page, page_amount, index=0) %}
-
 <nav aria-label="Page navigation" class="paging">
     <ul class="pagination justify-content-center">
         <div style="min-width: 71px">
