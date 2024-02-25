@@ -10,6 +10,7 @@
                 <select class="form-select" id="first_character" style=" margin: 40px 0 20px 0;">
                     {% for character, character_values in characters.items() %}
                         <option value="{{ character }}" {% if loop.index==1 %}selected{%endif%}>{{ character_values.user_name }}</option>
+                        
                     {% endfor %}
                 </select>
                 <div class="merge-image" id="character-card-1">
@@ -71,6 +72,22 @@
     current_first_value = first_character.value;
     current_second_value = second_character.value;
 
+    async function initialVersion(){
+        const url = new URL(window.location.href);
+        const params = url.searchParams;
+
+        // Get the values of the parameters
+        const character = params.get('first_character');
+        
+        if(character != null && character != "" && characters[character] != null){
+            first_character.value = character;
+            first_character_changed();
+        }
+    }
+    
+    initialVersion();
+
+
     function list_versions(ch_number) {
         document.getElementById("version_list_"+ch_number).innerHTML = "";
         character = characters[ch_number == 1 ? first_character.value : second_character.value];
@@ -118,7 +135,7 @@
             document.getElementById("img_"+ch_number).src = "/static/default_character.png";
     }
 
-    first_character.onchange = function() {
+    function first_character_changed(){
         if(first_character.value == second_character.value) {
             second_character.value = current_first_value;
             current_second_value = second_character.value;
@@ -133,6 +150,10 @@
         change_character(1);
         change_character(3);
         list_outcome_versions();
+    }
+
+    first_character.onchange = function() {
+        first_character_changed();
     }
 
     second_character.onchange = function() {

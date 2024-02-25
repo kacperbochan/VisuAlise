@@ -17,9 +17,11 @@
             <button onclick="loadSubPage('creation')" class="segment-selector " id="characters-creation-btn">
                 Creation
             </button>
-            <button onclick="loadSubPage('merge')" class="segment-selector " id="characters-merge-btn">
-                Merge
-            </button>
+            {% if project.characters_n > 1 %}
+                <button onclick="loadSubPage('merge')" class="segment-selector " id="characters-merge-btn">
+                    Merge
+                </button>
+            {% endif %}
         </div>
         {% block control_buttons %}{% endblock %}
     </div>

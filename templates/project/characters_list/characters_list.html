@@ -40,9 +40,11 @@
                     <button class="card-action" id="copy-{{loop.index}}" onclick="copyCharacter('{{ character.name }}')">
                         <i class="icon-copy"></i>
                     </button>
-                    <button class="card-action" id="merge-{{loop.index}}" onclick="mergeCharacter('{{ character.name }}')">
-                        <i class="icon-merge"></i>
-                    </button>
+                    {% if project.characters_n > 1 %}
+                        <button class="card-action" id="merge-{{loop.index}}" onclick="mergeCharacter('{{ character.name }}')">
+                            <i class="icon-merge"></i>
+                        </button>
+                    {% endif %}
                     <button class="card-action" id="delete-{{loop.index}}" onclick="deleteCharacter('{{ character.name }}')">
                         <i class="icon-delete"></i>
                     </button>
@@ -87,6 +89,13 @@
         });
     });
 
+    function mergeCharacter(characterName){
+        document.location.href = "/project/{{ project.name }}/characters/merge?first_character=" + characterName;
+    }
+
+    function copyCharacter(characterName){
+        
+    }
     
     function selectSizeButton(size){
         var buttons = document.querySelectorAll('.size-setter');
