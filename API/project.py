@@ -246,6 +246,58 @@ async def create_character(request: Request, project_name: str, name: str = Form
     
     with open(characters_file, 'w') as file:
         json.dump(data, file, indent=4)
+        
+    project.characters_n = len(data)
+    update_project_data(project, project_path)
+    
+
+def update_project_data(project: Project, project_path: str):
+    project_json_file = project_path + "/data/project_data.json"
+    with open(project_json_file, 'w') as file:
+        json.dump(project.model_dump(), file, indent=4)
+        
+        
+def check_free_user_name(name, data):
+    for character in data.values():
+        if character["user_name"] == name:
+            return False
+    return True
+
+def get_free_user_name(name, data):
+    count = 0
+    new_name = name
+    while not check_free_user_name(new_name, data):
+        count += 1
+        new_name = name + "_" + str(count)
+    return new_name
+
+@router.post("/{project_name}/characters/copy")
+async def character_copy(request: Request, project_name: str, name: str = Form()):
+    project, project_path = get_project_by_name(project_name)
+    character_names = get_project_story_objects_names(project_path, False)
+    
+    new_name = name + "_copy"
+    count = 0
+    while(new_name in character_names):
+        count += 1
+        new_name = name + "_copy_" + str(count)
+    
+    characters_file = os.path.join(project_path, "data/characters.json")
+    
+    data = get_safe_json(characters_file)
+    
+    data[new_name] = data[name].copy()
+    data[new_name]["name"] = new_name
+    data[new_name]["user_name"] = get_free_user_name(new_name, data)
+    data[new_name]["id"] = len(data)
+    
+    with open(characters_file, 'w') as file:
+        json.dump(data, file, indent=4)
+    
+    project.characters_n = len(data)
+    update_project_data(project, project_path)
+    
+    return {"message": new_name}
 
 @router.get("/{project_name}/characters/merge")
 async def character_merge(request: Request, project_name: str):
@@ -752,10 +804,7 @@ async def update_settings(request: Request, project_name: str,
     
     project.llm = updated_model
     
-    project_json_file = project_path + "/data/project_data.json"
-    
-    with open(project_json_file, 'w') as file:
-        json.dump(project.dict(), file, indent=4)
+    update_project_data(project, project_path)
     
     return {"message": "LLM settings updated"}
 
@@ -790,9 +839,6 @@ async def update_settings(request: Request, project_name: str,
     
     project.diffusion_model = updated_model
     
-    project_json_file = project_path + "/data/project_data.json"
-    
-    with open(project_json_file, 'w') as file:
-        json.dump(project.model_dump(), file, indent=4)
+    update_project_data(project, project_path)
     
     return {"message": "Diffusion Model settings updated"}

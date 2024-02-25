@@ -93,8 +93,25 @@
         document.location.href = "/project/{{ project.name }}/characters/merge?first_character=" + characterName;
     }
 
-    function copyCharacter(characterName){
+    async function copyCharacter(characterName){
         
+        const URL='/project/{{project.name}}/characters/copy';
+
+        await fetch(URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                name: characterName
+            })
+        }).then(response => {
+            if (response.status === 200) {
+                response.json().then(data => {
+                    window.location.href = '/project/{{ project.name }}/character/'+data.message+'/info';
+                });
+            }
+        });
     }
     
     function selectSizeButton(size){
@@ -168,10 +185,6 @@
             close_icon.style.display = 'none';
         }
 
-    }
-
-    function copyCharacter(index){        
-        window.alert("Copy character " + index);
     }
 
     function mergeCharacter(index){        
