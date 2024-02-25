@@ -113,7 +113,37 @@
             }
         });
     }
+
     
+    
+    
+    async function deleteCharacter(characterName){        
+        let userInput = prompt("Are you sure you want to delete this character? \nPlease type their name to confirm:");
+
+        if (userInput === characterName) {
+            const URL='/project/{{project.name}}/characters/delete_character';
+
+            await fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    name: characterName
+                })
+            }).then(response => {
+                if (response.status === 200) {
+                    response.json().then(data => {
+                        window.location.href = '/project/{{ project.name }}/characters';
+                    });
+                }
+            });
+
+        } else {
+            window.alert("Incorect name\n" + index + " has not been deleted.");
+        }
+    }
+
     function selectSizeButton(size){
         var buttons = document.querySelectorAll('.size-setter');
         buttons.forEach(button => {
@@ -186,20 +216,5 @@
         }
 
     }
-
-    function mergeCharacter(index){        
-        window.alert("merge character " + index);
-    }
-    
-    function deleteCharacter(index){        
-        let userInput = prompt("Are you sure you want to delete this character? \nPlease type their name to confirm:");
-
-        if (userInput === index) {
-            window.alert("Character " + index + " has been deleted.");
-        } else {
-            window.alert("Incorect name\n" + index + " has not been deleted.");
-        }
-    }
-
 </script>
 {% endblock %}

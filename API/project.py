@@ -249,7 +249,6 @@ async def create_character(request: Request, project_name: str, name: str = Form
         
     project.characters_n = len(data)
     update_project_data(project, project_path)
-    
 
 def update_project_data(project: Project, project_path: str):
     project_json_file = project_path + "/data/project_data.json"
@@ -298,6 +297,38 @@ async def character_copy(request: Request, project_name: str, name: str = Form()
     update_project_data(project, project_path)
     
     return {"message": new_name}
+
+@router.post("/{project_name}/characters/delete_character")
+async def character_delete(request: Request, project_name: str, name: str = Form()):
+    project, project_path = get_project_by_name(project_name)
+    character_names = get_project_story_objects_names(project_path, False)
+    
+    if(not (name in character_names)):
+        return {"message": "Invalid character name"}
+    
+    characters_file = os.path.join(project_path, "data/characters.json")
+    
+    data = get_safe_json(characters_file)
+    
+    
+    for character in data.values():
+        if(character["name"] == name):
+            for image in character["images"]:
+                if(check_if_image_exists(project_path, "characters", image["path"]) and not check_if_image_is_referenced(data, image["path"])):
+                        os.remove(os.path.join(project_path, "images", "characters", image["path"]))
+                        os.remove(os.path.join(project_path, "images", "sprites", image["path"]))
+            break
+    
+    del data[name]
+    
+    with open(characters_file, 'w') as file:
+        json.dump(data, file, indent=4)
+    
+    project.characters_n = len(data)
+    update_project_data(project, project_path)
+    
+    return {"message": "Character deleted"}
+
 
 @router.get("/{project_name}/characters/merge")
 async def character_merge(request: Request, project_name: str):
