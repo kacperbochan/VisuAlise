@@ -1,0 +1,190 @@
+{% extends 'location/location_base.html' %}
+{% from 'macros/macros.html' import location_card %}
+
+{% block sub_page_content %}
+    {% for version_key, version_data in versions.items() %}
+    
+    <div class=" mb-2">
+        <div class="row">
+            <div class="col-md-8">
+                <div class=" dark-section">
+                    <div class="form-group col-md-4">
+                        <label for="version-{{ loop.index }}-input" style="font-weight: bold; margin-top: 10px;">Version Name:</label>
+                        <p class="prompt" id="version-{{ loop.index }}">{{ version_key }}</p>
+                        <div style="min-height: 40px;">
+                        {% if version_key != "default" %}
+                            <input type="text" class="form-control" id="version-{{ loop.index }}-input" value="{{ version_key }}" style="display: none;"></input>
+                        {% endif %}
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="prompt-{{ loop.index }}-input" style="font-weight: bold; ">Prompt:</label>
+                        <p class="prompt" id="prompt-{{ loop.index }}">{{ version_data.prompt }}</p>
+                        <div style="min-height: 100px;">
+                            <textarea class="form-control" id="prompt-{{ loop.index }}-input" name="prompt" style="height: 100px; display: none;">{{ version_data.prompt }}</textarea>
+                        </div>
+                    </div>
+                    <div style="min-height: 38px;">
+                    <div class="row">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" onclick="updateVersion({{loop.index}})" id="save-{{ loop.index }}" style="width: 100%; display:none;">Save</button>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-secondary"  onclick="closeEdit({{loop.index}})" id="cancel-{{ loop.index }}" style="width: 100%; display:none;">Cancel</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+                
+            <div class="col-md-2 version-card">
+                    {% if version_data.image %}
+                        {{location_card(project.name, version_data.image, version_data.image, loop.index, version_data.prompt)}}        
+                    {% else %}
+                        <img src="/static/default_location.png" alt="location placeholder" class="card-img-top">
+                    {% endif %}
+            </div>
+            <div class="col-md-2 ">
+                <div class="dark-section version_actions">
+                    {% if version_key != 'default' %}
+                        <button class="generate" onclick="loadGenerationPage('{{loop.index}}')"id="generateButton_{{ loop.index }}">Generate</button>
+                    {% else %}
+                        <button class="generate" onclick="loadGenerationPage('1')"id="generateButton_{{ loop.index }}">Generate</button>
+                    {% endif %}
+                    <button class="generate" onclick="editVersion({{loop.index}})" id="editButton_{{ loop.index }}">Edit</button>
+                    <button class="generate" onclick="copyVersion({{loop.index}})" id="copyButton_{{ loop.index }}">Copy</button>
+                    {% if version_key != "default" %}
+                    <button class="delete" onclick="deleteVersion({{loop.index}})" id="deleteButton_{{ loop.index }}">Delete</button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+
+    <script>
+
+        var versions = {{ versions|tojson }};
+
+        function loadGenerationPage(index){
+            let name = document.getElementById("version-" + index).innerHTML;
+            document.location.href = "/project/{{ project.name }}/generation?type=location&name={{ name }}&version="+name;
+        }    
+
+        function editVersion(index) {
+            let name = document.getElementById("version-" + index).innerHTML;
+            let prompt = document.getElementById("prompt-" + index).innerHTML;
+            let prompt_input = document.getElementById("prompt-" + index + "-input");
+
+            if(prompt_input.style.display == "none"){
+                openEdit(index);
+            } else {
+                closeEdit(index);
+            }
+
+            document.getElementById("version-" + index + "-input").value = name;
+        }
+
+        function openEdit(index){
+            if(index != 1){
+                document.getElementById("version-" + index + "-input").style.display = "block";
+            }
+            document.getElementById("prompt-" + index + "-input").style.display = "block";
+            document.getElementById("save-" + index).style.display = "block";
+            document.getElementById("cancel-" + index).style.display = "block";
+        }
+
+        function closeEdit(index) {
+            if(index != 1){
+                document.getElementById("version-" + index + "-input").style.display = "none";
+            }
+            document.getElementById("prompt-" + index + "-input").style.display = "none";
+            document.getElementById("save-" + index).style.display = "none";
+            document.getElementById("cancel-" + index).style.display = "none";
+        }
+        
+        function updateVersion(index){
+            let name = document.getElementById("version-" + index).innerHTML;
+            let new_name = (index == 1)?"default":document.getElementById("version-" + index + "-input").value;
+            
+            
+            let prompt = document.getElementById("prompt-" + index + "-input").value;
+
+            if(name != new_name && versions[new_name]!= undefined){
+                window.alert("Version name already exists. \nPlease choose a different name.");
+                return;
+            }
+
+            document.getElementById("version-" + index).innerHTML = new_name;
+            document.getElementById("prompt-" + index).innerHTML = prompt;
+
+            URL = "/project/{{project.name}}/location/{{name}}/versions/update_name_and_prompt";
+            fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    "version_name": name,
+                    "new_version_name": new_name,
+                    "new_version_prompt": prompt
+                })
+            }).then(response => {
+                if (response.status === 200) {
+                    window.alert("Changes saved successfully.");
+                }
+            });
+
+            closeEdit(index);
+            
+        }
+        
+        function copyVersion(index){
+            let name = document.getElementById("version-" + index).innerHTML;
+
+            URL = "/project/{{project.name}}/location/{{name}}/versions/copy_version";
+            fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    "version_name": name
+                })
+            }).then(response => {
+                if (response.status === 200) {
+                    location.reload(true);
+                }
+            });
+        }
+
+        function deleteVersion(index) {
+            let name = document.getElementById("version-" + index).innerHTML;
+            let userInput = prompt("Are you sure you want to delete the version? \nPlease type the name of the version to confirm:");
+
+            if(userInput === null){
+                return;
+            }
+            if(userInput === name) {
+                URL = "/project/{{project.name}}/location/{{name}}/versions/delete_version";
+                fetch(URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        "version_name": name
+                    })
+                }).then(response => {
+                    if (response.status === 200) {
+                        location.reload(true);
+                    }
+                });
+            } else {
+                window.alert("Wrong name. \nVersion not deleted.");
+            }
+        }
+    </script>
+{% endblock %}

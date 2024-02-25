@@ -21,7 +21,9 @@ from pathlib import Path
 from API.menu import router as menu_router
 from API.project import router as projects_router
 from API.characters import router as characters_router
+from API.locations import router as locations_router
 from API.character import router as character_router
+from API.location import router as location_router
 from API.project import add_image_to_story_object
 import requests
 
@@ -33,7 +35,9 @@ app = FastAPI()
 app.include_router(menu_router, prefix="/menu")
 app.include_router(projects_router, prefix="/project")
 app.include_router(characters_router, prefix="/project/{project_name}/characters")
+app.include_router(locations_router, prefix="/project/{project_name}/locations")
 app.include_router(character_router, prefix="/project/{project_name}/character/{character_id}")
+app.include_router(location_router, prefix="/project/{project_name}/location/{location_id}")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/projects", StaticFiles(directory="projects"), name="projects")
 
@@ -206,6 +210,8 @@ async def generate_image(
             data = json.load(f)
         
         loc_directory = os.path.join(images_directory, "locations")
+        
+        filenames = getFileNames(loc_directory, name+"_"+version,batch_amount)
         
         update_workflow_by_title(data,"Save_Default", directory=loc_directory, filename=filenames[0])
         update_workflow_by_title(data,"Empty_Latent_Image", width=768, height=512)

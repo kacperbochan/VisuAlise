@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Locations{% endblock %}
+
+{% block content %}
+<div>
+    <div class="pt-5 px-5">
+        <h2>
+            <i class="icon-characters"></i>
+            Locations
+        </h2>
+        <div class="header">
+        <div class="section-selection">
+            <button onclick="loadSubPage('list')" class="segment-selector selected" id="characters-list-btn">
+                List
+            </button>
+            <button onclick="loadSubPage('creation')" class="segment-selector " id="characters-creation-btn">
+                Creation
+            </button>
+            {% if project.locations_n > 1 %}
+                <button onclick="loadSubPage('merge')" class="segment-selector " id="characters-merge-btn">
+                    Merge
+                </button>
+            {% endif %}
+        </div>
+        {% block control_buttons %}{% endblock %}
+    </div>
+    <hr class="bottomLine">
+    {% block sub_page_content %}{% endblock %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+    loadSubPage = function(sub_page){
+        document.location.href = "/project/{{ project.name }}/locations/"+sub_page;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        document.getElementById('characters-list-btn').addEventListener('click', function () {
+            selectSection('list');
+        });
+        document.getElementById('characters-creation-btn').addEventListener('click', function () {
+            selectSection('creation');
+        });
+        document.getElementById('characters-merge-btn').addEventListener('click', function () {
+            selectSection('merge');
+        });
+    });
+
+    
+    function selectSection(section){
+        var buttons = document.querySelectorAll('.segment-selector');
+        buttons.forEach(button => {
+            button.classList.remove('selected');
+        });
+        document.getElementById('characters-'+section+'-btn').classList.add('selected');
+    }
+    
+    selectSection("{{sub_page}}");
+
+</script>
+{% endblock %}

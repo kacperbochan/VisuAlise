@@ -129,6 +129,7 @@
             promptBlock = await fetch('/project/' + pname + '/promptblock').then(response => response.json());            
             populateVersionSelect();
             initialVersion();
+            selectImageType();
             getSelectedPrompt();
             updateStylePrompt();
         };
@@ -197,7 +198,16 @@
 
         function populateVersionSelect(){
             versionSelector.innerHTML = '';
-            for (let v in promptBlock[characterSelector.value]) {
+            image_type = imageTypeSelector.value.toLowerCase();
+            if(image_type == "character")
+            for (let v in promptBlock['characters'][characterSelector.value]) {
+                const option = document.createElement('option');
+                option.value = v;
+                option.text = v;
+                versionSelector.appendChild(option);
+            }
+            else
+            for (let v in promptBlock['locations'][locationSelector.value]) {
                 const option = document.createElement('option');
                 option.value = v;
                 option.text = v;
@@ -327,12 +337,11 @@
             if (imageTypeSelector.value == 'character') {
                 document.getElementById('style_prompt').value = stylePromptBlock["characters"][styleSelect.value];
             } else {
-                document.getElementById('style_prompt').value = stylePromptBlock["location"][styleSelect.value];
+                document.getElementById('style_prompt').value = stylePromptBlock["locations"][styleSelect.value];
             }
         }
 
-
-        imageTypeSelector.addEventListener('change', function () {
+        function selectImageType(){
             
             getSelectedPrompt();
             updateStylePrompt();
@@ -347,15 +356,20 @@
                 document.getElementById('location_selector').style.display = 'block';
                 document.getElementById('character-placeholder').style.display = 'none';
                 document.getElementById('location-placeholder').style.display = 'block';
-                document.getElementById('style_prompt').value = "{{ style_prompts['locations']['default'] }}";
             }
+        }
+
+
+        imageTypeSelector.addEventListener('change', function () {
+            selectImageType();
         });
 
         function getSelectedPrompt() {
             description = document.getElementById('description');
             prompt = document.getElementById('prompt');
             name = imageTypeSelector.value === 'character' ? characterSelector.value : locationSelector.value;
-            text = promptBlock[name][versionSelector.value];
+            image_type = imageTypeSelector.value.toLowerCase();
+            text = promptBlock[image_type+'s'][name][versionSelector.value];
             
             if(description.value == prompt.value || (/^[^a-zA-Z]*$/.test(prompt.value))){
                 prompt.value = text;

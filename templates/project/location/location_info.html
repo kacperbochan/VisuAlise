@@ -1,0 +1,25 @@
+{% extends 'location/location_base.html' %}
+{% from 'macros/macros.html' import location_card %}
+
+
+{% block sub_page_content %}
+<div class="row">
+    <div class="col-md-9">
+        <p><strong>description:</strong> {{ description }}</p>
+    </div>
+    <div class="col-md-3">
+        <div class="dark-section location-info">
+            {% if images[0] %}
+                {{location_card(project.name, versions.default.image, images[0].path, 1, versions.default.prompt)}}        
+            {% else %}
+                <img src="/static/default_location.png" alt="{{ user_name }}" class="card-img-top">
+            {% endif %}
+            
+            <hr class="bottomLine">
+            <div class="card-body">
+                <p class="card-text">{{ user_name }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

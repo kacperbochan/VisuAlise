@@ -1,18 +1,18 @@
-{% extends "characters_list/characters_base.html" %}
+{% extends "locations_list/locations_base.html" %}
 
 {% block sub_page_content %}
 
 <div class="dark-section" style="padding:40px; padding-top:0;">
     <div class="row">
         <div class="col-md-3">
-            <div id="character_selector-1" style="display: block;">
-                <select class="form-select" id="first_character" style=" margin: 40px 0 20px 0;">
-                    {% for character, character_values in characters.items() %}
-                        <option value="{{ character }}" {% if loop.index==1 %}selected{%endif%}>{{ character_values.user_name }}</option>
+            <div id="location_selector-1" style="display: block;">
+                <select class="form-select" id="first_location" style=" margin: 40px 0 20px 0;">
+                    {% for location, location_values in locations.items() %}
+                        <option value="{{ location }}" {% if loop.index==1 %}selected{%endif%}>{{ location_values.user_name }}</option>
                         
                     {% endfor %}
                 </select>
-                <div class="merge-image" id="character-card-1">
+                <div class="merge-image" id="location-card-1">
                     <img alt="" class="card-img-top expandable-img" id="img_1">
                 </div>
                 <hr class="bottomLine">
@@ -26,13 +26,13 @@
         </div>
         <div class="col-md-3">
 
-            <div id="character_selector-2" style="display: block">
-                <select class="form-select" id="second_character" style=" margin: 40px 0 20px 0;">
-                    {% for character, character_values in characters.items() %}
-                        <option value="{{ character }}" {% if loop.index==2 %}selected{%endif%}>{{ character_values.user_name }}</option>
+            <div id="location_selector-2" style="display: block">
+                <select class="form-select" id="second_location" style=" margin: 40px 0 20px 0;">
+                    {% for location, location_values in locations.items() %}
+                        <option value="{{ location }}" {% if loop.index==2 %}selected{%endif%}>{{ location_values.user_name }}</option>
                     {% endfor %}
                 </select>
-                <div class="merge-image" id="character-card-2">
+                <div class="merge-image" id="location-card-2">
                     <img alt="" class="card-img-top expandable-img" id="img_2">
                 </div>
                 <hr class="bottomLine">
@@ -47,8 +47,8 @@
         </div>
         <div class="col-md-3">
             <button class="generate" id="mergeButton" style="width: 100%; padding: 20px; margin-top: 20px; margin-bottom: 10px;">Merge</button>
-            <div id="character_selector-3" style="display: block;">
-                <div class="merge-image" id="character-card-3">
+            <div id="location_selector-3" style="display: block;">
+                <div class="merge-image" id="location-card-3">
                     <img alt="" class="card-img-top expandable-img" id="img_3">
                 </div>
                 <hr class="bottomLine">
@@ -63,24 +63,24 @@
 </div>
     
 <script>
-    const characters = {{ characters | tojson }};
+    const locations = {{ locations | tojson }};
 
-    const fist_character = document.getElementById("first_character");
-    const second_character = document.getElementById("second_character");
+    const fist_location = document.getElementById("first_location");
+    const second_location = document.getElementById("second_location");
     
-    var current_first_value = first_character.value;
-    var current_second_value = second_character.value;
+    var current_first_value = first_location.value;
+    var current_second_value = second_location.value;
 
     async function initialVersion(){
         const url = new URL(window.location.href);
         const params = url.searchParams;
 
         // Get the values of the parameters
-        var character = params.get('first_character');
+        var location = params.get('first_location');
         
-        if(character != null && character != "" && characters[character] != null){
-            first_character.value = character;
-            first_character_changed();
+        if(location != null && location != "" && locations[location] != null){
+            first_location.value = location;
+            first_location_changed();
         }
     }
     
@@ -89,11 +89,11 @@
 
     function list_versions(ch_number) {
         document.getElementById("version_list_"+ch_number).innerHTML = "";
-        var character = characters[ch_number == 1 ? first_character.value : second_character.value];
+        var location = locations[ch_number == 1 ? first_location.value : second_location.value];
         const version = document.createElement('span');
         version.classList.add('list-group-item', 'list-group-item-dark');
-        for( v in character.versions ) {
-            version.innerHTML = character.versions[v];
+        for( v in location.versions ) {
+            version.innerHTML = location.versions[v];
             document.getElementById("version_list_"+ch_number).appendChild(version.cloneNode(true));
         }
     }
@@ -101,8 +101,8 @@
     function list_outcome_versions() {
         var ch_number = 3;
         document.getElementById("version_list_"+ch_number).innerHTML = "";
-        var first = characters[first_character.value];
-        var second = characters[second_character.value];
+        var first = locations[first_location.value];
+        var second = locations[second_location.value];
         
         var list = [];
         for( v in first.versions ) {
@@ -126,65 +126,65 @@
         }
     }
 
-    function change_character(ch_number) {
-        var character = characters[ch_number == 2 ? second_character.value : first_character.value];//this way we can use this for all three characters
-        if(character.image != null && character.image != "")
-            document.getElementById("img_"+ch_number).src = "\\projects\\"+'{{project.name}}'+"\\images\\characters\\"+character.image;
+    function change_location(ch_number) {
+        var location = locations[ch_number == 2 ? second_location.value : first_location.value];//this way we can use this for all three locations
+        if(location.image != null && location.image != "")
+            document.getElementById("img_"+ch_number).src = "\\projects\\"+'{{project.name}}'+"\\images\\locations\\"+location.image;
         else
-            document.getElementById("img_"+ch_number).src = "/static/default_character.png";
+            document.getElementById("img_"+ch_number).src = "/static/default_location.png";
     }
 
-    function first_character_changed(){
-        if(first_character.value == second_character.value) {
-            second_character.value = current_first_value;
-            current_second_value = second_character.value;
-            current_first_value = first_character.value;
+    function first_location_changed(){
+        if(first_location.value == second_location.value) {
+            second_location.value = current_first_value;
+            current_second_value = second_location.value;
+            current_first_value = first_location.value;
             list_versions(2);
-            change_character(2);
+            change_location(2);
         } else {
-            current_first_value = first_character.value;
+            current_first_value = first_location.value;
         }
 
         list_versions(1);
-        change_character(1);
-        change_character(3);
+        change_location(1);
+        change_location(3);
         list_outcome_versions();
     }
 
-    first_character.onchange = function() {
-        first_character_changed();
+    first_location.onchange = function() {
+        first_location_changed();
     }
 
-    second_character.onchange = function() {
-        if(first_character.value == second_character.value) {
-            first_character.value = current_second_value;
-            current_first_value = first_character.value;
-            current_second_value = second_character.value;
+    second_location.onchange = function() {
+        if(first_location.value == second_location.value) {
+            first_location.value = current_second_value;
+            current_first_value = first_location.value;
+            current_second_value = second_location.value;
             list_versions(1);
-            change_character(1);
-            change_character(3);
+            change_location(1);
+            change_location(3);
         } else {
-            current_second_value = second_character.value;
+            current_second_value = second_location.value;
         }
 
         list_versions(2);
-        change_character(2);
+        change_location(2);
         list_outcome_versions();
     }
 
     document.getElementById("mergeButton").onclick = async function() {
-        let userInput = prompt("Are you sure you want to merge second character into the first one? \nPlease type the name of the second character to confirm:");
+        let userInput = prompt("Are you sure you want to merge second location into the first one? \nPlease type the name of the second location to confirm:");
 
         if(userInput == null){
             return;
         }
-        if(userInput != second_character.value) {
-            alert("The name you entered does not match the second character's name. The merge was not performed.");
+        if(userInput != second_location.value) {
+            alert("The name you entered does not match the second location's name. The merge was not performed.");
             return;
         }
 
 
-        const URL='/project/{{project.name}}/characters/merge';
+        const URL='/project/{{project.name}}/locations/merge';
 
         await fetch(URL, {
             method: 'POST',
@@ -192,21 +192,25 @@
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             body: new URLSearchParams({
-                first: first_character.value,
-                second: second_character.value
+                first: first_location.value,
+                second: second_location.value
             })
         }).then(response => {
             if (response.status === 200) {
-                window.location.href = '/project/{{ project.name }}/character/'+first_character.value+'/info';
+                window.location.href = '/project/{{ project.name }}/location/'+first_location.value+'/info';
             }
         });
     }
+    setTimeout(function() {
+        // Continue with the rest of the code after 5 seconds
+        list_outcome_versions();
+    }, 5000);
 
     list_versions(1);
     list_versions(2);
-    change_character(1);
-    change_character(2);
-    change_character(3);
+    change_location(1);
+    change_location(2);
+    change_location(3);
     list_outcome_versions();
 </script>
 {% endblock %}

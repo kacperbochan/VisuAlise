@@ -59,6 +59,67 @@
     </script>
 {% endmacro %}
 
+{% macro expandable_location_image(project, type, image_path, image_name, id, prompt="", name="img") %}
+    <div class="expandable-image">
+        <img src="\projects\{{ project }}\images\{{ type }}\\{{ image_path }}" alt="{{ image_name }}" class="card-img-top expandable-img" id="{{ name }}_{{ id }}">
+        <div id="{{ name }}_Modal_{{ id }}" class="modal">
+            <div id="{{ name }}_infoPanel_{{ id }}" class="info-panel" style="display: none; flex-direction: column; justify-content: center;">
+                <div>
+                    <h3>Name:</h3>
+                    <p class="prompt" id="{{type}}_name_{{id}}">{{ image_path }}</p>
+                </div>
+                <br>
+                <div>
+                    <h3>Prompt:</h3>
+                    <p class="prompt" id="{{type}}_prompt_{{id}}">{{prompt}}</p>
+                </div>
+            </div>
+            <div class="modal-header">
+                <span class="info-icon" id="{{ name }}_info_{{ id }}">&#9432;</span>
+                <span class="close" id="{{ name }}_close_{{ id }}">&times;</span>
+            </div>
+            <img class="modal-content" id="{{ name }}_modalImg_{{ id }}" src="\projects\{{ project }}\images\{{ type }}\\{{ image_path }}" alt="{{ image_name }}" style="max-width:50%">
+        </div>
+    </div>
+    <script>
+        (function() {
+            var modal = document.getElementById("{{ name }}_Modal_{{ id }}");
+            var img = document.getElementById("{{ name }}_{{ id }}");
+            var modalImg = document.getElementById("{{ name }}_modalImg_{{ id }}");
+            var infoIcon = modal ? document.getElementById("{{ name }}_info_{{ id }}") : null;
+            var close = modal ? document.getElementById("{{ name }}_close_{{ id }}") : null;
+            var infoPanel = document.getElementById("{{ name }}_infoPanel_{{ id }}");
+            var modalContent = modal ? modal.getElementsByClassName('modal-content')[0] : null;
+
+            if (img) {
+                img.onclick = function() {
+                    modal.style.display = "flex";
+                }
+            }
+
+            if (close) {
+                close.onclick = function() {
+                    event.stopPropagation();
+                    modal.style.display = 'none';
+                }
+            }
+
+            if (infoIcon) {
+                infoIcon.onclick = function() {
+                    event.stopPropagation();
+                    infoPanel.style.display = infoPanel.style.display === 'flex' ? 'none' : 'flex';
+                    if (modalImg.classList.contains('has_info')){
+                        modalImg.classList.remove('has_info');
+                    }
+                    else{                    
+                        modalImg.classList.add('has_info');
+                    }
+                }
+            }
+        })();
+    </script>
+{% endmacro %}
+
 {% macro gallery_choice_card(project, image_path, image_name, id, prompt="") %}
     <div class="dark-section character-info" id="choice_card_{{id}}">
         <div class="header" style="padding: 0;" >
@@ -109,6 +170,32 @@
 
 {% endmacro %}
 
+{% macro location_gallery_card(project, image_path, image_name, id, prompt="") %}
+    <div class="dark-section location-info" id="choice_card_{{id}}">
+        <div class="header" style="padding: 0;" >
+            <div style="text-align: right;">
+                <button class="image-card-selector" id="id-card-{{id}}" onclick="openImageVersionSelector({{id}})">
+                    <i class="icon-id-card-o"></i>
+                </button>
+                <button class="image-card-selector delete-button" id="delete-{{id}}" onclick="delete_selected({{id}})">
+                    <i class="icon-delete"></i>
+                </button>
+                <button class="image-card-selector checkbox-button" id="checkbox_{{id}}" onclick="switch_checkbox({{id}})" style="display: none">
+                    <i class="icon-check checked" style="display:none;"></i>
+                    <i class="icon-check-empty unchecked"></i>
+                </button>
+            </div>
+        </div>
+        <hr style="margin-top: 0;">
+            <div id="default_{{id}}" style="display: block; ">
+                {{ expandable_location_image(project, "locations", image_path, image_name, id, prompt, "default") }}
+            </div>
+        <div class="card-body">
+            <p class="card-text" id="location_card_text_{{id}}">{{ image_path }}</p>
+        </div>
+    </div>
+{% endmacro %}
+
 
 
 
@@ -149,34 +236,16 @@
 {% endmacro %}
 
 
-{% macro image_card(project, type, image_path, image_name, id, prompt="") %}
+{% macro location_card(project, image_path, image_name, id, prompt="") %}
     <div class="dark-section character-info">
-            <div id="location_{{id}}">
-                {{ expandable_image(project, "characters", image_path, image_name, id, prompt) }}
+            <div id="default_{{id}}" style="display: block; ">
+                {{ expandable_location_image(project, "locations", image_path, image_name, id, prompt, "default") }}
             </div>
         <div class="card-body">
             <p class="card-text" id="location_card_text_{{id}}">{{ image_path }}</p>
         </div>
-    </div>    
-    <script>
-        document.getElementById('default_{{id}}_btn').addEventListener('click', function () {
-            document.getElementById('sprite_{{id}}').style.display = 'none';
-            document.getElementById('default_{{id}}').style.display = 'block';
-            this.classList.add('selected');
-            document.getElementById('sprite_{{id}}_btn').classList.remove('selected');
-        });
-        
-        document.getElementById('sprite_{{id}}_btn').addEventListener('click', function () {
-            document.getElementById('sprite_{{id}}').style.display = 'block';
-            document.getElementById('default_{{id}}').style.display = 'none';
-            this.classList.add('selected');
-            document.getElementById('default_{{id}}_btn').classList.remove('selected');
-        });
-
-    </script>
-
+    </div>
 {% endmacro %}
-
 
 {% macro paging(current_page, page_amount, index=0) %}
 <nav aria-label="Page navigation" class="paging">

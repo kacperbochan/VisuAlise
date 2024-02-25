@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Location{% endblock %}
+
+{% block content %}
+    <div class="pt-5 px-5">
+        <h2>
+            <i class="icon-location"></i>
+            {{ name }}
+        </h2>
+        <div class="header"> 
+            <div class="section-selection">
+                <button onclick="loadSubPage('info')" class="segment-selector location-section selected" id="location-info-btn">
+                    Information
+                </button>
+                <button onclick="loadSubPage('text_data')" class="segment-selector location-section" id="location-text_data-btn">
+                    Text Data
+                </button>
+                <button onclick="loadSubPage('versions')" class="segment-selector location-section" id="location-versions-btn">
+                    Versions
+                </button>
+                <button onclick="loadSubPage('gallery')" class="segment-selector location-section" id="location-gallery-btn">
+                    Gallery
+                </button>
+            </div>
+            {% block control_buttons %}{% endblock %}
+        </div>
+        <hr class="bottomLine"> 
+        {% block sub_page_content %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    loadSubPage = function(sub_page){
+        document.location.href = "/project/{{ project.name }}/location/{{name}}/"+sub_page;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('location-info-btn').addEventListener('click', function () {
+            selectSection('info');
+        });
+        document.getElementById('location-text_data-btn').addEventListener('click', function () {
+            selectSection('text_data');
+        });
+        document.getElementById('location-versions-btn').addEventListener('click', function () {
+            selectSection('versions');
+        });
+        document.getElementById('location-gallery-btn').addEventListener('click', function () {
+            selectSection('gallery');
+        });
+    });
+
+    function selectSection(section){
+        var buttons = document.querySelectorAll('.location-section');
+        buttons.forEach(button => {
+            button.classList.remove('selected');
+        });
+        document.getElementById('location-'+section+'-btn').classList.add('selected');
+    }
+
+    selectSection("{{sub_page}}");
+</script>
+{% block location_section_script %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends "locations_list/locations_base.html" %}
+
+{% from 'macros/macros.html' import image_choice_card %}
+{% block sub_page_content %}
+
+<div class="dark-section">
+    <h2>
+        <i class="icon-location"></i>
+        <span id="location-name">Location</span>
+    </h2>
+    
+    <div class="row" style="max-height: 70vh;">
+        <div class="col-md-8">
+            <div class="form-group col-md-4" style="margin-top: 5%;">
+                <label for="location-name-input" style="font-weight: bold; font-size: 20px;">Name:</label>
+                <input type="text" class="form-control" id="location-name-input"></input>
+            </div>
+            <div class="form-group col-md-12" style="margin-top: 5%;">
+                <label for="location-prompt" style="font-weight: bold; font-size: 20px;">Prompt:</label>
+                <textarea class="form-control" id="location-prompt" style="height: 100px;"></textarea>
+            </div>
+            <div class="row align-items-end">
+                <div class="col-md-10"></div>
+                <div class="col-md-2">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <div class="location-info" >
+                <img src="/static/default_location.png" style="max-height: 70%; object-fit: contain;" alt="{{ user_name }}" class="card-img-top" >
+                <hr>
+                <div class="card-body" style="text-align: center; height: 90px;">
+                    <button onclick="createLocation()" class="generate" id="save" style="width: 80%; height: 60px;">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<script>
+    document.getElementById('location-name-input').addEventListener('input', function() {
+        if(document.getElementById('location-name-input').value.length > 0){
+            document.getElementById('location-name').innerText = document.getElementById('location-name-input').value;
+        }
+        else{
+            document.getElementById('location-name').innerText = "Location";
+        }
+    });
+
+    async function createLocation(){
+        var name = document.getElementById('location-name-input').value.trim();
+        var prompt = document.getElementById('location-prompt').value;
+        var data = {
+            name: name,
+            prompt: prompt
+        }
+
+        if(name.length == 0){
+            alert("Please enter a name for your location.");
+            return;
+        }
+
+        if(prompt.length == 0){
+            alert("Please enter a prompt for your location.");
+            return;
+        }
+
+        if(prompt.length > 1000){
+            alert("Please enter a prompt that is less than 1000 locations.");
+            return;
+        }
+
+        if(name.length > 50){
+            alert("Please enter a name that is less than 100 locations.");
+            return;
+        }
+        
+        if({{location_names|tojson}}.includes(name)){
+            alert("You already have a location with that name.");
+            return;
+        }
+
+        const URL='/project/{{project.name}}/locations/create';
+
+        await fetch(URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                name: name,
+                prompt: prompt
+            })
+        }).then(response => {
+            if (response.status === 200) {
+                window.location.href = '/project/{{ project.name }}/location/'+name+'/info';
+            }
+        });
+    }
+
+</script>
+{% endblock %}

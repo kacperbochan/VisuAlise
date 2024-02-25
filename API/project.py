@@ -69,18 +69,27 @@ def get_safe_json(file_path: str):
         return response
 
 def get_project_prompts(project_path:str):
-    story_object_file = os.path.join(project_path, "data", "characters.json")
+    character_file = os.path.join(project_path, "data", "characters.json")
+    location_file = os.path.join(project_path, "data", "locations.json")
     
-    data = get_safe_json(story_object_file)
-
-    transformed_data = {}
-    for character, details in data.items():
+    transformed_data = {'characters': {}, 'locations': {}}
+    character_data = get_safe_json(character_file)
+    location_data = get_safe_json(location_file)
+    
+    for character, details in character_data.items():
         versions = details.get('versions', {})
-        transformed_data[character] = {}
+        transformed_data['characters'][character] = {}
         for version, version_details in versions.items():
             prompt = version_details.get('prompt', '')
-            transformed_data[character][version] = prompt
-
+            transformed_data['characters'][character][version] = prompt
+            
+    for location, details in location_data.items():
+        versions = details.get('versions', {})
+        transformed_data['locations'][location] = {}
+        for version, version_details in versions.items():
+            prompt = version_details.get('prompt', '')
+            transformed_data['locations'][location][version] = prompt
+    
     # Convert the transformed data to JSON format
     return transformed_data
 
@@ -205,18 +214,13 @@ def get_free_user_name(name, data):
         new_name = name + "_" + str(count)
     return new_name
 
-@router.get("/{project_name}/locations")
-async def read_locations(request: Request, project_name: str):
-    project, project_path = get_project_by_name(project_name)
-    
-    locations = get_project_story_objects(project_path, True)
-    visual_settings = get_visual_settings()
-    return templates.TemplateResponse("location_list.html", {
-        "request": request,
-        "locations": locations,
-        "project": project,
-        **visual_settings
-    })
+def get_highest_id(data):
+    highest = 0
+    for story_object in data.values():
+        if int(story_object["id"]) > highest:
+            highest = int(story_object["id"])
+    return highest
+
 
 style_prompts = {
     "characters":{
@@ -224,8 +228,8 @@ style_prompts = {
         "anime": """masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose""",
     },
     "locations":{
-        "default": """(Landscape), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose""",
-        "anime": """(Landscape), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose"""
+        "default": """masterpiece, best quality, (Landscape), soft lines, animation styled, Vibrant animation style, cartoon style""",
+        "anime": """masterpiece, best quality, (Landscape), (anime coloring, anime screencap, anime style), portrait, Vibrant anime style, anime style"""
     }
     
 }
@@ -389,7 +393,7 @@ async def delete_story_object_version(project_name:str, type: str, story_object_
     if(version_name == 'default'):
         return {'message' : 'Cannot delete the default version'}
     
-    message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="locations")
+    message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="location")
     if(message != None):
         return message
 
@@ -414,18 +418,6 @@ async def assign_image_to_story_object_version(project_name:str, type: str, stor
     
     return {"message": "Version updated"}
 
-@router.get("/{project_name}/locations/{location_id}")
-async def read_location(request: Request, project_name: str, location_id: str):
-    
-    project, project_path = get_project_by_name(project_name)
-    location = get_story_object_data(project, project_path, location_id, True)
-    visual_settings = get_visual_settings()
-    return templates.TemplateResponse("location.html", {
-        "request": request,
-        "project": project,        
-        **location,
-        **visual_settings
-    })
 
 def check_if_image_exists(project_path: str, type: str, image_name: str):
     return os.path.isfile(os.path.join(project_path, "images", type, image_name))
