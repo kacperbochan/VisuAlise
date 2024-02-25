@@ -20,6 +20,8 @@ from typing import List
 from pathlib import Path
 from API.menu import router as menu_router
 from API.project import router as projects_router
+from API.characters import router as characters_router
+from API.character import router as character_router
 from API.project import add_image_to_story_object
 import requests
 
@@ -30,6 +32,8 @@ load_user_settings()
 app = FastAPI()
 app.include_router(menu_router, prefix="/menu")
 app.include_router(projects_router, prefix="/project")
+app.include_router(characters_router, prefix="/project/{project_name}/characters")
+app.include_router(character_router, prefix="/project/{project_name}/character/{character_id}")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/projects", StaticFiles(directory="projects"), name="projects")
 
