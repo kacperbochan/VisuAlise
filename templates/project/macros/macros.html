@@ -237,15 +237,15 @@
 
     if (current_page < 3){
         previous_1.style.display = 'none';
-        if (current_page === 1){
-            previous.style.display = 'none';
-        }
     }
-    else if (current_page > page_amount - 2){
+    if (current_page === 1){
+        previous.style.display = 'none';
+    }
+    if (current_page > page_amount - 2){
         next_1.style.display = 'none';
-        if (current_page === page_amount){
-            next.style.display = 'none';
-        }
+    }
+    if (current_page === page_amount){
+        next.style.display = 'none';
     }
 </script>
 
