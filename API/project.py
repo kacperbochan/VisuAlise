@@ -224,14 +224,13 @@ def get_highest_id(data):
 
 style_prompts = {
     "characters":{
-        "default":  """masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose""",
-        "anime": """masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose""",
+        "default":  """(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx""",
+        "anime": """masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose"""
     },
     "locations":{
-        "default": """masterpiece, best quality, (Landscape), soft lines, animation styled, Vibrant animation style, cartoon style""",
+        "default": """(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx""",
         "anime": """masterpiece, best quality, (Landscape), (anime coloring, anime screencap, anime style), portrait, Vibrant anime style, anime style"""
     }
-    
 }
 
 @router.get("/{project_name}/generation")
@@ -294,6 +293,43 @@ async def txt2img_page(request: Request, project_name: str):
         "characters": characters,
         "locations": locations,
         **model_lists,
+        **visual_settings
+    })
+
+def get_text_data(project_path: str):
+    text_file = os.path.join(project_path, "data", "text_data.json")
+    
+    with open(text_file, 'r') as file:
+        try:
+            data = json.load(file)
+            for file in data.values():
+                if os.path.isfile(os.path.join(project_path, "texts", file['path'])):
+                    return os.path.join(project_path, "texts", file['path'])
+        except json.JSONDecodeError:
+            return ""
+    
+
+@router.get("/{project_name}/builder")
+async def generation_page(request: Request, project_name: str):
+    
+    project, project_path = get_project_by_name(project_name)
+    
+    characters = get_project_story_objects(project_path, False)
+    locations = get_project_story_objects(project_path, True)
+    text=""
+    file_path = get_text_data(project_path)
+    if(file_path != ""):        
+        with open(file_path, 'r', encoding='utf-8') as file:
+            text = file.read()
+    
+    
+    visual_settings = get_visual_settings()
+    return templates.TemplateResponse("builder.html", {
+        "request": request,
+        "project": project,
+        "characters": characters,
+        "locations": locations,
+        "providedText": text,
         **visual_settings
     })
 

@@ -4,6 +4,7 @@ import json
 from math import floor
 import os
 import datetime
+import tiktoken
 import random
 import threading
 import subprocess
@@ -142,7 +143,7 @@ async def get_generated_images(project: str):
     return {"image_directory": character_images_dir, "image": image}
 
 
-negative_prompt_base = """"""
+negative_prompt_base = """BadDream, (UnrealisticDream:1.3)"""
 
 def get_file_number(directory:str, filename:str, skip:int = 0):
     
@@ -243,3 +244,39 @@ async def generate_image(
             update_workflow_by_title(data,"KSampler",seed = seed)
             update_workflow_by_title(data,"Save_Default", filename=filenames[batch])
             add_image_to_story_object(project_name, name, filenames[batch], full_prompt, image_type=="location")
+
+
+@app.post("/split_text")
+def new_split_text_by_tokens(text, desired_tokens=500):
+
+    paragraphs = text.split('\n')
+    chunks = []
+    current_chunk = ""
+    current_chunk_tokens = 0
+    encoding = tiktoken.encoding_for_model("davinci")
+
+    for paragraph in paragraphs:
+        new_chunk = current_chunk + (paragraph + "\n")
+        num_tokens = len(encoding.encode(new_chunk))
+
+        if num_tokens > desired_tokens:
+            if (desired_tokens - current_chunk_tokens) < (num_tokens-desired_tokens):
+                print("current_tokens: ", current_chunk_tokens)
+                chunks.append(current_chunk)
+                current_chunk = paragraph
+                current_chunk_tokens = num_tokens-current_chunk_tokens
+            else:
+                print("current_tokens: ", num_tokens)
+                chunks.append(new_chunk)
+                current_chunk = ""
+                current_chunk_tokens = 0
+        else:
+            current_chunk = new_chunk
+            current_chunk_tokens = num_tokens
+
+    if current_chunk:
+        print("current_tokens: ", num_tokens)
+        chunks.append(current_chunk)
+
+    return chunks
+

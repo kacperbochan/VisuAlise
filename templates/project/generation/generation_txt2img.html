@@ -56,6 +56,7 @@
                 <select class="form-select" id="style_select" name="style_select">
                     <option value="default">Default</option>
                     <option value="anime">Anime</option>
+                    <option value="realistic">Realistic</option>
                 </select>
             </div>
             <div class="form-group col-md-10">
@@ -117,6 +118,7 @@
         var generated_images = -1;
         var image_type = "character";
         var project_name = "{{ project.name }}";
+        var styles = {{style_prompts | tojson}};
         var types_used = [];
         var prompts_used = [];
         const gallery = document.getElementById('thumbnail-gallery');
@@ -125,13 +127,25 @@
         const versionSelector = document.getElementById('version_name');
         const imageTypeSelector = document.getElementById('image_type');
         const styleSelect = document.getElementById('style_select');
+
         const stylePromptBlock = {{ style_prompts | tojson }};
         var waiting = false;
         
+        function load_styles(type){
+            styleSelect.innerHTML = '';
+            for( s in styles[type]){
+                const option = document.createElement('option');
+                option.value = s;
+                option.text = s[0].toUpperCase() + s.slice(1);
+                styleSelect.appendChild(option);
+            }
+        }
+
         const pname= "{{ project.name }}";
         var promptBlock = {};
         window.onload = async function() {
             promptBlock = await fetch('/project/' + pname + '/promptblock').then(response => response.json());            
+            load_styles("characters");
             populateVersionSelect();
             initialVersion();
             selectImageType();
@@ -181,6 +195,7 @@
             if(type===null) return;
             if(type != "character" && type != "location") return;
             imageTypeSelector.value = type;
+            load_styles(type+'s');
 
             const name = params.get('name');
             if(name===null) return;
@@ -257,7 +272,7 @@
                 document.getElementById('sprite_1').getElementsByTagName('img')[0].src = "\\"+latest_image_path+"\\sprites\\"+latest_image;
                 document.getElementById('sprite_1').getElementsByTagName('img')[1].src = "\\"+latest_image_path+"\\sprites\\"+latest_image;
                 document.getElementById('character_card_text_1').innerHTML = latest_image.split('\\').pop();
-                document.getElementById('character_prompt_1').innerHTML = prompts_used[0];
+                document.getElementById('characters_prompt_1').innerHTML = prompts_used[0];
 
                 showImageType("character");
             }
@@ -320,7 +335,7 @@
                     document.getElementById('character_card_text_1').innerHTML = newDef.split('\\').pop();
                     document.getElementById('sprite_1').getElementsByTagName('img')[0].src = newSpr;
                     document.getElementById('sprite_1').getElementsByTagName('img')[1].src = newSpr;
-                    document.getElementById('character_prompt_1').innerHTML = prompt;
+                    document.getElementById('characters_prompt_1').innerHTML = prompt;
                 }
                 else{
                     document.getElementById('default_2').getElementsByTagName('img')[0].src = newDef;
@@ -424,11 +439,7 @@
         }
 
 
-        imageTypeSelector.addEventListener('change', function () {
-            selectImageType();
-            populateVersionSelect();
-        });
-
+        
         function getSelectedPrompt() {
             description = document.getElementById('description');
             prompt = document.getElementById('prompt');
@@ -441,8 +452,13 @@
             }
             description.value = text;
         }
-
-
+        
+        
+        imageTypeSelector.addEventListener('change', function () {
+            selectImageType();
+            populateVersionSelect();
+            load_styles(imageTypeSelector.value.toLowerCase());
+        });
         versionSelector.addEventListener('change', function() {
             getSelectedPrompt();
         });

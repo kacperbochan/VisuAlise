@@ -39,7 +39,7 @@ body.dark-mode {
 }
 
 button.dark-section{
-    background-color: var(0 0 0 1); /* Button background */
+    background-color: var(--background-color-dark-grey); /* Button background */
     color: var(--text-color-light); /* Button text color */
     font-weight: bold; /* Bold text */
     border: none; /* Remove borders */
@@ -49,7 +49,7 @@ button.dark-section{
 }
 
 button.dark-section:hover{
-    background-color: var(--background-color-light-grey); /* Button background */
+    background-color: var(--background-color-very-light-grey); /* Button background */
 }
 
 button.generate {
@@ -602,4 +602,20 @@ hr.bottomLine {
 .version_actions .delete {
     margin-top: auto;
     margin-bottom: 0;
+}
+
+.scene-button{
+    background-color: var(--background-color-grey);
+    color: white;
+    border: 0;
+    transition: 0.5s;
+    height: 20px;
+    font-size: 10px;
+}
+
+.scene-button:hover{
+    background-color: var(--background-color-very-light-grey);
+    cursor: pointer;
+    height: 30px;
+    font-size: 15px;
 }
