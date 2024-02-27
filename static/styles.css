@@ -6,6 +6,7 @@
     --background-color-light-grey: rgb(41 51 65);
     --background-color-very-light-grey: rgb(51 61 75);
     --text-color-dark: #333;
+    --text-color-much-darker-light: #666;
     --text-color-darker-light: #bbb;
     --text-color-light: #ddd;
     --text-color-lighter: #fff;
@@ -605,17 +606,21 @@ hr.bottomLine {
 }
 
 .scene-button{
-    background-color: var(--background-color-grey);
+    background-color: var(--background-color-very-light-grey);
     color: white;
     border: 0;
     transition: 0.5s;
-    height: 20px;
+    height: 25px;
     font-size: 10px;
 }
 
 .scene-button:hover{
-    background-color: var(--background-color-very-light-grey);
+    background-color: var(--text-color-much-darker-light);
     cursor: pointer;
-    height: 30px;
+    height: 35px;
     font-size: 15px;
+}
+.scene{
+    background-color: var(--background-color-dark-grey);
+    min-height: 30vh;
 }

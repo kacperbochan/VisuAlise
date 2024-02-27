@@ -1,7 +1,7 @@
 {
     "name": "Alice",
-    "characters_n": 9,
-    "locations_n": 10,
+    "characters_n": 10,
+    "locations_n": 11,
     "llm": {
         "model": "mistral-7b-openorca.Q4_0.gguf",
         "temperature": 0.7,

@@ -5,7 +5,7 @@
         "name": "Alice",
         "versions": {
             "default": {
-                "image": "alice_mad.png",
+                "image": "alice.png",
                 "prompt": "A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful",
                 "description": "young girl, long blond hair tied back, wearing a Victorian dress"
             },
@@ -25,6 +25,26 @@
                 "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
             },
             "big": {
+                "image": "alice_neck_stretching.png",
+                "prompt": "young girl, (((Very very very tall))), tall, long blond hair tied back, wearing a Victorian dress",
+                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
+            },
+            "defaultrytrtyrfytrtyryt": {
+                "description": "a character",
+                "prompt": "A big black dragon, bigger",
+                "image": ""
+            },
+            "defaultrytrtyrfytrtyryt_copy": {
+                "description": "a character",
+                "prompt": "A big black dragon, bigger",
+                "image": ""
+            },
+            "big_copy": {
+                "image": "alice_neck_stretching.png",
+                "prompt": "young girl, (((Very very very tall))), tall, long blond hair tied back, wearing a Victorian dress",
+                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
+            },
+            "big_copy_2": {
                 "image": "alice_neck_stretching.png",
                 "prompt": "young girl, (((Very very very tall))), tall, long blond hair tied back, wearing a Victorian dress",
                 "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
@@ -62,6 +82,306 @@
             {
                 "path": "Alice_default_00002.png",
                 "prompt": "(Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, often depicted wearing a blue dress with a white apron. She is curious, thoughtful, and falls into the rabbit hole."
+            },
+            {
+                "path": "Alice_mad_00001.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00002.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00003.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00004.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00005.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00006.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00007.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00008.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00009.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00010.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00011.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00012.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_default_00006.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00007.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00008.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00009.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00010.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00011.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00012.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00013.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00014.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00015.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00016.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00017.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00018.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00019.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00020.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00021.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00022.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00020.png",
+                "prompt": "masterpiece, best quality, great animation, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00021.png",
+                "prompt": "masterpiece, best quality, great animation, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00022.png",
+                "prompt": "masterpiece, best quality, great animation, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00023.png",
+                "prompt": "masterpiece, best quality, great animation, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00024.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), clear outline, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00025.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), clear outline, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00026.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), clear outline, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00027.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), clear outline, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00028.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00029.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00030.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00031.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00032.png",
+                "prompt": "(masterpiece),  , (masterpiece), (extremely intricate:1.3), (realistic), portrait of a girl, pink hair, the most beautiful in the world, (medieval armor), metal reflections, upper body, outdoors, intense sunlight, far away castle, professional photograph of a stunning woman detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00033.png",
+                "prompt": "(masterpiece),  , (masterpiece), (extremely intricate:1.3), (realistic), portrait of a girl, pink hair, the most beautiful in the world, (medieval armor), metal reflections, upper body, outdoors, intense sunlight, far away castle, professional photograph of a stunning woman detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00034.png",
+                "prompt": "(masterpiece),  , (masterpiece), (extremely intricate:1.3), (realistic), portrait of a girl, pink hair, the most beautiful in the world, (medieval armor), metal reflections, upper body, outdoors, intense sunlight, far away castle, professional photograph of a stunning woman detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00035.png",
+                "prompt": "(masterpiece),  , (masterpiece), (extremely intricate:1.3), (realistic), portrait of a girl, pink hair, the most beautiful in the world, (medieval armor), metal reflections, upper body, outdoors, intense sunlight, far away castle, professional photograph of a stunning woman detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00036.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic), , (masterpiece), (extremely intricate:1.3), (realistic), portrait of a girl, A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00037.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic), , (masterpiece), (extremely intricate:1.3), (realistic), portrait of a girl, A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00038.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic), , (masterpiece), (extremely intricate:1.3), (realistic), portrait of a girl, A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00039.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic), , (masterpiece), (extremely intricate:1.3), (realistic), portrait of a girl, A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00040.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic), (Full body character shot), solid color white background , portrait of a girl, A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00041.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic), (Full body character shot), solid color white background , portrait of a girl, A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00042.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic), (Full body character shot), solid color white background , portrait of a girl, A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00043.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic), (Full body character shot), solid color white background , portrait of a girl, A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00040.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00041.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00042.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00043.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00044.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00045.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00046.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00047.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00048.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful\nprofessional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00049.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful\nprofessional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00050.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful\nprofessional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00051.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful\nprofessional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx, (film grain)\n"
+            },
+            {
+                "path": "Alice_default_00052.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful\n"
+            },
+            {
+                "path": "Alice_default_00053.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful\n"
+            },
+            {
+                "path": "Alice_mad_00013.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00014.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00015.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00016.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_default_00053.png",
+                "prompt": "undefined , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00054.png",
+                "prompt": "undefined , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00055.png",
+                "prompt": "undefined , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00056.png",
+                "prompt": "undefined , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
             }
         ]
     },
@@ -76,7 +396,12 @@
                 "description": "young girl, long blond hair tied back, wearing a Victorian dress"
             },
             "EVEN MADDER": {
-                "image": "mad_hatter.png",
+                "image": "Mad Hatter_default_00012.png",
+                "prompt": "single male, MAD, eccentric, wild orange hair, wears a large top hat with a card marked '10/6'",
+                "description": "young girl, long blond hair tied back, wearing a Victorian dress"
+            },
+            "big": {
+                "image": "Mad Hatter_default_00012.png",
                 "prompt": "single male, MAD, eccentric, wild orange hair, wears a large top hat with a card marked '10/6'",
                 "description": "young girl, long blond hair tied back, wearing a Victorian dress"
             }
@@ -97,6 +422,70 @@
             {
                 "path": "Mad Hatter_default_00012.png",
                 "prompt": "(Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_EVEN MADDER.png",
+                "prompt": "(Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , single male, MAD, eccentric, wild orange hair, wears a large top hat with a card marked '10/6'"
+            },
+            {
+                "path": "Mad Hatter_EVEN MADDER_00001.png",
+                "prompt": "(Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , single male, MAD, eccentric, wild orange hair, wears a large top hat with a card marked '10/6'"
+            },
+            {
+                "path": "Mad Hatter_EVEN MADDER_00002.png",
+                "prompt": "(Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , single male, MAD, eccentric, wild orange hair, wears a large top hat with a card marked '10/6'"
+            },
+            {
+                "path": "Mad Hatter_EVEN MADDER_00003.png",
+                "prompt": "(Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , single male, MAD, eccentric, wild orange hair, wears a large top hat with a card marked '10/6'"
+            },
+            {
+                "path": "Mad Hatter_default.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.\nhighres, 4k, 8k, intricate detail, cinematic lighting, amazing quality, amazing shading, soft lighting, Detailed Illustration, anime style, wallpaper"
+            },
+            {
+                "path": "Mad Hatter_default_00001.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.\nhighres, 4k, 8k, intricate detail, cinematic lighting, amazing quality, amazing shading, soft lighting, Detailed Illustration, anime style, wallpaper"
+            },
+            {
+                "path": "Mad Hatter_default_00002.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.\nhighres, 4k, 8k, intricate detail, cinematic lighting, amazing quality, amazing shading, soft lighting, Detailed Illustration, anime style, wallpaper"
+            },
+            {
+                "path": "Mad Hatter_default_00003.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.\nhighres, 4k, 8k, intricate detail, cinematic lighting, amazing quality, amazing shading, soft lighting, Detailed Illustration, anime style, wallpaper"
+            },
+            {
+                "path": "Mad Hatter_default_00004.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.\nhighres, 4k, 8k, intricate detail, cinematic lighting, amazing quality, amazing shading, soft lighting, Detailed Illustration, anime style, wallpaper"
+            },
+            {
+                "path": "Mad Hatter_default_00005.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.\nhighres, 4k, 8k, intricate detail, cinematic lighting, amazing quality, amazing shading, soft lighting, Detailed Illustration, anime style, wallpaper"
+            },
+            {
+                "path": "Mad Hatter_default_00008.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.\nhighres, 4k, 8k, intricate detail, cinematic lighting, amazing quality, amazing shading, soft lighting, Detailed Illustration, anime style, wallpaper"
+            },
+            {
+                "path": "Mad Hatter_default_00009.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.\nhighres, 4k, 8k, intricate detail, cinematic lighting, amazing quality, amazing shading, soft lighting, Detailed Illustration, anime style, wallpaper"
+            },
+            {
+                "path": "Mad Hatter_default_00010.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00011.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00013.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00014.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
             }
         ]
     },
@@ -138,6 +527,54 @@
             {
                 "path": "white_rabbit.png",
                 "prompt": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "White Rabbit_default.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "White Rabbit_default_00001.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "White Rabbit_default_00002.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "White Rabbit_default_00003.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "White Rabbit_default_00004.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "White Rabbit_default_00005.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "White Rabbit_default_00006.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "White Rabbit_default_00007.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "White Rabbit_default_00008.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "White Rabbit_default_00009.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "White Rabbit_default_00010.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "White Rabbit_default_00011.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
             }
         ]
     },
@@ -184,6 +621,30 @@
             {
                 "path": "Cheshire Cat_default_00015.png",
                 "prompt": "(Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A mischievous, grinning cat, often depicted with a wide, toothy smile and bright, glowing eyes."
+            },
+            {
+                "path": "Cheshire Cat_default_00001.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, A mischievous, grinning cat, wide toothy smile, bright glowing eyes. purple fur"
+            },
+            {
+                "path": "Cheshire Cat_default_00002.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, A mischievous, grinning cat, wide toothy smile, bright glowing eyes. purple fur"
+            },
+            {
+                "path": "Cheshire Cat_default_00004.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, A mischievous, grinning cat, wide toothy smile, bright glowing eyes. purple fur"
+            },
+            {
+                "path": "Cheshire Cat_default_00005.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, A mischievous, grinning cat, wide toothy smile, bright glowing eyes. purple fur"
+            },
+            {
+                "path": "Cheshire Cat_default_00006.png",
+                "prompt": "(masterpiece), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, grinning cat, wide toothy smile, bright glowing eyes. purple fur"
+            },
+            {
+                "path": "Cheshire Cat_default_00007.png",
+                "prompt": "(masterpiece), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, grinning cat, wide toothy smile, bright glowing eyes. purple fur"
             }
         ]
     },
@@ -229,17 +690,12 @@
         "name": "March Hare",
         "versions": {
             "default": {
-                "image": "march_hare.png",
+                "image": "",
                 "prompt": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.",
                 "description": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
             }
         },
-        "images": [
-            {
-                "path": "march_hare.png",
-                "prompt": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
-            }
-        ]
+        "images": []
     },
     "Dormouse": {
         "id": "9",
@@ -256,6 +712,225 @@
             {
                 "path": "dormouse.png",
                 "prompt": "A sleepy, timid character, often depicted dozing off or hiding in a teapot."
+            }
+        ]
+    },
+    "Alice_copy": {
+        "id": 10,
+        "user_name": "Alice_copy",
+        "name": "Alice_copy",
+        "versions": {
+            "default": {
+                "image": "alice.png",
+                "prompt": "A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful",
+                "description": "young girl, long blond hair tied back, wearing a Victorian dress"
+            },
+            "mad": {
+                "image": "alice_mad.png",
+                "prompt": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress",
+                "description": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            "long neck": {
+                "image": "alice_neck_stretching.png",
+                "prompt": "young girl, (((long neck))), elongated neck, long blond hair tied back, wearing a Victorian dress",
+                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
+            },
+            "long neck_copy": {
+                "image": "alice_004.png",
+                "prompt": "young girl, (((long neck))), elongated neck, long blond hair tied back, wearing a Victorian dress",
+                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
+            },
+            "big": {
+                "image": "alice_neck_stretching.png",
+                "prompt": "young girl, (((Very very very tall))), tall, long blond hair tied back, wearing a Victorian dress",
+                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
+            },
+            "default_1": {
+                "description": "a character",
+                "prompt": "A big black dragon",
+                "image": ""
+            }
+        },
+        "images": [
+            {
+                "path": "alice.png",
+                "prompt": null
+            },
+            {
+                "path": "alice_mad.png",
+                "prompt": null
+            },
+            {
+                "path": "alice_001.png",
+                "prompt": "A young girl with long, blond hair, often depicted wearing a blue dress with a white apron. She is curious, thoughtful, and falls into the rabbit hole."
+            },
+            {
+                "path": "alice_002.png",
+                "prompt": null
+            },
+            {
+                "path": "alice_003.png",
+                "prompt": "A young girl with long, blond hair, wearing a blue dress with a white apron, in a curious and thoughtful pose, as if she's about to fall into a rabbit hole. The setting is whimsical and fantastical, reflecting a sense of wonder and adventure."
+            },
+            {
+                "path": "alice_004.png",
+                "prompt": null
+            },
+            {
+                "path": "alice_005.png",
+                "prompt": "an ultra-realistic image of the wise brown rat, previously depicted, now running at an incredible speed through a well-lit cave. The space around him is visibly bending, showcasing his ability as a living Alcubierre drive. The cave is illuminated, highlighting the speed and power of the rat."
+            },
+            {
+                "path": "Alice_default_00002.png",
+                "prompt": "(Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, often depicted wearing a blue dress with a white apron. She is curious, thoughtful, and falls into the rabbit hole."
+            },
+            {
+                "path": "Alice_mad_00001.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00002.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00003.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00004.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00005.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00006.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00007.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00008.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00009.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00010.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00011.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_mad_00012.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+            },
+            {
+                "path": "Alice_default_00006.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00007.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00008.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00009.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00010.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00011.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00012.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00013.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00014.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00015.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00016.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00017.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00018.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00019.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00020.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00021.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00022.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00020.png",
+                "prompt": "masterpiece, best quality, great animation, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00021.png",
+                "prompt": "masterpiece, best quality, great animation, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00022.png",
+                "prompt": "masterpiece, best quality, great animation, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00023.png",
+                "prompt": "masterpiece, best quality, great animation, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00024.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), clear outline, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00025.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), clear outline, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00026.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), clear outline, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00027.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), clear outline, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
             }
         ]
     }

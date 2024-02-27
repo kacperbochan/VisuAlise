@@ -1,0 +1,509 @@
+{% extends "base.html" %}
+{% from 'macros/macros.html' import scene %}
+
+{% block title %}Builder{% endblock %}
+
+{% block content %}
+<div>
+    <div class="pt-5 px-5">
+        <div class="header">
+        <h2>
+            <i class="icon-wrench"></i>
+            Builder
+        </h2>
+        <div style="text-align: right;">
+            <button class="btn btn-primary" style="min-width: 100px" id="Save" >
+                Save
+            </button>
+            <button class="btn btn-success" style="min-width: 100px" id="Generate" >
+                Generate
+            </button>
+            <button class="btn btn-info" style="min-width: 100px" id="Start" >
+                Launch
+            </button>
+            <button class="btn btn-light" style="min-width: 100px;" id="Build" >
+                Build Distribution
+            </button>
+        </div>
+    </div>
+    </div>
+    <hr style="margin-top: 0;">
+    <div class="row">
+        <div class="col-md-4" style="border-right: 1px solid white;" >
+            <div style="margin-bottom: 20px;">
+                <h4 style="text-align:center;">Initial text</h4>
+            </div>
+            <p class="prompt" style="max-height:80vh; overflow: scroll;">{{providedText}}</p>
+        </div>
+        <div class="col-md-8">
+            <div style="margin-bottom: 20px;">
+                <h4 style="text-align:center;">Scenes</h4>
+            </div>
+            <div class="dark-section" id="screens" style="max-height:80vh; overflow: scroll;">
+                <div class="row" id="scene_-1">
+                <button class="btn scene-button" data-id="-1" onclick="addScene(-1)">
+                    <i class="icon-plus"></i>
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+
+    
+        let sceneCounter = 0;
+        const scenesArray = [];
+        const sceneDataArray = [];
+        const characters = {{characters|tojson}};
+        const locations = {{locations|tojson}};
+        var character_options="";
+        var location_options="";
+    
+        var character_names = [];
+        var character_usernames = [];
+        var location_names = [];
+        var location_usernames = [];
+        
+        function addScene(afterSceneId) {
+            const newId = ++sceneCounter;
+            
+            const newSceneHtml = `
+            <div class="row scene" id="scene_${newId}">
+                <hr>
+                <div class="header mb-4 " style="padding: 0 10px; border-bottom: 1px lightgray solid" >
+                    <div style="text-align: left">
+                        <select class="form-control scene-type-select" data-id="${newId}" id="type_selector_${newId}" style="width: 200px; text-align: center" onchange="toggleSceneType( ${newId})">
+                            <option value="dialogue" selected>Dialogue</option>
+                            <option value="visual">Visual</option>
+                        </select>
+                    </div>
+                    <div style="text-align: center;">
+                    </div>
+                    <div style="text-align: right;">
+                        <button class="image-card-selector delete-button" id="delete-${newId}" onclick="delete_selected(${newId})" style="border-radius:5px;">
+                            <i class="icon-delete"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="row scene-content" id="text_${newId}">
+                    <div class="col-md-6">
+                        <label for="dialogue_text_${newId}" style="font-weight: bold;">Text</label>
+                        <textarea class="form-control mb-3" id="dialogue_text_${newId}" MaxLength="200" rows="5" style="resize: none;"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="dialogue_character_selector_${newId}" style="display: block">
+                            <label for="dialogue_character_name_${newId}" style="font-weight: bold;">Character</label>
+                            <select class="form-select" id="dialogue_character_name_${newId}" onchange="dialogue_character_changed(${newId})">
+                                `+ character_options +`
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row scene-content" id="visual_${newId}" style="display: none;">
+                    <div class="col-md-4">
+                        <div class="form-group col-md-12">
+                            <label for="image_type_${newId}" style="font-weight: bold;">Type</label>
+                            <select class="form-control" id="image_type_${newId}" onchange="visual_type_change(${newId})">
+                                <option value="character" selected>Character</option>
+                                <option value="location">Location</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12" id="story_element_selector_${newId}">
+                            <div id="character_selector_${newId}" style="display: block">
+                                <label for="character_name_${newId}" style="font-weight: bold;">Character</label>
+                                <select class="form-select" id="character_name_${newId}" onchange="character_changed(${newId})">
+                                    `+ character_options +`
+                                </select>
+                            </div>
+                            <div id="location_selector_${newId}" style="display: none">
+                                <label for="location_name_${newId}" style="font-weight: bold;">Location</label>
+                                <select class="form-select" id="location_name_${newId}" onchange="location_changed(${newId})">
+                                    `+ location_options +`
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12" id="version_selector_${newId}">
+                            <label for="version_list_${newId}" style="font-weight: bold;">Version</label>
+                            <select class="form-control" id="version_list_${newId}" onchange="version_changed(${newId})">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4" id="character_scene_settings">
+                        <div class="form-group col-md-12">
+                            <label for="object_visibility_${newId}" style="font-weight: bold;">Visibility</label>
+                            <select class="form-control" id="object_visibility_${newId}" onchange="object_visibility_change(${newId})">
+                                <option value="show">Show</option>
+                                <option value="hide">Hide</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4" id="placement_settings_${newId}">
+                        <div class="form-group col-md-12">
+                            <label for="character_placement_${newId}" style="font-weight: bold;">Place</label>
+                            <select class="form-control" id="character_placement_${newId}" onchange="character_placement_change(${newId})">
+                                <option value="left">Left</option>
+                                <option value="left">Center</option>
+                                <option value="right">Right</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr style="margin-bottom: 0; margin-top: 20px;">
+                <button class="btn scene-button" data-id="${newId}" onclick="addScene(${newId})">
+                    <i class="icon-plus"></i>
+                </button>
+            </div>
+            `;
+            
+            
+            const afterSceneElement = document.getElementById('scene_' + afterSceneId);
+            afterSceneElement.insertAdjacentHTML('afterend', newSceneHtml);
+            
+            const index = scenesArray.indexOf(afterSceneId);
+            scenesArray.splice(index + 1, 0, newId);
+
+            sceneDataArray.splice(index + 1, 0,{
+                id: newId,
+                type: 'dialogue',
+                text: '',
+                object_type: '',
+                character: '',
+                location: '',
+                version: '',
+                action: '',
+                place: '',
+            });
+            load_version_list(newId);
+        }
+
+        function toggleSceneType(sceneId){
+            var type = document.getElementById('type_selector_'+sceneId).value;
+            if(type == 'dialogue'){
+                document.getElementById('text_'+sceneId).style.display = '';
+                document.getElementById('visual_'+sceneId).style.display = 'none';
+            }else{
+                document.getElementById('text_'+sceneId).style.display = 'none';
+                document.getElementById('visual_'+sceneId).style.display = '';
+            }
+
+            save_data_for(sceneId);
+        }
+
+        function save_data_for(sceneId){
+            var scene = sceneDataArray.find(scene => scene.id === sceneId);
+            
+            scene.type = document.getElementById('type_selector_'+sceneId).value;
+            if(scene.type == 'dialogue'){
+                scene.text = document.getElementById('dialogue_text_'+sceneId).value;
+                scene.character = document.getElementById('dialogue_character_name_'+sceneId).value;
+                scene.object_type = "";
+                scene.location = "";
+                scene.version = "";
+                scene.action = "";
+                scene.place = "";
+            }
+            else{
+                scene.text = "";
+                scene.object_type = document.getElementById('image_type_'+sceneId).value;
+                if(scene.object_type == 'character'){
+                    scene.character = document.getElementById('character_name_'+sceneId).value;
+                    scene.location = "";
+                    scene.place = document.getElementById('character_placement_'+sceneId).value;
+                }
+                else{
+                    scene.character = "";
+                    scene.location = document.getElementById('location_name_'+sceneId).value;
+                }
+
+                scene.action = document.getElementById('object_visibility_'+sceneId).value;
+                if(scene.action == 'show')
+                    scene.version = document.getElementById('version_list_'+sceneId).value;
+                else{
+                    scene.version = "";
+                    scene.place = "";
+                }
+            }
+        }
+
+        function dialogue_character_changed(id){
+            save_data_for(id);
+        }
+        
+        function getNames(){
+            for(let each in characters){
+                character_names.push(characters[each]['name']);
+                character_usernames.push(characters[each]['user_name']);
+            }
+            for(let each in locations){
+                location_names.push(locations[each]['name']);
+                location_usernames.push(locations[each]['user_name']);
+            }
+
+            for (var i = 0; i < character_names.length; i++) {
+                var option = `<option value="`+character_names[i]+`">`+character_usernames[i]+`</option>`;
+                if(i == 0){
+                    option = `<option value="`+character_names[i]+`" selected>`+character_usernames[i]+`</option>`;
+                }
+                character_options+=option;
+            }
+            for (var i = 0; i < location_names.length; i++) {
+                var option = `<option value="`+location_names[i]+`">`+location_usernames[i]+`</option>`;
+                if(i == 0){
+                    option = `<option value="`+location_names[i]+`" selected>`+location_usernames[i]+`</option>`;
+                }
+                location_options+=option;
+            }
+        }
+        getNames();
+        
+        function load_version_list(sceneId){
+            var version_list = document.getElementById('version_list_'+sceneId);
+            version_list.innerHTML = "";
+            type = document.getElementById('image_type_'+sceneId).value;
+            
+            if(type == 'character'){
+                name = document.getElementById('character_name_'+sceneId).value;
+                versions = characters[name]['versions'];
+
+                document.getElementById('character_selector_'+sceneId).style.display = 'block';
+                document.getElementById('location_selector_'+sceneId).style.display = 'none';
+            }
+            else{
+                name = document.getElementById('location_name_'+sceneId).value;
+                versions = locations[name]['versions'];
+
+                document.getElementById('character_selector_'+sceneId).style.display = 'none';
+                document.getElementById('location_selector_'+sceneId).style.display = 'block';
+            }
+            
+            
+            for (version in versions){
+                var option = document.createElement("option");
+                if (version == 'default') {
+                    option.selected = true;
+                }
+                option.text = version;
+                option.vale = version;
+                version_list.add(option);
+            }
+        }
+
+        function visual_type_change(id){
+            var type = document.getElementById('image_type_'+id).value;
+            if(type == 'character'){
+                document.getElementById('character_selector_'+id).style.display = 'block';
+                document.getElementById('location_selector_'+id).style.display = 'none';
+            }else{
+                document.getElementById('character_selector_'+id).style.display = 'none';
+                document.getElementById('location_selector_'+id).style.display = 'block';
+            }
+            load_version_list(id);
+            object_visibility_change(id);
+        }
+
+        function object_visibility_change(sceneId){
+            var visibility = document.getElementById('object_visibility_'+sceneId).value;
+            var type = document.getElementById('image_type_'+sceneId).value;
+            if(visibility == 'show'){
+                document.getElementById('version_selector_'+sceneId).style.display = 'block';
+                document.getElementById('placement_settings_'+sceneId).style.display = (type=='character')?'block':'none';
+            }else{
+                document.getElementById('placement_settings_'+sceneId).style.display = 'none';
+                document.getElementById('version_selector_'+sceneId).style.display = 'none';
+            }
+            save_data_for(sceneId);
+        }
+        
+        function character_changed(sceneId){
+            load_version_list(sceneId);
+            save_data_for(sceneId);
+        }
+        
+        function location_changed(sceneId){
+            load_version_list(sceneId);
+            save_data_for(sceneId);
+        }
+
+        function version_changed(sceneId){
+            save_data_for(sceneId);
+        }
+        
+        function delete_selected(sceneId) {
+            // Remove the scene element from the DOM
+            var sceneElement = document.getElementById('scene_' + sceneId);
+            if (sceneElement) {
+                sceneElement.parentNode.removeChild(sceneElement);
+            }
+        
+            // Find the index of the scene in the array and remove it
+            const index = scenesArray.indexOf(sceneId);
+            if (index > -1) {
+                scenesArray.splice(index, 1);
+                sceneDataArray.splice(index, 1);
+            }
+        }
+
+        // Function to initialize the scene list
+        function initScenes() {
+            document.querySelectorAll('.scene').forEach((scene, index) => {
+                const id = parseInt(scene.getAttribute('id').replace('scene_', ''));
+                scenesArray[index] = id;
+            });
+        }
+    
+        // Add click event listener for adding scenes
+        document.addEventListener('click', function (e) {
+            if (e.target && e.target.classList.contains('add-scene')) {
+                const id = e.target.getAttribute('data-id');
+                addScene(id);
+            }
+        });
+        
+    function save() {
+        for( var i = 0; i < sceneDataArray.length; i++){ 
+            save_data_for(sceneDataArray[i].id);
+        }
+        URL = "/project/{{project.name}}/builder/save";
+        fetch(URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }, 
+            body: JSON.stringify({
+                "scenes": sceneDataArray
+            })
+        }).then(response => {
+            if (response.status === 200) {
+                window.alert("Project saved successfully.");
+            }
+        })
+    }
+
+    function load_scenes_from_save(){
+        scenes = {{scenes|tojson}};
+
+        for( scene in scenes){
+            addScene(-1);
+
+            var sceneData = scenes[scene];
+            var sceneId = sceneCounter;
+            var type = sceneData.type;
+            var text = sceneData.text;
+            var object_type = sceneData.object_type;
+            var character = sceneData.character;
+            var location = sceneData.location;
+            var version = sceneData.version;
+            var action = sceneData.action;
+            var place = sceneData.place;
+
+            document.getElementById('type_selector_'+sceneId).value = type;
+            if(type == 'dialogue'){
+                document.getElementById('dialogue_text_'+sceneId).value = text;
+                document.getElementById('dialogue_character_name_'+sceneId).value = character;
+            }
+            else{
+                document.getElementById('visual_'+sceneId).style.display = '';
+                document.getElementById('text_'+sceneId).style.display = 'none';
+                document.getElementById('image_type_'+sceneId).value = object_type;
+                if(object_type == 'character'){
+                    document.getElementById('character_name_'+sceneId).value = character;
+                    document.getElementById('object_visibility_'+sceneId).value = action;
+                    if(action != 'hide'){
+                        document.getElementById('character_placement_'+sceneId).value = place;
+                        
+                }
+                else{
+                    document.getElementById('location_name_'+sceneId).value = location;
+                }
+                document.getElementById('version_list_'+sceneId).value = version;
+                visual_type_change(sceneId);
+                object_visibility_change(sceneId);
+                }
+            }
+        }
+    }
+    load_scenes_from_save();
+
+    function generate() {
+        var scenes = [];
+        var scene = document.getElementById('screens').children;
+        for (var i = 0; i < scene.length; i++) {
+            var sceneText = scene[i].children[0].value;
+            scenes.push(sceneText);
+        }
+        var data = {
+            scenes: scenes,
+            initialText: document.getElementsByClassName('prompt')[0].innerText
+        }
+        URL = "/project/{{project.name}}/builder/generate";
+        fetch(URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }, 
+            body: JSON.stringify(data)
+        }).then(response => {
+            if (response.status === 200) {
+                if(window.confirm("Project generated successfully."))
+                {
+                    start();
+                }
+            }
+        })
+    }
+
+    function start(){
+        URL = "/project/{{project.name}}/builder/start";
+        fetch(URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }, 
+            body: {}
+        }).then(response => {
+            if (response.status === 200) {
+                window.alert("Project about to start.");
+            }
+        })
+    }
+
+    function start(){
+        URL = "/project/{{project.name}}/builder/start";
+        fetch(URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }, 
+            body: {}
+        }).then(response => {
+            if (response.status === 200) {
+                window.alert("Project about to start.");
+            }
+        })
+    }
+    
+    function build(){
+        URL = "/project/{{project.name}}/builder/build";
+        fetch(URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }, 
+            body: {}
+        }).then(response => {
+            if (response.status === 200) {
+                window.alert("Project build.");
+            }
+        })
+    }
+
+
+    document.getElementById('Save').addEventListener('click', save);
+    document.getElementById('Generate').addEventListener('click', generate);
+    document.getElementById('Start').addEventListener('click', start);
+    document.getElementById('Build').addEventListener('click', build);
+</script>
+{% endblock %}

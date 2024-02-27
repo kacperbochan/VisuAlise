@@ -5,7 +5,10 @@
 {% block sub_page_content %}
 <div class="row">
     <div class="col-md-9">
-        <p><strong>description:</strong> {{ description }}</p>
+        <h3 style="margin-top:5%;">Versions: {{ versions|length }}</h3>
+        <h3 style="margin-top:5%;">Images: {{ images|length }}</h3>
+        <h3 style="margin-top:5%;">Description:</h3> 
+        <p class="prompt">{{versions.default.prompt}}</p>
     </div>
     <div class="col-md-3">
         <div class="dark-section location-info">
