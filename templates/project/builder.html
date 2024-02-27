@@ -54,7 +54,7 @@
 <script>
 
     
-        let sceneCounter = 0;
+        let sceneCounter = -1;
         const scenesArray = [];
         const sceneDataArray = [];
         const characters = {{characters|tojson}};
@@ -386,7 +386,7 @@
         scenes = {{scenes|tojson}};
 
         for( scene in scenes){
-            addScene(-1);
+            addScene(sceneCounter);
 
             var sceneData = scenes[scene];
             var sceneId = sceneCounter;
