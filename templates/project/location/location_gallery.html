@@ -191,7 +191,7 @@
 
         function populateVersionSelect(){
             versionSelector.innerHTML = '';
-            for (let v in promptBlock['{{ name }}']) {
+            for (let v in promptBlock['locations']['{{ name }}']) {
                 const option = document.createElement('option');
                 option.value = v;
                 option.text = v;
