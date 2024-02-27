@@ -177,7 +177,7 @@ def add_image_to_story_object(project_name:str, story_object_name:str, image_nam
     
     return {"message": "Image added to story object"}
 
-@router.get("/{project_name}")
+@router.get("")
 async def read_project(request: Request, project_name: str):
     project, project_path = get_project_by_name(project_name)
     
@@ -233,7 +233,7 @@ style_prompts = {
     }
 }
 
-@router.get("/{project_name}/generation")
+@router.get("/generation")
 async def generation_page(request: Request, project_name: str):
     
     project, project_path = get_project_by_name(project_name)
@@ -254,13 +254,13 @@ async def generation_page(request: Request, project_name: str):
         **visual_settings
     })
 
-@router.get("/{project_name}/promptblock")
+@router.get("/promptblock")
 async def get_promptblock(request: Request, project_name: str):
     project, project_path = get_project_by_name(project_name)
     return get_project_prompts(project_path)
 
 
-@router.get("/{project_name}/generation/{sub_page}")
+@router.get("/generation/{sub_page}")
 async def generation_sub_page(request: Request, project_name: str, sub_page: str):
     
     project, project_path = get_project_by_name(project_name)
@@ -278,7 +278,7 @@ async def generation_sub_page(request: Request, project_name: str, sub_page: str
         **visual_settings
     })
 
-@router.get("/{project_name}/generation/txt2img/template", response_class=HTMLResponse)
+@router.get("/generation/txt2img/template", response_class=HTMLResponse)
 async def txt2img_page(request: Request, project_name: str):
     project, project_path = get_project_by_name(project_name)
     
@@ -307,31 +307,11 @@ def get_text_data(project_path: str):
                     return os.path.join(project_path, "texts", file['path'])
         except json.JSONDecodeError:
             return ""
-    
 
-@router.get("/{project_name}/builder")
-async def generation_page(request: Request, project_name: str):
-    
-    project, project_path = get_project_by_name(project_name)
-    
+def get_version_images(project_path: str):
     characters = get_project_story_objects(project_path, False)
     locations = get_project_story_objects(project_path, True)
-    text=""
-    file_path = get_text_data(project_path)
-    if(file_path != ""):        
-        with open(file_path, 'r', encoding='utf-8') as file:
-            text = file.read()
-    
-    
-    visual_settings = get_visual_settings()
-    return templates.TemplateResponse("builder.html", {
-        "request": request,
-        "project": project,
-        "characters": characters,
-        "locations": locations,
-        "providedText": text,
-        **visual_settings
-    })
+    return characters, locations
 
 def get_story_object_data(project: Project, project_path: str, story_object_name:str, location: bool = False):
     type = "locations" if location else "characters"
@@ -377,7 +357,7 @@ def get_checked_version(project_name:str, story_object_name:str, version_name: s
     
     return None, data, story_object_file
 
-@router.post("/{project_name}/{type}/{story_object_name}/versions/update_name_and_prompt")
+@router.post("/{type}/{story_object_name}/versions/update_name_and_prompt")
 async def update_story_object_version(request: Request, project_name:str, type: str, story_object_name:str, version_name: str = Form(), new_version_name: str = Form(), new_version_prompt: str = Form()):
     
     if(type != "character" and type != "location"):
@@ -399,7 +379,7 @@ async def update_story_object_version(request: Request, project_name:str, type: 
     
     return {"message": "Version updated"}
 
-@router.post("/{project_name}/{type}/{story_object_name}/versions/copy_version")
+@router.post("/{type}/{story_object_name}/versions/copy_version")
 async def clone_story_object_version(project_name:str, type: str, story_object_name:str, version_name: str = Form()):
     if(type != "character" and type != "location"):
         return {"message": "Invalid type"}    
@@ -421,7 +401,7 @@ async def clone_story_object_version(project_name:str, type: str, story_object_n
     
     return {"message": "Version cloned"}
 
-@router.post("/{project_name}/{type}/{story_object_name}/versions/delete_version")
+@router.post("/{type}/{story_object_name}/versions/delete_version")
 async def delete_story_object_version(project_name:str, type: str, story_object_name:str, version_name: str = Form()):
     
     if(type != "character" and type != "location"):
@@ -441,7 +421,7 @@ async def delete_story_object_version(project_name:str, type: str, story_object_
     return {"message": "Version deleted"}
 
 
-@router.post("/{project_name}/{type}/{story_object_name}/assign_image_to_version")
+@router.post("/{type}/{story_object_name}/assign_image_to_version")
 async def assign_image_to_story_object_version(project_name:str, type: str, story_object_name:str, version_name: str = Form(), image_path: str = Form()):
     message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="location")
     if(message != None):
@@ -465,7 +445,7 @@ def check_if_image_is_referenced(data, image_name: str):
                 return True
     return False
 
-@router.post("/{project_name}/{type}/{story_object_name}/delete_selected_image")
+@router.post("/{type}/{story_object_name}/delete_selected_image")
 async def delete_selected_image(project_name:str, type: str, story_object_name:str, image_path: str = Form()):
     type = type+"s"
     
@@ -494,7 +474,7 @@ async def delete_selected_image(project_name:str, type: str, story_object_name:s
     
     return {"message": "Image deleted"}
 
-@router.post("/{project_name}/{type}/{story_object_name}/delete_selected_images")
+@router.post("/{type}/{story_object_name}/delete_selected_images")
 async def delete_selected_images(project_name:str, type: str, story_object_name:str, body = Body(...)):
     image_paths = body["image_paths"]
     type = type+"s"
@@ -526,11 +506,11 @@ async def delete_selected_images(project_name:str, type: str, story_object_name:
     
     return {"message": "Images deleted"}
 
-@router.get("/{project_name}/model-lists")
+@router.get("/model-lists")
 async def get_model_lists_endpoint(project_name: str):
     return get_model_lists()
 
-@router.get("/{project_name}/settings")
+@router.get("/settings")
 async def read_settings(request: Request, project_name: str):
     model_lists = get_model_lists()
     visual_settings = get_visual_settings()
@@ -542,7 +522,7 @@ async def read_settings(request: Request, project_name: str):
         **visual_settings
     })
 
-@router.post("/{project_name}/settings/update/llm")
+@router.post("/settings/update/llm")
 async def update_settings(request: Request, project_name: str, 
                         language_model: str = Form(...), 
                         llm_temperature: float = Form(...), 
@@ -585,7 +565,7 @@ async def update_settings(request: Request, project_name: str,
     return {"message": "LLM settings updated"}
 
 
-@router.post("/{project_name}/settings/update/diffusion")
+@router.post("/settings/update/diffusion")
 async def update_settings(request: Request, project_name: str, 
                         diffusion_model: str = Form(...), 
                         diffusion_steps: int = Form(...), 

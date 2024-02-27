@@ -89,6 +89,7 @@ def create_file_structure(project_dir: str):
     create_empty_json(os.path.join(project_dir, "data", "locations.json"))
     create_empty_json(os.path.join(project_dir, "data", "project_data.json"))
     create_empty_json(os.path.join(project_dir, "data", "text_data.json"))
+    create_empty_json(os.path.join(project_dir, "data", "build_data.json"))
 
 
 # -------------------------
