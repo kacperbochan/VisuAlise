@@ -407,20 +407,40 @@
             else{
                 document.getElementById('visual_'+sceneId).style.display = '';
                 document.getElementById('text_'+sceneId).style.display = 'none';
+                
                 document.getElementById('image_type_'+sceneId).value = object_type;
                 if(object_type == 'character'){
+                    document.getElementById('character_selector_'+sceneId).style.display = 'block';
+                    document.getElementById('location_selector_'+sceneId).style.display = 'none';
+
                     document.getElementById('character_name_'+sceneId).value = character;
                     document.getElementById('object_visibility_'+sceneId).value = action;
                     if(action != 'hide'){
                         document.getElementById('character_placement_'+sceneId).value = place;
-                        
-                }
+                        document.getElementById('version_list_'+sceneId).value = version;
+                        document.getElementById('version_selector_'+sceneId).style.display = 'block';
+                        document.getElementById('placement_settings_'+sceneId).style.display = 'block';
+                    }
+                    else{
+                        document.getElementById('placement_settings_'+sceneId).style.display = 'none';
+                        document.getElementById('version_selector_'+sceneId).style.display = 'none';
+                    }
+                    
+                    }
                 else{
+                    document.getElementById('character_selector_'+sceneId).style.display = 'none';
+                    document.getElementById('location_selector_'+sceneId).style.display = 'block';
                     document.getElementById('location_name_'+sceneId).value = location;
-                }
-                document.getElementById('version_list_'+sceneId).value = version;
-                visual_type_change(sceneId);
-                object_visibility_change(sceneId);
+
+                    document.getElementById('object_visibility_'+sceneId).value = action;
+                    load_version_list(sceneId);
+                    if(action != 'hide'){
+                        document.getElementById('version_list_'+sceneId).value = version;
+                    }
+                    else{
+                        document.getElementById('version_selector_'+sceneId).style.display = 'none';
+                        document.getElementById('placement_settings_'+sceneId).style.display = 'none';
+                    }
                 }
             }
         }

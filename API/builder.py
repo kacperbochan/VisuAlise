@@ -105,7 +105,7 @@ async def create_definitions_and_images(project_path: str, game_folder: str):
                 output_images.append(os.path.join(locations_dir, values["image"]))
                 output_name = (re.sub(cleanup, '',location["name"])+"_"+re.sub(cleanup, '',version)+".png").lower()
                 output_names.append(output_name)
-                output_definitions.append("image "+re.sub(cleanup, '',location["name"]).lower()+" "+re.sub(cleanup, '',version).lower()+" = Image('"+output_name+"')")
+                output_definitions.append("image "+re.sub(cleanup, '',location["name"]).lower()+" "+re.sub(cleanup, '',version).lower()+" = im.Scale('"+output_name+"',1920,1080)")
             else:
                 output_definitions.append("image "+re.sub(cleanup, '',location["name"]).lower()+" "+re.sub(cleanup, '',version).lower()+" =  Placeholder('bg', text = '"+re.sub(cleanup, '',location["name"]).lower()+" "+re.sub(cleanup, '',version).lower()+"')")
     
