@@ -21,7 +21,7 @@
     <div class="col-md-3 col-sm-6 mb-4">
         <div class="card dark-section">
             <a href="/project/{{ project.name }}/location/{{ location.name }}/info" class="card-link">
-            
+
                 {% if location.image_path %}
                     <img src="{{ location.image_path }}" alt="{{ location.user_name }}" class="card-img-top">
                 {% else %}
@@ -65,7 +65,9 @@
                 </a>
                 <div class="list-action-container">
                     <button class="card-action" onclick="copyLocation('{{ location.name }}')">Copy</button>
-                    <button class="card-action" onclick="mergeLocation('{{ location.name }}')">Merge</button>
+                    {% if project.locations_n > 1 %}
+                        <button class="card-action" onclick="mergeLocation('{{ location.name }}')">Merge</button>
+                    {% endif %}
                     <button class="card-action" onclick="deleteLocation('{{ location.name }}')">Delete</button>
                 </div>
             </div>
@@ -94,7 +96,7 @@
     }
 
     async function copyLocation(locationName){
-        
+
         const URL='/project/{{project.name}}/locations/copy';
 
         await fetch(URL, {
@@ -114,10 +116,10 @@
         });
     }
 
-    
-    
-    
-    async function deleteLocation(locationName){        
+
+
+
+    async function deleteLocation(locationName){
         let userInput = prompt("Are you sure you want to delete this location? \nPlease type their name to confirm:");
 
         if (userInput === locationName) {
@@ -163,7 +165,7 @@
             list.style.display = 'block';
             return;
         }
-        
+
         image_view.style.display = 'flex';
         list.style.display = 'none';
 

@@ -21,44 +21,54 @@ import asyncio
 router = APIRouter()
 templates = Jinja2Templates(directory="templates/project")
 
+def safely_quote_string(user_input):
+    # Escape backslashes first
+    escaped_input = user_input.replace("\\", "\\\\")
+
+    # Escape single quotes
+    escaped_input = escaped_input.replace("'", "\\'")
+
+    return f"{escaped_input}"
+
 async def translateToRenpy(scene: dict):
     type = scene["type"].lower()
-    text = scene["text"].lower()
+    text = safely_quote_string(scene["text"])
+
     object_type = scene["object_type"].lower()
     character = re.sub(cleanup, '',scene["character"]).lower()
     location = re.sub(cleanup, '',scene["location"]).lower()
     version = re.sub(cleanup, '',scene["version"]).lower()
     action = scene["action"].lower()
     place = scene["place"].lower()
-    
+
     if(type == "dialogue"):
         return f"{capital(character)} '{text}'"
-    
+
     if(action == "show"):
         if(object_type == "character"):
             return f"show {character} {version} at {place} with dissolve"
-        else: 
+        else:
             return f"scene {location} {version} with fade"
-    
+
     if(object_type == "character"):
         return f"hide {character} {version} at {place} with dissolve"
     return f"hide {location} {version} at {place} with fade"
-    
+
 def get_objects_without_images(project_path: str):
     characters= {}
     locations= {}
-        
+
     characters_file = os.path.join(project_path, "data", "characters.json")
     locations_file = os.path.join(project_path, "data", "locations.json")
-    
+
     with open(characters_file, 'r') as file:
         characters_data = json.load(file)
     with open(locations_file, 'r') as file:
         locations_data = json.load(file)
-    
+
     characters = {key: value for key, value in characters_data.items() if "image" not in value}
     locations = {key: value for key, value in locations_data.items() if "image" not in value}
-    
+
     return characters, locations
 
 cleanup = re.compile(r'[^a-zA-Z0-9]')
@@ -69,23 +79,23 @@ def capital(string):
 
 async def create_definitions_and_images(project_path: str, game_folder: str):
     output_folder = os.path.join(game_folder, "game", "images")
-    
+
     output_definitions = []
-    
+
     output_images = []
     output_names = []
-    
+
     sprites_dir = os.path.join(os.getcwd(), project_path, "images", "sprites")
     locations_dir = os.path.join(os.getcwd(), project_path, "images", "locations")
-    
+
     characters_file = os.path.join(project_path, "data", "characters.json")
     locations_file = os.path.join(project_path, "data", "locations.json")
-    
+
     with open(characters_file, 'r') as file:
         characters = json.load(file)
     with open(locations_file, 'r') as file:
         locations = json.load(file)
-    
+
     for character in characters.values():
         output_definitions.append("define "+capital(re.sub(cleanup, '',character["name"]))+" = Character('"+capital(re.sub(cleanup, '',character["user_name"]))+"')")
         for version, values in character["versions"].items():
@@ -97,7 +107,7 @@ async def create_definitions_and_images(project_path: str, game_folder: str):
                 output_definitions.append("image "+re.sub(cleanup, '',character["name"]).lower()+" "+re.sub(cleanup, '',version).lower()+" = Image('"+output_name+"')")
             else:
                 output_definitions.append("image "+re.sub(cleanup, '',character["name"]).lower()+" "+re.sub(cleanup, '',version).lower()+" =  Placeholder('boy', text = '"+re.sub(cleanup, '',character["name"]).lower()+" "+re.sub(cleanup, '',version).lower()+"')")
-    
+
     for location in locations.values():
         for version, values in location["versions"].items():
             file_path = os.path.join(locations_dir, values["image"])
@@ -105,28 +115,28 @@ async def create_definitions_and_images(project_path: str, game_folder: str):
                 output_images.append(os.path.join(locations_dir, values["image"]))
                 output_name = (re.sub(cleanup, '',location["name"])+"_"+re.sub(cleanup, '',version)+".png").lower()
                 output_names.append(output_name)
-                output_definitions.append("image "+re.sub(cleanup, '',location["name"]).lower()+" "+re.sub(cleanup, '',version).lower()+" = im.Scale('"+output_name+"',1920,1080)")
+                output_definitions.append("image "+re.sub(cleanup, '',location["name"]).lower()+" "+re.sub(cleanup, '',version).lower()+" = Image('"+output_name+"')")
             else:
                 output_definitions.append("image "+re.sub(cleanup, '',location["name"]).lower()+" "+re.sub(cleanup, '',version).lower()+" =  Placeholder('bg', text = '"+re.sub(cleanup, '',location["name"]).lower()+" "+re.sub(cleanup, '',version).lower()+"')")
-    
+
     for index, image in enumerate(output_images):
         if image[-3:] == "png":
             shutil.copy(image, output_folder +"\\" +output_names[index].lower())
-    
+
     return output_definitions
-    
+
 async def generate_game_script(project_path: str, game_folder: str):
     output_script = []
-    
+
     scenes_file = os.path.join(project_path, "data", "build_data.json")
     with open(scenes_file, 'r') as file:
         scenes = json.load(file)
-    
+
     output_script.append("label start:\n")
     for scene in scenes:
         output_script.append(f"    {await translateToRenpy(scene)}\n")
     output_script.append("    return\n")
-    
+
     return output_script
 
 async def launch_game(game_folder: str):
@@ -139,10 +149,10 @@ async def replace_in_file(filename, new_value):
 
     pattern = "Project-1708981541"
     match = re.search(pattern, file_contents)
-    
+
     new_number = str(random.randint(10**(9), 10**9))
     file_contents = re.sub(pattern, f"{new_value}-{new_number}", file_contents)
-    
+
     file_contents = file_contents.replace("Project", new_value)
 
     with open(filename, 'w', encoding='utf-8') as file:
@@ -180,8 +190,8 @@ async def generate_distribution(project_path: str, project_name: str):
     definitions = await create_definitions_and_images(project_path, game_folder)
     script = await generate_game_script(project_path, game_folder)
     create_game_files(game_folder, definitions, script)
-    
-    
+
+
 async def prepare_game_files(project_path: str, project_name: str, testing: bool = True):
     game_folder = os.path.join(os.getcwd(),project_path, "game")
     if(not testing):
@@ -204,17 +214,17 @@ def load_scenes(project_path: str):
 
 @router.get("")
 async def build_page(request: Request, project_name: str):
-    
+
     project, project_path = get_project_by_name(project_name)
     characters, locations = get_objects_without_images(project_path)
     scenes = load_scenes(project_path)
-    
+
     text=""
     file_path = get_text_data(project_path)
-    if(file_path != ""):  
+    if(file_path != ""):
         with open(file_path, 'r', encoding='utf-8') as file:
             text = file.read()
-    
+
     visual_settings = get_visual_settings()
     return templates.TemplateResponse("builder.html", {
         "request": request,
@@ -230,13 +240,13 @@ async def build_page(request: Request, project_name: str):
 @router.post("/save")
 async def save_game(project_name: str, body = Body(...)):
     data = body["scenes"]
-    
+
     project, project_path = get_project_by_name(project_name)
-    
+
     build_data = os.path.join(project_path, "data", "build_data.json")
     with open(build_data, 'w') as file:
         json.dump(data, file, indent=4)
-    
+
     return {"status": "success"}
 
 @router.post("/generate")
@@ -254,7 +264,7 @@ async def start_game(request: Request, project_name: str):
     project, project_path = get_project_by_name(project_name)
     if(not os.path.isdir(os.path.join(os.getcwd(), project_path, "game"))):
         await prepare_game_files(project_path, project_name)
-        
+
     asyncio.create_task(await launch_game(os.path.join(os.getcwd(), project_path, "game")))
 
 @router.post("/build")

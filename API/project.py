@@ -6,6 +6,7 @@ from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
+import tiktoken
 from models.models import Project, ProjectMenuData, LLM, DiffusionModel
 from models.dto_models import StoryElementMiniDTO
 from settings import global_settings as settings, load_user_settings
@@ -71,34 +72,34 @@ def get_safe_json(file_path: str):
 def get_project_prompts(project_path:str):
     character_file = os.path.join(project_path, "data", "characters.json")
     location_file = os.path.join(project_path, "data", "locations.json")
-    
+
     transformed_data = {'characters': {}, 'locations': {}}
     character_data = get_safe_json(character_file)
     location_data = get_safe_json(location_file)
-    
+
     for character, details in character_data.items():
         versions = details.get('versions', {})
         transformed_data['characters'][character] = {}
         for version, version_details in versions.items():
             prompt = version_details.get('prompt', '')
             transformed_data['characters'][character][version] = prompt
-            
+
     for location, details in location_data.items():
         versions = details.get('versions', {})
         transformed_data['locations'][location] = {}
         for version, version_details in versions.items():
             prompt = version_details.get('prompt', '')
             transformed_data['locations'][location][version] = prompt
-    
+
     # Convert the transformed data to JSON format
     return transformed_data
 
 def get_project_story_object_info(project_path:str, location: bool = False):
     type = "locations" if location else "characters"
     story_object_file = os.path.join(project_path, "data", type+".json")
-    
+
     data = get_safe_json(story_object_file)
-    
+
     transformed_data = {}
     for character, details in data.items():
         versions = details.get('versions', {})
@@ -108,7 +109,7 @@ def get_project_story_object_info(project_path:str, location: bool = False):
         transformed_data[character]['versions'] = []
         for version, version_details in versions.items():
             transformed_data[character]['versions'].append(version)
-    
+
     return transformed_data
 
 
@@ -116,22 +117,22 @@ def get_project_story_object_info(project_path:str, location: bool = False):
 def get_project_story_objects(project_path:str,  location: bool = False):
     type = "locations" if location else "characters"
     story_object_file = os.path.join(project_path, "data", type+".json")
-    
+
     data = get_safe_json(story_object_file)
-                
+
     story_object_list = []
-    
+
     for story_object in data.values():
-        
+
         story_element_dto = StoryElementMiniDTO(
-            name=story_object["name"], 
-            user_name=story_object["user_name"], 
-            description=story_object["versions"]["default"]["description"], 
-            image=story_object["versions"]["default"]["image"], 
+            name=story_object["name"],
+            user_name=story_object["user_name"],
+            description=story_object["versions"]["default"]["description"],
+            image=story_object["versions"]["default"]["image"],
             prompt=story_object["versions"]["default"]["prompt"])
-        
+
         story_element_dto.image_path = os.path.join(project_path, "images", type, story_element_dto.image)
-        
+
         if not os.path.isfile(story_element_dto.image_path):
             story_element_dto.image_path = None
         else:
@@ -142,55 +143,127 @@ def get_project_story_objects(project_path:str,  location: bool = False):
 def get_project_story_objects_names(project_path:str,  location: bool = False):
     type = "locations" if location else "characters"
     story_object_file = os.path.join(project_path, "data", type+".json")
-    
+
     data = get_safe_json(story_object_file)
-                
+
     story_object_list = []
-    
+
     for story_object in data.values():
         story_object_list.append(story_object["name"])
     return story_object_list
 
 def add_image_to_story_object(project_name:str, story_object_name:str, image_name: str, prompt: str, location: bool = False):
-    
+
     project, project_path = get_project_by_name(project_name)
-    
+
     type = "locations" if location else "characters"
     story_object_file = os.path.join(project_path, "data", type+".json")
-    
+
     data = get_safe_json(story_object_file)
-    
+
     if "images" not in data.get(story_object_name, {}):
         if story_object_name not in data:
             data[story_object_name] = {}
         data[story_object_name]["images"] = []
-    
+
     new_image = {
         "path": image_name+".png",
         "prompt": prompt
     }
     x = data[story_object_name]["images"]
     data[story_object_name]["images"].append(new_image)
-    
+
     with open(story_object_file, 'w') as file:
         json.dump(data, file, indent=4)
-    
+
     return {"message": "Image added to story object"}
 
 @router.get("")
 async def read_project(request: Request, project_name: str):
     project, project_path = get_project_by_name(project_name)
-    
-    
+
+
     if project is None:
         raise HTTPException(status_code=404, detail="Project not found or data file missing")
-    
+
     visual_settings = get_visual_settings()
-    return templates.TemplateResponse("base.html", {
+    return templates.TemplateResponse("text_sources.html", {
         "request": request,
         "project": project,
         **visual_settings
     })
+
+def new_split_text_by_tokens(text:str =Form(), desired_tokens: int=Form()):
+
+    paragraphs = text.split('\n')
+    chunks = []
+    current_chunk = ""
+    current_chunk_tokens = 0
+    encoding = tiktoken.encoding_for_model("davinci")
+
+    for paragraph in paragraphs:
+        new_chunk = current_chunk + (paragraph + "\n")
+        num_tokens = len(encoding.encode(new_chunk))
+
+        if num_tokens > desired_tokens:
+            if (desired_tokens - current_chunk_tokens) < (num_tokens-desired_tokens):
+                print("current_tokens: ", current_chunk_tokens)
+                chunks.append(current_chunk)
+                current_chunk = paragraph
+                current_chunk_tokens = num_tokens-current_chunk_tokens
+            else:
+                print("current_tokens: ", num_tokens)
+                chunks.append(new_chunk)
+                current_chunk = ""
+                current_chunk_tokens = 0
+        else:
+            current_chunk = new_chunk
+            current_chunk_tokens = num_tokens
+
+    if current_chunk:
+        print("current_tokens: ", num_tokens)
+        chunks.append(current_chunk)
+
+    return chunks
+
+
+@router.post("/savetext")
+async def create_character(request: Request, project_name: str, text: str = Form()):
+    project, project_path = get_project_by_name(project_name)
+
+    text_file = os.path.join(project_path, "texts"  ,"text.txt")
+    text_split_flie = os.path.join(project_path, "texts"  ,"text_split.json")
+    chunks =  new_split_text_by_tokens(text, 500)
+
+    data= {
+    "text":{
+        "path": "text.txt",
+        "title": "Chapter 1",
+        "split_size": chunks.__len__(),
+        "data_extraction_id": 0
+    }
+    }
+
+    with open(text_file, 'w', encoding='utf-8') as file:
+        file.write(text)
+
+    chunk_file_content = {}
+
+    for chunk in chunks:
+        element = {
+            "chunk": chunk,
+            "characters": [],
+            "locations": []
+        }
+        chunk_file_content[chunks.index(chunk)] = element
+
+
+    with open(text_split_flie, 'w') as file:
+        json.dump(chunk_file_content, file, indent=4)
+
+
+    with open(os.path.join(project_path, "data", "text_data.json"), 'w') as file:
+        json.dump(data, file, indent=4)
 
 
 
@@ -198,8 +271,8 @@ def update_project_data(project: Project, project_path: str):
     project_json_file = project_path + "/data/project_data.json"
     with open(project_json_file, 'w') as file:
         json.dump(project.model_dump(), file, indent=4)
-        
-        
+
+
 def check_free_user_name(name, data):
     for character in data.values():
         if character["user_name"] == name:
@@ -235,13 +308,13 @@ style_prompts = {
 
 @router.get("/generation")
 async def generation_page(request: Request, project_name: str):
-    
+
     project, project_path = get_project_by_name(project_name)
-    
+
     characters = get_project_story_objects(project_path, False)
     locations = get_project_story_objects(project_path, True)
     model_lists = get_model_lists()
-    
+
     visual_settings = get_visual_settings()
     return templates.TemplateResponse("generation/generation_base.html", {
         "request": request,
@@ -262,13 +335,13 @@ async def get_promptblock(request: Request, project_name: str):
 
 @router.get("/generation/{sub_page}")
 async def generation_sub_page(request: Request, project_name: str, sub_page: str):
-    
+
     project, project_path = get_project_by_name(project_name)
     visual_settings = get_visual_settings()
-    
+
     characters = get_project_story_objects(project_path, False)
     locations = get_project_story_objects(project_path, True)
-    
+
     return templates.TemplateResponse("generation/generation_base.html", {
         "request": request,
         "project": project,
@@ -281,10 +354,10 @@ async def generation_sub_page(request: Request, project_name: str, sub_page: str
 @router.get("/generation/txt2img/template", response_class=HTMLResponse)
 async def txt2img_page(request: Request, project_name: str):
     project, project_path = get_project_by_name(project_name)
-    
+
     characters = get_project_story_objects(project_path, False)
     locations = get_project_story_objects(project_path, True)
-    
+
     model_lists = get_model_lists()
     visual_settings = get_visual_settings()
     return templates.TemplateResponse("generation/generation_txt2img.html", {
@@ -298,7 +371,7 @@ async def txt2img_page(request: Request, project_name: str):
 
 def get_text_data(project_path: str):
     text_file = os.path.join(project_path, "data", "text_data.json")
-    
+
     with open(text_file, 'r') as file:
         try:
             data = json.load(file)
@@ -324,7 +397,7 @@ def get_story_object_data(project: Project, project_path: str, story_object_name
         with open(story_object_file, 'r') as file:
             try:
                 data = json.load(file)
-                
+
                 for story_object in data.values():
                     if(story_object["name"] == story_object_name):
                         images = []
@@ -344,80 +417,80 @@ def get_story_object_data(project: Project, project_path: str, story_object_name
 
 def get_checked_version(project_name:str, story_object_name:str, version_name: str, location: bool = False):
     project, project_path = get_project_by_name(project_name)
-    
+
     type = "locations" if location else "characters"
     story_object_file = os.path.join(project_path, "data", type+".json")
-    
+
     data = get_safe_json(story_object_file)
-    
+
     if story_object_name not in data:
         return {"message": "No such story object"}
     if version_name not in data[story_object_name]['versions']:
         return {"message": "No such version"}
-    
+
     return None, data, story_object_file
 
 @router.post("/{type}/{story_object_name}/versions/update_name_and_prompt")
 async def update_story_object_version(request: Request, project_name:str, type: str, story_object_name:str, version_name: str = Form(), new_version_name: str = Form(), new_version_prompt: str = Form()):
-    
+
     if(type != "character" and type != "location"):
         return {"message": "Invalid type"}
     if(version_name == 'default' and version_name != new_version_name):
         return {"message": "Cannot change the default version name"}
-    
+
     message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="location")
     if(message != None):
         return message
-    
-    if(version_name != new_version_name):    
+
+    if(version_name != new_version_name):
         data[story_object_name]['versions'][new_version_name] = data[story_object_name]['versions'][version_name]
         del data[story_object_name]['versions'][version_name]
     data[story_object_name]['versions'][new_version_name]['prompt'] = new_version_prompt
-    
+
     with open(story_object_file, 'w') as file:
         json.dump(data, file, indent=4)
-    
+
     return {"message": "Version updated"}
 
 @router.post("/{type}/{story_object_name}/versions/copy_version")
 async def clone_story_object_version(project_name:str, type: str, story_object_name:str, version_name: str = Form()):
     if(type != "character" and type != "location"):
-        return {"message": "Invalid type"}    
-    
+        return {"message": "Invalid type"}
+
     message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="location")
     if(message != None):
         return message
-    
+
     new_version_name = version_name + "_copy"
     counter = 0
     while(new_version_name in data[story_object_name]['versions']):
         counter += 1
         new_version_name = version_name + "_copy_" + str(counter)
-    
+
     data[story_object_name]['versions'][new_version_name] = data[story_object_name]['versions'][version_name]
-    
+
     with open(story_object_file, 'w') as file:
         json.dump(data, file, indent=4)
-    
+
     return {"message": "Version cloned"}
 
 @router.post("/{type}/{story_object_name}/versions/delete_version")
 async def delete_story_object_version(project_name:str, type: str, story_object_name:str, version_name: str = Form()):
-    
+
     if(type != "character" and type != "location"):
         return {"message": "Invalid type"}
     if(version_name == 'default'):
         return {'message' : 'Cannot delete the default version'}
-    
+
     message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="location")
     if(message != None):
         return message
 
     del data[story_object_name]['versions'][version_name]
-    
+
     with open(story_object_file, 'w') as file:
         json.dump(data, file, indent=4)
-    
+
     return {"message": "Version deleted"}
 
 
@@ -426,19 +499,19 @@ async def assign_image_to_story_object_version(project_name:str, type: str, stor
     message, data, story_object_file = get_checked_version(project_name, story_object_name, version_name, type=="location")
     if(message != None):
         return message
-        
+
     data[story_object_name]['versions'][version_name]['image'] = image_path
-    
+
     with open(story_object_file, 'w') as file:
         json.dump(data, file, indent=4)
-    
+
     return {"message": "Version updated"}
 
 
 def check_if_image_exists(project_path: str, type: str, image_name: str):
     return os.path.isfile(os.path.join(project_path, "images", type, image_name))
 
-def check_if_image_is_referenced(data, image_name: str):    
+def check_if_image_is_referenced(data, image_name: str):
     for story_object in data.values():
         for image in story_object["images"]:
             if image["path"] == image_name:
@@ -448,45 +521,45 @@ def check_if_image_is_referenced(data, image_name: str):
 @router.post("/{type}/{story_object_name}/delete_selected_image")
 async def delete_selected_image(project_name:str, type: str, story_object_name:str, image_path: str = Form()):
     type = type+"s"
-    
+
     if(type != "characters" and type != "locations"):
         return {"message": "Invalid type"}
-    
+
     project, project_path = get_project_by_name(project_name)
     story_object_file = os.path.join(project_path, "data", type+".json")
-    
+
     data = get_safe_json(story_object_file)
-    
+
     for image in data[story_object_name]["images"]:
         if image["path"] == image_path:
             data[story_object_name]["images"].remove(image)
     for version in data[story_object_name]["versions"]:
         if data[story_object_name]["versions"][version]["image"] == image_path:
             data[story_object_name]["versions"][version]["image"] = ""
-    
+
     with open(story_object_file, 'w') as file:
         json.dump(data, file, indent=4)
-    
+
     if(not check_if_image_is_referenced(data, image_path)):
         os.remove(os.path.join(project_path, "images", type, image_path))
         if(type=="characters"):
             os.remove(os.path.join(project_path, "images", "sprites", image_path))
-    
+
     return {"message": "Image deleted"}
 
 @router.post("/{type}/{story_object_name}/delete_selected_images")
 async def delete_selected_images(project_name:str, type: str, story_object_name:str, body = Body(...)):
     image_paths = body["image_paths"]
     type = type+"s"
-    
+
     if(type != "characters" and type != "locations"):
         return {"message": "Invalid type"}
-    
+
     project, project_path = get_project_by_name(project_name)
     story_object_file = os.path.join(project_path, "data", type+".json")
-    
+
     data = get_safe_json(story_object_file)
-    
+
     for image_path in image_paths:
         for image in data[story_object_name]["images"]:
             if image["path"] == image_path:
@@ -494,16 +567,16 @@ async def delete_selected_images(project_name:str, type: str, story_object_name:
         for version in data[story_object_name]["versions"]:
             if data[story_object_name]["versions"][version]["image"] == image_path:
                 data[story_object_name]["versions"][version]["image"] = ""
-    
+
     with open(story_object_file, 'w') as file:
         json.dump(data, file, indent=4)
-    
+
     for image_path in image_paths:
         if(not check_if_image_is_referenced(data, image_path)):
             os.remove(os.path.join(project_path, "images", type, image_path))
             if(type=="characters"):
                 os.remove(os.path.join(project_path, "images", "sprites", image_path))
-    
+
     return {"message": "Images deleted"}
 
 @router.get("/model-lists")
@@ -523,19 +596,19 @@ async def read_settings(request: Request, project_name: str):
     })
 
 @router.post("/settings/update/llm")
-async def update_settings(request: Request, project_name: str, 
-                        language_model: str = Form(...), 
-                        llm_temperature: float = Form(...), 
+async def update_settings(request: Request, project_name: str,
+                        language_model: str = Form(...),
+                        llm_temperature: float = Form(...),
                         llm_top_k: int = Form(...),
                         llm_top_p: float = Form(...),
                         llm_repetition_penalty: float = Form(...),
                         llm_max_length: int = Form(...)
                         ):
-    
+
     project, project_path = get_project_by_name(project_name)
-    
+
     model_lists = get_model_lists()
-    
+
     if language_model not in model_lists["language_models"]:
         return {"message": "Invalid language model"}
     if llm_temperature < 0 or llm_temperature > 1:
@@ -548,7 +621,7 @@ async def update_settings(request: Request, project_name: str,
         return {"message": "Invalid repetition_penalty"}
     if llm_max_length < 2:
         return {"message": "Invalid max_length"}
-    
+
     updated_model = LLM(
         model=language_model,
         temperature=llm_temperature,
@@ -557,26 +630,26 @@ async def update_settings(request: Request, project_name: str,
         repetition_penalty=llm_repetition_penalty,
         max_length=llm_max_length
     )
-    
+
     project.llm = updated_model
-    
+
     update_project_data(project, project_path)
-    
+
     return {"message": "LLM settings updated"}
 
 
 @router.post("/settings/update/diffusion")
-async def update_settings(request: Request, project_name: str, 
-                        diffusion_model: str = Form(...), 
-                        diffusion_steps: int = Form(...), 
+async def update_settings(request: Request, project_name: str,
+                        diffusion_model: str = Form(...),
+                        diffusion_steps: int = Form(...),
                         diffusion_cfg: float = Form(...),
                         diffusion_batch: int = Form(...),
                         ):
-    
+
     project, project_path = get_project_by_name(project_name)
-    
+
     model_lists = get_model_lists()
-    
+
     if diffusion_model not in model_lists["diffusion_models"]:
         return {"message": "Invalid diffusion model"}
     if diffusion_steps < 1:
@@ -585,16 +658,16 @@ async def update_settings(request: Request, project_name: str,
         return {"message": "Invalid temperature"}
     if diffusion_batch < 1:
         return {"message": "Invalid batch size"}
-    
+
     updated_model = DiffusionModel(
         model=diffusion_model,
         steps=diffusion_steps,
         cfg=diffusion_cfg,
         batch=diffusion_batch
     )
-    
+
     project.diffusion_model = updated_model
-    
+
     update_project_data(project, project_path)
-    
+
     return {"message": "Diffusion Model settings updated"}

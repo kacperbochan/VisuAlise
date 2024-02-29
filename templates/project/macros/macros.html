@@ -50,7 +50,7 @@
                     if (modalImg.classList.contains('has_info')){
                         modalImg.classList.remove('has_info');
                     }
-                    else{                    
+                    else{
                         modalImg.classList.add('has_info');
                     }
                 }
@@ -111,7 +111,7 @@
                     if (modalImg.classList.contains('has_info')){
                         modalImg.classList.remove('has_info');
                     }
-                    else{                    
+                    else{
                         modalImg.classList.add('has_info');
                     }
                 }
@@ -150,7 +150,7 @@
         <div class="card-body">
             <p class="card-text" id="character_card_text_{{id}}">{{ image_path }}</p>
         </div>
-    </div>    
+    </div>
     <script>
         document.getElementById('default_{{id}}_btn').addEventListener('click', function () {
             document.getElementById('sprite_{{id}}').style.display = 'none';
@@ -158,7 +158,7 @@
             this.classList.add('selected');
             document.getElementById('sprite_{{id}}_btn').classList.remove('selected');
         });
-        
+
         document.getElementById('sprite_{{id}}_btn').addEventListener('click', function () {
             document.getElementById('sprite_{{id}}').style.display = 'block';
             document.getElementById('default_{{id}}').style.display = 'none';
@@ -199,7 +199,7 @@
 {% macro image_choice_card(project, image_path, image_name, id, prompt="") %}
     <div class="dark-section character-info">
         <div class="d-flex">
-            <button class="segment-selector selected" id="default_{{id}}_btn">default</button>
+            <button class="segment-selector selected" id="default_{{id}}_btn">Default</button>
             <button class="segment-selector" id="sprite_{{id}}_btn">Sprite</button>
         </div>
         <hr style="margin-top: 0;">
@@ -212,7 +212,7 @@
         <div class="card-body">
             <p class="card-text" id="character_card_text_{{id}}">{{ image_path }}</p>
         </div>
-    </div>    
+    </div>
     <script>
         document.getElementById('default_{{id}}_btn').addEventListener('click', function () {
             document.getElementById('sprite_{{id}}').style.display = 'none';
@@ -220,7 +220,7 @@
             this.classList.add('selected');
             document.getElementById('sprite_{{id}}_btn').classList.remove('selected');
         });
-        
+
         document.getElementById('sprite_{{id}}_btn').addEventListener('click', function () {
             document.getElementById('sprite_{{id}}').style.display = 'block';
             document.getElementById('default_{{id}}').style.display = 'none';

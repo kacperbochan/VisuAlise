@@ -4,7 +4,6 @@ import json
 from math import floor
 import os
 import datetime
-import tiktoken
 import random
 import threading
 import subprocess
@@ -87,8 +86,7 @@ async def root(request: Request):
     return RedirectResponse(url="/menu", status_code=302)
 
 def start_comfy_ui():
-    subprocess.run(["python", "repositories/ComfyUI-master/main.py"])    
-
+    subprocess.run(["python", "repositories/ComfyUI-master/main.py"])
 
 @app.get("/models/status")
 async def get_model_status():
@@ -101,18 +99,15 @@ async def unload_model():
 
 @app.post("/models/Diffusion/load")
 async def load_diffusion_model():
+    if(Model_Status["Diffusion"] == "loaded"): return {"response": "Diffusion already loaded"}
     Model_Thread = threading.Thread(target=start_comfy_ui)
-    Model_Thread.start()            
+    Model_Thread.start()
     check_server_is_up("http://127.0.0.1:8188") # Wait for the server to start
     Model_Status["Diffusion"] = "loaded"
 
-@app.post("/models/LLM/load")
-async def load_llm_model():
-    pass
-
 def get_latest_images(directory: str):
         # Get a list of all .png files in the directory with their full paths
-    list_of_files = [os.path.join(directory, file) for file in os.listdir(directory) 
+    list_of_files = [os.path.join(directory, file) for file in os.listdir(directory)
                     if os.path.isfile(os.path.join(directory, file)) and file.endswith('.png')]
     # Find the file with the latest creation time
     latest_file = max(list_of_files, key=os.path.getctime, default=None)
@@ -123,7 +118,7 @@ def queue_prompt(prompt_workflow):
     p = {"prompt": prompt_workflow}
     data = json.dumps(p).encode('utf-8')
     req =  request.Request("http://127.0.0.1:8188/prompt", data=data)
-    request.urlopen(req)    
+    request.urlopen(req)
 
 
 def update_workflow_by_title(prompt_workflow, title:str,  **kwargs):
@@ -148,15 +143,15 @@ async def get_generated_images(project: str):
 negative_prompt_base = """BadDream, (UnrealisticDream:1.3)"""
 
 def get_file_number(directory:str, filename:str, skip:int = 0):
-    
+
     file = f"{filename}_{skip:05}" if (skip>0) else filename
     file_path = os.path.join(directory, file)+".png"
-    
+
     while os.path.isfile(file_path):
         skip = skip + 1
         file = f"{filename}_{skip:05}"
         file_path = os.path.join(directory, file)+".png"
-    
+
     return file, skip
 
 def getFileNames(directory:str, filename:str, amount:int = 1) -> List[str]:
@@ -166,17 +161,19 @@ def getFileNames(directory:str, filename:str, amount:int = 1) -> List[str]:
         file, skip = get_file_number(directory, filename, skip)
         response.append(file)
         skip = skip + 1
-    
-    return response    
+
+    return response
+
+
 
 @app.post("/generate_image")
 async def generate_image(
                         project_name: str = Form(),
-                        prompt: str = Form(), 
+                        prompt: str = Form(),
                         style_prompt: str = Form(),
-                        negative_prompt: str = Form(""), 
-                        image_type: str = Form(), 
-                        model: str = Form(), 
+                        negative_prompt: str = Form(""),
+                        image_type: str = Form(),
+                        model: str = Form(),
                         seed: float = Form(),
                         steps: int = Form(),
                         batch_amount: int = Form(),
@@ -189,56 +186,56 @@ async def generate_image(
     if(steps<1): steps = 1
     if(batch_amount<1): batch_amount = 1
     if(cfg<1): cfg = 1
-    
+
     if Model_Status["LLM"] == "loaded": return {"response": "LLM loaded"}
     if Model_Status["Diffusion"] != "loaded": await load_diffusion_model()
-    
+
     images_directory = os.path.join(os.getcwd(), f'projects\\{project_name}\\images')
-    
+
     if(image_type == "character"):
         with open('AI/Diffusion/generate_character.json', 'r') as f:
             data = json.load(f)
-        
+
         ch_directory = os.path.join(images_directory, "characters")
         sp_directory = os.path.join(images_directory, "sprites")
-        
+
         filenames = getFileNames(ch_directory, name+"_"+version,batch_amount)
         update_workflow_by_title(data,"Save_Default", directory=ch_directory, filename=filenames[0])
         update_workflow_by_title(data,"Save_Sprite", directory=sp_directory, filename=filenames[0])
-        
+
         update_workflow_by_title(data,"Empty_Latent_Image", width=512, height=768)
-        
+
     elif(image_type == "location"):
         with open('AI/Diffusion/generate_location.json', 'r') as f:
             data = json.load(f)
-        
+
         loc_directory = os.path.join(images_directory, "locations")
-        
+
         filenames = getFileNames(loc_directory, name+"_"+version,batch_amount)
-        
+
         update_workflow_by_title(data,"Save_Default", directory=loc_directory, filename=filenames[0])
-        update_workflow_by_title(data,"Empty_Latent_Image", width=1792, height=1024)
+        update_workflow_by_title(data,"Empty_Latent_Image", width=1920, height=1080)
     else:
         return {"response": "Invalid image type"}
-    
+
     full_prompt = style_prompt+" , "+prompt
-    
+
     update_workflow_by_title(data,"Load_Checkpoint",ckpt_name = model)
     update_workflow_by_title(data,"Prompt",text = full_prompt)
     update_workflow_by_title(data,"Negative_Prompt",text = negative_prompt_base+negative_prompt)
     update_workflow_by_title(data,"KSampler",seed = random.randint(0, 1000000000000000) if seed == -1 else seed, steps = steps, cfg = cfg)
-    
+
     if(seed==-1):
         for batch in range(batch_amount):
             seed = random.randint(0, 1000000000000000)
             update_workflow_by_title(data,"KSampler",seed = seed)
-            
+
             update_workflow_by_title(data,"Save_Default", filename=filenames[batch])
             update_workflow_by_title(data,"Save_Sprite", filename=filenames[batch])
             queue_prompt(data)
-            
+
             add_image_to_story_object(project_name, name, filenames[batch], full_prompt, image_type=="location")
-        
+
     else :
         for batch in range(batch_amount):
             queue_prompt(data)
@@ -247,38 +244,4 @@ async def generate_image(
             update_workflow_by_title(data,"Save_Default", filename=filenames[batch])
             add_image_to_story_object(project_name, name, filenames[batch], full_prompt, image_type=="location")
 
-
-@app.post("/split_text")
-def new_split_text_by_tokens(text, desired_tokens=500):
-
-    paragraphs = text.split('\n')
-    chunks = []
-    current_chunk = ""
-    current_chunk_tokens = 0
-    encoding = tiktoken.encoding_for_model("davinci")
-
-    for paragraph in paragraphs:
-        new_chunk = current_chunk + (paragraph + "\n")
-        num_tokens = len(encoding.encode(new_chunk))
-
-        if num_tokens > desired_tokens:
-            if (desired_tokens - current_chunk_tokens) < (num_tokens-desired_tokens):
-                print("current_tokens: ", current_chunk_tokens)
-                chunks.append(current_chunk)
-                current_chunk = paragraph
-                current_chunk_tokens = num_tokens-current_chunk_tokens
-            else:
-                print("current_tokens: ", num_tokens)
-                chunks.append(new_chunk)
-                current_chunk = ""
-                current_chunk_tokens = 0
-        else:
-            current_chunk = new_chunk
-            current_chunk_tokens = num_tokens
-
-    if current_chunk:
-        print("current_tokens: ", num_tokens)
-        chunks.append(current_chunk)
-
-    return chunks
 

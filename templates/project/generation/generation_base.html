@@ -43,15 +43,6 @@
         } 
     }
     
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('txt2img-btn').addEventListener('click', function () {
-            selectSection('txt2img');
-        });
-        document.getElementById('img2img-btn').addEventListener('click', function () {
-            selectSection('img2img');
-        });
-    });
-
     function selectSection(section){
         var buttons = document.querySelectorAll('.section-selection');
         buttons.forEach(button => {

@@ -1,6 +1,6 @@
 {
     "name": "Alice",
-    "characters_n": 10,
+    "characters_n": 11,
     "locations_n": 11,
     "llm": {
         "model": "mistral-7b-openorca.Q4_0.gguf",

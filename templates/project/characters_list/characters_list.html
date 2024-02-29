@@ -21,7 +21,7 @@
     <div class="col-md-3 col-sm-6 mb-4">
         <div class="card dark-section">
             <a href="/project/{{ project.name }}/character/{{ character.name }}/info" class="card-link">
-            
+
                 {% if character.image_path %}
                     <img src="{{ character.image_path }}" alt="{{ character.user_name }}" class="card-img-top">
                 {% else %}
@@ -65,7 +65,9 @@
                 </a>
                 <div class="list-action-container">
                     <button class="card-action" onclick="copyCharacter('{{ character.name }}')">Copy</button>
-                    <button class="card-action" onclick="mergeCharacter('{{ character.name }}')">Merge</button>
+                    {% if project.characters_n > 1 %}
+                        <button class="card-action" onclick="mergeCharacter('{{ character.name }}')">Merge</button>
+                    {% endif %}
                     <button class="card-action" onclick="deleteCharacter('{{ character.name }}')">Delete</button>
                 </div>
             </div>
@@ -94,7 +96,7 @@
     }
 
     async function copyCharacter(characterName){
-        
+
         const URL='/project/{{project.name}}/characters/copy';
 
         await fetch(URL, {
@@ -114,10 +116,10 @@
         });
     }
 
-    
-    
-    
-    async function deleteCharacter(characterName){        
+
+
+
+    async function deleteCharacter(characterName){
         let userInput = prompt("Are you sure you want to delete this character? \nPlease type their name to confirm:");
 
         if (userInput === characterName) {
@@ -163,7 +165,7 @@
             list.style.display = 'block';
             return;
         }
-        
+
         image_view.style.display = 'flex';
         list.style.display = 'none';
 

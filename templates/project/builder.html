@@ -21,9 +21,6 @@
             <button class="btn btn-info" style="min-width: 100px" id="Start" >
                 Launch
             </button>
-            <button class="btn btn-light" style="min-width: 100px;" id="Build" >
-                Build Distribution
-            </button>
         </div>
     </div>
     </div>
@@ -53,7 +50,7 @@
 {% block scripts %}
 <script>
 
-    
+
         let sceneCounter = -1;
         const scenesArray = [];
         const sceneDataArray = [];
@@ -61,15 +58,15 @@
         const locations = {{locations|tojson}};
         var character_options="";
         var location_options="";
-    
+
         var character_names = [];
         var character_usernames = [];
         var location_names = [];
         var location_usernames = [];
-        
+
         function addScene(afterSceneId) {
             const newId = ++sceneCounter;
-            
+
             const newSceneHtml = `
             <div class="row scene" id="scene_${newId}">
                 <hr>
@@ -157,11 +154,11 @@
                 </button>
             </div>
             `;
-            
-            
+
+
             const afterSceneElement = document.getElementById('scene_' + afterSceneId);
             afterSceneElement.insertAdjacentHTML('afterend', newSceneHtml);
-            
+
             const index = scenesArray.indexOf(afterSceneId);
             scenesArray.splice(index + 1, 0, newId);
 
@@ -194,7 +191,7 @@
 
         function save_data_for(sceneId){
             var scene = sceneDataArray.find(scene => scene.id === sceneId);
-            
+
             scene.type = document.getElementById('type_selector_'+sceneId).value;
             if(scene.type == 'dialogue'){
                 scene.text = document.getElementById('dialogue_text_'+sceneId).value;
@@ -231,7 +228,7 @@
         function dialogue_character_changed(id){
             save_data_for(id);
         }
-        
+
         function getNames(){
             for(let each in characters){
                 character_names.push(characters[each]['name']);
@@ -258,12 +255,12 @@
             }
         }
         getNames();
-        
+
         function load_version_list(sceneId){
             var version_list = document.getElementById('version_list_'+sceneId);
             version_list.innerHTML = "";
             type = document.getElementById('image_type_'+sceneId).value;
-            
+
             if(type == 'character'){
                 name = document.getElementById('character_name_'+sceneId).value;
                 versions = characters[name]['versions'];
@@ -278,8 +275,8 @@
                 document.getElementById('character_selector_'+sceneId).style.display = 'none';
                 document.getElementById('location_selector_'+sceneId).style.display = 'block';
             }
-            
-            
+
+
             for (version in versions){
                 var option = document.createElement("option");
                 if (version == 'default') {
@@ -316,12 +313,12 @@
             }
             save_data_for(sceneId);
         }
-        
+
         function character_changed(sceneId){
             load_version_list(sceneId);
             save_data_for(sceneId);
         }
-        
+
         function location_changed(sceneId){
             load_version_list(sceneId);
             save_data_for(sceneId);
@@ -330,14 +327,14 @@
         function version_changed(sceneId){
             save_data_for(sceneId);
         }
-        
+
         function delete_selected(sceneId) {
             // Remove the scene element from the DOM
             var sceneElement = document.getElementById('scene_' + sceneId);
             if (sceneElement) {
                 sceneElement.parentNode.removeChild(sceneElement);
             }
-        
+
             // Find the index of the scene in the array and remove it
             const index = scenesArray.indexOf(sceneId);
             if (index > -1) {
@@ -353,7 +350,7 @@
                 scenesArray[index] = id;
             });
         }
-    
+
         // Add click event listener for adding scenes
         document.addEventListener('click', function (e) {
             if (e.target && e.target.classList.contains('add-scene')) {
@@ -361,9 +358,9 @@
                 addScene(id);
             }
         });
-        
+
     function save() {
-        for( var i = 0; i < sceneDataArray.length; i++){ 
+        for( var i = 0; i < sceneDataArray.length; i++){
             save_data_for(sceneDataArray[i].id);
         }
         URL = "/project/{{project.name}}/builder/save";
@@ -371,7 +368,7 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-            }, 
+            },
             body: JSON.stringify({
                 "scenes": sceneDataArray
             })
@@ -407,7 +404,7 @@
             else{
                 document.getElementById('visual_'+sceneId).style.display = '';
                 document.getElementById('text_'+sceneId).style.display = 'none';
-                
+
                 document.getElementById('image_type_'+sceneId).value = object_type;
                 if(object_type == 'character'){
                     document.getElementById('character_selector_'+sceneId).style.display = 'block';
@@ -425,7 +422,7 @@
                         document.getElementById('placement_settings_'+sceneId).style.display = 'none';
                         document.getElementById('version_selector_'+sceneId).style.display = 'none';
                     }
-                    
+
                     }
                 else{
                     document.getElementById('character_selector_'+sceneId).style.display = 'none';
@@ -463,7 +460,7 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
-            }, 
+            },
             body: JSON.stringify(data)
         }).then(response => {
             if (response.status === 200) {
@@ -481,7 +478,7 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
-            }, 
+            },
             body: {}
         }).then(response => {
             if (response.status === 200) {
@@ -496,7 +493,7 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
-            }, 
+            },
             body: {}
         }).then(response => {
             if (response.status === 200) {
@@ -504,14 +501,14 @@
             }
         })
     }
-    
+
     function build(){
         URL = "/project/{{project.name}}/builder/build";
         fetch(URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
-            }, 
+            },
             body: {}
         }).then(response => {
             if (response.status === 200) {

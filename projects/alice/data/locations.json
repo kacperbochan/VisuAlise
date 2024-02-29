@@ -5,12 +5,12 @@
         "name": "The Rabbit Hole",
         "versions": {
             "default": {
-                "image": "the_rabbit_hole.png",
+                "image": "The Rabbit Hole_opposite_00009.png",
                 "description": "Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling",
                 "prompt": "Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
             },
             "opposite": {
-                "image": "the_rabbit_hole.png",
+                "image": "The Rabbit Hole_default_00005.png",
                 "description": "Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling",
                 "prompt": "Light tunnel, granite walls, objects like books and jars suspended mid-air, sense of falling"
             },
@@ -99,6 +99,54 @@
             },
             {
                 "path": "The Rabbit Hole_default_00011.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_opposite_00003.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Light tunnel, granite walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_opposite_00008.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Light tunnel, granite walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_opposite_00009.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Light tunnel, granite walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_opposite_00010.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Light tunnel, granite walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00012.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00013.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00014.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00015.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00016.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00017.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00018.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00019.png",
                 "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
             }
         ]

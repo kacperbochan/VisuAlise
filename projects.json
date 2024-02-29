@@ -1,5 +1,10 @@
 [
     {
+        "name": "test",
+        "last_opened": "2024-02-28 13:00:55",
+        "path": "projects\\test"
+    },
+    {
         "name": "Alice",
         "last_opened": "2024-02-10 17:17:19",
         "path": "projects\\alice"

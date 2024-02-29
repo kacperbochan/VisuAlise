@@ -455,7 +455,7 @@
         imageTypeSelector.addEventListener('change', function () {
             selectImageType();
             populateVersionSelect();
-            load_styles(imageTypeSelector.value.toLowerCase());
+            load_styles(imageTypeSelector.value.toLowerCase()+'s');
         });
         versionSelector.addEventListener('change', function() {
             getSelectedPrompt();

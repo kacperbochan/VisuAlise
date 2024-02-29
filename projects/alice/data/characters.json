@@ -5,7 +5,7 @@
         "name": "Alice",
         "versions": {
             "default": {
-                "image": "alice.png",
+                "image": "Alice_default_00056.png",
                 "prompt": "A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful",
                 "description": "young girl, long blond hair tied back, wearing a Victorian dress"
             },
@@ -48,6 +48,11 @@
                 "image": "alice_neck_stretching.png",
                 "prompt": "young girl, (((Very very very tall))), tall, long blond hair tied back, wearing a Victorian dress",
                 "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
+            },
+            "mad_copy": {
+                "image": "alice_mad.png",
+                "prompt": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress",
+                "description": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
             }
         },
         "images": [
@@ -58,10 +63,6 @@
             {
                 "path": "alice_mad.png",
                 "prompt": null
-            },
-            {
-                "path": "alice_001.png",
-                "prompt": "A young girl with long, blond hair, often depicted wearing a blue dress with a white apron. She is curious, thoughtful, and falls into the rabbit hole."
             },
             {
                 "path": "alice_002.png",
@@ -348,10 +349,6 @@
                 "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful\n"
             },
             {
-                "path": "Alice_default_00053.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful\n"
-            },
-            {
                 "path": "Alice_mad_00013.png",
                 "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
             },
@@ -368,10 +365,6 @@
                 "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
             },
             {
-                "path": "Alice_default_00053.png",
-                "prompt": "undefined , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
                 "path": "Alice_default_00054.png",
                 "prompt": "undefined , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
             },
@@ -382,6 +375,22 @@
             {
                 "path": "Alice_default_00056.png",
                 "prompt": "undefined , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00053.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00057.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00058.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00059.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
             }
         ]
     },
@@ -391,7 +400,7 @@
         "name": "Mad Hatter",
         "versions": {
             "default": {
-                "image": "mad_hatter.png",
+                "image": "Mad Hatter_default_00019.png",
                 "prompt": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.",
                 "description": "young girl, long blond hair tied back, wearing a Victorian dress"
             },
@@ -486,6 +495,38 @@
             {
                 "path": "Mad Hatter_default_00014.png",
                 "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00015.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00016.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00017.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00018.png",
+                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00019.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00020.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00021.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00022.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
             }
         ]
     },
@@ -495,7 +536,7 @@
         "name": "Queen of Hearts",
         "versions": {
             "default": {
-                "image": "queen_of_hearts.png",
+                "image": "Queen of Hearts_default_00001.png",
                 "prompt": "A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown.",
                 "description": "A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
             }
@@ -504,6 +545,22 @@
             {
                 "path": "queen_of_hearts.png",
                 "prompt": "A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
+            },
+            {
+                "path": "Queen of Hearts_default.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
+            },
+            {
+                "path": "Queen of Hearts_default_00001.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
+            },
+            {
+                "path": "Queen of Hearts_default_00002.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
+            },
+            {
+                "path": "Queen of Hearts_default_00003.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
             }
         ]
     },
@@ -513,7 +570,7 @@
         "name": "White Rabbit",
         "versions": {
             "default": {
-                "image": "white_rabbit.png",
+                "image": "White Rabbit_default_00011.png",
                 "prompt": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch.",
                 "description": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
             },
@@ -584,7 +641,7 @@
         "name": "Cheshire Cat",
         "versions": {
             "default": {
-                "image": "cheshire_cat.png",
+                "image": "Cheshire Cat_default_00006.png",
                 "prompt": "A mischievous, grinning cat, often depicted with a wide, toothy smile and bright, glowing eyes.",
                 "description": "A mischievous, grinning cat, often depicted with a wide, toothy smile and bright, glowing eyes."
             }
@@ -654,7 +711,7 @@
         "name": "Caterpillar",
         "versions": {
             "default": {
-                "image": "caterpillar.png",
+                "image": "Caterpillar_default_00006.png",
                 "prompt": "A wise, philosophical character, often depicted sitting on a mushroom and smoking a hookah.",
                 "description": "A wise, philosophical character, often depicted sitting on a mushroom and smoking a hookah."
             }
@@ -663,6 +720,42 @@
             {
                 "path": "caterpillar.png",
                 "prompt": "A wise, philosophical character, often depicted sitting on a mushroom and smoking a hookah."
+            },
+            {
+                "path": "Caterpillar_default.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , a worm, ((caterpillar)), A wise, whimsical character, philosophical character,sitting on a mushroom and smoking a hookah."
+            },
+            {
+                "path": "Caterpillar_default_00001.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , a worm, ((caterpillar)), A wise, whimsical character, philosophical character,sitting on a mushroom and smoking a hookah."
+            },
+            {
+                "path": "Caterpillar_default_00002.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , a worm, ((caterpillar)), A wise, whimsical character, philosophical character,sitting on a mushroom and smoking a hookah."
+            },
+            {
+                "path": "Caterpillar_default_00003.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , a worm, ((caterpillar)), A wise, whimsical character, philosophical character,sitting on a mushroom and smoking a hookah."
+            },
+            {
+                "path": "Caterpillar_default_00004.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , a worm, ((caterpillar)), A wise, whimsical character, philosophical character,sitting on a mushroom and smoking a hookah."
+            },
+            {
+                "path": "Caterpillar_default_00005.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , a worm, ((caterpillar)), A wise, whimsical character, philosophical character,sitting on a mushroom and smoking a hookah."
+            },
+            {
+                "path": "Caterpillar_default_00006.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , a worm, ((caterpillar)), A wise, whimsical character, philosophical character,sitting on a mushroom and smoking a hookah."
+            },
+            {
+                "path": "Caterpillar_default_00007.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , a worm, ((caterpillar)), A wise, whimsical character, philosophical character,sitting on a mushroom and smoking a hookah."
+            },
+            {
+                "path": "Caterpillar_default_00008.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , a worm, ((caterpillar)), A wise, whimsical character, philosophical character,sitting on a mushroom and smoking a hookah."
             }
         ]
     },
@@ -672,7 +765,7 @@
         "name": "Tweedledee and Tweedledum",
         "versions": {
             "default": {
-                "image": "tweedledee_and_tweedledum.png",
+                "image": "Tweedledee and Tweedledum_default_00031.png",
                 "prompt": "A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations.",
                 "description": "A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
             }
@@ -681,6 +774,134 @@
             {
                 "path": "tweedledee_and_tweedledum.png",
                 "prompt": "A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00001.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00002.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00003.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00004.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00005.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00006.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00007.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, identical twins, often depicted wearing matching outfits and engaging in nonsensical conversations."
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00008.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, male, egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00009.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, male, egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00010.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, male, egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00011.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, male, egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00012.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, male, egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00013.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, male, egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00014.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, male, egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00015.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, male, egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00016.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00017.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00018.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00019.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00020.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00021.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00022.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00023.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00024.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, ((fat)), ((plump)), identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00025.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, ((fat)), ((plump)), identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00026.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, ((fat)), ((plump)), identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00027.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, ((fat)), ((plump)), identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00028.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, ((fat)), ((plump)), identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00029.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, ((fat)), ((plump)), identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00030.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, ((fat)), ((plump)), identical twins, often depicted wearing matching outfits"
+            },
+            {
+                "path": "Tweedledee and Tweedledum_default_00031.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A pair of rotund, (((male))), (((two man))), egg looking, ((fat)), ((plump)), identical twins, often depicted wearing matching outfits"
             }
         ]
     },
@@ -933,5 +1154,17 @@
                 "prompt": "masterpiece, best quality, (Full body character shot), clear outline, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
             }
         ]
+    },
+    "Narrator": {
+        "name": "Narrator",
+        "user_name": "Narrator",
+        "versions": {
+            "default": {
+                "description": "a character",
+                "prompt": "invisible all seeing ",
+                "image": ""
+            }
+        },
+        "images": []
     }
 }
