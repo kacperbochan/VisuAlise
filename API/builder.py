@@ -32,7 +32,7 @@ def safely_quote_string(user_input):
 
 async def translateToRenpy(scene: dict):
     type = scene["type"].lower()
-    text = safely_quote_string(scene["text"])
+    text = safely_quote_string(scene["text"]).replace("\n", "\\n")
 
     object_type = scene["object_type"].lower()
     character = re.sub(cleanup, '',scene["character"]).lower()
@@ -46,13 +46,13 @@ async def translateToRenpy(scene: dict):
 
     if(action == "show"):
         if(object_type == "character"):
-            return f"show {character} {version} at {place} with dissolve"
+            return f"show {character} {version} at {place}" + " with dissolve"
         else:
             return f"scene {location} {version} with fade"
 
     if(object_type == "character"):
-        return f"hide {character} {version} at {place} with dissolve"
-    return f"hide {location} {version} at {place} with fade"
+        return f"hide {character} {version} with dissolve"
+    return f"hide {location} {version} with fade"
 
 def get_objects_without_images(project_path: str):
     characters= {}
@@ -97,7 +97,7 @@ async def create_definitions_and_images(project_path: str, game_folder: str):
         locations = json.load(file)
 
     for character in characters.values():
-        output_definitions.append("define "+capital(re.sub(cleanup, '',character["name"]))+" = Character('"+capital(re.sub(cleanup, '',character["user_name"]))+"')")
+        output_definitions.append("define "+capital(re.sub(cleanup, '',capital(re.sub(cleanup, '',character["name"]).lower())))+" = Character('"+capital(re.sub(cleanup, '',character["user_name"]))+"')")
         for version, values in character["versions"].items():
             file_path = os.path.join(sprites_dir, values["image"])
             if(file_path[-3:] == "png" and os.path.isfile(file_path)):
@@ -178,7 +178,7 @@ async def setup_game_folder(game_folder: str, project_name: str):
     shutil.copy(renpy_exe_file, game_folder)
 
 async def create_game_files(game_folder: str, definitions: List[str], script: List[str]):
-    with open(os.path.join(game_folder, "game", "script.rpy"), 'w') as file:
+    with open(os.path.join(game_folder, "game", "script.rpy"), 'w', encoding='utf-8') as file:
         file.write("\n".join(definitions))
         file.write("\n")
         for s in script:
@@ -226,7 +226,7 @@ async def build_page(request: Request, project_name: str):
             text = file.read()
 
     visual_settings = get_visual_settings()
-    return templates.TemplateResponse("builder.html", {
+    return templates.TemplateResponse("builder/builder.html", {
         "request": request,
         "project": project,
         "characters": characters,

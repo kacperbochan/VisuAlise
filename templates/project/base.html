@@ -39,11 +39,11 @@
             if (sidebar.style.display === "none") {
                 sidebar.style.display = "flex"; // Show the sidebar
                 toggleButton.style.display = "none"; // Hide the toggle button
-                contentWrapper.style.marginLeft = `250px`; // Adjust content margin
+                contentWrapper.style.marginLeft = '';
             } else {
                 sidebar.style.display = "none"; // Hide the sidebar
                 toggleButton.style.display = "block"; // Show the toggle button
-                contentWrapper.style.marginLeft = '0px'; // Reset content margin
+                contentWrapper.style.marginLeft = '50px'; // Reset content margin
             }
         }
         if('{{ theme }}'== 'dark') {

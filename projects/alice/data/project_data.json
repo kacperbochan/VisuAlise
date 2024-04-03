@@ -1,6 +1,6 @@
 {
     "name": "Alice",
-    "characters_n": 11,
+    "characters_n": 9,
     "locations_n": 11,
     "llm": {
         "model": "mistral-7b-openorca.Q4_0.gguf",
@@ -14,6 +14,6 @@
         "model": "dreamshaper_8.safetensors",
         "steps": 20,
         "cfg": 7.0,
-        "batch": 4
+        "batch": 2
     }
 }

@@ -12,11 +12,17 @@
 
     </div>
     <hr class="bottomLine">
-    <div class="form-group">
-    <label for="text-area" style="font-weight: bold;">Text:</label>
-        <textarea class="form-control" id="text-area" name="text-area" style="height: 100px;"></textarea>
+    <div class="dark-section">
+        <div class="row">
+            <div class="form-group">    
+                <label for="text-area" style="font-weight: bold;">Text:</label>
+                <textarea class="form-control" id="text-area" name="text-area" style="height: 70vh;">{{text}}</textarea>
+            </div>
+        </div>
+        <div style="text-align: right;">
+            <button class="generate" onclick="sendText()">Save Text</button>
+        </div>
     </div>
-    <button class="generate" onclick="sendText()">Send Text for future use</button>
 </div>
 {% endblock %}
 
@@ -37,7 +43,7 @@
             })
         }).then(response => {
             if (response.status === 200) {
-                window.location.href = '/project/{{ project.name }}/character/'+name+'/info';
+                window.alert('Data saved successfully');
             }
         });
     }

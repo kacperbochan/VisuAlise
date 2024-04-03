@@ -19,9 +19,15 @@
                 <button onclick="loadSubPage('versions')" class="segment-selector character-section" id="character-versions-btn">
                     Versions
                 </button>
-                <button onclick="loadSubPage('gallery')" class="segment-selector character-section" id="character-gallery-btn">
-                    Gallery
-                </button>
+                {% if images|length > 0 %}
+                    <button onclick="loadSubPage('gallery')" class="segment-selector character-section" id="character-gallery-btn">
+                        Gallery
+                    </button>
+                {% else %}
+                    <button class="segment-selector-disabled character-section" id="character-gallery-btn" disabled title="Requires at least one image">
+                        Gallery
+                    </button>
+                {% endif %}
             </div>
             {% block control_buttons %}{% endblock %}
         </div>
@@ -40,9 +46,11 @@
         document.getElementById('character-info-btn').addEventListener('click', function () {
             selectSection('info');
         });
+        /*
         document.getElementById('character-text_data-btn').addEventListener('click', function () {
             selectSection('text_data');
         });
+        */
         document.getElementById('character-versions-btn').addEventListener('click', function () {
             selectSection('versions');
         });

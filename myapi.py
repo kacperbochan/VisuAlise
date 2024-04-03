@@ -136,7 +136,7 @@ async def get_generated_images(project: str):
 @app.get("/get_latest_character_image")
 async def get_generated_images(project: str):
     character_images_dir = f"projects\\{project}\\images"
-    image =  get_latest_images(character_images_dir+"\\characters")
+    image =  get_latest_images(character_images_dir+"\\sprites")
     return {"image_directory": character_images_dir, "image": image}
 
 

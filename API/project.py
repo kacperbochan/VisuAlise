@@ -181,51 +181,22 @@ def add_image_to_story_object(project_name:str, story_object_name:str, image_nam
 @router.get("")
 async def read_project(request: Request, project_name: str):
     project, project_path = get_project_by_name(project_name)
-
-
     if project is None:
         raise HTTPException(status_code=404, detail="Project not found or data file missing")
-
+    
+    text_file = get_text_data(project_path)
+    text = ""
+    if text_file:
+        with open(text_file, 'r', encoding='utf-8') as file:
+            text = file.read()
+        
     visual_settings = get_visual_settings()
     return templates.TemplateResponse("text_sources.html", {
         "request": request,
         "project": project,
+        "text": text,
         **visual_settings
     })
-
-def new_split_text_by_tokens(text:str =Form(), desired_tokens: int=Form()):
-
-    paragraphs = text.split('\n')
-    chunks = []
-    current_chunk = ""
-    current_chunk_tokens = 0
-    encoding = tiktoken.encoding_for_model("davinci")
-
-    for paragraph in paragraphs:
-        new_chunk = current_chunk + (paragraph + "\n")
-        num_tokens = len(encoding.encode(new_chunk))
-
-        if num_tokens > desired_tokens:
-            if (desired_tokens - current_chunk_tokens) < (num_tokens-desired_tokens):
-                print("current_tokens: ", current_chunk_tokens)
-                chunks.append(current_chunk)
-                current_chunk = paragraph
-                current_chunk_tokens = num_tokens-current_chunk_tokens
-            else:
-                print("current_tokens: ", num_tokens)
-                chunks.append(new_chunk)
-                current_chunk = ""
-                current_chunk_tokens = 0
-        else:
-            current_chunk = new_chunk
-            current_chunk_tokens = num_tokens
-
-    if current_chunk:
-        print("current_tokens: ", num_tokens)
-        chunks.append(current_chunk)
-
-    return chunks
-
 
 @router.post("/savetext")
 async def create_character(request: Request, project_name: str, text: str = Form()):
@@ -266,6 +237,40 @@ async def create_character(request: Request, project_name: str, text: str = Form
         json.dump(data, file, indent=4)
 
 
+def new_split_text_by_tokens(text:str =Form(), desired_tokens: int=Form()):
+
+    paragraphs = text.split('\n')
+    chunks = []
+    current_chunk = ""
+    current_chunk_tokens = 0
+    encoding = tiktoken.encoding_for_model("davinci")
+
+    for paragraph in paragraphs:
+        new_chunk = current_chunk + (paragraph + "\n")
+        num_tokens = len(encoding.encode(new_chunk))
+
+        if num_tokens > desired_tokens:
+            if (desired_tokens - current_chunk_tokens) < (num_tokens-desired_tokens):
+                print("current_tokens: ", current_chunk_tokens)
+                chunks.append(current_chunk)
+                current_chunk = paragraph
+                current_chunk_tokens = num_tokens-current_chunk_tokens
+            else:
+                print("current_tokens: ", num_tokens)
+                chunks.append(new_chunk)
+                current_chunk = ""
+                current_chunk_tokens = 0
+        else:
+            current_chunk = new_chunk
+            current_chunk_tokens = num_tokens
+
+    if current_chunk:
+        print("current_tokens: ", num_tokens)
+        chunks.append(current_chunk)
+
+    return chunks
+
+
 
 def update_project_data(project: Project, project_path: str):
     project_json_file = project_path + "/data/project_data.json"
@@ -297,11 +302,13 @@ def get_highest_id(data):
 
 style_prompts = {
     "characters":{
-        "default":  """(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx""",
+        "default":  """(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx""",
+        "intricate": """(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx""",
         "anime": """masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose"""
     },
     "locations":{
-        "default": """(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx""",
+        "default":  """(masterpiece), animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx""",
+        "intricate": """(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx""",
         "anime": """masterpiece, best quality, (Landscape), (anime coloring, anime screencap, anime style), portrait, Vibrant anime style, anime style"""
     }
 }
@@ -378,6 +385,7 @@ def get_text_data(project_path: str):
             for file in data.values():
                 if os.path.isfile(os.path.join(project_path, "texts", file['path'])):
                     return os.path.join(project_path, "texts", file['path'])
+            return ""
         except json.JSONDecodeError:
             return ""
 

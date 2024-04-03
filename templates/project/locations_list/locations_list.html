@@ -1,6 +1,7 @@
 {% extends "locations_list/locations_base.html" %}
 
 {% block control_buttons %}
+{% if project.locations_n != 0 %}
 <div style="text-align: right;">
     <button class="size-setter selected-size" id="large-btn" >
         <i class="icon-th-large-outline"></i>
@@ -12,10 +13,18 @@
         <i class="icon-menu-outline"></i>
     </button>
 </div>
+{% endif %}
 {% endblock %}
 {% block sub_page_content %}
 
-</div>
+{% if project.locations_n == 0 %}
+    <div class="col-md-12">
+        <div class="dark-section">
+            <p class="card-text">No locations found</p>
+            <p class="card-text">Go to <a href="/project/{{ project.name }}/locations/creation">Creation</a> sub page</p>
+        </div>
+    </div>
+{% else %}
 <div class="row" id="cards">
     {% for location in locations %}
     <div class="col-md-3 col-sm-6 mb-4">
@@ -219,4 +228,5 @@
 
     }
 </script>
+{% endif %}
 {% endblock %}

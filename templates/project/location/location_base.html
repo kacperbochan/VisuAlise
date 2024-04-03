@@ -19,9 +19,15 @@
                 <button onclick="loadSubPage('versions')" class="segment-selector location-section" id="location-versions-btn">
                     Versions
                 </button>
-                <button onclick="loadSubPage('gallery')" class="segment-selector location-section" id="location-gallery-btn">
-                    Gallery
-                </button>
+                {% if images|length > 0 %}
+                    <button onclick="loadSubPage('gallery')" class="segment-selector location-section" id="location-gallery-btn">
+                        Gallery
+                    </button>
+                {% else %}
+                    <button class="segment-selector-disabled location-section" id="location-gallery-btn" disabled title="Requires at least one image">
+                        Gallery
+                    </button>
+                {% endif %}
             </div>
             {% block control_buttons %}{% endblock %}
         </div>

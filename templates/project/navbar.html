@@ -20,10 +20,17 @@
             Locations
             <span class="float-end">[{{ project.locations_n }}]</span>
         </a>
+        {% if project.characters_n > 0 or project.locations_n > 0%}
         <a href="/project/{{ project.name }}/generation" class="list-group-item list-group-item-action list-group-item-dark p-3">
             <i class="icon-camera"></i>
             Generation
         </a>
+        {% else %}
+        <a class="list-group-item list-group-item-action list-group-item-dark p-3 disabled" style="background-color: lightslategray;">
+            <i class="icon-camera"></i>
+            Generation
+        </a>
+        {% endif %}
         <a href="/project/{{ project.name }}/builder" class="list-group-item list-group-item-action list-group-item-dark p-3">
             <i class="icon-wrench"></i>
             Builder
@@ -34,6 +41,6 @@
         </a>
     </div>
 </div>
-<button class="btn" id="menu-open" style="height: 100vh; display: none;" type="button" onclick="toggleSidebar()">
+<button class="btn" id="menu-open" style="height: 100vh; display: none; position: fixed;" type="button" onclick="toggleSidebar()">
     <i class="icon-right-open"></i>
 </button>

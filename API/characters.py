@@ -63,8 +63,10 @@ async def create_character(request: Request, project_name: str, name: str = Form
     characters_file = os.path.join(project_path, "data/characters.json")
     
     data = get_safe_json(characters_file)
+    id = get_highest_id(data)+1
     
     data[name] = {
+        "id": id,
         "name": name,
         "user_name": name,
         "versions": {
@@ -99,10 +101,12 @@ async def character_copy(request: Request, project_name: str, name: str = Form()
     
     data = get_safe_json(characters_file)
     
+    id = get_highest_id(data)+1
+    
     data[new_name] = data[name].copy()
     data[new_name]["name"] = new_name
     data[new_name]["user_name"] = get_free_user_name(new_name, data)
-    data[new_name]["id"] = get_highest_id(data)+1
+    data[new_name]["id"] = id
     
     with open(characters_file, 'w') as file:
         json.dump(data, file, indent=4)

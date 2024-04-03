@@ -21,6 +21,10 @@
                 <button onclick="loadSubPage('merge')" class="segment-selector " id="characters-merge-btn">
                     Merge
                 </button>
+            {% else %}
+                <button class="segment-selector-disabled" id="characters-merge-btn" title="requires multiple locations">
+                    Merge
+                </button>
             {% endif %}
         </div>
         {% block control_buttons %}{% endblock %}

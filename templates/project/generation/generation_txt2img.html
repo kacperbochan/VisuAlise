@@ -6,8 +6,8 @@
             <div class="form-group col-md-2">
                 <label for="image_type" style="font-weight: bold;">Type</label>
                 <select class="form-control" id="image_type" name="image_type">
-                    <option value="character">Character</option>
-                    <option value="location">Location</option>
+                    {% if project.characters_n > 0 %}<option value="character">Character</option>{% endif %}
+                    {% if project.locations_n > 0 %}<option value="location">Location</option>{% endif %}
                 </select>
             </div>
             <div class="form-group col-md-4" id="story_element_selector">
@@ -36,7 +36,16 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-2" style="padding: 10px;" >
+                <div id="model_loading_info" style="display: none">
+                    <p class="card-text" style="margin-bottom: 0;">Diffusion Model</p>
+                    <p class="card-text">loading</p>
+                </div>
+                <div id="queue_info" style="display: none">
+                    <p class="card-text" style="margin-bottom: 0;">Images Queued</p>
+                    <p class="card-text">[<span id="queued_amount">0</span>]</p>
+                </div>
+            </div>
             <div class="col-md-2" style="padding: 5px 10px;">
                 <button class="generate" id="generateButton" style="width: 100%; height: 100%;">Generate</button>
             </div>
@@ -53,9 +62,8 @@
             <div class="col-md-2">
                 <label for="style_select" style="font-weight: bold;">Style:</label>
                 <select class="form-select" id="style_select" name="style_select">
-                    <option value="default">Default</option>
+                    <option value="default" selected>Default</option>
                     <option value="anime">Anime</option>
-                    <option value="realistic">Realistic</option>
                 </select>
             </div>
             <div class="form-group col-md-10">
@@ -97,24 +105,42 @@
     </div>
     <div class="col-md-3">
         <div class="dark-section character-info" style="padding: 0;">
-            <div id="character_image" style="display: none">
-                {{image_choice_card(project.name, "alice.png", "/alice.png", 1, "no prompt")}}        
+            <div id="character_image" style="display: none;">
+                {{image_choice_card(project.name, "", "/", 1, "no prompt")}}        
             </div>
-            <div id="location_image" style="display: none">
-                {{location_card(project.name, "the_pool_of_tears.png", "/the_pool_of_tears.png", 2, "no prompt")}}
+            <div id="location_image" style="display: none; height: 58vh; object-fit: contain; padding-top: 40%;">
+                {{location_card(project.name, "", "/", 2, "no prompt")}}
             </div>
             <div id="placeholders">
-                <img src="/static/default_character.png" id="character_placeholder" class="card-img-top">
-                <img src="/static/default_location.png" id="location_placeholder" class="card-img-top" style="display: none;">
+                <div style="height: 2vh;"></div>
+                <img src="/static/default_character.png"  id="character_placeholder" class="card-img-top" style="height: 58vh; object-fit: contain;">
+                <img src="/static/default_location.png" id="location_placeholder" class="card-img-top" style="display: none; height: 58vh; object-fit: contain;">
             </div>
-            <div id="thumbnail-gallery" class="row flex-row flex-nowrap d-flex align-items-center" style="background-color: gray;"></div>
+            <div style="height: 2vh;">
+                <div style="display: none;" id="generated_visible">
+                    <p class="card-text">
+                        [
+                        <span id="selected_image">1</span>
+                        /
+                        <span id="generated_amount">1</span>
+                        ]
+                    </p>
+                </div>
+            </div>
+            <div id="thumbnail-gallery" class="row flex-row flex-nowrap d-flex align-items-center" style="background-color: gray; height: 7vh;"></div>
         </div>
     </div>
 </div>
     <script  type="text/javascript">
-        var latest_image = "";
-        var latest_image_path = "";
-        var generated_images = -1;
+        var latest_image = {
+            "character": "",
+            "location": ""
+        };
+        var latest_image_path = {
+            "character": "",
+            "location": ""
+        };
+        var generated_images = 0;
         var image_type = "character";
         var project_name = "{{ project.name }}";
         var styles = {{style_prompts | tojson}};
@@ -126,6 +152,9 @@
         const versionSelector = document.getElementById('version_name');
         const imageTypeSelector = document.getElementById('image_type');
         const styleSelect = document.getElementById('style_select');
+        const selectedImage = document.getElementById('selected_image');
+        const generatedAmount = document.getElementById('generated_amount');
+        const generatedVisible = document.getElementById('generated_visible');
 
         const stylePromptBlock = {{ style_prompts | tojson }};
         var waiting = false;
@@ -136,6 +165,7 @@
                 const option = document.createElement('option');
                 option.value = s;
                 option.text = s[0].toUpperCase() + s.slice(1);
+                if(s == "default") option.selected = true;
                 styleSelect.appendChild(option);
             }
         }
@@ -227,14 +257,14 @@
             while (elapsedTime < 600000) {
                 const response = await fetch(URL).then(response => response.json());
 
-                if (latest_image != response['image']) {
-                    latest_image = response['image'];
-                    latest_image_path = response['image_directory'];
+                if (response['image'] !== latest_image[image_type]) {
+                    latest_image[image_type] = response['image'];
+                    latest_image_path[image_type] = response['image_directory'];
                     generated_images++;
+                    generatedVisible.style.display = 'block';
+                    generatedAmount.innerHTML = "["+generated_images+"]";
 
-                    if(generated_images>0){
-                        addNewestImage(latest_image_path, latest_image, image_type);
-                    }
+                    addNewestImage(latest_image_path[image_type], latest_image[image_type], image_type);
                     return true;
                 }
 
@@ -243,6 +273,18 @@
             }
             return false;
         }
+
+        fetchInitialImages();
+        async function fetchInitialImages(){            
+            var response = await fetch('/get_latest_character_image'+ '?project=' + project_name).then(response => response.json());    
+            latest_image['character'] = response['image'];
+            latest_image_path['character'] = response['image_directory'];
+
+            response = await fetch('/get_latest_location_image'+ '?project=' + project_name).then(response => response.json());    
+            latest_image['location'] = response['image'];
+            latest_image_path['location'] = response['image_directory'];
+        }
+    
 
         function populateVersionSelect(){
             versionSelector.innerHTML = '';
@@ -265,19 +307,21 @@
 
         function selectMainImage(){
             if(types_used[0] == "character"){
-                document.getElementById('default_1').getElementsByTagName('img')[0].src = "\\"+latest_image_path+"\\characters\\"+latest_image;
-                document.getElementById('default_1').getElementsByTagName('img')[1].src = "\\"+latest_image_path+"\\characters\\"+latest_image;
-                document.getElementById('sprite_1').getElementsByTagName('img')[0].src = "\\"+latest_image_path+"\\sprites\\"+latest_image;
-                document.getElementById('sprite_1').getElementsByTagName('img')[1].src = "\\"+latest_image_path+"\\sprites\\"+latest_image;
-                document.getElementById('character_card_text_1').innerHTML = latest_image.split('\\').pop();
+                document.getElementById('default_1').getElementsByTagName('img')[0].src = "\\"+latest_image_path[types_used[0]]+"\\characters\\"+latest_image[types_used[0]];
+                document.getElementById('default_1').getElementsByTagName('img')[1].src = "\\"+latest_image_path[types_used[0]]+"\\characters\\"+latest_image[types_used[0]];
+                document.getElementById('sprite_1').getElementsByTagName('img')[0].src = "\\"+latest_image_path[types_used[0]]+"\\sprites\\"+latest_image[types_used[0]];
+                document.getElementById('sprite_1').getElementsByTagName('img')[1].src = "\\"+latest_image_path[types_used[0]]+"\\sprites\\"+latest_image[types_used[0]];
+                document.getElementById('characters_name_1').innerHTML = latest_image[types_used[0]].split('\\').pop();
+                document.getElementById('sprites_name_1').innerHTML = latest_image[types_used[0]].split('\\').pop();
                 document.getElementById('characters_prompt_1').innerHTML = prompts_used[0];
-
+                document.getElementById('sprites_prompt_1').innerHTML = prompts_used[0];
+                document.getElementById('character_card_text_1').innerHTML = latest_image[types_used[0]].split('\\').pop();
                 showImageType("character");
             }
             else{
-                document.getElementById('default_2').getElementsByTagName('img')[0].src = "\\"+latest_image_path+"\\"+latest_image;
-                document.getElementById('default_2').getElementsByTagName('img')[1].src = "\\"+latest_image_path+"\\"+latest_image;
-                document.getElementById('location_card_text_2').innerHTML = latest_image.split('\\').pop();
+                document.getElementById('default_2').getElementsByTagName('img')[0].src = "\\"+latest_image_path[types_used[0]]+"\\"+latest_image[types_used[0]];
+                document.getElementById('default_2').getElementsByTagName('img')[1].src = "\\"+latest_image_path[types_used[0]]+"\\"+latest_image[types_used[0]];
+                document.getElementById('locations_name_2').innerHTML = latest_image[types_used[0]].split('\\').pop();
                 document.getElementById('locations_prompt_2').innerHTML = prompts_used[0];
                 showImageType("location");
             }
@@ -297,24 +341,43 @@
                 img.setAttribute('data-default-img', "\\"+path+"\\"+image);
             }
             img.setAttribute('data-id', generated_images-1);
+            img.setAttribute('id', 'gallery_item_'+(generated_images-1));
+            if( generated_images == 1){
+                img.classList.add('thumbnail-selected');
+                selectedImage.innerHTML = 1;
+            }
+            generatedAmount.innerHTML = generated_images;
             gallery.appendChild(img);
         }
 
         var queued = 0;
+        var queued_amount = document.getElementById('queued_amount');
 
         async function populateGallery(n = 1){
+            if(queue_info.style.display == 'none'){
+                model_loading_info.style.display = 'none';
+                queue_info.style.display = 'block';
+            }
             if(queued == 0) {
                 queued = n;
+                queued_amount.innerHTML = queued;
                 await fetchNewImage();
                 if(gallery.childElementCount==1)selectMainImage();
                 queued--;
+                queued_amount.innerHTML = queued;
 
                 for (; queued > 0; queued--) {
+                    queued_amount.innerHTML = queued;
                     await fetchNewImage();
+                }
+                queued_amount.innerHTML = queued;
+                if(queue_info.style.display == 'block'){
+                    queue_info.style.display = 'none';
                 }
             }
             else{
                 queued += n;
+                queued_amount.innerHTML = queued;
             }
         }
 
@@ -323,6 +386,17 @@
             if (e.target.classList.contains('thumbnail')) {
                 const newDef = e.target.getAttribute('data-default-img');
                 const id = e.target.getAttribute('data-id');
+                
+                // Remove class thumbnail-selected from all thumbnail-gallery
+                const thumbnails = document.getElementsByClassName('thumbnail');
+                for (let i = 0; i < thumbnails.length; i++) {
+                    thumbnails[i].classList.remove('thumbnail-selected');
+                }
+                
+                // Add class thumbnail-selected to the thumbnail with id = gallery_item_+id
+                const selectedThumbnail = document.getElementById('gallery_item_' + id);
+                selectedThumbnail.classList.add('thumbnail-selected');
+                selectedImage.innerHTML = parseInt(id) + 1;
                 const type = types_used[id];
                 const prompt = prompts_used[id];
                 if(type == 'character'){
@@ -330,16 +404,20 @@
                     
                     document.getElementById('default_1').getElementsByTagName('img')[0].src = newDef;
                     document.getElementById('default_1').getElementsByTagName('img')[1].src = newDef;
-                    document.getElementById('character_card_text_1').innerHTML = newDef.split('\\').pop();
+                    document.getElementById('characters_name_1').innerHTML = newDef.split('\\').pop();
+                    document.getElementById('characters_prompt_1').innerHTML = prompt;
                     document.getElementById('sprite_1').getElementsByTagName('img')[0].src = newSpr;
                     document.getElementById('sprite_1').getElementsByTagName('img')[1].src = newSpr;
-                    document.getElementById('characters_prompt_1').innerHTML = prompt;
+                    document.getElementById('sprites_name_1').innerHTML = newDef.split('\\').pop();
+                    document.getElementById('sprites_prompt_1').innerHTML = prompt;
+                    document.getElementById('character_card_text_1').innerHTML = newDef.split('\\').pop();
                 }
                 else{
                     document.getElementById('default_2').getElementsByTagName('img')[0].src = newDef;
                     document.getElementById('default_2').getElementsByTagName('img')[1].src = newDef;
-                    document.getElementById('location_card_text_2').innerHTML = newDef.split('\\').pop();
+                    document.getElementById('locations_name_2').innerHTML = newDef.split('\\').pop();
                     document.getElementById('locations_prompt_2').innerHTML = prompt;
+                    document.getElementById('location_card_text_2').innerHTML = newDef.split('\\').pop();
                 }
                 showImageType(type);
             }
@@ -377,9 +455,10 @@
             const version = versionSelector.value;
         
             var name = image_type === 'character' ? characterSelector.value : locationSelector.value;
-
-            fetchNewImage(); // will tell the model what are the current images
-        
+            
+            if(model_loading_info.style.display == 'none' && queue_info.style.display == 'none'){
+                model_loading_info.style.display = 'block';
+            }
             fetch('/generate_image', {
                 method: 'POST',
                 headers: {

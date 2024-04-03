@@ -30,17 +30,17 @@
             <div style="margin-bottom: 20px;">
                 <h4 style="text-align:center;">Initial text</h4>
             </div>
-            <p class="prompt" style="max-height:80vh; overflow: scroll;">{{providedText}}</p>
+            <p class="prompt" style="max-height:80vh; height:80vh; overflow: scroll;">{{providedText}}</p>
         </div>
         <div class="col-md-8">
             <div style="margin-bottom: 20px;">
                 <h4 style="text-align:center;">Scenes</h4>
             </div>
-            <div class="dark-section" id="screens" style="max-height:80vh; overflow: scroll;">
+            <div class="dark-section" id="screens" style="max-height:80vh; overflow: auto;">
                 <div class="row" id="scene_-1">
-                <button class="btn scene-button" data-id="-1" onclick="addScene(-1)">
-                    <i class="icon-plus"></i>
-                </button>
+                    <button class="btn scene-button" data-id="-1" onclick="addScene(-1)">
+                        <i class="icon-plus"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -142,7 +142,7 @@
                             <label for="character_placement_${newId}" style="font-weight: bold;">Place</label>
                             <select class="form-control" id="character_placement_${newId}" onchange="character_placement_change(${newId})">
                                 <option value="left">Left</option>
-                                <option value="left">Center</option>
+                                <option value="center">Center</option>
                                 <option value="right">Right</option>
                             </select>
                         </div>
@@ -431,12 +431,12 @@
 
                     document.getElementById('object_visibility_'+sceneId).value = action;
                     load_version_list(sceneId);
+                    document.getElementById('placement_settings_'+sceneId).style.display = 'none';
                     if(action != 'hide'){
                         document.getElementById('version_list_'+sceneId).value = version;
                     }
                     else{
                         document.getElementById('version_selector_'+sceneId).style.display = 'none';
-                        document.getElementById('placement_settings_'+sceneId).style.display = 'none';
                     }
                 }
             }
@@ -521,6 +521,5 @@
     document.getElementById('Save').addEventListener('click', save);
     document.getElementById('Generate').addEventListener('click', generate);
     document.getElementById('Start').addEventListener('click', start);
-    document.getElementById('Build').addEventListener('click', build);
 </script>
 {% endblock %}

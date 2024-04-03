@@ -22,38 +22,6 @@
         },
         "images": [
             {
-                "path": "the_rabbit_hole.png",
-                "prompt": "Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
-            },
-            {
-                "path": "The Rabbit Hole_opposite.png",
-                "prompt": "masterpiece, best quality, (Landscape), soft lines, animation styled, Vibrant animation style, cartoon style , Light tunnel, granite walls, objects like books and jars suspended mid-air, sense of falling"
-            },
-            {
-                "path": "The Rabbit Hole_default.png",
-                "prompt": "masterpiece, best quality, (Landscape), soft lines, animation styled, Vibrant animation style, cartoon style , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
-            },
-            {
-                "path": "The Rabbit Hole_default_00001.png",
-                "prompt": "masterpiece, best quality, (Landscape), soft lines, animation styled, Vibrant animation style, cartoon style , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
-            },
-            {
-                "path": "The Rabbit Hole_default_00002.png",
-                "prompt": "masterpiece, best quality, (Landscape), soft lines, animation styled, Vibrant animation style, cartoon style , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
-            },
-            {
-                "path": "The Rabbit Hole_default_00003.png",
-                "prompt": "masterpiece, best quality, (Landscape), soft lines, animation styled, Vibrant animation style, cartoon style , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
-            },
-            {
-                "path": "The Rabbit Hole_opposite_00001.png",
-                "prompt": "masterpiece, best quality, (Landscape), soft lines, animation styled, Vibrant animation style, cartoon style , Light tunnel, granite walls, objects like books and jars suspended mid-air, sense of falling"
-            },
-            {
-                "path": "The Rabbit Hole_opposite_00002.png",
-                "prompt": "masterpiece, best quality, (Landscape), soft lines, animation styled, Vibrant animation style, cartoon style , Light tunnel, granite walls, objects like books and jars suspended mid-air, sense of falling"
-            },
-            {
                 "path": "The Rabbit Hole_opposite_00004.png",
                 "prompt": "masterpiece, best quality, (Landscape), soft lines, animation styled, Vibrant animation style, cartoon style , Light tunnel, granite walls, objects like books and jars suspended mid-air, sense of falling"
             },
@@ -148,6 +116,46 @@
             {
                 "path": "The Rabbit Hole_default_00019.png",
                 "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, portrait, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00020.png",
+                "prompt": "masterpiece, best quality, , A captivating, multi-dimensional art piece featuring an octagonal character with a unique color palette of white, black, blue, and gold. The character appears to be melting, made of full-body watercolor paint, with vibrant and vivid hues. The background is a blend of poster-like imagery, cinematic scenes, and architectural elements. The overall atmosphere is a dark fantasy, with conceptual art and anime influences., dark fantasy, portrait photography, illustration, vibrant, graffiti, architecture, photo, painting, cinematic, 3d render, poster, fashion, conceptual art, anime, product, typography, ukiyo-e"
+            },
+            {
+                "path": "The Rabbit Hole_default_00021.png",
+                "prompt": "masterpiece, best quality, , A captivating, multi-dimensional art piece featuring an octagonal character with a unique color palette of white, black, blue, and gold. The character appears to be melting, made of full-body watercolor paint, with vibrant and vivid hues. The background is a blend of poster-like imagery, cinematic scenes, and architectural elements. The overall atmosphere is a dark fantasy, with conceptual art and anime influences., dark fantasy, portrait photography, illustration, vibrant, graffiti, architecture, photo, painting, cinematic, 3d render, poster, fashion, conceptual art, anime, product, typography, ukiyo-e"
+            },
+            {
+                "path": "The Rabbit Hole_default_00022.png",
+                "prompt": "masterpiece, best quality, , A captivating, multi-dimensional art piece featuring an octagonal character with a unique color palette of white, black, blue, and gold. The character appears to be melting, made of full-body watercolor paint, with vibrant and vivid hues. The background is a blend of poster-like imagery, cinematic scenes, and architectural elements. The overall atmosphere is a dark fantasy, with conceptual art and anime influences., dark fantasy, portrait photography, illustration, vibrant, graffiti, architecture, photo, painting, cinematic, 3d render, poster, fashion, conceptual art, anime, product, typography, ukiyo-e"
+            },
+            {
+                "path": "The Rabbit Hole_default_00023.png",
+                "prompt": "masterpiece, best quality, , A captivating, multi-dimensional art piece featuring an octagonal character with a unique color palette of white, black, blue, and gold. The character appears to be melting, made of full-body watercolor paint, with vibrant and vivid hues. The background is a blend of poster-like imagery, cinematic scenes, and architectural elements. The overall atmosphere is a dark fantasy, with conceptual art and anime influences., dark fantasy, portrait photography, illustration, vibrant, graffiti, architecture, photo, painting, cinematic, 3d render, poster, fashion, conceptual art, anime, product, typography, ukiyo-e"
+            },
+            {
+                "path": "The Rabbit Hole_default.png",
+                "prompt": "(masterpiece), animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00001.png",
+                "prompt": "(masterpiece), animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00002.png",
+                "prompt": "extremely detailed CG unity 8k wallpaper, realistic shadows, cozy indoor lighting, (trending on Marco Plouffe, Jan Erik Waider, Pixel World, Behance) , highest possible resolution:1, 9, best macro photo by Miki Asai, epic frame by Kevin Winzeler, fantastic view, hyperrealistic , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00003.png",
+                "prompt": "extremely detailed CG unity 8k wallpaper, realistic shadows, cozy indoor lighting, (trending on Marco Plouffe, Jan Erik Waider, Pixel World, Behance) , highest possible resolution:1, 9, best macro photo by Miki Asai, epic frame by Kevin Winzeler, fantastic view, hyperrealistic , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00003.png",
+                "prompt": "(masterpiece), (cute), extremely detailed CG unity 8k wallpaper, realistic shadows, fantastic view, animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx\n , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
+            },
+            {
+                "path": "The Rabbit Hole_default_00024.png",
+                "prompt": "(masterpiece), (cute), extremely detailed CG unity 8k wallpaper, realistic shadows, fantastic view, animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx\n , Dark tunnel, earthy walls, objects like books and jars suspended mid-air, sense of falling"
             }
         ]
     },
@@ -229,7 +237,7 @@
         "name": "The Mad Tea Party",
         "versions": {
             "default": {
-                "image": "the_mad_tea_party.png",
+                "image": "The Mad Tea Party_default.png",
                 "description": "Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots",
                 "prompt": "Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
             }
@@ -238,6 +246,110 @@
             {
                 "path": "the_mad_tea_party.png",
                 "prompt": "Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00001.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00002.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00003.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00001.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00002.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00003.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Landscape), animation styled, detailed background, Vibrant animation style, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00004.png",
+                "prompt": "(masterpiece), animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00005.png",
+                "prompt": "(masterpiece), animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00006.png",
+                "prompt": "(masterpiece), animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00007.png",
+                "prompt": "(masterpiece), animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00008.png",
+                "prompt": "(masterpiece), animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00009.png",
+                "prompt": "(masterpiece), animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00008.png",
+                "prompt": " cinematic angle and lighting, oil on canvas, by Alessandro Galli Bibiena, trending on artstation, deviantart, pinterest, hyper detailed, photorealistic highlights & shadow, hd quality, cinema, centered , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00009.png",
+                "prompt": " cinematic angle and lighting, oil on canvas, by Alessandro Galli Bibiena, trending on artstation, deviantart, pinterest, hyper detailed, photorealistic highlights & shadow, hd quality, cinema, centered , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00010.png",
+                "prompt": "extremely detailed CG unity 8k wallpaper, realistic shadows, (trending on Marco Plouffe, Jan Erik Waider, Pixel World, Behance) , highest possible resolution:1, 9, best macro photo by Miki Asai,  epic frame by Kevin Winzeler, fantastic view, hyperrealistic , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00011.png",
+                "prompt": "extremely detailed CG unity 8k wallpaper, realistic shadows, (trending on Marco Plouffe, Jan Erik Waider, Pixel World, Behance) , highest possible resolution:1, 9, best macro photo by Miki Asai,  epic frame by Kevin Winzeler, fantastic view, hyperrealistic , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00010.png",
+                "prompt": "(masterpiece), (cute), extremely detailed CG unity 8k wallpaper, realistic shadows, fantastic view, animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx\n , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00011.png",
+                "prompt": "(masterpiece), (cute), extremely detailed CG unity 8k wallpaper, realistic shadows, fantastic view, animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx\n , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00012.png",
+                "prompt": "(masterpiece), (cute), extremely detailed CG unity 8k wallpaper, realistic shadows, fantastic view, animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx\n , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00013.png",
+                "prompt": "(masterpiece), (cute), extremely detailed CG unity 8k wallpaper, realistic shadows, fantastic view, animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx\n , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00014.png",
+                "prompt": "(masterpiece), (cute), extremely detailed CG unity 8k wallpaper, realistic shadows, fantastic view, animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx\n , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00015.png",
+                "prompt": "(masterpiece), (cute), extremely detailed CG unity 8k wallpaper, realistic shadows, fantastic view, animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx\n , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00012.png",
+                "prompt": "(masterpiece), animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
+            },
+            {
+                "path": "The Mad Tea Party_default_00013.png",
+                "prompt": "(masterpiece), animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , Long table, mismatched chairs, forest clearing, whimsical tea set, scattered treats and teapots"
             }
         ]
     },
@@ -256,6 +368,14 @@
             {
                 "path": "the_queens_croquet_ground.png",
                 "prompt": "Manicured lawn, vibrant rose bushes, some roses being painted red, arches for croquet"
+            },
+            {
+                "path": "The Queen's Croquet Ground_default.png",
+                "prompt": "(masterpiece), animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , Manicured lawn, vibrant rose bushes, some roses being painted red, arches for croquet"
+            },
+            {
+                "path": "The Queen's Croquet Ground_default_00001.png",
+                "prompt": "(masterpiece), animation styled, beautiful background, Vibrant animation style, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , Manicured lawn, vibrant rose bushes, some roses being painted red, arches for croquet"
             }
         ]
     },
@@ -314,5 +434,17 @@
                 "prompt": "Sandy beach, calm waters, distant horizon, whimsical sea creatures, serene and inviting"
             }
         ]
+    },
+    "new location": {
+        "name": "new location",
+        "user_name": "new location",
+        "versions": {
+            "default": {
+                "description": "a location",
+                "prompt": "It is a new location",
+                "image": ""
+            }
+        },
+        "images": []
     }
 }

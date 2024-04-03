@@ -1,6 +1,7 @@
 {% extends "characters_list/characters_base.html" %}
 
 {% block control_buttons %}
+{% if project.characters_n != 0 %}
 <div style="text-align: right;">
     <button class="size-setter selected-size" id="large-btn" >
         <i class="icon-th-large-outline"></i>
@@ -12,10 +13,17 @@
         <i class="icon-menu-outline"></i>
     </button>
 </div>
+{% endif %}
 {% endblock %}
 {% block sub_page_content %}
-
-</div>
+{% if project.characters_n == 0 %}
+        <div class="col-md-12">
+            <div class="dark-section">
+                <p class="card-text">No characters found</p>
+                <p class="card-text">Go to <a href="/project/{{ project.name }}/characters/creation">Creation</a> sub page</p>
+            </div>
+        </div>
+    {% else %}
 <div class="row" id="cards">
     {% for character in characters %}
     <div class="col-md-3 col-sm-6 mb-4">
@@ -23,9 +31,9 @@
             <a href="/project/{{ project.name }}/character/{{ character.name }}/info" class="card-link">
 
                 {% if character.image_path %}
-                    <img src="{{ character.image_path }}" alt="{{ character.user_name }}" class="card-img-top">
+                    <img src="{{ character.image_path }}" alt="{{ character.user_name }}" class="card-img-top" style="height: 55vh; object-fit: contain;">
                 {% else %}
-                    <img src="/static/default_character.png" alt="{{ character.user_name }}" class="card-img-top">
+                    <img src="/static/default_character.png" alt="{{ character.user_name }}" class="card-img-top" style="height: 55vh; object-fit: contain;">
                 {% endif %}
                 <div class="card-body">
                     <p class="card-text">{{ character.user_name }}</p>
@@ -177,11 +185,11 @@
             switch (size) {
                 case 'large':
                     card.style.width = '100%'; // or any large size
-                    card.style.height = 'auto';
+                    card.style.height = '55vh';
                     break;
                 case 'medium':
                     card.style.width = '50%'; // or any medium size
-                    card.style.height = 'auto';
+                    card.style.height = '12vh';
                     break;
             }
         });
@@ -219,4 +227,5 @@
 
     }
 </script>
+{%endif%}
 {% endblock %}

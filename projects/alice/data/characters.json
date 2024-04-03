@@ -5,12 +5,12 @@
         "name": "Alice",
         "versions": {
             "default": {
-                "image": "Alice_default_00056.png",
-                "prompt": "A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful",
+                "image": "Alice_default_00160.png",
+                "prompt": "(curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful",
                 "description": "young girl, long blond hair tied back, wearing a Victorian dress"
             },
             "mad": {
-                "image": "alice_mad.png",
+                "image": "Alice_default_00087.png",
                 "prompt": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress",
                 "description": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
             },
@@ -19,55 +19,18 @@
                 "prompt": "young girl, (((long neck))), elongated neck, long blond hair tied back, wearing a Victorian dress",
                 "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
             },
-            "long neck_copy": {
+            "anime": {
                 "image": "alice_004.png",
                 "prompt": "young girl, (((long neck))), elongated neck, long blond hair tied back, wearing a Victorian dress",
                 "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
             },
-            "big": {
-                "image": "alice_neck_stretching.png",
-                "prompt": "young girl, (((Very very very tall))), tall, long blond hair tied back, wearing a Victorian dress",
-                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
-            },
-            "defaultrytrtyrfytrtyryt": {
-                "description": "a character",
-                "prompt": "A big black dragon, bigger",
-                "image": ""
-            },
-            "defaultrytrtyrfytrtyryt_copy": {
-                "description": "a character",
-                "prompt": "A big black dragon, bigger",
-                "image": ""
-            },
-            "big_copy": {
-                "image": "alice_neck_stretching.png",
-                "prompt": "young girl, (((Very very very tall))), tall, long blond hair tied back, wearing a Victorian dress",
-                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
-            },
-            "big_copy_2": {
-                "image": "alice_neck_stretching.png",
-                "prompt": "young girl, (((Very very very tall))), tall, long blond hair tied back, wearing a Victorian dress",
-                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
-            },
             "mad_copy": {
-                "image": "alice_mad.png",
+                "image": "Alice_default_00082.png",
                 "prompt": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress",
                 "description": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
             }
         },
         "images": [
-            {
-                "path": "alice.png",
-                "prompt": null
-            },
-            {
-                "path": "alice_mad.png",
-                "prompt": null
-            },
-            {
-                "path": "alice_002.png",
-                "prompt": null
-            },
             {
                 "path": "alice_003.png",
                 "prompt": "A young girl with long, blond hair, wearing a blue dress with a white apron, in a curious and thoughtful pose, as if she's about to fall into a rabbit hole. The setting is whimsical and fantastical, reflecting a sense of wonder and adventure."
@@ -377,10 +340,6 @@
                 "prompt": "undefined , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
             },
             {
-                "path": "Alice_default_00053.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
                 "path": "Alice_default_00057.png",
                 "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
             },
@@ -391,6 +350,422 @@
             {
                 "path": "Alice_default_00059.png",
                 "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00060.png",
+                "prompt": "masterpiece, best quality,  , A captivating, multi-dimensional art piece featuring an octagonal character with a unique color palette of white, black, blue, and gold. The character appears to be melting, made of full-body watercolor paint, with vibrant and vivid hues. The background is a blend of poster-like imagery, cinematic scenes, and architectural elements. The overall atmosphere is a dark fantasy, with conceptual art and anime influences., dark fantasy, portrait photography, illustration, vibrant, graffiti, architecture, photo, painting, cinematic, 3d render, poster, fashion, conceptual art, anime, product, typography, ukiyo-e"
+            },
+            {
+                "path": "Alice_default_00061.png",
+                "prompt": "masterpiece, best quality,  , A captivating, multi-dimensional art piece featuring an octagonal character with a unique color palette of white, black, blue, and gold. The character appears to be melting, made of full-body watercolor paint, with vibrant and vivid hues. The background is a blend of poster-like imagery, cinematic scenes, and architectural elements. The overall atmosphere is a dark fantasy, with conceptual art and anime influences., dark fantasy, portrait photography, illustration, vibrant, graffiti, architecture, photo, painting, cinematic, 3d render, poster, fashion, conceptual art, anime, product, typography, ukiyo-e"
+            },
+            {
+                "path": "Alice_default_00062.png",
+                "prompt": "masterpiece, best quality,  , A captivating, multi-dimensional art piece featuring an octagonal character with a unique color palette of white, black, blue, and gold. The character appears to be melting, made of full-body watercolor paint, with vibrant and vivid hues. The background is a blend of poster-like imagery, cinematic scenes, and architectural elements. The overall atmosphere is a dark fantasy, with conceptual art and anime influences., dark fantasy, portrait photography, illustration, vibrant, graffiti, architecture, photo, painting, cinematic, 3d render, poster, fashion, conceptual art, anime, product, typography, ukiyo-e"
+            },
+            {
+                "path": "Alice_default_00063.png",
+                "prompt": "masterpiece, best quality,  , A captivating, multi-dimensional art piece featuring an octagonal character with a unique color palette of white, black, blue, and gold. The character appears to be melting, made of full-body watercolor paint, with vibrant and vivid hues. The background is a blend of poster-like imagery, cinematic scenes, and architectural elements. The overall atmosphere is a dark fantasy, with conceptual art and anime influences., dark fantasy, portrait photography, illustration, vibrant, graffiti, architecture, photo, painting, cinematic, 3d render, poster, fashion, conceptual art, anime, product, typography, ukiyo-e"
+            },
+            {
+                "path": "Alice_default_00064.png",
+                "prompt": "A captivating conceptual art piece  , featuring a mystical and vibrant male adult body builder with a 3D rendering effect. The man's shimmering red hood and mesmerizing eyes emit a captivating glow. The man's body and bulging muscles radiate multicolored lights, casting an ethereal aura around the scene. The background is a solid white, emphasizing the man's vibrant colors and the artist's skillful execution. The art style is reminiscent of a soft pastel pencil sketch, creating a cinematic feel to the image that captivates the viewer's imagination., vibrant, painting, cinematic, conceptual art, photo, 3d render, ukiyo-e, dark fantasy"
+            },
+            {
+                "path": "Alice_default_00065.png",
+                "prompt": "A captivating conceptual art piece  , featuring a mystical and vibrant male adult body builder with a 3D rendering effect. The man's shimmering red hood and mesmerizing eyes emit a captivating glow. The man's body and bulging muscles radiate multicolored lights, casting an ethereal aura around the scene. The background is a solid white, emphasizing the man's vibrant colors and the artist's skillful execution. The art style is reminiscent of a soft pastel pencil sketch, creating a cinematic feel to the image that captivates the viewer's imagination., vibrant, painting, cinematic, conceptual art, photo, 3d render, ukiyo-e, dark fantasy"
+            },
+            {
+                "path": "Alice_default_00066.png",
+                "prompt": "A captivating conceptual art piece  , featuring a mystical and vibrant male adult body builder with a 3D rendering effect. The man's shimmering red hood and mesmerizing eyes emit a captivating glow. The man's body and bulging muscles radiate multicolored lights, casting an ethereal aura around the scene. The background is a solid white, emphasizing the man's vibrant colors and the artist's skillful execution. The art style is reminiscent of a soft pastel pencil sketch, creating a cinematic feel to the image that captivates the viewer's imagination., vibrant, painting, cinematic, conceptual art, photo, 3d render, ukiyo-e, dark fantasy"
+            },
+            {
+                "path": "Alice_default_00067.png",
+                "prompt": "A captivating conceptual art piece  , featuring a mystical and vibrant male adult body builder with a 3D rendering effect. The man's shimmering red hood and mesmerizing eyes emit a captivating glow. The man's body and bulging muscles radiate multicolored lights, casting an ethereal aura around the scene. The background is a solid white, emphasizing the man's vibrant colors and the artist's skillful execution. The art style is reminiscent of a soft pastel pencil sketch, creating a cinematic feel to the image that captivates the viewer's imagination., vibrant, painting, cinematic, conceptual art, photo, 3d render, ukiyo-e, dark fantasy"
+            },
+            {
+                "path": "Alice_default_00068.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , young girl, long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00069.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , young girl, long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00070.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , young girl, long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00071.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , young girl, long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00072.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (young teen), young girl, long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00073.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (young teen), young girl, long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00074.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (young teen), young girl, long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00075.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (young teen), young girl, long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00076.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (curious child), young girl, long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00077.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (curious child), young girl, long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00078.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (curious child), young girl, long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00079.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (curious child), young girl, long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00079.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00080.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00081.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00082.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00083.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (looking condescendingly), (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00084.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (looking condescendingly), (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00085.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (looking condescendingly), (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00086.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (looking condescendingly), (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00087.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (shocked), (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00088.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (shocked), (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00089.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (shocked), (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00090.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (shocked), (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00091.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00092.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00093.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00094.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00092.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00093.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00094.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00095.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00096.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00097.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00098.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00099.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00100.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00101.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00102.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00103.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00104.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00105.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00106.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00107.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00108.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00109.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00110.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00111.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00112.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , ((young girl)), curious, long blond hair, wearing blue dress with white apron, thoughtful"
+            },
+            {
+                "path": "Alice_default_00113.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , ((young girl)), curious, long blond hair, wearing blue dress with white apron, thoughtful"
+            },
+            {
+                "path": "Alice_default_00114.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , ((young girl)), curious, long blond hair, wearing blue dress with white apron, thoughtful"
+            },
+            {
+                "path": "Alice_default_00115.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , ((young girl)), curious, long blond hair, wearing blue dress with white apron, thoughtful"
+            },
+            {
+                "path": "Alice_default_00116.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00117.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00118.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00119.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00120.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00121.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00122.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00123.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00124.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00128.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00129.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00130.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00131.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00132.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00133.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00134.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00135.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00136.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00137.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00138.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00139.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00140.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00141.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00142.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00143.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00144.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00145.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00146.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00147.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00148.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00149.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00150.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00151.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00152.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00153.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00154.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00155.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00156.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00157.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00158.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00159.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00160.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00053.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
+            },
+            {
+                "path": "Alice_default_00125.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (curious young girl), long blond hair, wearing blue dress with white apron, (curious), thoughtful"
             }
         ]
     },
@@ -400,17 +775,12 @@
         "name": "Mad Hatter",
         "versions": {
             "default": {
-                "image": "Mad Hatter_default_00019.png",
+                "image": "Mad Hatter_default_00023.png",
                 "prompt": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.",
                 "description": "young girl, long blond hair tied back, wearing a Victorian dress"
             },
             "EVEN MADDER": {
-                "image": "Mad Hatter_default_00012.png",
-                "prompt": "single male, MAD, eccentric, wild orange hair, wears a large top hat with a card marked '10/6'",
-                "description": "young girl, long blond hair tied back, wearing a Victorian dress"
-            },
-            "big": {
-                "image": "Mad Hatter_default_00012.png",
+                "image": "Mad Hatter_default_00058.png",
                 "prompt": "single male, MAD, eccentric, wild orange hair, wears a large top hat with a card marked '10/6'",
                 "description": "young girl, long blond hair tied back, wearing a Victorian dress"
             }
@@ -527,6 +897,174 @@
             {
                 "path": "Mad Hatter_default_00022.png",
                 "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00023.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00024.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00025.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00026.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            {
+                "path": "Mad Hatter_default_00027.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, ((crazy)), eccentric character, wild, laughing, orange hair, wears a large top hat with a card marked '10/6'."
+            },
+            {
+                "path": "Mad Hatter_default_00028.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, ((crazy)), eccentric character, wild, laughing, orange hair, wears a large top hat with a card marked '10/6'."
+            },
+            {
+                "path": "Mad Hatter_default_00029.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, ((crazy)), eccentric character, wild, laughing, orange hair, wears a large top hat with a card marked '10/6'."
+            },
+            {
+                "path": "Mad Hatter_default_00030.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, ((crazy)), eccentric character, wild, laughing, orange hair, wears a large top hat with a card marked '10/6'."
+            },
+            {
+                "path": "Mad Hatter_default_00031.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, ((crazy)), eccentric man, he is wild, laughing, orange hair, wears a large top hat with a card marked '10/6'."
+            },
+            {
+                "path": "Mad Hatter_default_00032.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, ((crazy)), eccentric man, he is wild, laughing, orange hair, wears a large top hat with a card marked '10/6'."
+            },
+            {
+                "path": "Mad Hatter_default_00033.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, ((crazy)), eccentric man, he is wild, laughing, orange hair, wears a large top hat with a card marked '10/6'."
+            },
+            {
+                "path": "Mad Hatter_default_00034.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, ((crazy)), eccentric man, he is wild, laughing, orange hair, wears a large top hat with a card marked '10/6'."
+            },
+            {
+                "path": "Mad Hatter_default_00035.png",
+                "prompt": "(masterpiece), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00036.png",
+                "prompt": "(masterpiece), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00037.png",
+                "prompt": "(masterpiece), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00038.png",
+                "prompt": "(masterpiece), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00039.png",
+                "prompt": "(masterpiece), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , man, crazy, A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00040.png",
+                "prompt": "(masterpiece), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , man, crazy, A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00043.png",
+                "prompt": "(masterpiece), (cute), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , man, crazy, A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00044.png",
+                "prompt": "(masterpiece), (cute), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , man, crazy, A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00045.png",
+                "prompt": "(masterpiece), (cute), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , man, crazy, A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00046.png",
+                "prompt": "(masterpiece), (cute), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , man, crazy, A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00047.png",
+                "prompt": "(masterpiece), man, (cute), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00048.png",
+                "prompt": "(masterpiece), man, (cute), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00049.png",
+                "prompt": "(masterpiece), man, (cute), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00050.png",
+                "prompt": "(masterpiece), man, (cute), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00051.png",
+                "prompt": "(masterpiece), male, (cute), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00052.png",
+                "prompt": "(masterpiece), male, (cute), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00053.png",
+                "prompt": "(masterpiece), male, (cute), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00054.png",
+                "prompt": "(masterpiece), male, (cute), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , A quirky, eccentric character with wild, orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00055.png",
+                "prompt": "(masterpiece), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , male, (madman), (crazy), A quirky, (eccentric), wild orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00056.png",
+                "prompt": "(masterpiece), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , male, (madman), (crazy), A quirky, (eccentric), wild orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00057.png",
+                "prompt": "(masterpiece), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , male, (madman), (crazy), A quirky, (eccentric), wild orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00058.png",
+                "prompt": "(masterpiece), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , male, (madman), (crazy), A quirky, (eccentric), wild orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00059.png",
+                "prompt": "(masterpiece), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , male, (laughing), (madman), (crazy), A quirky, (eccentric), wild orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00060.png",
+                "prompt": "(masterpiece), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , male, (laughing), (madman), (crazy), A quirky, (eccentric), wild orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00061.png",
+                "prompt": "(masterpiece), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , male, (laughing), (madman), (crazy), A quirky, (eccentric), wild orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00062.png",
+                "prompt": "(masterpiece), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , male, (laughing), (madman), (crazy), A quirky, (eccentric), wild orange hair. wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00041.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , male, a quirky, eccentric character, wild orange hair, wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00042.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , male, a quirky, eccentric character, wild orange hair, wears a large top hat with a card marked '10/6', drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00063.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , male, a quirky, eccentric character, wild orange hair, (wearing large top hat), drinking tea"
+            },
+            {
+                "path": "Mad Hatter_default_00064.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , male, a quirky, eccentric character, wild orange hair, (wearing large top hat), drinking tea"
             }
         ]
     },
@@ -536,102 +1074,107 @@
         "name": "Queen of Hearts",
         "versions": {
             "default": {
-                "image": "Queen of Hearts_default_00001.png",
+                "image": "Queen of Hearts_default_00016.png",
                 "prompt": "A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown.",
                 "description": "A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
             }
         },
         "images": [
             {
-                "path": "queen_of_hearts.png",
-                "prompt": "A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
+                "path": "Queen of Hearts_default_00004.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , tyrannical angry queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "Queen of Hearts_default.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
+                "path": "Queen of Hearts_default_00005.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , tyrannical angry queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "Queen of Hearts_default_00001.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
+                "path": "Queen of Hearts_default_00006.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , tyrannical angry queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "Queen of Hearts_default_00002.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
+                "path": "Queen of Hearts_default_00007.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , tyrannical angry queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "Queen of Hearts_default_00003.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , A tyrannical and quick-tempered queen, dressed in a red gown with heart motifs, and often depicted with a small golden crown."
-            }
-        ]
-    },
-    "White Rabbit": {
-        "id": "4",
-        "user_name": "White Rabbit",
-        "name": "White Rabbit",
-        "versions": {
-            "default": {
-                "image": "White Rabbit_default_00011.png",
-                "prompt": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch.",
-                "description": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
-            },
-            "angry": {
-                "image": "white_rabbit.png",
-                "prompt": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch.",
-                "description": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
-            }
-        },
-        "images": [
-            {
-                "path": "white_rabbit.png",
-                "prompt": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+                "path": "Queen of Hearts_default_00008.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , tyrannical angry queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "White Rabbit_default.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+                "path": "Queen of Hearts_default_00009.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , tyrannical angry queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "White Rabbit_default_00001.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+                "path": "Queen of Hearts_default_00010.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , tyrannical angry queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "White Rabbit_default_00002.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+                "path": "Queen of Hearts_default_00011.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , tyrannical angry queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "White Rabbit_default_00003.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+                "path": "Queen of Hearts_default_00012.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (mad), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "White Rabbit_default_00004.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+                "path": "Queen of Hearts_default_00013.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (mad), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "White Rabbit_default_00005.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+                "path": "Queen of Hearts_default_00014.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (mad), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "White Rabbit_default_00006.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+                "path": "Queen of Hearts_default_00015.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (mad), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "White Rabbit_default_00007.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+                "path": "Queen of Hearts_default_00015.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , ((crazy)), (madness in eyes), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "White Rabbit_default_00008.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+                "path": "Queen of Hearts_default_00016.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , ((crazy)), (madness in eyes), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "White Rabbit_default_00009.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+                "path": "Queen of Hearts_default_00017.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , ((crazy)), (madness in eyes), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "White Rabbit_default_00010.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+                "path": "Queen of Hearts_default_00018.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , ((crazy)), (madness in eyes), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
             },
             {
-                "path": "White Rabbit_default_00011.png",
-                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+                "path": "Queen of Hearts_default_00019.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (comically big head), ((crazy)), (madness in eyes), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
+            },
+            {
+                "path": "Queen of Hearts_default_00020.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (comically big head), ((crazy)), (madness in eyes), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
+            },
+            {
+                "path": "Queen of Hearts_default_00021.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (comically big head), ((crazy)), (madness in eyes), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
+            },
+            {
+                "path": "Queen of Hearts_default_00022.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (comically big head), ((crazy)), (madness in eyes), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
+            },
+            {
+                "path": "Queen of Hearts_default_00023.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (comically enormous head), ((crazy)), (madness in eyes), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
+            },
+            {
+                "path": "Queen of Hearts_default_00024.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (comically enormous head), ((crazy)), (madness in eyes), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
+            },
+            {
+                "path": "Queen of Hearts_default_00025.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (comically enormous head), ((crazy)), (madness in eyes), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
+            },
+            {
+                "path": "Queen of Hearts_default_00026.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , (comically enormous head), ((crazy)), (madness in eyes), (pretentious), (tyrannical), ((angry)), queen, wearing red gown with heart motifs, wearing small golden crown."
             }
         ]
     },
@@ -702,6 +1245,38 @@
             {
                 "path": "Cheshire Cat_default_00007.png",
                 "prompt": "(masterpiece), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, grinning cat, wide toothy smile, bright glowing eyes. purple fur"
+            },
+            {
+                "path": "Cheshire Cat_default_00009.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , mischievous, grinning, cat, wide toothy smile, bright glowing eyes, purple fur"
+            },
+            {
+                "path": "Cheshire Cat_default_00010.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , mischievous, grinning, cat, wide toothy smile, bright glowing eyes, purple fur"
+            },
+            {
+                "path": "Cheshire Cat_default_00014.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , mischievous, grinning, cat, wide toothy smile, bright glowing eyes, purple fur"
+            },
+            {
+                "path": "Cheshire Cat_default_00016.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , mischievous, grinning, cat, wide toothy smile, bright glowing eyes, purple fur"
+            },
+            {
+                "path": "Cheshire Cat_default_00017.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , mischievous, grinning, purple cat, big cat, fat cat, wide toothy smile, bright glowing eyes, "
+            },
+            {
+                "path": "Cheshire Cat_default_00018.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , mischievous, grinning, purple cat, big cat, fat cat, wide toothy smile, bright glowing eyes, "
+            },
+            {
+                "path": "Cheshire Cat_default_00019.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , mischievous, grinning, purple cat, big cat, fat cat, wide toothy smile, bright glowing eyes, "
+            },
+            {
+                "path": "Cheshire Cat_default_00020.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , mischievous, grinning, purple cat, big cat, fat cat, wide toothy smile, bright glowing eyes, "
             }
         ]
     },
@@ -911,12 +1486,106 @@
         "name": "March Hare",
         "versions": {
             "default": {
-                "image": "",
-                "prompt": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party.",
+                "image": "March Hare_default_00017.png",
+                "prompt": " animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch.",
                 "description": "A quirky, eccentric character with wild, orange hair. He wears a large top hat with a card marked '10/6' and is often seen at the tea party."
+            },
+            "cartoony": {
+                "image": "March Hare_default_00011.png",
+                "prompt": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch.",
+                "description": "A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
             }
         },
-        "images": []
+        "images": [
+            {
+                "path": "White Rabbit_default_00011.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00001.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00002.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00003.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00007.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , humanoid animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00008.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , rabbit, humanoid, standing on two legs, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00009.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , rabbit, humanoid, standing on two legs, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00010.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , rabbit, humanoid, standing on two legs, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00011.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , rabbit, humanoid, standing on two legs, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00012.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , human like rabbit, tall, standing on two legs, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00013.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , human like rabbit, tall, standing on two legs, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00014.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , human like rabbit, tall, standing on two legs, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00015.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , human like rabbit, tall, standing on two legs, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00016.png",
+                "prompt": "(masterpiece), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , human like rabbit, tall, standing on two legs, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00017.png",
+                "prompt": "(masterpiece), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , human like rabbit, tall, standing on two legs, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00018.png",
+                "prompt": "(masterpiece), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , human like rabbit, tall, standing on two legs, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00019.png",
+                "prompt": "(masterpiece), (crazy), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , human like rabbit, tall, standing on two legs, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00005.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00006.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00020.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  humanoid, standing on two legs, tall, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            },
+            {
+                "path": "March Hare_default_00021.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  humanoid, standing on two legs, tall, rabbit, A nervous, fussy character, always in a hurry, and often seen with a pocket watch."
+            }
+        ]
     },
     "Dormouse": {
         "id": "9",
@@ -924,238 +1593,92 @@
         "name": "Dormouse",
         "versions": {
             "default": {
-                "image": "dormouse.png",
+                "image": "Dormouse_default_00009.png",
                 "prompt": "A sleepy, timid character, often depicted dozing off or hiding in a teapot.",
                 "description": "A sleepy, timid character, often depicted dozing off or hiding in a teapot."
             }
         },
         "images": [
             {
-                "path": "dormouse.png",
-                "prompt": "A sleepy, timid character, often depicted dozing off or hiding in a teapot."
-            }
-        ]
-    },
-    "Alice_copy": {
-        "id": 10,
-        "user_name": "Alice_copy",
-        "name": "Alice_copy",
-        "versions": {
-            "default": {
-                "image": "alice.png",
-                "prompt": "A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful",
-                "description": "young girl, long blond hair tied back, wearing a Victorian dress"
-            },
-            "mad": {
-                "image": "alice_mad.png",
-                "prompt": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress",
-                "description": "young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
-            },
-            "long neck": {
-                "image": "alice_neck_stretching.png",
-                "prompt": "young girl, (((long neck))), elongated neck, long blond hair tied back, wearing a Victorian dress",
-                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
-            },
-            "long neck_copy": {
-                "image": "alice_004.png",
-                "prompt": "young girl, (((long neck))), elongated neck, long blond hair tied back, wearing a Victorian dress",
-                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
-            },
-            "big": {
-                "image": "alice_neck_stretching.png",
-                "prompt": "young girl, (((Very very very tall))), tall, long blond hair tied back, wearing a Victorian dress",
-                "description": "young girl, with comically long neck, elongated neck, long blond hair tied back, wearing a Victorian dress"
-            },
-            "default_1": {
-                "description": "a character",
-                "prompt": "A big black dragon",
-                "image": ""
-            }
-        },
-        "images": [
-            {
-                "path": "alice.png",
-                "prompt": null
+                "path": "Dormouse_default_00003.png",
+                "prompt": "(masterpiece), (extremely intricate:1.3), (realistic),  (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "alice_mad.png",
-                "prompt": null
+                "path": "Dormouse_default_00004.png",
+                "prompt": "(masterpiece), (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "alice_001.png",
-                "prompt": "A young girl with long, blond hair, often depicted wearing a blue dress with a white apron. She is curious, thoughtful, and falls into the rabbit hole."
+                "path": "Dormouse_default_00005.png",
+                "prompt": "(masterpiece), (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "alice_002.png",
-                "prompt": null
+                "path": "Dormouse_default_00006.png",
+                "prompt": "(masterpiece), (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "alice_003.png",
-                "prompt": "A young girl with long, blond hair, wearing a blue dress with a white apron, in a curious and thoughtful pose, as if she's about to fall into a rabbit hole. The setting is whimsical and fantastical, reflecting a sense of wonder and adventure."
+                "path": "Dormouse_default_00007.png",
+                "prompt": "(masterpiece), (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, dramatic, award winning, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "alice_004.png",
-                "prompt": null
+                "path": "Dormouse_default_00008.png",
+                "prompt": "(masterpiece),  (cute), (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "alice_005.png",
-                "prompt": "an ultra-realistic image of the wise brown rat, previously depicted, now running at an incredible speed through a well-lit cave. The space around him is visibly bending, showcasing his ability as a living Alcubierre drive. The cave is illuminated, highlighting the speed and power of the rat."
+                "path": "Dormouse_default_00009.png",
+                "prompt": "(masterpiece),  (cute), (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "Alice_default_00002.png",
-                "prompt": "(Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, often depicted wearing a blue dress with a white apron. She is curious, thoughtful, and falls into the rabbit hole."
+                "path": "Dormouse_default_00010.png",
+                "prompt": "(masterpiece),  (cute), (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "Alice_mad_00001.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+                "path": "Dormouse_default_00011.png",
+                "prompt": "(masterpiece),  (cute), (Full body character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "Alice_mad_00002.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+                "path": "Dormouse_default_00012.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "Alice_mad_00003.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+                "path": "Dormouse_default_00013.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "Alice_mad_00004.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+                "path": "Dormouse_default_00014.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "Alice_mad_00005.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+                "path": "Dormouse_default_00015.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "Alice_mad_00006.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+                "path": "Dormouse_default_00016.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "Alice_mad_00007.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+                "path": "Dormouse_default_00017.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "Alice_mad_00008.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+                "path": "Dormouse_default_00018.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "Alice_mad_00009.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+                "path": "Dormouse_default_00019.png",
+                "prompt": "(masterpiece),  (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx ,  animal, mouse, sleepy, timid character, dozing off"
             },
             {
-                "path": "Alice_mad_00010.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
+                "path": "Dormouse_default.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, mouse, ((sleepy)), timid"
             },
             {
-                "path": "Alice_mad_00011.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
-            },
-            {
-                "path": "Alice_mad_00012.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), (anime coloring, anime screencap, anime style), portrait, solid color white background, Vibrant anime style, anime style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , young girl, mad expression on her face, long blond hair tied back, wearing a Victorian dress"
-            },
-            {
-                "path": "Alice_default_00006.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00007.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00008.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00009.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00010.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00011.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00012.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00013.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00014.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00015.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00016.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00017.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00018.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00019.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00020.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00021.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00022.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00020.png",
-                "prompt": "masterpiece, best quality, great animation, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00021.png",
-                "prompt": "masterpiece, best quality, great animation, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00022.png",
-                "prompt": "masterpiece, best quality, great animation, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00023.png",
-                "prompt": "masterpiece, best quality, great animation, (Full body character shot), soft lines, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00024.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), clear outline, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00025.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), clear outline, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00026.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), clear outline, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
-            },
-            {
-                "path": "Alice_default_00027.png",
-                "prompt": "masterpiece, best quality, (Full body character shot), clear outline, animation styled, portrait, solid color white background, Vibrant animation style, cartoon style, solo, centered image, animated character, looking at camera, standing in a relaxed pose , A young girl with long, blond hair, wearing a blue dress with a white apron, (curious), thoughtful"
+                "path": "Dormouse_default_00001.png",
+                "prompt": "(masterpiece), (cute), (three-quarter character shot), animation styled, portrait, solid color white background, Vibrant animation style, looking at camera, standing in a relaxed pose, professional photograph, detailed, sharp focus, cinematic lighting, octane render, unreal engine, volumetrics dtx , animal, mouse, ((sleepy)), timid"
             }
         ]
     },
     "Narrator": {
+        "id": "10",
         "name": "Narrator",
         "user_name": "Narrator",
         "versions": {
