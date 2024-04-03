@@ -1,6 +1,13 @@
-# Visualise
+# <img src="https://github.com/kacperbochan/VisuAlise/assets/45052903/5ef7dc0b-8413-4838-82ca-1dbc12e9b419" alt="drawing" style="width:25px;"/>isuAlise 
+
 ## Summary
-Visualise is a project allowing user to add character and locations, generate their images using **Stable Diffusion**, for later use inside **Renpy** to create visualisation.
+Visualise allows user to add create projects with characters and locations, generate their images using **Stable Diffusion**, for later use inside **Renpy** to create visualisation.
+
+<img src="https://github.com/kacperbochan/VisuAlise/assets/45052903/00d7f2a6-b74d-40f4-9076-99a82d0fd49a" style="width: 19%;">
+<img src="https://github.com/kacperbochan/VisuAlise/assets/45052903/714e191f-5c1a-4629-9506-01d43097f164" style="width: 19%;">
+<img src="https://github.com/kacperbochan/VisuAlise/assets/45052903/55b995bd-5bf4-4a49-8479-2ec87a28a117" style="width: 19%;">
+<img src="https://github.com/kacperbochan/VisuAlise/assets/45052903/9d08451b-2161-43f6-a9ba-69a56d7cb775" style="width: 19%;">
+<img src="https://github.com/kacperbochan/VisuAlise/assets/45052903/b4b2e143-ec96-4312-bad4-04d545f5bf37" style="width: 19%;">
 
 The project is still being developed and future functions like **LLM** extracting characters and locations from text are in the works
 
