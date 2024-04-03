@@ -57,8 +57,7 @@ In this place the user can orchestrate how the story goes by adding story blocks
 
 ### 7. Example Visualization
 ![image](https://github.com/kacperbochan/VisuAlise/assets/45052903/a9124461-a5b1-4786-881f-96447e169c41)
-![Uploading image.png…]()
-
+![image](https://github.com/kacperbochan/VisuAlise/assets/45052903/b4b2e143-ec96-4312-bad4-04d545f5bf37)
 
 ## Future plans
 The project is currently a prototype. In the future additional functionalities will be added. 
